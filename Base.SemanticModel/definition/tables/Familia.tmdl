@@ -1,0 +1,36 @@
+table Familia
+	lineageTag: 83bb7f62-222d-4a10-858a-787ca9d6eae9
+
+	column idFamilia
+		dataType: int64
+		formatString: 0
+		lineageTag: dd67731f-0def-4fa8-94ac-66a78525bdde
+		summarizeBy: none
+		sourceColumn: idFamilia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column familia_d
+		dataType: string
+		lineageTag: 536a0c5e-4fa2-4368-a543-d6cb74a5cfff
+		summarizeBy: none
+		sourceColumn: familia_d
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Familia = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)idFamilia,#(lf)descrip AS familia_d#(lf)FROM familia"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

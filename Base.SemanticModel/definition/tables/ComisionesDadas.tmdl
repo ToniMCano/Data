@@ -1,0 +1,127 @@
+table ComisionesDadas
+	lineageTag: 350fa835-ba6e-4e8c-986a-723d1b7ed1ef
+
+	column idComision
+		dataType: int64
+		formatString: 0
+		lineageTag: e3d7a1b1-b131-49db-af42-48e0ba91e371
+		summarizeBy: none
+		sourceColumn: idComision
+
+		annotation SummarizationSetBy = Automatic
+
+	column idEmpleado
+		dataType: int64
+		formatString: 0
+		lineageTag: 280395e6-f4fe-44a3-ac18-e8313b8e7878
+		summarizeBy: none
+		sourceColumn: idEmpleado
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: f32af303-69c3-4e41-b07e-02fa3e2e6198
+		summarizeBy: none
+		sourceColumn: fecha
+
+		variation Variación
+			isDefault
+			relationship: 6aae8fc1-4886-43b2-963d-94b894a2b565
+			defaultHierarchy: LocalDateTable_393cd016-f9b0-449b-a247-1d55f4146f4c.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column desde
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 93ab7674-f74e-4a1c-a5d7-c23726bdfff6
+		summarizeBy: none
+		sourceColumn: desde
+
+		variation Variación
+			isDefault
+			relationship: ef1a3b4d-82cd-4b14-826e-b5d434ec9a59
+			defaultHierarchy: LocalDateTable_bc164df8-ff97-4697-8c75-ba419cdc78a3.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column hasta
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 1feff102-7591-4569-bb95-5da5eb3b3abb
+		summarizeBy: none
+		sourceColumn: hasta
+
+		variation Variación
+			isDefault
+			relationship: b6c47171-6e35-42a6-808f-798d45d77eee
+			defaultHierarchy: LocalDateTable_4bf434b1-b909-4bbf-80a5-6e31c6270a63.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column tipoComision
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ab4d0ba-dcb8-4be4-b619-b07598fc394f
+		summarizeBy: sum
+		sourceColumn: tipoComision
+
+		annotation SummarizationSetBy = Automatic
+
+	column importeComisionRappelGeneral
+		dataType: double
+		lineageTag: d3ef3541-ef01-487b-b509-4535af6c5e96
+		summarizeBy: sum
+		sourceColumn: importeComisionRappelGeneral
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column importePA
+		dataType: double
+		lineageTag: 8c894731-21c9-4dfd-a9d3-fa333c344e2c
+		summarizeBy: sum
+		sourceColumn: importePA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column importePH
+		dataType: double
+		lineageTag: ccd77f48-4367-49b5-bf38-fd371c3c2a71
+		summarizeBy: sum
+		sourceColumn: importePH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FechaComision = DATEVALUE(comisionesDadas[fecha])
+		formatString: General Date
+		lineageTag: 715eddd6-9c8c-4f36-8a98-77b1dbfe780e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ComisionesDadas = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT * #(lf)FROM comisionesDadas WHERE fecha > '20200101'"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

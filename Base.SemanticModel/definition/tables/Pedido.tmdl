@@ -1,0 +1,311 @@
+table Pedido
+	lineageTag: d764bd86-8d43-42e8-816a-2460337b8b47
+
+	column idPedido
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d792a4c-7b37-4c2c-8d4f-00ef4e89f7e9
+		summarizeBy: sum
+		sourceColumn: idPedido
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSPedido
+		dataType: string
+		lineageTag: 6dd15ea7-76f6-4782-b595-fc3c130f9bf3
+		summarizeBy: none
+		sourceColumn: idSPedido
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idAlb
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f2e92ca-e1b2-4677-b563-ad111331b072
+		summarizeBy: sum
+		sourceColumn: idAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSAlb
+		dataType: string
+		lineageTag: f6171051-5b6c-48a8-ade2-0f02be9bb728
+		summarizeBy: none
+		sourceColumn: idSAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idCliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 91a18eba-8614-46ca-a088-10cc31a6f3df
+		summarizeBy: none
+		sourceColumn: idCliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idEVen
+		dataType: int64
+		formatString: 0
+		lineageTag: 05db79f8-93f2-45be-9340-942f2ee4f34c
+		summarizeBy: sum
+		sourceColumn: idEVen
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idETom
+		dataType: int64
+		formatString: 0
+		lineageTag: 5511f944-ee2f-41f9-9770-da468bdfd190
+		summarizeBy: sum
+		sourceColumn: idETom
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RutaVenta
+		dataType: int64
+		formatString: 0
+		lineageTag: 98434e7d-33a2-467e-85b8-5bbc2356d3b2
+		summarizeBy: sum
+		sourceColumn: RutaVenta
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idRutaRep
+		dataType: int64
+		formatString: 0
+		lineageTag: 187b26fc-8aaa-4886-9745-fc97f41776b4
+		summarizeBy: sum
+		sourceColumn: idRutaRep
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idCarga
+		dataType: int64
+		formatString: 0
+		lineageTag: 61ce5910-bae8-4e8b-85f8-212f6e3287ca
+		summarizeBy: sum
+		sourceColumn: idCarga
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idDireccionEnvio
+		dataType: int64
+		formatString: 0
+		lineageTag: d348df92-4436-437b-909b-90992b99333d
+		summarizeBy: sum
+		sourceColumn: idDireccionEnvio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fechaAlb
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dc44e7ba-1aba-41b9-adfa-bc1a04463481
+		summarizeBy: none
+		sourceColumn: fechaAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HoraToma
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: c2c98813-f4a9-4aa7-8df6-309801afc5b8
+		summarizeBy: none
+		sourceColumn: HoraToma
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column fechaDescarga
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 731f82e9-82f4-4f00-a075-232195e91a43
+		summarizeBy: none
+		sourceColumn: fechaDescarga
+
+		variation Variación
+			isDefault
+			relationship: a6354edb-0769-4c0c-81b0-eb19442872b5
+			defaultHierarchy: LocalDateTable_69e1c6e0-904b-457b-abca-04173e795590.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column horaDescarga
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 64584bda-22df-494c-8f22-3a6c34a3464b
+		summarizeBy: none
+		sourceColumn: horaDescarga
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column fechaFac
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 14856e32-a1c7-4fc7-95d5-3c22e3c4c11d
+		summarizeBy: none
+		sourceColumn: fechaFac
+
+		variation Variación
+			isDefault
+			relationship: 2f92ed66-91d0-4ab6-b53c-8cc133b49bc9
+			defaultHierarchy: LocalDateTable_4411631a-1f96-4566-9bcb-8608babb04bb.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fechaMail
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 017bf7e7-4638-4f76-89c5-768fe56a8667
+		summarizeBy: none
+		sourceColumn: fechaMail
+
+		variation Variación
+			isDefault
+			relationship: 6e7c7be9-c3b3-4dfd-ac5d-5f9697baa40a
+			defaultHierarchy: LocalDateTable_5bf0ebb4-4a83-46b1-9a98-9d32eba8574b.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fechaTomaAlb
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 0ffd1c9c-70f7-4245-8237-4aaa4366bcff
+		summarizeBy: none
+		sourceColumn: fechaTomaAlb
+
+		variation Variación
+			isDefault
+			relationship: 2654aa29-4c25-41be-bcd4-93fd20d55843
+			defaultHierarchy: LocalDateTable_a059582d-3841-44af-b8d0-9f0d6036e4ba.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column actualizandoHastaFechaHora
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a9ecc338-83cb-47e5-9a48-c3282de183d2
+		summarizeBy: none
+		sourceColumn: actualizandoHastaFechaHora
+
+		variation Variación
+			isDefault
+			relationship: ca7709d6-5766-40b2-ae3b-acf0763181cc
+			defaultHierarchy: LocalDateTable_a3aace04-074d-46e1-8d3b-4fe1b4224d4f.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idTipoDoc
+		dataType: int64
+		formatString: 0
+		lineageTag: 413645cf-236c-406c-818d-5b62485c12be
+		summarizeBy: sum
+		sourceColumn: idTipoDoc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nota
+		dataType: string
+		lineageTag: 2e32d77f-f1b9-4ff1-8e58-82f58f131434
+		summarizeBy: none
+		sourceColumn: nota
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AlbaranKey
+		dataType: string
+		lineageTag: 4106f42a-0513-4db3-bd17-d61531c4a314
+		summarizeBy: none
+		sourceColumn: AlbaranKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Futuros =
+			
+			IF(
+			    DATEVALUE(Pedido[fechaAlb]) > TODAY(),
+			    1,
+			    0
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: ea8a48c0-9bbb-46f3-8fdc-bd0c1c9dc445
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Pedido = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="select #(lf)idAlb AS idPedido,#(lf)idSAlb AS idSPedido,#(lf)idAlbGen AS idAlb,#(lf)idSAlbGen AS idSAlb,#(lf)CONCAT(idSAlbGen, '-', idAlbGen) AS AlbaranKey,#(lf)idCliente,#(lf)idEVen,#(lf)idETom,#(lf)idRuta AS RutaVenta,#(lf)idRutaRep,#(lf)idCarga,#(lf)idDireccionEnvio,#(lf)fechaAlb,#(lf)horaAlb AS HoraToma,#(lf)fechaDescarga,#(lf)horaDescarga,#(lf)fechaFac,#(lf)fechaMail,#(lf)fechaTomaAlb,#(lf)actualizandoHastaFechaHora,#(lf)idTipoDoc,#(lf)nota#(lf)#(lf)#(lf)from pedido#(lf)WHERE fechaTomaAlb >= '20240101'#(lf)order by fechaTomaAlb desc"]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"fechaAlb", type date}, {"HoraToma", type time}, {"fechaDescarga", type date}, {"horaDescarga", type time}, {"fechaFac", type date}, {"fechaMail", type date}, {"fechaTomaAlb", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

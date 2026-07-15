@@ -1,0 +1,599 @@
+table 'Métricas Clientes'
+	lineageTag: 24a69159-93da-4650-9437-afa524fd29f2
+
+	measure Cantidad_Clientes_Nuevos =
+			
+			COUNTROWS(
+			    FILTER(
+			        SUMMARIZE(
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom]
+			        ),
+			        VAR Actual =
+			            MAX(
+			                0,
+			                ROUND(
+			                    COALESCE([Ventas Netas ERP], 0),
+			                    2
+			                )
+			            )
+			        VAR AA =
+			            MAX(
+			                0,
+			                ROUND(
+			                    COALESCE([Ventas Netas LY], 0),
+			                    2
+			                )
+			            )
+			        RETURN
+			            Actual > 0
+			                && AA = 0
+			                && NOT CONTAINSSTRING(Clientes[nomCom], "(CRS")
+			    )
+			)
+		formatString: 0
+		lineageTag: 25e6d418-8fb3-4bdb-a6b2-d665ad825b8c
+
+	measure Cantidad_Clientes_Perdidos =
+			
+			COUNTROWS(
+			    FILTER(
+			        SUMMARIZE(
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom]
+			        ),
+			        VAR Actual =
+			            MAX(
+			                0,
+			                ROUND(
+			                    COALESCE([DtoAlbAplicado Final], 0),
+			                    2
+			                )
+			            )
+			        VAR AA =
+			            MAX(
+			                0,
+			                ROUND(
+			                    COALESCE([Ventas Netas LY], 0),
+			                    2
+			                )
+			            )
+			        RETURN
+			            Actual = 0
+			                && AA > 0
+			                && NOT CONTAINSSTRING(Clientes[nomCom], "(CRS")
+			    )
+			)
+		formatString: 0
+		lineageTag: 4374d004-828d-4f4b-a55e-09216b50d946
+
+	measure Cliente =
+			
+			VAR IDCliente =
+			    SELECTEDVALUE(Pedido[idCliente])
+			RETURN
+			LOOKUPVALUE(
+			    Clientes[nomCom],
+			    Clientes[idCliente], IDCliente
+			)
+		lineageTag: 741b6f93-ca10-4c45-b72c-2a321a0c5c5b
+
+	/// Son los clientes con compra este año - los clientes "(CRS..."
+	measure 'Clientes Activos' =
+			
+			COUNTROWS(
+			    FILTER(
+			        SUMMARIZE(
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom]
+			        ),
+			        VAR NombreCliente = Clientes[nomCom]
+			        RETURN
+			            [DtoAlbAplicado Final] > 0
+			                &&
+			            NOT (
+			                CONTAINSSTRING(NombreCliente, "(CRS")
+			                    ||
+			                CONTAINSSTRING(NombreCliente, "(NO)")
+			            )
+			    )
+			)
+		formatString: 0
+		lineageTag: 139db609-4e97-43b4-95f3-e00ac2734923
+
+	measure 'Clientes Activos AA' =
+			
+			COUNTROWS(
+			    FILTER(
+			        SUMMARIZE(
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom]
+			        ),
+			        [Ventas Netas LY] > 0
+			            &&
+			        NOT CONTAINSSTRING(Clientes[nomCom], "(CRS")
+			    )
+			)
+		formatString: 0
+		lineageTag: a179ee9d-317d-4d54-a18b-6620da741790
+
+	measure 'Clientes Activos VS AA' =
+			
+			[Clientes Activos] - [Clientes Activos AA]
+		formatString: 0
+		lineageTag: e7dcdd72-da61-42d4-8d78-fd145106e7b3
+
+	measure 'Clientes Antiguos' =
+			
+			VAR FechaCorte = DATE(2026,3,30)
+			
+			RETURN
+			COUNTROWS(
+			    FILTER(
+			        VALUES(FactVentas[idCliente]),
+			
+			        -- Tiene compra antes
+			        CALCULATE(
+			            COUNTROWS(FactVentas),
+			            FactVentas[fechaAlb] < FechaCorte
+			        ) > 0
+			    )
+			)
+		formatString: 0
+		lineageTag: 002a2881-2951-4350-9896-78fb759568ee
+
+	measure 'Clientes CRS' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Clientes[idCliente]),
+			    FILTER(
+			        Clientes,
+			        CONTAINSSTRING(Clientes[nomCom], "(CRS") && [DtoAlbAplicado Final] > 0
+			    )
+			)
+		formatString: 0
+		lineageTag: 1a1d7e21-4ce2-48ae-9232-6370c189f8d7
+
+	measure 'Clientes Nuevos Desde Fecha X' =
+			
+			VAR FechaCorte = DATE(2026,3,30)
+			
+			RETURN
+			COUNTROWS(
+			    FILTER(
+			        VALUES(FactVentas[idCliente]),
+			
+			        -- Tiene compra después
+			        CALCULATE(
+			            COUNTROWS(FactVentas),
+			            FactVentas[fechaAlb] >= FechaCorte
+			        ) > 0
+			
+			        &&
+			
+			        -- NO tiene compra antes
+			        CALCULATE(
+			            COUNTROWS(FactVentas),
+			            FactVentas[fechaAlb] < FechaCorte
+			        ) = 0
+			    )
+			)
+		formatString: 0
+		lineageTag: 68e9070b-32f0-4c77-88fb-a500af9a8825
+
+	measure 'Clientes Nuevos Ref' =
+			
+			VAR FechaCorte = DATE(2026,3,30)
+			
+			RETURN
+			COUNTROWS(
+			    FILTER(
+			        ADDCOLUMNS(
+			            SUMMARIZE(
+			                FactVentas,
+			                FactVentas[idCliente],
+			                FactVentas[referencia]
+			            ),
+			            "PrimeraFecha",
+			                CALCULATE(
+			                    MIN(FactVentas[fechaAlb]),
+			                    ALLEXCEPT(
+			                        FactVentas,
+			                        FactVentas[idCliente],
+			                        FactVentas[referencia]
+			                    )
+			                )
+			        ),
+			        [PrimeraFecha] >= FechaCorte
+			    )
+			)
+		formatString: 0
+		lineageTag: 937a83f6-ee9c-4b60-831d-4ecdc23c549b
+
+	measure 'Clientes Nuevos Ref KPI' =
+			
+			VAR FechaCorte = DATE(2026,3,30)
+			
+			VAR TablaNuevos =
+			    FILTER(
+			        ADDCOLUMNS(
+			            SUMMARIZE(
+			                ALL(FactVentas),
+			                FactVentas[idCliente],
+			                FactVentas[referencia]
+			            ),
+			            "PrimeraCompra",
+			                CALCULATE(
+			                    MIN(FactVentas[fechaAlb]),
+			                    REMOVEFILTERS(FactVentas[fechaAlb])
+			                )
+			        ),
+			        [PrimeraCompra] >= FechaCorte
+			    )
+			
+			RETURN
+			COUNTROWS(
+			    SUMMARIZE(
+			        TablaNuevos,
+			        FactVentas[idCliente]
+			    )
+			)
+		formatString: 0
+		lineageTag: 35f92b45-a31d-4c91-b6bc-182a597e0f09
+
+	measure 'Clientes Nuevos Uds.' =
+			
+			VAR FechaCorte = DATE(2026,3,30)
+			
+			RETURN
+			SUMX(
+			    FILTER(
+			        SUMMARIZE(
+			            FactVentas,
+			            FactVentas[idCliente],
+			            FactVentas[referencia]
+			        ),
+			        CALCULATE(
+			            MIN(FactVentas[fechaAlb]),
+			            REMOVEFILTERS(FactVentas[fechaAlb])
+			        ) >= FechaCorte
+			    ),
+			    CALCULATE(SUM(FactVentas[cantidad]))
+			)
+		formatString: 0
+		lineageTag: bbd09ebe-d929-48d0-b37a-3865c297e35c
+
+	measure 'Clientes Nuevos Únicos Ref' =
+			
+			VAR FechaCorte = DATE(2026,3,30)
+			
+			RETURN
+			COUNTROWS(
+			    DISTINCT(
+			        SELECTCOLUMNS(
+			            FILTER(
+			                SUMMARIZE(
+			                    FactVentas,
+			                    FactVentas[idCliente],
+			                    FactVentas[referencia]
+			                ),
+			                CALCULATE(
+			                    MIN(FactVentas[fechaAlb]),
+			                    REMOVEFILTERS(FactVentas[fechaAlb])
+			                ) >= FechaCorte
+			            ),
+			            "Cliente", FactVentas[idCliente]
+			        )
+			    )
+			)
+		formatString: 0
+		lineageTag: f2cf0bf2-724f-4a41-9727-e9b797538a04
+
+	measure 'Clientes por Vendedor' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(FactVentas[idCliente])
+			)
+		formatString: 0
+		lineageTag: 2318f78c-716a-4eda-941f-0833bd4bc749
+
+	measure 'Diferencia Nuevos VS Perdidos (Importe)' =
+			
+			[Suma_Clientes_Nuevos] - [Suma_Clientes_Perdidos]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: bc358464-c0d0-4a04-92db-5b64ce9872f8
+
+	measure 'Diferencia Clientes Ganados/Perdidos' =
+			
+			[Cantidad_Clientes_Nuevos] - [Cantidad_Clientes_Perdidos]
+		formatString: 0
+		lineageTag: d956f9bd-6ec6-4fc1-a6bc-fb09dda4595a
+
+	measure 'Estado Cliente' =
+			
+			VAR Actual =
+			    MAX(0, ROUND(COALESCE([DtoAlbAplicado Final], 0), 2))
+			VAR AA =
+			    MAX(0, ROUND(COALESCE([Ventas Netas LY], 0), 2))
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Actual > 0 && AA > 0, "Recurrente",
+			    Actual > 0 && AA = 0, "Nuevo",
+			    Actual = 0 && AA > 0, "Perdido",
+			    "Sin venta"
+			)
+		lineageTag: 03533a81-c7bc-4c11-a686-19c427ed21a1
+
+	measure 'Media Clientes Activos por Comercial Grupo' =
+			
+			VAR ComercialesGrupo =
+			    CALCULATETABLE(
+			        VALUES(GrupoComerciales[idEmpleado]),
+			        REMOVEFILTERS(GrupoComerciales)
+			    )
+			
+			RETURN
+			AVERAGEX(
+			    ComercialesGrupo,
+			
+			    VAR IdComercialActual =
+			        GrupoComerciales[idEmpleado]
+			
+			    RETURN
+			        CALCULATE(
+			            [Clientes Activos],
+			
+			            REMOVEFILTERS(GrupoComerciales),
+			            REMOVEFILTERS(Empleado),
+			            REMOVEFILTERS(Clientes[Nombre Vendedor]),
+			            REMOVEFILTERS(Clientes[idEmpleado]),
+			            REMOVEFILTERS(FactVentas[idEmpleado]),
+			
+			            TREATAS(
+			                { IdComercialActual },
+			                Clientes[idEmpleado]
+			            )
+			        )
+			)
+		lineageTag: fdda1460-aac2-4089-8757-68216b1dbf64
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Clientes Activos Grupo Selección' =
+			
+			CALCULATE(
+			    [Clientes Activos],
+			    KEEPFILTERS(
+			        TREATAS(
+			            ALL(GrupoComerciales[idEmpleado]),
+			            Clientes[idEmpleado]
+			        )
+			    )
+			)
+		formatString: 0
+		lineageTag: 85b31330-41de-4049-b6c2-b42e5914694b
+
+	measure 'Debug Clientes Grupo' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Clientes[idCliente]),
+			    REMOVEFILTERS(Clientes[Nombre Vendedor]),
+			    TREATAS(
+			        ALL(GrupoComerciales[idEmpleado]),
+			        Clientes[idEmpleado]
+			    )
+			)
+		formatString: 0
+		lineageTag: 0d2a7bf4-13df-4c79-b272-eeb26bfdfe2f
+
+	measure 'Albaranes V Grupo' =
+			
+			VAR ClientesGrupo =
+			    CALCULATETABLE(
+			        VALUES(Clientes[idCliente]),
+			        REMOVEFILTERS(Clientes[Nombre Vendedor]),
+			        TREATAS(
+			            ALL(GrupoComerciales[idEmpleado]),
+			            Clientes[idEmpleado]
+			        )
+			    )
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT(FactVentas[idAlb]),
+			    REMOVEFILTERS(Clientes[Nombre Vendedor]),
+			    REMOVEFILTERS(FactVentas[idEmpleado]),
+			    FactVentas[idSAlb] = "V",
+			    TREATAS(
+			        ClientesGrupo,
+			        FactVentas[idCliente]
+			    )
+			)
+		formatString: 0
+		lineageTag: f82d6c05-de74-4262-bf65-967bbc007cb1
+
+	measure 'RESPALDO Media Clientes Activos por Comercial Grupo' =
+			
+			VAR TotalClientesPorComercial =
+			    SUMX(
+			        ALL(GrupoComerciales[idEmpleado]),
+			        VAR IdComercial = GrupoComerciales[idEmpleado]
+			        RETURN
+			            CALCULATE(
+			                [Clientes Activos],
+			                ALL(Clientes[Nombre Vendedor]),
+			                Clientes[idEmpleado] = IdComercial
+			            )
+			    )
+			
+			VAR NumComerciales =
+			    COUNTROWS(
+			        ALL(GrupoComerciales[idEmpleado])
+			    )
+			
+			RETURN
+			DIVIDE(
+			    TotalClientesPorComercial,
+			    NumComerciales
+			)
+		lineageTag: 36cd71c1-a216-4cdf-b92e-52617902ade5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Debug Nº Comerciales Media' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(GrupoComerciales[idEmpleado]),
+			    REMOVEFILTERS(GrupoComerciales),
+			    REMOVEFILTERS(Clientes[Nombre Vendedor]),
+			    REMOVEFILTERS(Clientes[idEmpleado]),
+			    REMOVEFILTERS(FactVentas[idEmpleado])
+			)
+		formatString: 0
+		lineageTag: 04a67f99-796b-48a0-95e2-95f5ec3877af
+
+	measure 'Media Clientes Activos por Comercial Grupo AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Media Clientes Activos por Comercial Grupo],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Media Clientes Activos por Comercial Grupo],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: b6221471-0025-4d09-9193-f240a6778a68
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Clientes Inactivos' =
+			
+			
+			VAR total = DISTINCTCOUNT(Clientes[idCliente])
+			
+			RETURN total - [Clientes Activos]
+		formatString: 0
+		lineageTag: 435b8b3d-d2a9-4808-a544-5e9a25f46ebe
+
+	measure 'Clientes Activos AA Grupo Selección' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Clientes Activos Grupo Selección],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Clientes Activos Grupo Selección],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 11b72f84-1a63-4b55-a4a5-4bbf81b1d803
+
+	measure 'Difernecia Clientes Grupo Selección' = [Clientes Activos Grupo Selección] - [Clientes Activos AA Grupo Selección]
+		formatString: 0
+		lineageTag: 0acdc998-34bf-4a7b-a0b8-c21bd1d8603d
+
+	column Dummy
+		isHidden
+		lineageTag: d4ea7bea-dc64-4783-b0d8-b8faaeae985e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Métricas Clientes' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = 71fb1b0377fe405f9788236ebb7f4485
+

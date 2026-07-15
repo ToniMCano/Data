@@ -1,0 +1,72 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Clientes","Productos","Empleado","FactVentas","Proveedores","RLS","Seccion","Familia","SubFamilia","SubSubFamilia","Colecciones","codigo_lote","Albaranes","Facturas","Pedido","Stock","Grupo","ComisionesDadas","LineasComisionesDadasCobros","LineasComisionesDadas","Retribuciones"]
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table Clientes
+ref table Productos
+ref table Empleado
+ref table FactVentas
+ref table Proveedores
+ref table SegmentoProductos
+ref table Métricas
+ref table RLS
+ref table MétricasVentas
+ref table Calendario
+ref table Seccion
+ref table Familia
+ref table SubFamilia
+ref table SubSubFamilia
+ref table Colecciones
+ref table MétricasVentasAA
+ref table 'Modo Comparación'
+ref table codigo_lote
+ref table DateTableTemplate_8521d573-180b-423b-8511-40a089601061
+ref table LocalDateTable_6e61b58e-6eb2-4b33-92aa-f442f1d8eebb
+ref table LocalDateTable_725c9e3e-d597-406b-931c-6332e84e5e1a
+ref table LocalDateTable_7aed6b92-3f52-4fb7-8654-24c9e53d2da2
+ref table Albaranes
+ref table Facturas
+ref table LocalDateTable_b6bcdd62-e6aa-49ec-83df-429979f0b039
+ref table Pedido
+ref table LocalDateTable_69e1c6e0-904b-457b-abca-04173e795590
+ref table LocalDateTable_4411631a-1f96-4566-9bcb-8608babb04bb
+ref table LocalDateTable_5bf0ebb4-4a83-46b1-9a98-9d32eba8574b
+ref table LocalDateTable_a059582d-3841-44af-b8d0-9f0d6036e4ba
+ref table LocalDateTable_a3aace04-074d-46e1-8d3b-4fe1b4224d4f
+ref table DimAlbaran
+ref table Stock
+ref table LocalDateTable_637b4a26-e564-49e5-b639-095b50805301
+ref table 'Métricas Visuales'
+ref table MétricasDiferenciaAA
+ref table 'Métricas Clientes'
+ref table 'Métricas Producto'
+ref table 'Métricas Tiempo'
+ref table Grupo
+ref table GrupoComerciales
+ref table DimGrupoComerciales
+ref table ComisionesDadas
+ref table LocalDateTable_bc164df8-ff97-4697-8c75-ba419cdc78a3
+ref table LocalDateTable_4bf434b1-b909-4bbf-80a5-6e31c6270a63
+ref table LineasComisionesDadasCobros
+ref table LineasComisionesDadas
+ref table LocalDateTable_56de9cfa-4d70-444a-9bb2-b088aa7a612b
+ref table LocalDateTable_176c788a-61d0-4675-80ff-02c57b17dd93
+ref table LocalDateTable_393cd016-f9b0-449b-a247-1d55f4146f4c
+ref table DimComision
+ref table Retribuciones
+ref table LocalDateTable_8205023a-c248-447f-9eda-ac71718aac48
+
+ref role RLS_Vendedores
+
+ref cultureInfo es-ES
+

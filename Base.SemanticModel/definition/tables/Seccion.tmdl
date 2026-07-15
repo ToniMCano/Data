@@ -1,0 +1,36 @@
+table Seccion
+	lineageTag: 7b80ccf6-af57-436a-a5ab-6f08e6fef96b
+
+	column idSeccion
+		dataType: int64
+		formatString: 0
+		lineageTag: a16c09a1-7974-4ffc-b77a-28a137485bab
+		summarizeBy: none
+		sourceColumn: idSeccion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column seccion_d
+		dataType: string
+		lineageTag: d88c636c-5d1f-44fa-817d-7a9636e75e32
+		summarizeBy: none
+		sourceColumn: seccion_d
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Seccion = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)idSeccion,#(lf)descrip as seccion_d#(lf)FROM secciones"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

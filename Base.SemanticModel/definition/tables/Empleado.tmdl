@@ -1,0 +1,68 @@
+table Empleado
+	lineageTag: cb8e3d89-9932-494b-8613-19f84273e760
+
+	column idEmpleado
+		dataType: int64
+		formatString: 0
+		lineageTag: a0dce0ba-34d5-4c26-a9bd-c77d5ed84819
+		summarizeBy: none
+		sourceColumn: idEmpleado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: b9fc400c-6d49-47d3-a3a8-4c27eb8cbf04
+		summarizeBy: none
+		sourceColumn: nombre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column apellidos
+		dataType: string
+		lineageTag: 7d5fafb8-c095-4464-9af6-3476b6f11038
+		summarizeBy: none
+		sourceColumn: apellidos
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cargo
+		dataType: string
+		lineageTag: 0b8032fa-6319-477d-ae95-7510772cf171
+		summarizeBy: none
+		sourceColumn: cargo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column telefono
+		dataType: int64
+		formatString: 0
+		lineageTag: b045dcf7-6d2c-49b0-8dc7-ec7d242b884e
+		summarizeBy: sum
+		sourceColumn: telefono
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Empleado = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="select #(lf)idEmpleado,#(lf)nombre,#(lf)apellidos,#(lf)cargo,#(lf)telDomicilio AS telefono#(lf)from empleado  #(lf)"]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"telefono", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

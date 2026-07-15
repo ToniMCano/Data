@@ -1,0 +1,34 @@
+role RLS_Vendedores
+	modelPermission: read
+
+	tablePermission RLS =
+			VAR _email = LOWER(USERPRINCIPALNAME())
+			
+			RETURN
+			RLS[idVendedor] IN
+			SELECTCOLUMNS(
+			    FILTER(RLS, LOWER(RLS[mail]) = _email),
+			    "idVendedor", RLS[idVendedor]
+			)
+
+	tablePermission Clientes =
+			VAR _email = LOWER(USERPRINCIPALNAME())
+			
+			VAR _esAdmin =
+			    CALCULATE(
+			        MAX(RLS[Rol]) = "ADMIN",
+			        RLS[mail] = _email
+			    )
+			
+			VAR _vendedores =
+			    CALCULATETABLE(
+			        VALUES(RLS[idVendedor]),
+			        RLS[mail] = _email
+			    )
+			
+			RETURN
+			    _esAdmin
+			        || Clientes[idEmpleado] IN _vendedores
+
+	annotation PBI_Id = 7e05d42ae7324a01a625d88412981e88
+

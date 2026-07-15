@@ -1,0 +1,379 @@
+table MétricasDiferenciaAA
+	lineageTag: 3d4975fc-a8c7-4897-9ef4-0a2fc642606f
+
+	measure 'YoY Netas %' =
+			
+			DIVIDE(
+			    [Ventas Netas ERP] - [Ventas Netas LY],
+			    [Ventas Netas LY]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 2b717c2e-6597-42fc-8b0d-75ce850ebd5e
+
+	measure 'Kilos %' =
+			
+			VAR Actual = [Kilos]
+			VAR LY = [Kilos LY Dinámico]
+			
+			RETURN
+			DIVIDE(Actual - LY, LY)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 58831c65-04d4-47f7-b0d4-1fb2220ef83e
+
+	measure 'Unidades %' =
+			
+			DIVIDE(
+			    [Unidades] - 'MétricasVentasAA'[Unidades LY Dinámico],
+			    'MétricasVentasAA'[Unidades LY Dinámico]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: e3956103-0dd9-41bb-bfb3-659fad7145ab
+
+	measure DifUnidadesAA =
+			
+			[Unidades] - [Unidades LY Dinámico]
+		lineageTag: 5bddc4f4-039a-462e-8c81-bfb67e6185ad
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure DifKilosAA =
+			
+			[Kilos] - [Kilos LY Dinámico]
+		lineageTag: 80443e5d-378e-443a-9727-d4569b44e269
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dif. AA Importe' =
+			
+			[DtoAlbAplicado Final] - 'MétricasVentasAA'[Ventas Netas LY]
+		lineageTag: 99fe7947-e88d-41a5-bdf1-7baa3cabdc69
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dif. AA Cajas' =
+			
+			[Cajas] - 'MétricasVentasAA'[Cajas LY Dinámico]
+		lineageTag: 540a0898-5e34-4ef0-a1ff-5ac5e4b33fd0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cajas %' =
+			
+			VAR Actual = [Cajas]
+			VAR LY = [Cajas LY Dinámico]
+			
+			RETURN
+			DIVIDE(Actual - LY, LY)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: ec946c87-bbff-455b-96fb-5345c531a383
+
+	measure 'Media Albaranes VS AA' = [Media Albarán]- [Media Albarán AA]
+		formatString: 0
+		lineageTag: 64518e0a-e165-48a1-8b35-482c4873ff6d
+
+	measure 'Dif. AB' =
+			
+			[AB] - [AB - AA]
+		formatString: 0
+		lineageTag: e0118a3a-2987-4253-807d-3fd89715a440
+
+	measure 'Dif. V' =
+			
+			[V] - [V - AA]
+		formatString: 0
+		lineageTag: 8700ee9d-607f-4d67-a4fc-7726a36e3343
+
+	measure 'Dif. IN' =
+			
+			[IN] - [IN - AA]
+		formatString: 0
+		lineageTag: 17f3a96a-c0b5-44bb-adf0-fe0b3db3f857
+
+	measure 'Dif. MU' =
+			
+			[MU] - [MU - AA]
+		formatString: 0
+		lineageTag: 17cc9108-0aa9-4cab-a380-7048de4e8f89
+
+	measure 'Diferencia Negativa Clientes' = ```
+			
+			CALCULATE( 
+			    SUMX( 
+			        VALUES(Clientes[idCliente]), 
+			        MIN([Dif. AA Importe], 0) ),
+			        NOT ISBLANK(Clientes[nomCom]), 
+			        TRIM(Clientes[nomCom]) <> "", 
+			        
+			        NOT CONTAINSSTRING ( Clientes[nomCom], "(NO)" ) 
+			        && NOT CONTAINSSTRING ( Clientes[nomCom], "(N)" ) 
+			        && NOT CONTAINSSTRING ( Clientes[nomCom], "(NO )" ) 
+			        && NOT CONTAINSSTRING (Clientes[nomCom], "( NO)" ) 
+			        && NOT CONTAINSSTRING ( Clientes[nomCom], "( N )" ) )
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 9e8c455d-1b41-4a97-8955-5dc3c7c7c35e
+
+	measure 'Diferencia Productos Negativo' = ```
+			
+			CALCULATE(
+			    SUMX(
+			        VALUES(Productos[Referencia]),
+			        MIN([Dif. AA Importe], 0)
+			    ),
+			    NOT CONTAINSSTRING(Productos[descrip], "(NNN)"),
+			    NOT CONTAINSSTRING(Productos[descrip], "(N)")
+			)
+			
+			
+			```
+		lineageTag: 2fef0fa6-9460-44a1-b5be-be8d40b83216
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Netas Diferencia Importe KPI' =
+			
+			
+			VAR Variacion = [YoY Netas %]
+			
+			RETURN
+			    FORMAT([Ventas Netas ERP] - [Ventas Netas LY], "#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: 0baff3d9-bed4-469c-a10e-0ec9823795aa
+
+	measure 'Ventas Diferencia Cajas AA KPI' =
+			
+			VAR Cajas = [Cajas]
+			VAR CajaAA = [Cajas LY Dinámico]
+			VAR Diferencia = Cajas - CajaAA
+			VAR Variacion = DIVIDE(Diferencia, CajaAA)
+			RETURN
+			    FORMAT(Diferencia,"#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: 0f88e4b5-8426-4aaf-8616-eaceeb9090bf
+
+	measure 'Ventas Diferencia Kilos AA KPI' =
+			
+			VAR Kilos = [Kilos]
+			VAR KilosAA = [Kilos LY Dinámico]
+			VAR Diferencia = Kilos - KilosAA
+			VAR Variacion = DIVIDE(Diferencia, KilosAA)
+			RETURN
+			    FORMAT(Diferencia,"#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: 09695a85-df8f-4495-8010-dba8b0642094
+
+	measure 'Ventas Diferencia Unidades AA KPI' =
+			
+			VAR Unidades = [Unidades]
+			VAR UnidadesAA = [Unidades LY Dinámico]
+			VAR Diferencia = Unidades - UnidadesAA
+			VAR Variacion = DIVIDE(Diferencia, UnidadesAA)
+			RETURN
+			    FORMAT(Diferencia,"#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: cdf6c4b5-faa4-4c73-a901-7ebdeda407f5
+
+	measure 'Ventas Difencia Total Descuentos VS AA' =
+			
+			VAR Descuentos = [Total Descuentos]
+			VAR DescuentosAA = [Total Descuentos AA]
+			VAR Diferencia = Descuentos - DescuentosAA
+			VAR Variacion = DIVIDE(Diferencia, DescuentosAA)
+			RETURN
+			    FORMAT(Diferencia,"#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: 89688c21-faa4-4e5f-9d83-ba7596aecf4a
+
+	measure 'Ventas Diferencia Dto. Albaran VS AA KPI' =
+			
+			VAR dto = [Dto. Albarán (Importe)]
+			VAR dtoAA = [Dto. Albarán AA (Importe)]
+			VAR Diferencia = dto - dtoAA
+			VAR Variacion = DIVIDE(Diferencia, dtoAA)
+			RETURN
+			    FORMAT(Diferencia,"#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: 6e3c1d91-a5a9-4717-8e4b-5a8d740dfd6a
+
+	measure 'Ventas Diferencia Dto. Facturta VS AA KPI' =
+			
+			VAR dto = [Dto. Factura (Importe)]
+			VAR dtoAA = [Dto. Factura AA]
+			VAR Diferencia = dto - dtoAA
+			VAR Variacion = DIVIDE(Diferencia, dtoAA)
+			RETURN
+			    FORMAT(Diferencia,"#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: bef01e7e-7827-4139-880b-ddb0c1f17d28
+
+	measure 'Ventas Diferencia Coste VS AA KPI' =
+			
+			VAR dto = [Total Coste]
+			VAR dtoAA = [Total Coste AA]
+			VAR Diferencia = dto - dtoAA
+			VAR Variacion = DIVIDE(Diferencia, dtoAA)
+			RETURN
+			    FORMAT(Diferencia,"#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: 30310917-6c4d-4bfe-8d76-d65ffc78088b
+
+	measure 'Ventas Diferencia Margen VS AA' = [% Margen] - [% Margen AA]
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: de2c1f74-d7e1-4b20-a952-d44abb27aa0d
+
+	measure 'Ventas Diferencia Benefio AA KPI' =
+			
+			VAR Beneficio = [Beneficio Bruto]
+			VAR BeneficioAA = [Beneficio Bruto AA]
+			VAR Diferencia = Beneficio - BeneficioAA
+			VAR Variacion = DIVIDE(Diferencia, BeneficioAA)
+			RETURN
+			    FORMAT(Diferencia,"#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: 3d8da5b0-be8e-4dda-a029-4fd584c949f2
+
+	measure 'Diferencia Beneficio VS AA' = [Beneficio Bruto] - [Beneficio Bruto AA]
+		lineageTag: 9a39cb42-695d-4e7f-876e-eba08c0cd6c3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Diferencia Beneficio VS AA' = ```
+			
+			VAR diferencia = [Beneficio Bruto] - [Beneficio Bruto AA]
+			RETURN
+			DIVIDE (
+			    diferencia, [Beneficio Bruto AA]
+			)
+			
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 47e03652-380b-40a2-8b76-db1a4208a845
+
+	measure 'Ventas Brutas Diferencia Importe KPI' =
+			
+			
+			VAR Variacion = DIVIDE([Ventas Brutas (Sin Dtos)] - [Ventas Brutas AA (Sin Dto)],[Ventas Brutas AA (Sin Dto)])
+			
+			RETURN
+			    FORMAT([Ventas Brutas (Sin Dtos)] - [Ventas Brutas AA (Sin Dto)], "#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+		lineageTag: 947700a6-09a4-44a4-8ef4-8ef0e3348276
+
+	measure 'YoY Brutas %' =
+			
+			DIVIDE(
+			    [Ventas Brutas (Sin Dtos)] - [Ventas Brutas AA (Sin Dto)],
+			    [Ventas Brutas AA (Sin Dto)]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: ae46e266-5cb1-4ba3-b74f-15072110bffd
+
+	measure 'Ventas con Dto Albarán Diferencia Importe KPI' = ```
+			
+			VAR Variacion = DIVIDE([DtoAlbAplicado Final] - [Ventas con Dto. Albarán LY],[Ventas con Dto. Albarán LY])
+			
+			RETURN
+			    FORMAT([DtoAlbAplicado Final]-  [Ventas con Dto. Albarán LY], "#,##0.00")
+			    & " "
+			    & SWITCH(
+			        TRUE(),
+			        Variacion > 0, "▲",
+			        Variacion < 0, "▼",
+			        "="
+			    )
+			
+			
+			```
+		lineageTag: 97cf11f7-eb7a-48d9-af67-dc6efdb70176
+
+	measure 'YoY con Dto Albarán %' =
+			
+			DIVIDE(
+			    [DtoAlbAplicado Final] - [Ventas con Dto. Albarán LY],
+			    [Ventas con Dto. Albarán LY]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 3c4a8e7f-94ad-43b2-8cd5-6e5167828711
+
+	column Dummy
+		isHidden
+		lineageTag: 744e9047-8da0-4652-9b26-e22e33043bbd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MétricasDiferenciaAA = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = 0fb80f0357584e3cba1dfa2ea56c1c89
+

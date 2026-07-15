@@ -1,0 +1,162 @@
+table Productos
+	lineageTag: 3c1325b2-65bf-493b-a546-97a51eeae9b4
+
+	column referencia
+		dataType: string
+		lineageTag: 74cab4df-9646-4ac6-ba56-68634f14f68f
+		summarizeBy: none
+		sourceColumn: referencia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column descrip
+		dataType: string
+		lineageTag: 5f10c15a-88c8-47c1-9a65-e5f12f7392f6
+		summarizeBy: none
+		sourceColumn: descrip
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idprov
+		dataType: int64
+		formatString: 0
+		lineageTag: 80c59a79-7877-4630-af27-fe2a1d66f350
+		summarizeBy: none
+		sourceColumn: idprov
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idfamilia
+		dataType: int64
+		formatString: 0
+		lineageTag: 219325da-9ecd-484b-8057-8f2ce88129b0
+		summarizeBy: none
+		sourceColumn: idfamilia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSeccion
+		dataType: int64
+		formatString: 0
+		lineageTag: e29f332b-e57d-4c74-91d2-155afa68f8b1
+		summarizeBy: none
+		sourceColumn: idSeccion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSubFam
+		dataType: int64
+		formatString: 0
+		lineageTag: 6557d84b-e8c6-4487-83e0-160038f2206c
+		summarizeBy: none
+		sourceColumn: idSubFam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSubSubFam
+		dataType: int64
+		formatString: 0
+		lineageTag: 737e2dab-1fcb-479b-afee-e7f1e8cb63a9
+		summarizeBy: none
+		sourceColumn: idSubSubFam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idGrupo
+		dataType: int64
+		formatString: 0
+		lineageTag: dea3fd33-b70a-48f6-9bc5-bca0d88bf4f5
+		summarizeBy: sum
+		sourceColumn: idGrupo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSubGrupo
+		dataType: int64
+		formatString: 0
+		lineageTag: 500901e3-cf18-4c6e-8f8a-0e12f4bffbc8
+		summarizeBy: sum
+		sourceColumn: idSubGrupo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idMarca
+		dataType: int64
+		formatString: 0
+		lineageTag: bb3eaedc-5cc9-4195-8ec8-7a76a0f7cba9
+		summarizeBy: sum
+		sourceColumn: idMarca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Encargo =
+			
+			IF(
+			    LEFT(TRIM(Productos[descrip]), 1) = "*",
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: b5ba9044-ec3a-4c05-9a8f-0e475ddd75e9
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column preciov
+		dataType: double
+		lineageTag: 285e7e08-1538-42c7-98b6-f4919655a12f
+		summarizeBy: sum
+		sourceColumn: preciov
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precioc
+		dataType: double
+		lineageTag: 6a73d6f3-139c-4bb5-80d0-638a2290081a
+		summarizeBy: sum
+		sourceColumn: precioc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Productos = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT #(lf)referencia,#(lf)descrip,#(lf)idfamilia,#(lf)idSubFam,#(lf)idSubSubFam,#(lf)idGrupo,#(lf)idSubGrupo,#(lf)idMarca,#(lf)idSeccion,#(lf)idprov,#(lf)preciov,#(lf)precioc#(lf)FROM producto#(lf)WHERE referencia NOT LIKE '%(NO)%'#(lf)AND  referencia NOT LIKE '%(N)%'#(lf)AND  referencia NOT LIKE '%(NN)%'#(lf)AND  referencia NOT LIKE '%(NNN)%'"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,187 @@
+table Albaranes
+	lineageTag: 94497c03-98e5-40cd-92bf-30c54b7d0205
+
+	column idSAlb
+		dataType: string
+		lineageTag: 5f3156ce-001c-4b8f-a2c8-56b94d01499b
+		summarizeBy: none
+		sourceColumn: idSAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idAlb
+		dataType: int64
+		formatString: 0
+		lineageTag: 77eeb8fd-7a47-424f-b4db-56a9a9138daa
+		summarizeBy: sum
+		sourceColumn: idAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AlbaranKey
+		dataType: string
+		lineageTag: b46a15ff-bc50-4127-a47c-63584ccff59e
+		summarizeBy: none
+		sourceColumn: AlbaranKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fechaAlb
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bc34a047-d778-4c02-8233-a59287d6b2ab
+		summarizeBy: none
+		sourceColumn: fechaAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idCliente
+		dataType: int64
+		formatString: 0
+		lineageTag: ecebf81b-bf8d-4780-be77-662a2b3ed32b
+		summarizeBy: none
+		sourceColumn: idCliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSFac
+		dataType: string
+		lineageTag: 1862ee88-40e4-43b2-b1a4-3a45c610e2fe
+		summarizeBy: none
+		sourceColumn: idSFac
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idFac
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f15af00-6c73-42a2-8edf-317b9adcb546
+		summarizeBy: sum
+		sourceColumn: idFac
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FacturaKey
+		dataType: string
+		lineageTag: f8237b24-1f60-4a92-a09c-5ab4d0c8bc0c
+		summarizeBy: none
+		sourceColumn: FacturaKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column totalBI
+		dataType: double
+		lineageTag: e7abe6a0-ace0-4e3b-8da0-55e35e968033
+		summarizeBy: sum
+		sourceColumn: totalBI
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalDto
+		dataType: double
+		lineageTag: 90f75e56-ea1d-4437-aa92-e872ae59eeb7
+		summarizeBy: sum
+		sourceColumn: totalDto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dto
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 32e6a5de-b647-41e7-8ae0-e85c5cdcca29
+		summarizeBy: sum
+		sourceColumn: dto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoAlb1
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 01beb072-e50b-4cbb-9244-70d2ae06a0df
+		summarizeBy: sum
+		sourceColumn: dtoAlb1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoAlb2
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: f55adf71-ef7f-4830-b3d0-363b68aaa199
+		summarizeBy: sum
+		sourceColumn: dtoAlb2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoAlb3
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 700f98e8-ccb6-42a4-807f-9307e1adaa52
+		summarizeBy: sum
+		sourceColumn: dtoAlb3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idERep
+		dataType: int64
+		formatString: 0
+		lineageTag: 164733b5-bb1e-430e-8600-e413d5e35142
+		summarizeBy: sum
+		sourceColumn: idERep
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idTipoDoc
+		dataType: int64
+		formatString: 0
+		lineageTag: ab2f2be4-eae0-4e1f-b0ad-2700bcadfb44
+		summarizeBy: sum
+		sourceColumn: idTipoDoc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Albaranes = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    A.idSAlb,#(lf)    A.idAlb,#(lf)    CONCAT(A.idSAlb, '-', A.idAlb) AS AlbaranKey,#(lf)    A.fechaAlb,#(lf)    A.idCliente,#(lf)    A.idERep,#(lf)    A.idSFac,#(lf)    A.idFac,#(lf)    CONCAT(A.idSFac, '-', A.idFac) AS FacturaKey,#(lf)    A.totalBI,#(lf)    A.totalDto,#(lf)    A.dto,#(lf)    A.dtoAlb1,#(lf)    A.dtoAlb2,#(lf)    A.dtoAlb3,#(lf)#(tab)A.idTipoDoc#(lf)FROM albaran A#(lf)WHERE A.fechaAlb >= '20240101';"])
+				in
+				    Origen
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

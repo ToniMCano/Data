@@ -1,0 +1,318 @@
+table Calendario
+	lineageTag: c25e1d2a-4f49-4e41-bb0e-fb02ea0f643d
+	dataCategory: Time
+
+	measure 'Mostrar Mes Transcurrido' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE('Modo Comparación'[Modo], "No")
+			VAR AnioSeleccionado =
+			    SELECTEDVALUE(Calendario[Año])
+			VAR MesEvaluado =
+			    SELECTEDVALUE(Calendario[Mes Numero])
+			RETURN
+			IF(
+			    ModoSeleccionado = "Si"
+			        && AnioSeleccionado = YEAR(TODAY())
+			        && MesEvaluado > MONTH(TODAY()),
+			    0,
+			    1
+			)
+		formatString: 0
+		lineageTag: bc3232f6-32b1-494c-8a80-e0377103029f
+
+	measure 'Mostrar Dia Transcurrido' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE('Modo Comparación'[Modo], "No")
+			VAR AnioSeleccionado =
+			    SELECTEDVALUE(Calendario[Año])
+			VAR MesSeleccionado =
+			    SELECTEDVALUE(Calendario[Mes Numero])
+			VAR DiaEvaluado =
+			    SELECTEDVALUE(Calendario[Dia])
+			RETURN
+			IF(
+			    ModoSeleccionado = "Si"
+			        && AnioSeleccionado = YEAR(TODAY())
+			        && MesSeleccionado = MONTH(TODAY())
+			        && DiaEvaluado > DAY(TODAY()),
+			    0,
+			    1
+			)
+		formatString: 0
+		lineageTag: 554e7279-8f09-4e90-aa8d-6447ce8dffad
+
+	measure 'Modo Comparación' =
+			
+			DATATABLE(
+			    "Modo", STRING,
+			    {
+			        {"No"},
+			        {"Si"}
+			    }
+			)
+		lineageTag: 58457be5-b032-480b-8459-79eb63a2de89
+
+	column Date
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 8ce6ec0f-a5bb-4a4e-a329-3f5c8c8e062a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Año
+		formatString: 0
+		lineageTag: 163db4b5-fc61-4ef3-b334-8a1a4d142a1e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Numero'
+		formatString: 0
+		lineageTag: 00e2354d-1581-403f-ae26-afa4b297b25c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Mes Numero]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		lineageTag: d79634c8-e983-4c0c-975b-721ff054ee48
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Corto'
+		lineageTag: 0aab96ac-86ad-4efc-a91c-4b9648fa8786
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mes Corto]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		lineageTag: 9c3e23ec-538e-4326-a740-ab28fa38745e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AñoMes
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f025ae1f-aa16-42cc-bc9f-5c37087eb67d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [AñoMes]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AñoTrimestre
+		lineageTag: ecfc187f-1bc4-4ba5-8c48-50967725ec06
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [AñoTrimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia
+		formatString: 0
+		lineageTag: 1f66e9e5-a2c9-4c72-8bba-55c4a9f7426d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Dia]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DiaSemana Numero'
+		formatString: 0
+		lineageTag: 7cb6df03-3d9c-4707-a3b5-3ce674350c80
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [DiaSemana Numero]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaSemana
+		lineageTag: eb6c450a-361e-41fb-b866-dbf488dcdca0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiaSemana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DiaSemana Corto'
+		lineageTag: abd69527-801f-4f47-84ec-1fecaa7c56af
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiaSemana Corto]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana Año'
+		formatString: 0
+		lineageTag: 728d0906-a0f5-4ed5-9bb2-9c7f42f29466
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Semana Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Es Fin Semana'
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5f73d341-adea-4697-a626-a7aec2a2c909
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Es Fin Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Es Mes Transcurrido' =
+			
+			IF(
+			    YEAR(Calendario[Date]) < YEAR(TODAY())
+			        ||
+			    (
+			        YEAR(Calendario[Date]) = YEAR(TODAY())
+			            && MONTH(Calendario[Date]) <= MONTH(TODAY())
+			    ),
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: b437f346-49e1-47c7-85f6-be6a16e479e6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Es Dia Transcurrido' =
+			
+			IF(
+			    Calendario[Date] <= TODAY(),
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: f3d4aa3b-864d-4d01-b616-1e1159ce8948
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trimestre Numero'
+		formatString: 0
+		lineageTag: 1a5437e3-d36a-4c70-b192-17ca24aa9b86
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Trimestre Numero]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AñoMes Orden'
+		formatString: 0
+		lineageTag: 497618bc-ebe1-4426-ae21-0f8c1aa15368
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [AñoMes Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AñoTrimestre Orden'
+		formatString: 0
+		lineageTag: 84e88fed-b562-44bc-8798-ae6a925625b8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [AñoTrimestre Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SemanaVisual =
+			
+			VAR InicioSemana =
+			    Calendario[Date]
+			    - WEEKDAY(Calendario[Date], 2)
+			    + 1
+			
+			VAR FinSemana =
+			    InicioSemana + 6
+			
+			RETURN
+			FORMAT(YEAR(InicioSemana), "0000")
+			& "-S"
+			& FORMAT(Calendario[Semana Año], "00")
+			& " ("
+			& FORMAT(InicioSemana, "dd/MM")
+			& "-"
+			& FORMAT(FinSemana, "dd/MM")
+			& ")"
+		lineageTag: 54183790-c964-433f-8e5b-ba4c6a94aef9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'AñoTrimestre Jerarquía'
+		lineageTag: a9ff0a4a-825a-489f-90df-d6f8673c4ce2
+
+		level AñoTrimestre
+			lineageTag: b69d61a5-496c-41af-8e33-c8224d376803
+			column: AñoTrimestre
+
+		level AñoMes
+			lineageTag: 857b4d85-2965-426a-9a19-01338550f8e0
+			column: AñoMes
+
+		level SemanaVisual
+			lineageTag: 8c6293b9-0b63-4bc7-ac38-49b39c15bcd9
+			column: SemanaVisual
+
+	partition Calendario = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(
+				        DATE(2024,1,1),
+				        DATE(2030,12,31)
+				    ),
+				
+				    "Año", YEAR([Date]),
+				
+				    "Mes Numero", MONTH([Date]),
+				    "Mes", FORMAT([Date], "MMMM"),
+				    "Mes Corto", FORMAT([Date], "MMM"),
+				
+				    "Trimestre Numero", QUARTER([Date]),
+				    "Trimestre", "T" & QUARTER([Date]),
+				
+				    "AñoMes", YEAR([Date]) & "-" & FORMAT(MONTH([Date]), "00"),
+				    "AñoMes Orden", YEAR([Date]) * 100 + MONTH([Date]),
+				
+				    "AñoTrimestre", YEAR([Date]) & "-T" & QUARTER([Date]),
+				    "AñoTrimestre Orden", YEAR([Date]) * 10 + QUARTER([Date]),
+				
+				    "Dia", DAY([Date]),
+				
+				    "DiaSemana Numero", WEEKDAY([Date], 2),
+				    "DiaSemana", FORMAT([Date], "dddd"),
+				    "DiaSemana Corto", FORMAT([Date], "ddd"),
+				
+				    "Semana Año", WEEKNUM([Date], 2),
+				
+				    "Es Fin Semana",
+				        WEEKDAY([Date], 2) >= 6
+				)
+
+	annotation PBI_Id = 9ac45c888ad949e29a83354ca7ff4a6f
+

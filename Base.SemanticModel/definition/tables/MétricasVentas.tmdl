@@ -1,0 +1,572 @@
+table MétricasVentas
+	lineageTag: 930bf0b2-8d45-45a3-88b6-71c0d7810476
+
+	measure 'DtoAlbAplicado Final' =
+			
+			VAR ClientesDelVendedor =
+			    CALCULATETABLE(
+			        VALUES(Clientes[idCliente])
+			    )
+			RETURN
+			CALCULATE(
+			    SUMX(
+			        FactVentas,
+			        VAR PesoLinea =
+			            DIVIDE(
+			                FactVentas[total],
+			                FactVentas[total_lineas_albaran],
+			                0
+			            )
+			        VAR DtoRepartido =
+			            FactVentas[totalDtoAlb] * PesoLinea
+			        RETURN
+			            FactVentas[total] - DtoRepartido
+			    ),
+			    REMOVEFILTERS(FactVentas[idEmpleado]),
+			    TREATAS(
+			        ClientesDelVendedor,
+			        FactVentas[idCliente]
+			    )
+			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: d83becd3-7c83-4d45-9378-560382044928
+
+	measure Cajas =
+			
+			SUMX(
+			    FactVentas,
+			    SWITCH(
+			        TRUE(),
+			        FactVentas[modo] = "C", FactVentas[cantidad],
+			        FactVentas[modo] = "U", DIVIDE(FactVentas[cantidad], FactVentas[cUni], 0),
+			        FactVentas[modo] = "K", DIVIDE(FactVentas[cantidad], FactVentas[cUni], 0),
+			        DIVIDE(FactVentas[cantidad], FactVentas[cUni], 0)
+			    )
+			)
+		lineageTag: fe866ece-13d3-4465-bf67-384ca64df072
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Unidades =
+			
+			SUMX(
+			    FactVentas,
+			    FactVentas[cantidadPedido] * FactVentas[multiplicadorCantidadPedido]
+			
+			)
+		lineageTag: 2ba79bc4-e0e9-4efc-b4c7-8bcba0dffa57
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure DtoAlbAplicado2 =
+			
+			VAR TotalLineas =
+			    SUM(FactVentas[total])
+			VAR TotalDto =
+			    SUMX(
+			        SUMMARIZE(
+			            FactVentas,
+			            FactVentas[idSAlb],
+			            FactVentas[idAlb],
+			            "DtoAlb", MAX(FactVentas[totalDtoAlb])
+			        ),
+			        [DtoAlb]
+			    )
+			RETURN
+			    TotalLineas - TotalDto
+		lineageTag: 0642d3dd-6b10-46f8-9024-8996b49ef838
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Unidadesd =
+			
+			SUMX(
+			    FactVentas,
+			    FactVentas[cantidadPedido] * FactVentas[multiplicadorCantidadPedido]
+			
+			)
+		lineageTag: 4566f949-acf4-418b-b7a8-6ee9a235ec3a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Kilos =
+			
+			SUM(FactVentas[cantKg])
+		lineageTag: a53697f7-172c-465d-b8fb-6f9ed876ee42
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Albaranes =
+			
+			DISTINCTCOUNT(FactVentas[AlbaranKey])
+		formatString: 0
+		lineageTag: d999355b-8514-4180-82fb-93f580c7d8b9
+
+	measure 'Último Albarán' =
+			
+			CALCULATE(
+			    MAX(FactVentas[idAlb]),
+			    TOPN(
+			        1,
+			        FactVentas,
+			        FactVentas[fechaAlb], DESC,
+			        FactVentas[idAlb], DESC
+			    )
+			)
+		formatString: 0
+		lineageTag: 5f830a26-0dd1-4177-a71d-72c078c94b2b
+
+	measure V =
+			
+			CALCULATE(
+			    [Albaranes],
+			    FactVentas[idSAlb] = "V"
+			)
+		formatString: 0
+		lineageTag: 84c531a4-4e59-4606-bfc8-1351501604f4
+
+	measure MU =
+			
+			CALCULATE(
+			    [Albaranes],
+			    FactVentas[idSAlb] = "MU"
+			)
+		formatString: 0
+		lineageTag: 5c78c97f-acaa-46f6-b791-2c8009f9485a
+
+	measure AB =
+			
+			CALCULATE(
+			    [Albaranes],
+			    FactVentas[idSAlb] = "AB"
+			)
+		formatString: 0
+		lineageTag: 33545df7-bf69-441a-82a4-6f22bb6e2421
+
+	measure 'Último Albarán Fecha' =
+			
+			CALCULATE(
+			    MAX(FactVentas[fechaAlb]),
+			    TOPN(
+			        1,
+			        FactVentas,
+			        FactVentas[fechaAlb], DESC,
+			        FactVentas[idAlb], DESC
+			    )
+			)
+		formatString: General Date
+		lineageTag: d436cd70-de39-4d17-9500-c3f49831f509
+
+	measure IN =
+			
+			CALCULATE(
+			    [Albaranes],
+			    FactVentas[idSAlb] = "IN"
+			)
+		formatString: 0
+		lineageTag: da16ad0d-7101-422d-97e0-31e812c0a21d
+
+	measure 'Descuento Factura' =
+			
+			SUM(Facturas[tMonDto])
+		lineageTag: 7179e0d8-8442-4b4d-9499-ed31eb8999e7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas ERP Albaran' =
+			
+			SUM(FactVentas[total])
+		lineageTag: 8bbc28d1-f442-4212-8584-2f22c475ae7d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Comerciales' =
+			
+			SUMX(
+			    FactVentas,
+			    VAR PesoLinea =
+			        DIVIDE(
+			            FactVentas[total],
+			            FactVentas[total_lineas_albaran],
+			            0
+			        )
+			    VAR DtoRepartido =
+			        FactVentas[totalDtoAlb] * PesoLinea
+			    RETURN
+			        FactVentas[total] - DtoRepartido
+			)
+		lineageTag: b73fded1-de09-4ce2-8093-15f500660ea0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Netas ERP' =
+			
+			[DtoAlbAplicado Final] - [Dto Factura Único]
+		lineageTag: 5180bace-064f-467f-9afa-678a13b8cfd2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas ERP (Solo Descuentos en línea albarán)' =
+			
+			SUMX(
+			    SUMMARIZE(
+			        FactVentas,
+			        FactVentas[idSAlb],
+			        FactVentas[idAlb],
+			        "BI", MAX(FactVentas[totalBI_albaran])
+			    ),
+			    [BI]
+			)
+		lineageTag: 99fb6fbf-d31e-4e1b-8384-cf36d7b2936b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Media Albarán' =
+			
+			VAR Grupo =
+			    SELECTCOLUMNS(
+			        ALL(GrupoComerciales),
+			        "Value", GrupoComerciales[idEmpleado]
+			    )
+			RETURN
+			DIVIDE(
+			    CALCULATE(
+			        [DtoAlbAplicado Final],
+			        FactVentas[idSAlb] = "V",
+			        KEEPFILTERS(
+			            TREATAS(
+			                Grupo,
+			                FactVentas[idEmpleado]
+			            )
+			        )
+			    ),
+			    CALCULATE(
+			        DISTINCTCOUNT(FactVentas[idAlb]),
+			        FactVentas[idSAlb] = "V",
+			        KEEPFILTERS(
+			            TREATAS(
+			                Grupo,
+			                FactVentas[idEmpleado]
+			            )
+			        )
+			    )
+			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 0d7679e1-732d-42ac-9bae-98ce38032ce4
+
+	measure MA/C =
+			
+			VAR Grupo =
+			    ALL(GrupoComerciales[idEmpleado])
+			
+			VAR NumAlbaranes =
+			    CALCULATE(
+			        DISTINCTCOUNT(FactVentas[idAlb]),
+			        FactVentas[idSAlb] = "V",
+			        KEEPFILTERS(
+			            TREATAS(
+			                Grupo,
+			                FactVentas[idEmpleado]
+			            )
+			        )
+			    )
+			
+			VAR NumClientes =
+			    CALCULATE(
+			        DISTINCTCOUNT(FactVentas[idCliente]),
+			        FactVentas[idSAlb] = "V",
+			        KEEPFILTERS(
+			            TREATAS(
+			                Grupo,
+			                FactVentas[idEmpleado]
+			            )
+			        )
+			    )
+			
+			RETURN
+			DIVIDE(NumAlbaranes, NumClientes)
+		lineageTag: a83308e2-c008-4083-9eab-49b287588b70
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Media Albarán Empresa Grupo' =
+			
+			VAR Grupo =
+			    SELECTCOLUMNS(
+			        ALL(GrupoComerciales),
+			        "Value", GrupoComerciales[idEmpleado]
+			    )
+			RETURN
+			DIVIDE(
+			    CALCULATE(
+			        [DtoAlbAplicado Final],
+			        ALL(Clientes[Nombre Vendedor]),
+			        REMOVEFILTERS(FactVentas[idEmpleado]),
+			        REMOVEFILTERS(Empleado),
+			        FactVentas[idSAlb] = "V",
+			        TREATAS(
+			            Grupo,
+			            FactVentas[idEmpleado]
+			        )
+			    ),
+			    CALCULATE(
+			        DISTINCTCOUNT(FactVentas[idAlb]),
+			        ALL(Clientes[Nombre Vendedor]),
+			        REMOVEFILTERS(FactVentas[idEmpleado]),
+			        REMOVEFILTERS(Empleado),
+			        FactVentas[idSAlb] = "V",
+			        TREATAS(
+			            Grupo,
+			            FactVentas[idEmpleado]
+			        )
+			    )
+			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: f8258198-6a82-4d9c-8591-9518c3dbc571
+
+	measure 'MA/C Empresa Grupo' =
+			
+			VAR Grupo =
+			    ALL(GrupoComerciales[idEmpleado])
+			
+			VAR NumAlbaranesGrupo =
+			    CALCULATE(
+			        DISTINCTCOUNT(FactVentas[idAlb]),
+			        ALL(Clientes[Nombre Vendedor]),
+			        REMOVEFILTERS(FactVentas[idEmpleado]),
+			        REMOVEFILTERS(Empleado),
+			        FactVentas[idSAlb] = "V",
+			        TREATAS(
+			            Grupo,
+			            FactVentas[idEmpleado]
+			        )
+			    )
+			
+			VAR NumClientesGrupo =
+			    CALCULATE(
+			        DISTINCTCOUNT(FactVentas[idCliente]),
+			        ALL(Clientes[Nombre Vendedor]),
+			        REMOVEFILTERS(FactVentas[idEmpleado]),
+			        REMOVEFILTERS(Empleado),
+			        FactVentas[idSAlb] = "V",
+			        TREATAS(
+			            Grupo,
+			            FactVentas[idEmpleado]
+			        )
+			    )
+			
+			RETURN
+			DIVIDE(NumAlbaranesGrupo, NumClientesGrupo)
+		lineageTag: c33c70dd-c08e-4b4b-928b-d463fdd611f4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Debug MA/C' =
+			
+			[MA/C]
+		lineageTag: 702b5bd3-d09f-4289-a3a4-2efa72893d57
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Debug MA/C Empresa' =
+			
+			[MA/C Empresa Grupo]
+		lineageTag: 62f72c37-9648-4999-ba55-c9ecfbdb73e8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Debug Ratio MA/C' =
+			
+			DIVIDE(
+			    [MA/C],
+			    [MA/C Empresa Grupo]
+			)
+		lineageTag: 5ce5d51e-bc3f-45b9-9e99-4760a7f270c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Check Importe V' =
+			
+			CALCULATE(
+			    [DtoAlbAplicado Final],
+			    KEEPFILTERS(FactVentas[idSAlb] = "V")
+			)
+		lineageTag: e0039f07-83ad-49f1-a355-326b41ac537a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Albaranes V Clientes Vendedor' =
+			
+			VAR ClientesDelVendedor =
+			    CALCULATETABLE(
+			        VALUES(Clientes[idCliente])
+			    )
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT(FactVentas[idAlb]),
+			    FactVentas[idSAlb] = "V",
+			    REMOVEFILTERS(FactVentas[idEmpleado]),
+			    TREATAS(
+			        ClientesDelVendedor,
+			        FactVentas[idCliente]
+			    )
+			)
+		formatString: 0
+		lineageTag: 49297af7-56f8-4651-974b-ae9679d92147
+
+	measure 'Importe V Grupo' =
+			
+			VAR ClientesGrupo =
+			    CALCULATETABLE(
+			        VALUES(Clientes[idCliente]),
+			        REMOVEFILTERS(Clientes[Nombre Vendedor]),
+			        TREATAS(
+			            ALL(GrupoComerciales[idEmpleado]),
+			            Clientes[idEmpleado]
+			        )
+			    )
+			RETURN
+			CALCULATE(
+			    [DtoAlbAplicado Final],
+			    REMOVEFILTERS(Clientes[Nombre Vendedor]),
+			    FactVentas[idSAlb] = "V",
+			    TREATAS(
+			        ClientesGrupo,
+			        FactVentas[idCliente]
+			    )
+			)
+		lineageTag: 76b631fc-a064-47ee-be27-0840d6fe03aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Margen' = ```
+			
+			DIVIDE(
+			    [Beneficio Bruto],
+			    [Ventas Netas ERP]
+			) 
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: ff0b6d07-813f-4270-aae7-0d039f73d429
+
+	measure '% Margen Cliente' = ```
+			
+			VAR importe_neto = [Ventas Netas ERP]
+			
+			RETURN
+			DIVIDE(
+			    importe_neto - SUM(FactVentas[totalCoste]),
+			    importe_neto
+			) 
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 853d52d0-d682-4388-b95c-9ebb5b87b3db
+
+	measure '% Dto Factura Real' =
+			
+			DIVIDE(
+			[DtoAlbAplicado Final] - [Ventas Netas ERP],
+			[DtoAlbAplicado Final]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 4f8949b4-3b76-4cf4-bf54-6df32b053ef5
+
+	measure 'Beneficio Bruto' =
+			
+			[Ventas Netas ERP] - SUM(FactVentas[totalCoste])
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 0e38a310-f001-428f-ae17-b896567da83e
+
+	measure 'Check Dto Factura Valores' =
+			
+			COUNTROWS(
+			    FILTER(
+			        SUMMARIZE(
+			            FactVentas,
+			            FactVentas[idSFac],
+			            FactVentas[idFac],
+			            "ValoresDto", DISTINCTCOUNT(FactVentas[tMonDto])
+			        ),
+			        [ValoresDto] > 1
+			    )
+			)
+		formatString: 0
+		lineageTag: f754a3f7-48a5-446c-baba-9ccfc07c0400
+
+	measure 'Dto. Albarán (Importe)' = [Ventas Brutas (Sin Dtos)] - [DtoAlbAplicado Final]
+		lineageTag: 1ac557a7-efd6-4a9a-bc0c-f0ef86dd1f87
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dto. Factura (Importe)' = [DtoAlbAplicado Final] - [Ventas Netas ERP]
+		lineageTag: dfe9038b-0ef3-4ad1-86e5-dd4805bd6596
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dto Factura Único' =
+			
+			SUMX(
+			    SUMMARIZE(
+			        FactVentas,
+			        FactVentas[idSFac],
+			        FactVentas[idFac]
+			    ),
+			    VAR SerieFactura = FactVentas[idSFac]
+			    VAR NumeroFactura = FactVentas[idFac]
+			    RETURN
+			        CALCULATE(
+			            MAX(Facturas[totalDto]),
+			            REMOVEFILTERS(Facturas),
+			            Facturas[idSFac] = SerieFactura,
+			            Facturas[idFactura] = NumeroFactura
+			        )
+			)
+		lineageTag: a825f199-16ac-47ee-96e9-e57b590968ee
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Es la Diferencia del Total Bruto (sin tener en cuenta descuentos de albarán ni de factura pero si de líneas) - Total Neto
+	measure 'Total Descuentos' = ```
+			
+			[Ventas Brutas (Sin Dtos)] - [Ventas Netas ERP]
+			
+			```
+		lineageTag: 03d2d896-5f4f-4276-9054-ca37ff4e06cf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Brutas (Sin Dtos)' =
+			
+			SUMX(
+			    FactVentas,
+			    FactVentas[total] + FactVentas[dtoAlb]
+			)
+		lineageTag: c6dcb6ad-167c-406e-a33c-cb234717b2da
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Coste' = SUM(FactVentas[totalCoste])
+		lineageTag: a09dc0e5-112c-4edb-9d71-524e2accc7bd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Dummy
+		isHidden
+		lineageTag: 68bd25aa-2b4f-4695-a63a-670017936df0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MétricasVentas = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = d08dab9ba2d24f5ba01df9d3029377a0
+

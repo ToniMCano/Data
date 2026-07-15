@@ -1,0 +1,344 @@
+table 'Métricas Producto'
+	lineageTag: e178d8d5-2e03-4e3a-90fa-f8a64c65ea13
+
+	/// Son Referencias Distintas con Venta Positiva, no se cuentan las referencias sin cargo ni las abonadas del año anterior.
+	measure 'Referencias Distintas' =
+			
+			VAR ReferenciasConVenta =
+			    SUMMARIZE(
+			        FactVentas,
+			        FactVentas[referencia],
+			        "__Venta", SUM(FactVentas[total])
+			    )
+			RETURN
+			COUNTROWS(
+			    FILTER(
+			        ReferenciasConVenta,
+			        [__Venta] > 0
+			    )
+			)
+		formatString: 0
+		lineageTag: 971c1de0-a968-4440-9700-b37c15358a95
+
+	measure 'Referencias Distintas AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Referencias Distintas],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Referencias Distintas],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 350f6246-e5f0-4b01-9698-891908e40364
+
+	measure 'Referencias distintas VS AA' =
+			
+			[Referencias Distintas] - [Referencias Distintas AA]
+		formatString: 0
+		lineageTag: dc05b93e-6c50-44cb-a0af-6cbe96899688
+
+	measure 'Media Referencias Distintas por Comercial Grupo' =
+			
+			VAR TotalReferenciasPorComercial =
+			    SUMX(
+			        ALL(GrupoComerciales[idEmpleado]),
+			        VAR IdComercial = GrupoComerciales[idEmpleado]
+			
+			        VAR ClientesAsignadosComercial =
+			            SELECTCOLUMNS(
+			                FILTER(
+			                    ALL(Clientes),
+			                    Clientes[idEmpleado] = IdComercial
+			                        &&
+			                    NOT CONTAINSSTRING(Clientes[nomCom], "(CRS")
+			                ),
+			                "idCliente", Clientes[idCliente]
+			            )
+			
+			        RETURN
+			            CALCULATE(
+			                COUNTROWS(
+			                    FILTER(
+			                        VALUES(FactVentas[referencia]),
+			                        [DtoAlbAplicado Final] > 0
+			                    )
+			                ),
+			                REMOVEFILTERS(Clientes),
+			                REMOVEFILTERS(FactVentas[idEmpleado]),
+			                FactVentas[idSAlb] = "V",
+			                TREATAS(
+			                    ClientesAsignadosComercial,
+			                    FactVentas[idCliente]
+			                )
+			            )
+			    )
+			
+			VAR NumComerciales =
+			    COUNTROWS(
+			        ALL(GrupoComerciales[idEmpleado])
+			    )
+			
+			RETURN
+			DIVIDE(
+			    TotalReferenciasPorComercial,
+			    NumComerciales
+			)
+		lineageTag: 8104c016-4efa-471a-957c-5999f7e03855
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Media Refs Cliente Grupo Activos' =
+			
+			VAR ClientesGrupo =
+			    CALCULATETABLE(
+			        VALUES(Clientes[idCliente]),
+			        REMOVEFILTERS(Clientes[idCliente]),
+			        REMOVEFILTERS(Clientes[nomCom]),
+			        TREATAS(
+			            VALUES(GrupoComerciales[idEmpleado]),
+			            Clientes[idEmpleado]
+			        ),
+			        NOT CONTAINSSTRING(Clientes[nomCom], "(CRS")
+			    )
+			
+			VAR ClienteReferenciaConVenta =
+			    CALCULATETABLE(
+			        SUMMARIZE(
+			            FILTER(
+			                FactVentas,
+			                FactVentas[idSAlb] = "V"
+			                    && FactVentas[total] > 0
+			            ),
+			            FactVentas[idCliente],
+			            FactVentas[referencia]
+			        ),
+			        TREATAS(ClientesGrupo, FactVentas[idCliente])
+			    )
+			
+			VAR ClientesConRefs =
+			    DISTINCT(
+			        SELECTCOLUMNS(
+			            ClienteReferenciaConVenta,
+			            "idCliente", FactVentas[idCliente]
+			        )
+			    )
+			
+			RETURN
+			DIVIDE(
+			    COUNTROWS(ClienteReferenciaConVenta),
+			    COUNTROWS(ClientesConRefs)
+			)
+		lineageTag: 02cb6f21-ac27-475a-b023-6bc596ffddc7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Media Referencias Distintas por Cliente Grupo AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Media Refs Cliente Grupo Activos],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Media Refs Cliente Grupo Activos],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		lineageTag: fe09b346-7c62-45a4-a72f-68df792f8bf0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Diferencia Ref Distintas Cliente' =
+			
+			
+			[Media Refs Cliente Grupo Activos] - [Media Referencias Distintas por Cliente Grupo AA]
+		lineageTag: e717efe6-7e79-4094-a1d1-98b25b459fe7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Media Refs para color Matriz' =
+			
+			
+			VAR ClientesGrupo =
+			    CALCULATETABLE(
+			        VALUES(Clientes[idCliente]),
+			
+			        REMOVEFILTERS(Clientes[idCliente]),
+			        REMOVEFILTERS(Clientes[nomCom]),
+			
+			        TREATAS(
+			            VALUES(GrupoComerciales[idEmpleado]),
+			            Clientes[idEmpleado]
+			        ),
+			
+			        NOT CONTAINSSTRING(Clientes[nomCom], "(CRS")
+			    )
+			
+			VAR ClienteReferenciaConVenta =
+			    CALCULATETABLE(
+			        SUMMARIZE(
+			            FILTER(
+			                FactVentas,
+			                FactVentas[idSAlb] = "V"
+			                    && FactVentas[total] > 0
+			            ),
+			            FactVentas[idCliente],
+			            FactVentas[referencia]
+			        ),
+			
+			        REMOVEFILTERS(Clientes[idCliente]),
+			        REMOVEFILTERS(Clientes[nomCom]),
+			        REMOVEFILTERS(FactVentas[idCliente]),
+			
+			        TREATAS(ClientesGrupo, FactVentas[idCliente])
+			    )
+			
+			VAR ClientesConRefs =
+			    DISTINCT(
+			        SELECTCOLUMNS(
+			            ClienteReferenciaConVenta,
+			            "idCliente", FactVentas[idCliente]
+			        )
+			    )
+			
+			RETURN
+			DIVIDE(
+			    COUNTROWS(ClienteReferenciaConVenta),
+			    COUNTROWS(ClientesConRefs)
+			)
+		lineageTag: 883e4044-3c0f-40b6-b15a-a895e31a6606
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Precio Ref.' =
+			
+			SELECTEDVALUE(
+			    Productos[preciov],
+			    "Varios precios"
+			)
+		lineageTag: 0d8fea7e-8e42-439a-a59c-d25b7a455d3b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Último pCoste' =
+			
+			VAR UltimaFecha =
+			    CALCULATE(
+			        MAX(FactVentas[fechaAlb])
+			    )
+			
+			RETURN
+			CALCULATE(
+			    MAX(FactVentas[pCoste]),
+			    FactVentas[fechaAlb] = UltimaFecha
+			)
+		lineageTag: ddbfc4e0-fb9f-4678-97d3-6e81fce693e3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Dummy
+		isHidden
+		lineageTag: 5d3a0ab8-aedb-4fce-b55e-c6c5d3d0e679
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Métricas Producto' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = 926746ed008648da974bc9a403342a4c
+

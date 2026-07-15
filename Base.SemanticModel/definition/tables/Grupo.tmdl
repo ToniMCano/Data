@@ -1,0 +1,32 @@
+table Grupo
+	lineageTag: 698424ca-f9f0-4a7f-9cf4-a8c5d73fa442
+
+	column idGrupo
+		dataType: int64
+		formatString: 0
+		lineageTag: 5837050c-4713-42b1-a736-a80149e78468
+		summarizeBy: none
+		sourceColumn: idGrupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column descrip
+		dataType: string
+		lineageTag: 40634b58-00e4-48bd-aa32-d11b640e365b
+		summarizeBy: none
+		sourceColumn: descrip
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Grupo = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="select idGrupo,#(lf)descrip #(lf)from grupoClientes "])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

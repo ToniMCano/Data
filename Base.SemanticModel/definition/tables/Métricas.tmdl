@@ -1,0 +1,774 @@
+table Métricas
+	lineageTag: 54bd2da6-4559-403a-b140-0a17de213412
+
+	measure 'Cantidad Proveedores' =
+			
+			CALCULATE(
+			    DISTINCT(VALUES(Productos[idprov])),
+			    KEEPFILTERS(VALUES(Productos[idprov]))
+			)
+		formatString: 0
+		lineageTag: 15eb3fb2-c098-437b-ab09-d45821945f40
+
+	measure 'ParaObjetivo 10 Clientes' =
+			
+			[Objetivo Clientes 10 Nuevos] - [Clientes Nuevos Ref]
+		formatString: 0
+		lineageTag: 000df333-2494-46fa-bf4f-e13749de4d51
+
+	measure 'Objetivo Clientes 10 Nuevos' = ```
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			
+			RETURN
+			
+			    NumVendedoresSeleccionados * 10
+			
+			```
+		formatString: 0
+		lineageTag: 518b2449-7c70-4fd4-a325-e6c0fc8d1451
+
+	measure 'Objetivo Clientes 15 Nuevos' =
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			
+			RETURN
+			IF(
+			    NumVendedoresSeleccionados = TotalVendedores,
+			    300,
+			    NumVendedoresSeleccionados * 15
+			)
+		formatString: 0
+		lineageTag: 0bd2d071-8f0c-4c89-8311-2c3d7d8b31c7
+
+	measure 'ParaObjetivo 15 Clientes' =
+			
+			[Objetivo Clientes 15 Nuevos] - [Clientes Nuevos Ref]
+		formatString: 0
+		lineageTag: b2a9ec97-ded1-40af-bee9-9e50481eb5b7
+
+	measure 'ParaObjetivo 5 Clientes' =
+			
+			[Objetivo Clientes 5 Nuevos] - [Clientes Nuevos Ref]
+		formatString: 0
+		lineageTag: a9925189-50e2-4429-aa7a-d2acc9ce2c86
+
+	measure 'Objetivo Clientes 1 Nuevos' =
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			
+			RETURN
+			IF(
+			    NumVendedoresSeleccionados = TotalVendedores,
+			    20,
+			    NumVendedoresSeleccionados * 1
+			)
+		formatString: 0
+		lineageTag: 1e5ee026-3b3b-4fe1-b319-953e7725ea74
+
+	measure 'ParaObjetivo 1 Clientes' =
+			
+			[Objetivo Clientes 1 Nuevos] - [Clientes Nuevos Ref]
+		formatString: 0
+		lineageTag: 0fcdb6d7-c162-4ea6-9ddf-e5f482b2487a
+
+	measure 'Objetivo Importe Debic' =
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			
+			RETURN
+			IF(
+			    NumVendedoresSeleccionados = TotalVendedores,
+			    12000,
+			    NumVendedoresSeleccionados * 600
+			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: c67318b0-a61a-4ac6-b94b-27c0cea4eb6c
+
+	measure CajasN =
+			
+			SUMX(
+			    VALUES(FactVentas[referencia]),
+			    DIVIDE(
+			        CALCULATE([Clientes Nuevos Uds.]),
+			        CALCULATE(AVERAGE(FactVentas[cUni]))
+			    )
+			)
+		lineageTag: 01d998b3-788c-4dff-8a5b-11ebe3625219
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Objetivo Clientes 5 Nuevos' =
+			
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			
+			RETURN
+			
+			    NumVendedoresSeleccionados * 5
+		formatString: 0
+		lineageTag: 2e30ddc3-abfc-490a-b99c-062750e7b67b
+
+	measure 'OBJETIVO 20 cajas' = ```
+			
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			VAR p_cajas = [CajasN]/(20*NumVendedoresSeleccionados)
+			
+			RETURN
+			
+			    p_cajas
+			
+			```
+		lineageTag: 922b28f5-ba61-4914-abf7-9a006dd2af1d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'COLOR 20 Cajas' = ```
+			
+			
+			
+			SWITCH(
+			    TRUE(),
+			    [OBJETIVO 20 cajas] >= 1, "green",
+			    [OBJETIVO 20 cajas]  >= 0.8, "yellow",
+			    "red"
+			)
+			
+			```
+		lineageTag: a8f89e97-fcd5-4ae4-8f2c-efaeac1bbd05
+
+	measure 'OBJETIVO 10 cajas' =
+			
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			VAR p_cajas = [CajasN]/(10*NumVendedoresSeleccionados)
+			
+			RETURN
+			
+			    p_cajas
+		lineageTag: 7fc43014-3d42-4069-a7d2-f696ad5d9930
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'OBJETIVO 15 cajas' =
+			
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			VAR p_cajas = [CajasN]/(15*NumVendedoresSeleccionados)
+			
+			RETURN
+			
+			    p_cajas
+		lineageTag: d9680789-fbe2-40c1-b709-788583fd7ebd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'OBJETIVO 5 cajas' =
+			
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			VAR p_cajas = [CajasN]/(5*NumVendedoresSeleccionados)
+			
+			RETURN
+			
+			    p_cajas
+		lineageTag: b70ef995-db5e-4540-a83f-860b354fade8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'OBJETIVO 25 cajas' =
+			
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			VAR p_cajas = [CajasN]/(25*NumVendedoresSeleccionados)
+			
+			RETURN
+			
+			    p_cajas
+		lineageTag: 3134ab29-b016-48de-a8ad-b1cb7b022525
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'COLOR 25 Cajas' = ```
+			
+			
+			
+			SWITCH(
+			    TRUE(),
+			    [OBJETIVO 25 cajas] >= 1, "green",
+			    [OBJETIVO 25 cajas]  >= 0.8, "yellow",
+			    "red"
+			)
+			
+			```
+		lineageTag: 19e915fe-8bd5-4665-b609-3861c097e3b2
+
+	measure 'Objetivo Clientes 20 Nuevos' =
+			
+			VAR NumVendedoresSeleccionados =
+			    COUNTROWS(VALUES(Empleado[idEmpleado]))
+			
+			VAR TotalVendedores =
+			    CALCULATE(
+			        COUNTROWS(ALL(Empleado[idEmpleado]))
+			    )
+			
+			RETURN
+			
+			    NumVendedoresSeleccionados * 20
+		formatString: 0
+		lineageTag: 35922b0e-6aa0-4d0b-8b9b-8f68aa92e4c3
+
+	measure 'ParaObjetivo 20 Clientes' =
+			
+			[Objetivo Clientes 20 Nuevos] - [Clientes Nuevos Ref]
+		formatString: 0
+		lineageTag: 2b2f4806-eb1b-486d-b36b-dca8c9fd63ae
+
+	measure 'COLOR 15 Cajas' =
+			
+			
+			
+			SWITCH(
+			    TRUE(),
+			    [OBJETIVO 15 cajas] >= 1, "green",
+			    [OBJETIVO 15 cajas]  >= 0.8, "yellow",
+			    "red"
+			)
+		lineageTag: 3b7e7be0-5a94-4144-983f-4a6a3d2707e0
+
+	measure 'COLOR 10 Cajas' =
+			
+			
+			
+			SWITCH(
+			    TRUE(),
+			    [OBJETIVO 10 cajas] >= 1, "green",
+			    [OBJETIVO 10 cajas]  >= 0.8, "yellow",
+			    "red"
+			)
+		lineageTag: 8de14401-9b09-454e-96ee-11a946ddacea
+
+	measure 'COLOR 5 Cajas' =
+			
+			
+			
+			SWITCH(
+			    TRUE(),
+			    [OBJETIVO 5 cajas] >= 1, "green",
+			    [OBJETIVO 5 cajas]  >= 0.8, "yellow",
+			    "red"
+			)
+		lineageTag: 588e14c0-6150-4d23-a92e-edab3c5c6fc4
+
+	measure L-V =
+			
+			"Es Laborable"
+			    IF(
+			        WEEKDAY([Date],2) <= 5,
+			        TRUE(),
+			        FALSE()
+			    )
+		lineageTag: 6f0b394f-ca41-43ac-b6b5-55c1ddf4639c
+
+	measure usuario = USERNAME()
+		lineageTag: c5355a5f-a4ed-43d0-a50d-f6b7c03e836c
+
+	measure 'Mostrar Cliente' =
+			
+			VAR TieneActual =
+			    NOT ISBLANK([DtoAlbAplicado Final])
+			VAR TieneAnterior =
+			    NOT ISBLANK([Ventas Netas LY])
+			RETURN
+			IF(
+			    TieneActual || TieneAnterior,
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: a901c10e-4cab-48fa-a9bf-04da6c1ec731
+
+	measure 'Lineas visibles' =
+			
+			COUNTROWS(FactVentas)
+		formatString: 0
+		lineageTag: 48a7c1db-c1a9-4009-a2d5-7eb9163f30ff
+
+	measure 'Total Líneas Bruto' =
+			
+			SUM(FactVentas[total])
+		lineageTag: a6d55bc6-f165-4840-9088-a04f5477fbed
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Dto Cabecera' =
+			
+			SUM(FactVentas[totalDtoAlb])
+		lineageTag: 3f1c65c8-a629-4964-aee4-50ad9587c59c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Dto Cabecera Único' =
+			
+			SUMX(
+			    SUMMARIZE(
+			        FactVentas,
+			        FactVentas[idSAlb],
+			        FactVentas[idAlb],
+			        "DtoAlb", MAX(FactVentas[totalDtoAlb])
+			    ),
+			    [DtoAlb]
+			)
+		lineageTag: ec31886d-3660-434a-9fc9-b753fe000990
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Tomador = ```
+			
+			VAR IdTomador =
+			    SELECTEDVALUE(Pedido[idETom])
+			RETURN
+			LOOKUPVALUE(
+			    Empleado[nombre],
+			    Empleado[idEmpleado], IdTomador
+			)
+			
+			
+			```
+		lineageTag: 56dd0eea-4148-4ec7-b8ad-aac0924f5082
+
+	measure Vendedor =
+			
+			VAR vendedor_id =
+			    SELECTEDVALUE(Pedido[idEVen])
+			RETURN
+			LOOKUPVALUE(
+			    Empleado[nombre],
+			    Empleado[idEmpleado], vendedor_id
+			)
+		lineageTag: c5c01e93-8632-4135-a2a6-62d646bc6435
+
+	measure Repartidor =
+			
+			VAR AlbaranActual =
+			    SELECTEDVALUE(DimAlbaran[AlbaranKey])
+			VAR RepartidorId =
+			    CALCULATE(
+			        SELECTEDVALUE(Albaranes[idERep]),
+			        Albaranes[AlbaranKey] = AlbaranActual
+			    )
+			RETURN
+			LOOKUPVALUE(
+			    Empleado[nombre],
+			    Empleado[idEmpleado], RepartidorId
+			)
+		lineageTag: d9218b2e-7d35-41f9-9ff3-9eee5ac784e2
+
+	measure RepartidorTlf =
+			
+			VAR AlbaranActual =
+			    SELECTEDVALUE(DimAlbaran[AlbaranKey])
+			VAR RepartidorId =
+			    CALCULATE(
+			        SELECTEDVALUE(Albaranes[idERep]),
+			        Albaranes[AlbaranKey] = AlbaranActual
+			    )
+			RETURN
+			LOOKUPVALUE(
+			    Empleado[telefono],
+			    Empleado[idEmpleado], RepartidorId
+			)
+		formatString: 0
+		lineageTag: 307fc15c-8065-4f1d-9b65-cfb8b5494245
+		dataCategory: Uncategorized
+
+	measure UnidadesDAX =
+			
+			SUMX(
+			    FactVentas,
+			    SWITCH(
+			        TRUE(),
+			        FactVentas[modo] = "C", FactVentas[cantidad] * FactVentas[cUni],
+			        FactVentas[modo] = "U", FactVentas[cantidad],
+			        FactVentas[modo] = "K", FactVentas[cantidad],
+			        FactVentas[cantidad]
+			    )
+			)
+		lineageTag: a6f5e1f4-f5a1-45fb-b03c-d9e45b8093f1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Último Precio Cliente Referencia' =
+			
+			VAR ClienteActual =
+			    SELECTEDVALUE(FactVentas[idCliente])
+			
+			VAR ReferenciaActual =
+			    SELECTEDVALUE(FactVentas[referencia])
+			
+			VAR UltimaLinea =
+			    TOPN(
+			        1,
+			        FILTER(
+			            ALL(FactVentas),
+			            FactVentas[idCliente] = ClienteActual
+			                && FactVentas[referencia] = ReferenciaActual
+			        ),
+			        FactVentas[fechaAlb], DESC,
+			        FactVentas[idAlb], DESC,
+			        FactVentas[numLinea], DESC
+			    )
+			
+			RETURN
+			    MAXX(
+			        UltimaLinea,
+			        FactVentas[precio]
+			    )
+		lineageTag: b0e5da12-ca31-45cd-8cec-8777a661857f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Frecuencia Compra Días' =
+			
+			VAR FechasCompra =
+			    CALCULATETABLE(
+			        VALUES(FactVentas[fechaAlb]),
+			        FactVentas[fechaAlb] <> BLANK()
+			    )
+			
+			VAR FechasConAnterior =
+			    ADDCOLUMNS(
+			        FechasCompra,
+			        "FechaAnterior",
+			            VAR FechaActual = FactVentas[fechaAlb]
+			            RETURN
+			                MAXX(
+			                    FILTER(
+			                        FechasCompra,
+			                        FactVentas[fechaAlb] < FechaActual
+			                    ),
+			                    FactVentas[fechaAlb]
+			                )
+			    )
+			
+			RETURN
+			    AVERAGEX(
+			        FILTER(
+			            FechasConAnterior,
+			            [FechaAnterior] <> BLANK()
+			        ),
+			        DATEDIFF([FechaAnterior], FactVentas[fechaAlb], DAY)
+			    )
+		lineageTag: e7473f02-8e54-498d-95b2-3e7c0d55e49b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Próxima Compra Estimada' =
+			
+			VAR UltimaCompra =
+			    MAX(FactVentas[fechaAlb])
+			
+			VAR Frecuencia =
+			    [Frecuencia Compra Días]
+			
+			RETURN
+			    IF(
+			        NOT ISBLANK(Frecuencia),
+			        UltimaCompra + Frecuencia
+			    )
+		formatString: Short Date
+		lineageTag: ae4cc354-870d-40ec-a705-abab436c9884
+
+	measure 'Indicador Compra' =
+			
+			
+			VAR FechaUltimoAlbaran =
+			    MAX(FactVentas[fechaAlb])
+			
+			RETURN
+			    DATEDIFF(
+			        FechaUltimoAlbaran,
+			        TODAY(),
+			        DAY
+			    )
+		formatString: 0
+		lineageTag: 115d0849-1dd6-4036-b084-5da3f2143ce5
+
+	measure '% Estado Venta' =
+			
+			VAR Frecuencia = [Frecuencia Compra Días]
+			VAR Indicador = [Indicador Compra]
+			
+			RETURN
+			DIVIDE([Frecuencia Compra Días] - [Indicador Compra], [Indicador Compra])
+		lineageTag: 37682a37-93b2-4739-8a52-b3005ad2c527
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Suma_Clientes_Nuevos = ```
+			
+			VAR Clientes_Nuevos = 
+			    FILTER (
+			        VALUES ( 'Clientes'[nomCom] ),
+			        ISBLANK( [Ventas Netas LY] ) && [DtoAlbAplicado Final] > 0
+			    )
+			RETURN 
+			    SUMX ( Clientes_Nuevos, [DtoAlbAplicado Final] )
+			
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 92a8f1d8-3160-4649-a16c-d8ebf604b7a6
+
+	measure Suma_Clientes_Perdidos = ```
+			
+			VAR Clientes_Nuevos = 
+			    FILTER (
+			        VALUES ( 'Clientes'[nomCom] ),
+			        ISBLANK( [DtoAlbAplicado Final] ) && [Ventas Netas LY] > 0
+			    )
+			RETURN 
+			    SUMX ( Clientes_Nuevos, [Ventas Netas LY] )
+			
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 42541ccc-0dc4-429a-a99e-fee7e8e0b544
+
+	measure 'Clientes en Caída' = ```
+			
+			CALCULATE (
+			    COUNTROWS (
+			        FILTER (
+			            VALUES ( Clientes[idCliente] ),
+			            [Dif. AA Importe] < 0
+			        )
+			    ),
+			    NOT ISBLANK ( Clientes[nomCom] ),
+			    TRIM ( Clientes[nomCom] ) <> "",
+			    
+			    NOT CONTAINSSTRING ( Clientes[nomCom], "(NO)" ),
+			    NOT CONTAINSSTRING ( Clientes[nomCom], "(N)" ),
+			    NOT CONTAINSSTRING ( Clientes[nomCom], "(NO )" ),
+			    NOT CONTAINSSTRING ( Clientes[nomCom], "( NO)" ),
+			    NOT CONTAINSSTRING ( Clientes[nomCom], "( N )" )
+			)
+			```
+		formatString: 0
+		lineageTag: 836dd747-061e-4374-8d14-3cbf0c8e9d53
+
+	measure 'Clientes en Positivo' = [Clientes Activos] - [Clientes en Caída]
+		formatString: 0
+		lineageTag: 3978692f-7de0-4bdd-858d-d2ae05e85d3d
+
+	measure 'Clientes en Caída AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Clientes en Caída],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Clientes en Caída],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: f84f4f69-4dbe-420e-8ccb-50807e379d4e
+
+	measure 'Clientes en Positivo AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Clientes en Positivo],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Clientes en Positivo],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 6085131b-de05-4b19-83b0-8a8fc97626ea
+
+	measure 'Debug tMonDto' =
+			
+			CALCULATE(
+			    MAX(Facturas[tMonDto]),
+			    Facturas[idFactura] = 351087,
+			    Facturas[idSFac] = "V"
+			)
+		lineageTag: 8a018357-b3ae-4694-9581-4a3faf37b4a9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Existe Retribucion' =
+			
+			0
+		formatString: 0
+		lineageTag: bae0f0a0-8c18-416b-9b30-2cd6ae34673b
+
+	column Dummy
+		isHidden
+		lineageTag: 414c8027-4f1f-408f-bd51-13abdbbd1904
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Métricas = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = d5c87cdb3b934880898bb5ee32ce701c
+

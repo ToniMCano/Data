@@ -1,0 +1,82 @@
+table SegmentoProductos
+	lineageTag: f7bff242-346f-4d92-ba80-91dab9a781d6
+
+	column referencia
+		lineageTag: 74f88d27-7e8d-4c83-9c8a-820bfa452328
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [referencia]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SegmentoProductos = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    UNION(
+				        -- referencias de proveedores
+				        SELECTCOLUMNS(
+				            FILTER(
+				                ALL(Productos),
+				                Productos[idprov] IN {816, 943,908,1212}
+				            ),
+				            "referencia", Productos[referencia]
+				        ),
+				
+				        -- referencias adicionales (una por fila)
+				        DATATABLE(
+				            "referencia", STRING,
+				            {
+				                {"BR38147"},
+				                {"CC1E"},
+				                {"600H"},
+				                {"B001"},
+				                {"90MAR2"},
+				                {"90MB32"},
+				                {"LOTE201"},
+				                {"1IBE900"},
+				                {"1IBE901"},
+				                {"1IBE904"},
+				                {"3028234"},
+				                {"5830"},
+				                {"5T10"},
+				                {"5T15"},
+				                {"5T5"},
+				                {"5TB1"},
+				                {"5TB16"},
+				                {"5TB6"},
+				                {"5TB7"},
+				                {"VIE81"},
+				                {"BR0004"},
+				                {"BR0009"},
+				                {"PTP1"},
+				                {"PTP5"},
+				                {"PTP10"},
+				                {"PTP15"},
+				                {"PG60"},
+				                {"PG65"},
+				                {"PG61"},
+				                {"PG66"},
+				                {"PG61"},
+				                {"PG61"},
+				                {"PG70"},
+				                {"PG71"},
+				                {"PG1065"},
+				                {"PG76"},
+				                {"90PR1"},
+				                {"90PR21"},
+				                {"90PR25"},
+				                {"90PR50"},
+				                {"90MAR2"},
+				                {"90MAR3"},
+				                {"90MAR30"},
+				                {"90MAR6"},
+				                {"90RIB1"}
+				            }
+				        )
+				    )
+				)
+
+	annotation PBI_Id = 1c99a52d8d514c2bae051b72993828b1
+

@@ -1,0 +1,130 @@
+table LineasComisionesDadasCobros
+	lineageTag: c7bee14f-f83a-4673-9088-ecea66e1a618
+
+	column idComision
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d5762b5-87ed-40a0-a96a-fd0593913abd
+		summarizeBy: none
+		sourceColumn: idComision
+
+		annotation SummarizationSetBy = Automatic
+
+	column idRetribucion
+		dataType: int64
+		formatString: 0
+		lineageTag: 97e0477b-6c2e-4e87-8b8b-9ad019db0397
+		summarizeBy: none
+		sourceColumn: idRetribucion
+
+		annotation SummarizationSetBy = Automatic
+
+	column idEmpleado
+		dataType: int64
+		formatString: 0
+		lineageTag: 49ce1a14-dbb7-474b-80de-54dec9ee2278
+		summarizeBy: none
+		sourceColumn: idEmpleado
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSFac
+		dataType: string
+		lineageTag: fa98f5d8-eabe-43a9-9d07-484b7752f683
+		summarizeBy: none
+		sourceColumn: idSFac
+
+		annotation SummarizationSetBy = Automatic
+
+	column idFac
+		dataType: int64
+		formatString: 0
+		lineageTag: da3d14d2-d482-484f-8f3a-ab40595649bd
+		summarizeBy: sum
+		sourceColumn: idFac
+
+		annotation SummarizationSetBy = Automatic
+
+	column fechaFac
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 924eeae6-b962-47f3-ae4a-ae3f79c0cd21
+		summarizeBy: none
+		sourceColumn: fechaFac
+
+		variation Variación
+			isDefault
+			relationship: 9d57b97f-6f3e-4d8f-b0ee-b4672a702157
+			defaultHierarchy: LocalDateTable_56de9cfa-4d70-444a-9bb2-b088aa7a612b.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column numRec
+		dataType: int64
+		formatString: 0
+		lineageTag: 6384adcb-a315-44c7-ae6f-9d4a65981f8f
+		summarizeBy: sum
+		sourceColumn: numRec
+
+		annotation SummarizationSetBy = Automatic
+
+	column idDivisa
+		dataType: int64
+		formatString: 0
+		lineageTag: b7ffe822-7874-4e9a-9d8b-ded6283b4be8
+		summarizeBy: sum
+		sourceColumn: idDivisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column totalFac
+		dataType: double
+		lineageTag: 222bc93b-3197-4303-b670-be0096b0bba0
+		summarizeBy: sum
+		sourceColumn: totalFac
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalRec
+		dataType: double
+		lineageTag: f287f993-408d-4ee6-a3ce-02ae2ea81949
+		summarizeBy: sum
+		sourceColumn: totalRec
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fechaComision
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 47896ea9-08b1-4197-b284-c95b9c9dac2a
+		summarizeBy: none
+		sourceColumn: fechaComision
+
+		annotation SummarizationSetBy = Automatic
+
+	column FacturaKey
+		dataType: string
+		lineageTag: 9b4168f8-106a-4fb1-ae8d-3c87537f717f
+		summarizeBy: none
+		sourceColumn: FacturaKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition LineasComisionesDadasCobros = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    LCC.*,#(lf)    CD.fecha AS fechaComision,#(lf)    CONCAT(LCC.idSFac, '-', LCC.idFac) AS FacturaKey#(lf)FROM lineasComisionesDadasCobros LCC#(lf)LEFT JOIN comisionesDadas CD#(lf)    ON LCC.idComision = CD.idComision;"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,1242 @@
+table MétricasVentasAA
+	lineageTag: d55ea3bd-8ea5-408f-8912-540ef3bcb31a
+
+	measure 'Cajas LY Dinámico' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Cajas],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Cajas],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		lineageTag: 85a5c9d0-2364-412e-8fab-b0e3c9e83e8d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Netas LY' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Ventas Netas ERP],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Ventas Netas ERP],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: fe38dc4d-fa56-4839-a01c-16486f5ed36a
+
+	measure 'Unidades LY Dinámico' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE('Modo Comparación'[Modo], "No")
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(FechaMaxSeleccionada, TODAY())
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR FechaInicioAACompleto =
+			    DATE(YEAR(FechaMinSeleccionada) - 1, 1, 1)
+			
+			VAR FechaFinAACompleto =
+			    DATE(YEAR(FechaMinSeleccionada) - 1, 12, 31)
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Unidadesd],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Unidadesd],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAACompleto,
+			                FechaFinAACompleto
+			            )
+			        )
+			)
+		lineageTag: 652cffa4-93fb-4f7f-b30e-af228a09a113
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Kilos LY Dinámico' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Kilos],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Kilos],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		lineageTag: 62fa098d-7dd8-4ffc-ab0b-796a0fc00331
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Nº Albaranes LY Dinámico' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Albaranes],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Albaranes],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 55d7b841-89f2-4a91-b2f8-100efb7435f2
+
+	measure 'Nº Albaranes V LY Dinámico' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [V],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [V],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: bddc9f1d-7ecc-45e9-846f-9bab377005a4
+
+	measure 'Nº Albaranes AB LY Dinámico' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [AB],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [AB],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 86d7f47f-ae3a-4f4c-a66e-5357fa3e11ca
+
+	measure 'Nº Albaranes MU LY Dinámico' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [MU],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [MU],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 37ab1b69-91d8-459e-9e24-75d5cbd20b8e
+
+	measure 'Media Albarán AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Media Albarán],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Media Albarán],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		lineageTag: c37ce407-4d30-4132-8639-3258a0f2e148
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dif. Media Albarán VS AA' =
+			
+			[Media Albarán] - [Media Albarán AA]
+		lineageTag: c2dee6de-7d93-4d58-aaad-26c0392dcda8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AB - AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [AB],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [AB],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 4307459a-30ac-4ae8-8006-67b5b4e9def8
+
+	measure 'V - AA' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [V],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [V],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 02bef010-08b1-42c6-8ec5-14ef82ad79d5
+
+	measure 'IN - AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [IN],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [IN],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: fc631438-d605-44d1-bc25-1e185156b8df
+
+	measure 'MU - AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [MU],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [MU],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: f1a6b942-a505-4370-bfcd-d64ad44e5341
+
+	measure '% Margen AA' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [% Margen],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [% Margen],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 124d19c5-6e72-4f33-8678-647af8577c30
+
+	measure 'Beneficio Bruto AA' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Beneficio Bruto],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Beneficio Bruto],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: f00cbae4-fd8f-4309-9a53-322835490aeb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Brutas AA (Sin Dto)' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Ventas Brutas (Sin Dtos)],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Ventas Brutas (Sin Dtos)],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: 403ee50a-cf8f-483f-8a4a-fac7ecd3fa59
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Descuentos AA' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Total Descuentos],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Total Descuentos],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: 86ed4923-2c59-4c6e-a8aa-18e2c5983de1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Medida 2'
+		lineageTag: 5c80d5eb-bec4-43b9-a899-c80270b5f73e
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Dto. Factura AA' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Dto Factura Único],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Dto Factura Único],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: da3cdb8a-6e81-4a57-9194-5622afb373f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dto. Albarán AA (Importe)' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Dto. Albarán (Importe)],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Dto. Albarán (Importe)],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: 680e8136-1c5b-4bb8-842c-4fca1e016022
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '--Coste Total AA' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Ventas Netas ERP],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Ventas Netas ERP],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: 847bc580-1ed1-443b-b807-eb083c370808
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Coste AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [Total Coste],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [Total Coste],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: d4641be9-35b4-4b2c-bd89-b590759d78cc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas con Dto. Albarán LY' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [DtoAlbAplicado Final],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [DtoAlbAplicado Final],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: c3a8911a-5981-482c-99a0-9b728635a913
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Dummy
+		isHidden
+		lineageTag: f3a69bab-9f51-4484-ad2a-190784220071
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MétricasVentasAA = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = bb76163f2a4c4355a6723433a347e63f
+

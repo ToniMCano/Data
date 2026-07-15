@@ -1,0 +1,138 @@
+table 'Métricas Visuales'
+	lineageTag: 22358215-c381-42fc-b71e-62fa733b3b19
+
+	measure 'Color MA/C' =
+			
+			VAR ValorActual = [MA/C]
+			VAR ValorEmpresa = [MA/C Empresa Grupo]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(ValorActual) || ISBLANK(ValorEmpresa), "#808080",
+			    ValorActual < ValorEmpresa * 0.8, "#C0392B",
+			    ValorActual < ValorEmpresa, "#BA7517",
+			    ValorActual >= ValorEmpresa, "#1D9E75"
+			)
+		lineageTag: 6bda06af-c6b4-4122-bfb0-ebe5de446895
+
+	measure 'Color Media Albarán' =
+			
+			VAR ValorActual = [Media Albarán]
+			VAR ValorEmpresa = [Media Albarán Empresa Grupo]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(ValorActual) || ISBLANK(ValorEmpresa), "#808080",
+			    ValorActual < ValorEmpresa * 0.8, "#C0392B",
+			    ValorActual < ValorEmpresa, "#BA7517",
+			    ValorActual >= ValorEmpresa, "#1D9E75"
+			)
+		lineageTag: 242064d1-598f-48e0-a61b-05425fda888e
+
+	measure 'Color Media Clientes Activos' =
+			
+			VAR ValorActual = [Clientes Activos]
+			VAR ValorEmpresa = [Media Clientes Activos por Comercial Grupo]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(ValorActual) || ISBLANK(ValorEmpresa), "#808080",
+			    ValorActual < ValorEmpresa * 0.8, "#C0392B",
+			    ValorActual < ValorEmpresa, "#BA7517"
+			
+			)
+		lineageTag: a632cd44-2ed6-4616-8759-046b01874a30
+
+	measure 'Color Referencias Distintas Comercial' =
+			
+			VAR ValorActual = [Referencias Distintas]
+			VAR ValorEmpresa = [Media Referencias Distintas por Comercial Grupo]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(ValorActual) || ISBLANK(ValorEmpresa), "#808080",
+			    ValorActual < ValorEmpresa * 0.8, "#C0392B",
+			    ValorActual < ValorEmpresa, "#BA7517"
+			)
+		lineageTag: 4971adb7-ec14-462c-bf11-226b7fe3126e
+
+	measure 'Color Media Referencias' =
+			
+			VAR Refs = [Referencias Distintas]
+			VAR RefsAA = [Referencias Distintas AA]
+			VAR MediaGrupo = [Media Refs Cliente Grupo Activos]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ISBLANK(Refs) || ISBLANK(RefsAA) || ISBLANK(MediaGrupo),
+			        "#000000",
+			
+			    Refs < RefsAA
+			        && Refs < MediaGrupo,
+			        "#D64550",      -- Rojo
+			
+			    Refs > RefsAA
+			        && Refs < MediaGrupo,
+			        "#B87333",      -- Cobre
+			
+			    Refs > RefsAA
+			        && Refs >= MediaGrupo * 0.8,
+			        "#2E8B57",      -- Verde
+			
+			    "#000000"           -- Negro
+			)
+		lineageTag: 101d9a60-aabd-4827-a36a-777a00f84c07
+
+	measure '*Filtro Ventas y Ventas AA con dato' =
+			
+			VAR VentasActual =
+			    [Ventas Netas ERP]
+			VAR VentasAA =
+			    [Ventas Netas LY]
+			RETURN
+			IF(
+			     ISBLANK(VentasActual)
+			        &&  ISBLANK(VentasAA),
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 7764bbcf-f862-49ff-aa24-82e0f94d633e
+
+	measure 'Color Estado Venta' =
+			
+			
+			VAR Indicador = [Indicador Compra]
+			VAR Frecuencia = [Frecuencia Compra Días]
+			
+			RETURN
+			 SWITCH(
+			        TRUE(),
+			        Indicador < Frecuencia, "#1D9E75",
+			        Indicador > Frecuencia, "#C0392B ",
+			        "black"
+			    )
+		lineageTag: 5cdcf112-6faf-4e96-a379-ec69bd171f9e
+
+	column Dummy
+		isHidden
+		lineageTag: f7d8b97a-f919-4a2c-966d-e7f048600936
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Métricas Visuales' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = 1080b526e9fe46d3aa9580bf86a4111c
+

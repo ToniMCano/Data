@@ -1,0 +1,2612 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "2%",
+  "name": "46194f988a289bd5111a",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "128bc3a4081826d23597",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "3228bd23f1e429be7d9e",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DimGrupoComerciales"
+                }
+              },
+              "Property": "idEmpleado"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "128bc3a4081826d23597": {
+        "filters": {
+          "byName": {
+            "978132208276a87dbc31": {
+              "name": "978132208276a87dbc31",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Clientes"
+                    }
+                  },
+                  "Property": "idEmpleado"
+                }
+              },
+              "howCreated": 1
+            },
+            "b42abf7eeb766fe66da9": {
+              "name": "b42abf7eeb766fe66da9",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SegmentoProductos"
+                    }
+                  },
+                  "Property": "referencia"
+                }
+              },
+              "howCreated": 1
+            },
+            "48b4701cff3b30e65248": {
+              "name": "48b4701cff3b30e65248",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "descrip"
+                }
+              },
+              "howCreated": 1
+            }
+          },
+          "byExpr": [
+            {
+              "name": "dc032b7141f0588b1ef6",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactVentas"
+                    }
+                  },
+                  "Property": "idAlb"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "8c29e9c1c453369086dc",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "idSeccion"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "624a7b9ed8e218bdc93c",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "descrip"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "a2fd9c62408e2ab9184d",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "Encargo"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "a2f69fa466bc2002d423",
+              "type": "RelativeDate",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "fechaAlb"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "f455c4d7e1ccd03e3297",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "Futuros"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "90355aa8900240e14d1b",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "AlbaranKey"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "bd13bbba25879bc74142",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "AlbaranKey"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "81903bb6030070ba9440",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "Futuros"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "a015a5484fa338524dbe",
+              "type": "Advanced",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "l",
+                    "Entity": "LineasComisionesDadas",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "l"
+                              }
+                            },
+                            "Property": "porComi"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "2L"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LineasComisionesDadas"
+                    }
+                  },
+                  "Property": "porComi"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "8075906116cdab50968b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9f32e4ac8327944cb7a9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FactVentas"
+                            }
+                          },
+                          "Property": "fechaAlb"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "059e0b955af872da49e4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Dia"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "ChicletSlicer1448559807354",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactVentas"
+                        }
+                      },
+                      "Property": "fechaAlb"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "3178ca4576c2d5e0c63c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4afe92adadc32935a84a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "ChicletSlicer1448559807354",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "c",
+                                "Entity": "Calendario",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "c"
+                                            }
+                                          },
+                                          "Property": "Año"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "2026L"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Calendario"
+                              }
+                            },
+                            "Property": "Año"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "2026L"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "2026"
+                }
+              ]
+            }
+          },
+          "b34906e51810e7634aa3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cb56c254a244b7241142",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Mes Numero"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "ChicletSlicer1448559807354",
+              "objects": {},
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Calendario"
+                              }
+                            },
+                            "Property": "Mes Numero"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "7L"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "7"
+                }
+              ]
+            }
+          },
+          "a186b737ac7a0d837849": {
+            "filters": {
+              "byName": {
+                "1f3ecaed95c1cf69938c": {
+                  "name": "1f3ecaed95c1cf69938c",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "e",
+                        "Entity": "Empleado",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "e"
+                                    }
+                                  },
+                                  "Property": "nombre"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'18- ETHAN'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'20-MARINA'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'21-VICENTE J.'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'22 JOSE ENRIQUE'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'23 - J. LUIS'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'27- ENRIQUE'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'29-ROBERTO'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'30-DANI'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'31-JOSE CARLOS'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'32 MATIAS  R.'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'33- MARC'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'36-DANIEL'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'37-BEGOÑA'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'44 - AURELIO'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'45-SERGIO'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'48-SALVA'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'691-NURIA'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'699-IRENE'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'83-CRISTIAN'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'85- MANOLO'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'87- SALVADOR'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'92 - MANUEL'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'93- ALVARO'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'95-FRAN'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'96- DAVID'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Empleado"
+                        }
+                      },
+                      "Property": "nombre"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              }
+            },
+            "singleVisual": {
+              "visualType": "ChicletSlicer1448559807354",
+              "objects": {},
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Empleado"
+                              }
+                            },
+                            "Property": "nombre"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'32 MATIAS  R.'"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "32 MATIAS  R."
+                }
+              ]
+            }
+          },
+          "fc1784e243cad3a0cab4": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "496eae18e91e73d08565": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "597f539c70b0e8aab69b": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "6ba05f286345d00940c9": {
+            "filters": {
+              "byName": {
+                "4dea6ca412c8058c1ae6": {
+                  "name": "4dea6ca412c8058c1ae6",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "MétricasVentasAA",
+                        "Type": 0
+                      },
+                      {
+                        "Name": "m1",
+                        "Entity": "MétricasDiferenciaAA",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m1"
+                                      }
+                                    },
+                                    "Property": "Dif. AA Importe"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasDiferenciaAA"
+                        }
+                      },
+                      "Property": "Dif. AA Importe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "71224a6a8da8214044df": {
+                  "name": "71224a6a8da8214044df",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Clientes"
+                        }
+                      },
+                      "Property": "nomCom"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "7a11676d61f80c67896c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimComision"
+                        }
+                      },
+                      "Property": "idComision"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c02bded1875fd2992f7e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadasCobros"
+                        }
+                      },
+                      "Property": "fechaFac"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4d048d8a57b390ef5bfc",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadasCobros"
+                            }
+                          },
+                          "Property": "numRec"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ca1dc56720ee64e84971",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadasCobros"
+                            }
+                          },
+                          "Property": "totalFac"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "afb82250d594fd1ef5b6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadasCobros"
+                            }
+                          },
+                          "Property": "totalRec"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8ab1e8a1110a28884527",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadasCobros"
+                        }
+                      },
+                      "Property": "fechaComision"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "253cd502a7ae33002253",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Facturas"
+                        }
+                      },
+                      "Property": "idCliente"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fdde0e5883a945e984a0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Facturas"
+                        }
+                      },
+                      "Property": "Nombre Cliente Factura"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d22e4339344a12e5c917",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Facturas"
+                        }
+                      },
+                      "Property": "FacturaKey"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "1ef6a278056489b723c4": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2358334014e1e0a0434b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5bfeb06fcba5600e3057": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c6d99867559e2c601700": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f80bf84700553275a142": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8ae6f614d284833145ef": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "517ec381eb9c5b65771c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "baff2fdf8e3b4d524493",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Empleado"
+                        }
+                      },
+                      "Property": "nombre"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "77eb9411971a105467f1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "ComisionesDadas"
+                            }
+                          },
+                          "Property": "idComision"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "028108b6a1a35c6737cc",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "ComisionesDadas"
+                            }
+                          },
+                          "Property": "desde"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c7f4d6e0ae3217dbf57b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "ComisionesDadas"
+                            }
+                          },
+                          "Property": "hasta"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bb2412d25ad4f12e90c4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  }
+                },
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Empleado"
+                        }
+                      },
+                      "Property": "nombre"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Empleado"
+                        }
+                      },
+                      "Property": "nombre"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Calendario.Date"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Calendario"
+                              }
+                            },
+                            "Property": "Date"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Empleado.nombre"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": [],
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "datetime'2026-01-08T00:00:00'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "e7a65bc2912b8004069b": {
+            "filters": {
+              "byName": {
+                "4dea6ca412c8058c1ae6": {
+                  "name": "4dea6ca412c8058c1ae6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasDiferenciaAA"
+                        }
+                      },
+                      "Property": "Dif. AA Importe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "71224a6a8da8214044df": {
+                  "name": "71224a6a8da8214044df",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Clientes"
+                        }
+                      },
+                      "Property": "nomCom"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "4c4daf351074293dd31b": {
+                  "name": "4c4daf351074293dd31b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FactVentas"
+                            }
+                          },
+                          "Property": "cantKg"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "4c7c70f2196e997bda97": {
+                  "name": "4c7c70f2196e997bda97",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FactVentas"
+                            }
+                          },
+                          "Property": "total"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "4661c4cff227c1f95b22": {
+                  "name": "4661c4cff227c1f95b22",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "Cajas"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "08eadb05f9acbeaa5294": {
+                  "name": "08eadb05f9acbeaa5294",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "Unidades"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "4baec49fc7f50ac27c59": {
+                  "name": "4baec49fc7f50ac27c59",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Clientes"
+                            }
+                          },
+                          "Property": "idCliente"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "7718ec16044b13c445e6": {
+                  "name": "7718ec16044b13c445e6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "DtoAlbAplicado Final"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "ac3af307dd84028997ae": {
+                  "name": "ac3af307dd84028997ae",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentasAA"
+                        }
+                      },
+                      "Property": "Ventas Netas LY"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "6509b36336210e466911": {
+                  "name": "6509b36336210e466911",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasDiferenciaAA"
+                        }
+                      },
+                      "Property": "Unidades %"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "2083b6ba74fb969e95f2": {
+                  "name": "2083b6ba74fb969e95f2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentasAA"
+                        }
+                      },
+                      "Property": "Unidades LY Dinámico"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "1641852e730047f5ffeb": {
+                  "name": "1641852e730047f5ffeb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasDiferenciaAA"
+                        }
+                      },
+                      "Property": "YoY Netas %"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "46859a580b212b1bc9ae",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasDiferenciaAA"
+                        }
+                      },
+                      "Property": "Dif. AA Importe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "25fce51f8e6914670ef3",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "MétricasVentasAA",
+                        "Type": 0
+                      },
+                      {
+                        "Name": "m1",
+                        "Entity": "MétricasDiferenciaAA",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m1"
+                                      }
+                                    },
+                                    "Property": "Dif. AA Importe"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasDiferenciaAA"
+                        }
+                      },
+                      "Property": "Dif. AA Importe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "ad10faec7a03cd0dabad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimComision"
+                        }
+                      },
+                      "Property": "idComision"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "249cd1711180d1f80f92",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadas"
+                        }
+                      },
+                      "Property": "porComi"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "61eda1eda79e56ab4bd8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "fechaFac"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7e1e6f30d1ffef71db64",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalFac"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e41cb67927ea5d48d4c3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "idRetribucion"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "99f3b8cee0c74ce4038b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "porComi"
+                        }
+                      },
+                      "Function": 1
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "46f0a5bde66422944486",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "be48a64bcf7e59ade18e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "Descripcion Retribucion"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "aa52d629434c682931fd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Facturas"
+                        }
+                      },
+                      "Property": "FacturaKey"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimComision"
+                        }
+                      },
+                      "Property": "idComision"
+                    }
+                  }
+                },
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadas"
+                        }
+                      },
+                      "Property": "porComi"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimComision"
+                        }
+                      },
+                      "Property": "idComision"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadas"
+                        }
+                      },
+                      "Property": "porComi"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Facturas"
+                        }
+                      },
+                      "Property": "FacturaKey"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DimComision.idComision"
+                      ],
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DimComision"
+                              }
+                            },
+                            "Property": "idComision"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "LineasComisionesDadas.porComi"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "LineasComisionesDadas"
+                              }
+                            },
+                            "Property": "porComi"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Facturas.FacturaKey"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": [],
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "2761L"
+                            }
+                          }
+                        ],
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "2D"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          }
+                        ]
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "2777L"
+                            }
+                          }
+                        ],
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "1D"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          }
+                        ]
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "2780L"
+                            }
+                          }
+                        ],
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "1D"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "2037bf389a00a36e7be5": {
+            "filters": {
+              "byName": {
+                "0c5c4152e21e9eeeea21": {
+                  "name": "0c5c4152e21e9eeeea21",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "Unidades"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              }
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "20f5cef9418ab02ba2c2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0eb838f4d9fd0122b72d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Facturas"
+                            }
+                          },
+                          "Property": "Nombre Cliente Factura"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "2abf5d75edc737411a07": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "9f8b76d5a17a4c350bce": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c153656d3d9dba0b3406": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "efc0b19bd802d9293953": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "3ec99f77b1372313192c": {
+            "filters": {
+              "byName": {
+                "0c5c4152e21e9eeeea21": {
+                  "name": "0c5c4152e21e9eeeea21",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "Unidades"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "24cc700e46452a75581d": {
+                  "name": "24cc700e46452a75581d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FactVentas"
+                            }
+                          },
+                          "Property": "idCliente"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "3492070265af7b56abd7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "10c0c8b83647dbfb7c20": {
+            "filters": {
+              "byName": {
+                "0c5c4152e21e9eeeea21": {
+                  "name": "0c5c4152e21e9eeeea21",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "Unidades"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "24cc700e46452a75581d": {
+                  "name": "24cc700e46452a75581d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FactVentas"
+                            }
+                          },
+                          "Property": "idCliente"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "6f2846de999fbc17336f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "282f7ffee67403aba3b1",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LineasComisionesDadas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "l"
+                                  }
+                                },
+                                "Property": "porComi"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "3L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadas"
+                        }
+                      },
+                      "Property": "porComi"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "0850baf9dfe24287df12": {
+            "filters": {
+              "byName": {
+                "0c5c4152e21e9eeeea21": {
+                  "name": "0c5c4152e21e9eeeea21",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "Unidades"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "24cc700e46452a75581d": {
+                  "name": "24cc700e46452a75581d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FactVentas"
+                            }
+                          },
+                          "Property": "idCliente"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "4461f68cfe3a0300cfaf",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6c7ec24f24f383960f58",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LineasComisionesDadas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "l"
+                                  }
+                                },
+                                "Property": "porComi"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0.5D"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadas"
+                        }
+                      },
+                      "Property": "porComi"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "e155783526d3a9cc0e98": {
+            "filters": {
+              "byName": {
+                "0c5c4152e21e9eeeea21": {
+                  "name": "0c5c4152e21e9eeeea21",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "Unidades"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "24cc700e46452a75581d": {
+                  "name": "24cc700e46452a75581d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FactVentas"
+                            }
+                          },
+                          "Property": "idCliente"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "8f765832e833ec44572b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "725e0abbfc8c321e261b",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LineasComisionesDadas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "l"
+                                  }
+                                },
+                                "Property": "porComi"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "1L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadas"
+                        }
+                      },
+                      "Property": "porComi"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "ee0120173c22cbde2464": {
+            "filters": {
+              "byName": {
+                "0c5c4152e21e9eeeea21": {
+                  "name": "0c5c4152e21e9eeeea21",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MétricasVentas"
+                        }
+                      },
+                      "Property": "Unidades"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "24cc700e46452a75581d": {
+                  "name": "24cc700e46452a75581d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FactVentas"
+                            }
+                          },
+                          "Property": "idCliente"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "76c36ae528e11f66bfd5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7f09aed2135525dce149",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LineasComisionesDadas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "l"
+                                  }
+                                },
+                                "Property": "porComi"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "2L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasComisionesDadas"
+                        }
+                      },
+                      "Property": "porComi"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "LineasComisionesDadas"
+                            }
+                          },
+                          "Property": "totalComi"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

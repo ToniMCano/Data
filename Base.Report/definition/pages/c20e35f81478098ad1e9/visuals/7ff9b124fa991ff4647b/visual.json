@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "7ff9b124fa991ff4647b",
+  "position": {
+    "x": 16,
+    "y": 2699.1288402000482,
+    "z": 18000,
+    "height": 370,
+    "width": 1248,
+    "tabOrder": 21000
+  },
+  "visualGroup": {
+    "displayName": "Proveedores/Zonas",
+    "groupMode": "ScaleMode"
+  }
+}

@@ -1,0 +1,385 @@
+table Stock
+	lineageTag: 3ca23a44-7c8b-4016-bebe-f7f64199d904
+
+	column referencia
+		dataType: string
+		lineageTag: 33a45636-cda1-4e99-9bd8-5ed37ab26e1a
+		summarizeBy: none
+		sourceColumn: referencia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column descrip
+		dataType: string
+		lineageTag: a7246aee-bcd8-452a-b124-4335fbc3875d
+		summarizeBy: none
+		sourceColumn: descrip
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idprov
+		dataType: int64
+		formatString: 0
+		lineageTag: 12d4c9d8-db87-4bed-b60a-59e42b03c0c0
+		summarizeBy: sum
+		sourceColumn: idprov
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomCom
+		dataType: string
+		lineageTag: 3a13d58f-c376-49d5-936f-b9889e69b390
+		summarizeBy: none
+		sourceColumn: nomCom
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column razSoc
+		dataType: string
+		lineageTag: 052ffb7b-6823-460c-a372-c6358b2e7ca5
+		summarizeBy: none
+		sourceColumn: razSoc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idFamilia
+		dataType: int64
+		formatString: 0
+		lineageTag: c9724bbd-4e56-4a00-9602-3fa063afabd6
+		summarizeBy: sum
+		sourceColumn: idFamilia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Familia
+		dataType: string
+		lineageTag: 271215e0-406b-4e2d-a466-bccd8ee4508a
+		summarizeBy: none
+		sourceColumn: Familia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSubFam
+		dataType: int64
+		formatString: 0
+		lineageTag: 36f5e6d0-3c31-4478-aa5e-f43ccb97756c
+		summarizeBy: sum
+		sourceColumn: idSubFam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubFamilia
+		dataType: string
+		lineageTag: 3fb70971-5bae-4c66-8516-f2f66b9b147c
+		summarizeBy: none
+		sourceColumn: SubFamilia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idMarca
+		dataType: int64
+		formatString: 0
+		lineageTag: 4990ee98-3e07-486b-afb9-16102c3e9459
+		summarizeBy: sum
+		sourceColumn: idMarca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 9b2f289d-9126-40a4-bbcb-16077ce972a4
+		summarizeBy: none
+		sourceColumn: Marca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column formato
+		dataType: string
+		lineageTag: 0ff2ddaa-b623-4b17-a52c-4e5d926b38c0
+		summarizeBy: none
+		sourceColumn: formato
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacenes
+		dataType: string
+		lineageTag: 8639e4d6-d4c1-48e6-81f1-32d9b4b5098b
+		summarizeBy: none
+		sourceColumn: Almacenes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockUds
+		dataType: double
+		lineageTag: 11340195-c519-49cb-9e7b-642a528deef7
+		summarizeBy: sum
+		sourceColumn: StockUds
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StockK
+		dataType: double
+		lineageTag: 6d7bf9f6-c5e9-4072-a651-1addc37c8f97
+		summarizeBy: sum
+		sourceColumn: StockK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StockC
+		dataType: double
+		lineageTag: e4c06f79-6f1a-40be-9f0f-1f025b7683db
+		summarizeBy: sum
+		sourceColumn: StockC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PrecioCompraConfigurado
+		dataType: double
+		lineageTag: 453b87ab-9984-4eea-b776-8a7b58d75984
+		summarizeBy: sum
+		sourceColumn: PrecioCompraConfigurado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PrecioVentaConfigurado
+		dataType: double
+		lineageTag: bf4741a3-7601-4572-9d4b-b79b09a5e834
+		summarizeBy: sum
+		sourceColumn: PrecioVentaConfigurado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PrecioCoste
+		dataType: double
+		lineageTag: 4d6f38a2-99aa-4b0a-b37b-82ffc93a14a4
+		summarizeBy: sum
+		sourceColumn: PrecioCoste
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UltimoCoste
+		dataType: double
+		lineageTag: bdb2cb83-bc3f-432d-9d44-6ae03bdab23e
+		summarizeBy: sum
+		sourceColumn: UltimoCoste
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dto
+		dataType: double
+		lineageTag: 8e5cb31f-5698-43d7-a18b-9340c3e3cd83
+		summarizeBy: sum
+		sourceColumn: dto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dtoPor2
+		dataType: double
+		lineageTag: 6a1d1969-9a36-422e-a117-65a3ab7f3dc0
+		summarizeBy: sum
+		sourceColumn: dtoPor2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dtoMoneda
+		dataType: double
+		lineageTag: d5db076c-f0b9-4ffb-8cee-ff4e581089ed
+		summarizeBy: sum
+		sourceColumn: dtoMoneda
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FechaUltimaCompra
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 28e12efb-f08e-4f7f-8fe4-f754adf99c77
+		summarizeBy: none
+		sourceColumn: FechaUltimaCompra
+
+		variation Variación
+			isDefault
+			relationship: 833c9906-4bfb-4e6d-a8bd-9e889a3342e4
+			defaultHierarchy: LocalDateTable_637b4a26-e564-49e5-b639-095b50805301.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idAlb
+		dataType: int64
+		formatString: 0
+		lineageTag: e4c2c52e-0a18-4193-90a3-4de64ab68087
+		summarizeBy: sum
+		sourceColumn: idAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSAlb
+		dataType: string
+		lineageTag: 51086e2b-f594-4af5-95f9-573b86329d36
+		summarizeBy: none
+		sourceColumn: idSAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inmovilizado
+		dataType: double
+		lineageTag: dc36baff-b11b-4a28-b81e-fc6b965c27d4
+		summarizeBy: sum
+		sourceColumn: Inmovilizado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nota
+		dataType: string
+		lineageTag: 7bea912d-ad2b-450f-80d9-8fa566d0a1ac
+		summarizeBy: none
+		sourceColumn: nota
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column referencia2
+		dataType: string
+		lineageTag: 71de9aa5-3f75-4f0e-a1ca-20dd9e93be88
+		summarizeBy: none
+		sourceColumn: referencia2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Repeticiones
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fb3e8a7-44f4-47f7-91ed-084e01589701
+		summarizeBy: sum
+		sourceColumn: Repeticiones
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnidadesVendidas
+		dataType: double
+		lineageTag: b18c6e41-ef5d-4512-9885-b0bbf2ad75b0
+		summarizeBy: sum
+		sourceColumn: UnidadesVendidas
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KilosVendidos
+		dataType: double
+		lineageTag: 1ee55835-1f83-47b7-aa1a-7b8687e5a5a9
+		summarizeBy: sum
+		sourceColumn: KilosVendidos
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ImporteVenta
+		dataType: double
+		lineageTag: d718c5aa-1945-4bff-8cea-661563dd9fb6
+		summarizeBy: sum
+		sourceColumn: ImporteVenta
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Stock = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="WITH UltimaCompra AS (#(lf)    SELECT#(lf)        LAC.referencia,#(lf)        LAC.precio,#(lf)#(tab)#(tab)LAC.dto,#(lf)#(tab)#(tab)LAC.dtoPor2,#(lf)#(tab)#(tab)LAC.dtoMoneda,#(lf)#(tab)#(tab)LAC.pCoste,#(lf)        LAC.modo,#(lf)        AC.fechaAlb,#(lf)        AC.idAlb,#(lf)        AC.idSAlb,#(lf)#(tab)#(tab)AC.nota,#(lf)        ROW_NUMBER() OVER (#(lf)#(tab)#(tab)PARTITION BY LAC.referencia#(lf)#(tab)#(tab)ORDER BY #(lf)#(tab)#(tab)#(tab)AC.fechaAlb DESC,#(lf)#(tab)#(tab)#(tab)AC.idAlb DESC,#(lf)#(tab)#(tab)#(tab)LAC.numLinea DESC#(lf)#(lf)        ) AS rn#(lf)    FROM p_lineaAlbaran LAC#(lf)    INNER JOIN p_albaran AC#(lf)        ON AC.idAlb = LAC.idAlb#(lf)       AND AC.idSAlb = LAC.idSAlb#(lf)    WHERE LAC.pCoste > 0#(lf)      AND LAC.cantidad > 0#(lf)      AND AC.idSAlb = 'V'#(lf)),#(lf)#(lf)Stock AS (#(lf)    SELECT#(lf)        referencia,#(lf)        STRING_AGG(CAST(idAlmacen AS varchar), ',')#(lf)        WITHIN GROUP (ORDER BY idAlmacen) AS Almacenes,#(lf)        SUM(cant)   AS StockUds,#(lf)        SUM(cantKg) AS StockK,#(lf)        SUM(cajas)  AS StockC#(lf)    FROM lineasAlmacen#(lf)    WHERE idAlmacen IN (10,30,60,2000)#(lf)    GROUP BY referencia#(lf)),#(lf)#(lf)Venta AS(#(lf)#(tab)SELECT#(lf)#(tab)    LA.referencia,#(lf)#(tab)    COUNT(DISTINCT LA.idAlb) AS Repeticiones,#(lf)#(tab)    SUM(LA.cantKg) AS KilosVendidos,#(lf)#(lf)#(tab)    SUM(#(lf)#(tab)        CASE#(lf)#(tab)            WHEN LA.modo = 'U' THEN LA.cantidad#(lf)#(tab)            WHEN LA.modo = 'C' THEN LA.cantidad * LA.cUni#(lf)#(tab)            ELSE 0#(lf)#(tab)        END#(lf)#(tab)    ) AS UnidadesVendidas,#(lf)#(tab)#(tab)SUM(LA.total) AS ImporteVenta#(lf)#(tab)#(tab)#(lf)#(tab)FROM lineaAlbaran LA#(lf)#(tab)JOIN albaran A #(lf)#(tab)    ON LA.idAlb = A.idAlb #(lf)#(tab)   AND LA.idSAlb = A.idSAlb#(lf)#(tab)WHERE A.idsAlb IN ('V','AB','MU')#(lf)#(tab)  AND A.fechaAlb >= DATEADD(DAY,-90,CAST(GETDATE() AS DATE))#(lf)#(tab)GROUP BY LA.referencia#(lf))#(lf)#(lf)SELECT#(lf)    P.referencia,#(lf)    P.descrip,#(lf)#(tab)P.idprov,#(lf)#(tab)PV.nomCom,#(lf)#(tab)PV.razSoc,#(lf)    P.idFamilia,#(lf)    F.descrip AS Familia,#(lf)    P.idSubFam,#(lf)    LS.descrip AS SubFamilia,#(lf)    P.idMarca,#(lf)    M.descrip AS Marca,#(lf)    P.formato,#(lf)#(lf)    S.Almacenes,#(lf)    ISNULL(S.StockUds,0) AS StockUds,#(lf)    ISNULL(S.StockK,0) AS StockK,#(lf)    ISNULL(S.StockC,0) AS StockC,#(lf)#(tab)P.precioc AS PrecioCompraConfigurado,#(lf)#(tab)P.preciov AS PrecioVentaConfigurado,#(lf)#(tab)UC.pCoste AS PrecioCoste,#(lf)#(tab)UC.precio AS UltimoCoste,#(lf)#(tab)UC.dto,#(lf)#(tab)UC.dtoPor2,#(lf)#(tab)UC.dtoMoneda,#(lf)    UC.fechaAlb AS FechaUltimaCompra,#(lf)    UC.idAlb,#(lf)    UC.idSAlb,#(lf)    CASE#(lf)        WHEN P.formato = 'C' AND P.referencia NOT IN ('13PUL90', '13PUL92', '13PUL94', '13PUL95') THEN P.precioc * ISNULL(S.StockC,0)#(lf)        WHEN P.formato = 'K' THEN P.precioc * ISNULL(S.StockK,0)#(lf)        WHEN P.formato = 'U' THEN P.precioc * ISNULL(S.StockUds,0)#(lf)#(tab)#(tab) WHEN P.formato = 'C' AND P.referencia IN ('13PUL90', '13PUL92', '13PUL94', '13PUL95') THEN P.precioc * ISNULL(S.StockUds,0)#(lf)        ELSE 0#(lf)    END AS Inmovilizado,#(lf)#(tab)UC.nota,#(lf)#(tab)V.referencia,#(lf)#(tab)V.Repeticiones,#(lf)#(tab)V.UnidadesVendidas,#(lf)#(tab)V.KilosVendidos,#(lf)#(tab)V.ImporteVenta#(lf)FROM producto P#(lf)#(lf)LEFT JOIN Stock S#(lf)    ON S.referencia = P.referencia#(lf)#(lf)LEFT JOIN UltimaCompra UC#(lf)    ON UC.referencia = P.referencia#(lf)    AND UC.rn = 1#(lf)#(lf)LEFT JOIN Familia F#(lf)    ON P.idFamilia = F.idFamilia#(lf)#(lf)LEFT JOIN (#(lf)    SELECT DISTINCT idSubFamilia, descrip#(lf)    FROM lineasSubFamColeccion#(lf)) LS#(lf)#(lf)ON P.idSubFam = LS.idSubFamilia#(lf)#(lf)LEFT JOIN Marcas M#(lf)    ON P.idMarca = M.idMarca#(lf)LEFT JOIN proveedor PV#(lf)    ON P.idprov = PV.idProveedor#(lf)LEFT JOIN Venta V#(lf)    ON P.referencia = V.referencia#(lf)Where P.descrip NOT LIKE '(N%' AND (StockK <> 0 OR StockC <> 0 OR StockUds <> 0 OR V.UnidadesVendidas IS NOT NULL) #(lf)ORDER BY Inmovilizado DESC;"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

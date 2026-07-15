@@ -1,0 +1,242 @@
+relationship 11da3442-6be4-f3d8-4cf4-c5836ece343e
+	fromColumn: Clientes.idEmpleado
+	toColumn: Empleado.idEmpleado
+
+relationship cc6120db-57f2-ac58-bf4f-fcbdb868b71c
+	fromColumn: Productos.idprov
+	toColumn: Proveedores.idProveedor
+
+relationship a70fa880-1416-7768-5547-e7e21d3c8ebd
+	fromColumn: FactVentas.idCliente
+	toColumn: Clientes.idCliente
+
+relationship 0150dba4-2b99-0e05-4317-f74015488883
+	fromColumn: FactVentas.referencia
+	toColumn: Productos.referencia
+
+relationship 273fbc33-6129-808c-567e-504d269ff02c
+	fromColumn: Productos.referencia
+	toColumn: SegmentoProductos.referencia
+
+relationship fca13dc6-903a-2b97-faac-76c25d0c237d
+	fromColumn: Productos.idfamilia
+	toColumn: Familia.idFamilia
+
+relationship 3e3903bf-2cc4-e8d8-9474-1a16ff85dc8c
+	fromColumn: Colecciones.Referencia
+	toColumn: Productos.referencia
+
+relationship f68911eb-38e6-4e1d-d153-db83c2b241b9
+	fromColumn: Productos.idSeccion
+	toColumn: Seccion.idSeccion
+
+relationship d5a43607-afd2-1c4e-0922-61719c46a884
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: SubFamilia.idSubFamilia
+	toColumn: Productos.idSubFam
+
+relationship f58840e8-2b3b-50d5-a487-63b027aa6318
+	fromColumn: Productos.idSubSubFam
+	toColumn: SubSubFamilia.idSubSubFamilia
+
+relationship 60c07a52-cdbb-4ca2-9755-b6f80d46b322
+	joinOnDateBehavior: datePartOnly
+	fromColumn: codigo_lote.fechaAlta
+	toColumn: LocalDateTable_6e61b58e-6eb2-4b33-92aa-f442f1d8eebb.Date
+
+relationship b7c68c11-1c8b-4115-b9ad-32f8279d393a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: codigo_lote.fechaCad
+	toColumn: LocalDateTable_725c9e3e-d597-406b-931c-6332e84e5e1a.Date
+
+relationship 62514494-7fd5-4eea-a663-108600170072
+	joinOnDateBehavior: datePartOnly
+	fromColumn: codigo_lote.fechaEnv
+	toColumn: LocalDateTable_7aed6b92-3f52-4fb7-8654-24c9e53d2da2.Date
+
+relationship AutoDetected_c70a269c-059d-46ff-8fe3-062644278861
+	fromColumn: Albaranes.idCliente
+	toColumn: Clientes.idCliente
+
+relationship AutoDetected_b135d873-2e44-44b7-bbae-cbf9100f5e0e
+	isActive: false
+	fromColumn: FactVentas.AlbaranKey
+	toColumn: Albaranes.AlbaranKey
+
+relationship 52a079f3-e3a6-4f20-8b94-c394bfdd4843
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Facturas.fecha
+	toColumn: LocalDateTable_b6bcdd62-e6aa-49ec-83df-429979f0b039.Date
+
+relationship cba9e96a-02bc-0f0e-94f0-02374f4ca27f
+	fromColumn: Albaranes.FacturaKey
+	toColumn: Facturas.FacturaKey
+
+relationship b073e516-5acb-02a6-3d32-5581cca355ac
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: FactVentas.codigosLote
+	toColumn: codigo_lote.codigoLote
+
+relationship a6354edb-0769-4c0c-81b0-eb19442872b5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Pedido.fechaDescarga
+	toColumn: LocalDateTable_69e1c6e0-904b-457b-abca-04173e795590.Date
+
+relationship 2f92ed66-91d0-4ab6-b53c-8cc133b49bc9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Pedido.fechaFac
+	toColumn: LocalDateTable_4411631a-1f96-4566-9bcb-8608babb04bb.Date
+
+relationship 6e7c7be9-c3b3-4dfd-ac5d-5f9697baa40a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Pedido.fechaMail
+	toColumn: LocalDateTable_5bf0ebb4-4a83-46b1-9a98-9d32eba8574b.Date
+
+relationship 2654aa29-4c25-41be-bcd4-93fd20d55843
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Pedido.fechaTomaAlb
+	toColumn: LocalDateTable_a059582d-3841-44af-b8d0-9f0d6036e4ba.Date
+
+relationship ca7709d6-5766-40b2-ae3b-acf0763181cc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Pedido.actualizandoHastaFechaHora
+	toColumn: LocalDateTable_a3aace04-074d-46e1-8d3b-4fe1b4224d4f.Date
+
+relationship AutoDetected_3b3b2574-90c3-43f4-8526-6b08494f869c
+	fromColumn: Pedido.idCliente
+	toColumn: Clientes.idCliente
+
+relationship 833c9906-4bfb-4e6d-a8bd-9e889a3342e4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Stock.FechaUltimaCompra
+	toColumn: LocalDateTable_637b4a26-e564-49e5-b639-095b50805301.Date
+
+relationship b5e9cb30-2a65-4b4c-25e8-8c08d3e8b21f
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Stock.referencia
+	toColumn: Productos.referencia
+
+relationship c20cbf2e-90f7-961d-d6ef-ad61dedb845b
+	fromColumn: Clientes.grupo
+	toColumn: Grupo.idGrupo
+
+relationship a9d8d2c6-4031-86e7-d0b6-8704ea73f45d
+	fromColumn: FactVentas.fechaAlb
+	toColumn: Calendario.Date
+
+relationship ad0e175e-c964-1e96-8914-c56495faf608
+	fromColumn: Pedido.fechaAlb
+	toColumn: Calendario.Date
+
+relationship 05a52d6d-795c-a0f9-bf45-7d483151612b
+	fromColumn: Albaranes.fechaAlb
+	toColumn: Calendario.Date
+
+relationship 8d99fe76-e34d-871a-a3b5-d6afc80372ce
+	fromColumn: Pedido.AlbaranKey
+	toColumn: DimAlbaran.AlbaranKey
+
+relationship 3dad7dd4-4f32-a2d7-487e-feba87b64e5b
+	crossFilteringBehavior: bothDirections
+	fromColumn: FactVentas.AlbaranKey
+	toColumn: DimAlbaran.AlbaranKey
+
+relationship 9ec2b3e3-e302-ddf1-3322-be6c9ef77f79
+	fromColumn: FactVentas.idEmpleado
+	toColumn: DimGrupoComerciales.idEmpleado
+
+relationship ef1a3b4d-82cd-4b14-826e-b5d434ec9a59
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ComisionesDadas.desde
+	toColumn: LocalDateTable_bc164df8-ff97-4697-8c75-ba419cdc78a3.Date
+
+relationship b6c47171-6e35-42a6-808f-798d45d77eee
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ComisionesDadas.hasta
+	toColumn: LocalDateTable_4bf434b1-b909-4bbf-80a5-6e31c6270a63.Date
+
+relationship AutoDetected_2c5f1944-c75e-4670-91cd-2d6f8f6a468f
+	fromColumn: ComisionesDadas.idEmpleado
+	toColumn: Empleado.idEmpleado
+
+relationship AutoDetected_9c698e3a-3738-4c92-aa58-fa2b5fa568f3
+	fromColumn: LineasComisionesDadas.idEmpleado
+	toColumn: Empleado.idEmpleado
+
+relationship AutoDetected_1373c631-d6c8-4d03-9c81-ec92f0a97f95
+	isActive: false
+	fromColumn: LineasComisionesDadasCobros.idComision
+	toColumn: ComisionesDadas.idComision
+
+relationship AutoDetected_58c85ff2-d0a6-4e2c-bedf-23b5df7b9c1a
+	isActive: false
+	fromColumn: LineasComisionesDadas.idComision
+	toColumn: ComisionesDadas.idComision
+
+relationship 9d57b97f-6f3e-4d8f-b0ee-b4672a702157
+	joinOnDateBehavior: datePartOnly
+	fromColumn: LineasComisionesDadasCobros.fechaFac
+	toColumn: LocalDateTable_56de9cfa-4d70-444a-9bb2-b088aa7a612b.Date
+
+relationship 3256d79e-61ac-4527-8784-93a4e1ca39ac
+	joinOnDateBehavior: datePartOnly
+	fromColumn: LineasComisionesDadas.fechaFac
+	toColumn: LocalDateTable_176c788a-61d0-4675-80ff-02c57b17dd93.Date
+
+relationship a3016fd2-79e1-00b1-190c-13de4f7ea243
+	fromColumn: LineasComisionesDadasCobros.idEmpleado
+	toColumn: Empleado.idEmpleado
+
+relationship 6aae8fc1-4886-43b2-963d-94b894a2b565
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ComisionesDadas.fecha
+	toColumn: LocalDateTable_393cd016-f9b0-449b-a247-1d55f4146f4c.Date
+
+relationship a97e1d3e-a182-3992-2e30-dba44f3981dd
+	fromColumn: ComisionesDadas.FechaComision
+	toColumn: Calendario.Date
+
+relationship 4c269f3e-7a70-988e-f4d0-7e8eac04227a
+	fromColumn: LineasComisionesDadasCobros.fechaComision
+	toColumn: Calendario.Date
+
+relationship 1a3942f3-0d3d-d253-8d7c-833b925d6fca
+	fromColumn: LineasComisionesDadas.fechaComision
+	toColumn: Calendario.Date
+
+relationship 271a4ac7-ce4d-4ede-43d1-85d11515b3dc
+	fromColumn: LineasComisionesDadas.idComision
+	toColumn: DimComision.idComision
+
+relationship 4103e0a7-cbbd-f5b9-babb-6487e11ffc91
+	fromColumn: LineasComisionesDadasCobros.idComision
+	toColumn: DimComision.idComision
+
+relationship 1bf37cfb-c102-305c-0a19-92086a2f5015
+	fromColumn: ComisionesDadas.idComision
+	toColumn: DimComision.idComision
+
+relationship 67383bf9-b199-48e3-a495-893b43db2dd8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Retribuciones.minFechaFac
+	toColumn: LocalDateTable_8205023a-c248-447f-9eda-ac71718aac48.Date
+
+relationship f67df180-fbbf-7f6c-3364-b49536e3b6b7
+	fromColumn: LineasComisionesDadas.idRetribucion
+	toColumn: Retribuciones.idRetribucion
+
+relationship b8e88dcf-19cf-3d53-6c6d-14f4e484e01e
+	fromColumn: LineasComisionesDadasCobros.idRetribucion
+	toColumn: Retribuciones.idRetribucion
+
+relationship f8f751c4-a40a-9dbb-6ca3-25ba84a9c47f
+	fromColumn: LineasComisionesDadasCobros.FacturaKey
+	toColumn: Facturas.FacturaKey
+
+relationship c433508a-5660-acc5-c86d-603ef84ad70e
+	fromColumn: LineasComisionesDadas.FacturaKey
+	toColumn: Facturas.FacturaKey
+

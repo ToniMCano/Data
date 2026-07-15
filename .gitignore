@@ -1,0 +1,16 @@
+# Power BI local/cache
+*.pbix
+*.pbit
+*.tmp
+*.log
+
+# Power BI generated/cache files
+**/.pbi/cache.abf
+**/.pbi/localSettings.json
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/

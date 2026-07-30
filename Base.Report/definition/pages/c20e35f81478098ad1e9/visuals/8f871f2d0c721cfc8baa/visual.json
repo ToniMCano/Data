@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "8f871f2d0c721cfc8baa",
   "position": {
-    "x": 632,
-    "y": 0,
-    "z": 1000,
+    "x": 18.4000244140625,
+    "y": 2764,
+    "z": 2000,
     "height": 264,
-    "width": 616
+    "width": 616,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "pivotTable",
@@ -22,12 +23,57 @@
                       "Entity": "Pedido"
                     }
                   },
+                  "Property": "fechaAlb"
+                }
+              },
+              "queryRef": "Pedido.fechaAlb",
+              "nativeQueryRef": "fechaAlb",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "idSPedido"
+                }
+              },
+              "queryRef": "Pedido.idSPedido",
+              "nativeQueryRef": "idSPedido",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
                   "Property": "idPedido"
                 }
               },
               "queryRef": "Pedido.idPedido",
               "nativeQueryRef": "idPedido",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LineasPedido"
+                    }
+                  },
+                  "Property": "numLinea"
+                }
+              },
+              "queryRef": "LineasPedido.numLinea",
+              "nativeQueryRef": "numLinea",
+              "active": false
             }
           ]
         },
@@ -46,6 +92,46 @@
               },
               "queryRef": "Métricas.Cliente",
               "nativeQueryRef": "Cliente"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "referencia"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(LineasPedido.referencia)",
+              "nativeQueryRef": "Referencia",
+              "displayName": "Referencia"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "descrip"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(LineasPedido.descrip)",
+              "nativeQueryRef": "Descripción",
+              "displayName": "Descripción"
             },
             {
               "field": {
@@ -166,6 +252,26 @@
               "queryRef": "Min(Pedido.actualizandoHastaFechaHora)",
               "nativeQueryRef": "Actualizado",
               "displayName": "Actualizado"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Pedido"
+                        }
+                      },
+                      "Property": "fechaAlb"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Pedido.fechaAlb)",
+              "nativeQueryRef": "FechaAlb",
+              "displayName": "FechaAlb"
             },
             {
               "field": {
@@ -835,6 +941,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "parentGroupName": "6528dc7c87dbced63534"
+  }
 }

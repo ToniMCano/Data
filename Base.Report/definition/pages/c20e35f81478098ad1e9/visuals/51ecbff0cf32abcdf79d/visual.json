@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "51ecbff0cf32abcdf79d",
   "position": {
     "x": 30,
     "y": 144,
-    "z": 25000,
+    "z": 22000,
     "height": 56.000000000000007,
     "width": 1232,
-    "tabOrder": 6000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -57,6 +57,20 @@
                       "Entity": "Métricas Clientes"
                     }
                   },
+                  "Property": "Clientes Activos"
+                }
+              },
+              "queryRef": "Métricas Clientes.Clientes Activos",
+              "nativeQueryRef": "Clientes Activos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas Clientes"
+                    }
+                  },
                   "Property": "Clientes Activos Grupo Selección"
                 }
               },
@@ -76,8 +90,8 @@
                 }
               },
               "queryRef": "Métricas Clientes.Clientes Activos AA Grupo Selección",
-              "nativeQueryRef": "Clientes Activos AA ",
-              "displayName": "Clientes Activos AA "
+              "nativeQueryRef": "Activos Vendedores AA ",
+              "displayName": "Activos Vendedores AA "
             },
             {
               "field": {
@@ -190,6 +204,20 @@
           },
           "selector": {
             "metadata": "CountNonNull(FactVentas.idCliente)"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ],
@@ -1288,6 +1316,20 @@
           },
           "selector": {
             "metadata": "Métricas Clientes.Clientes Activos Grupo Selección"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas Clientes.Clientes Activos"
           }
         }
       ],

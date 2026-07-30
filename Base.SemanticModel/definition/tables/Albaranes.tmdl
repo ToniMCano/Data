@@ -173,11 +173,20 @@ table Albaranes
 
 		annotation SummarizationSetBy = Automatic
 
+	column idEPre
+		dataType: int64
+		formatString: 0
+		lineageTag: c93400b2-6c51-443f-8f10-545bf26dcc55
+		summarizeBy: sum
+		sourceColumn: idEPre
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Albaranes = m
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    A.idSAlb,#(lf)    A.idAlb,#(lf)    CONCAT(A.idSAlb, '-', A.idAlb) AS AlbaranKey,#(lf)    A.fechaAlb,#(lf)    A.idCliente,#(lf)    A.idERep,#(lf)    A.idSFac,#(lf)    A.idFac,#(lf)    CONCAT(A.idSFac, '-', A.idFac) AS FacturaKey,#(lf)    A.totalBI,#(lf)    A.totalDto,#(lf)    A.dto,#(lf)    A.dtoAlb1,#(lf)    A.dtoAlb2,#(lf)    A.dtoAlb3,#(lf)#(tab)A.idTipoDoc#(lf)FROM albaran A#(lf)WHERE A.fechaAlb >= '20240101';"])
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    A.idSAlb,#(lf)    A.idAlb,#(lf)    CONCAT(A.idSAlb, '-', A.idAlb) AS AlbaranKey,#(lf)    A.fechaAlb,#(lf)    A.idCliente,#(lf)    A.idERep,#(lf)    A.idEPre,#(lf)    A.idSFac,#(lf)    A.idFac,#(lf)    CONCAT(A.idSFac, '-', A.idFac) AS FacturaKey,#(lf)    A.totalBI,#(lf)    A.totalDto,#(lf)    A.dto,#(lf)    A.dtoAlb1,#(lf)    A.dtoAlb2,#(lf)    A.dtoAlb3,#(lf)#(tab)A.idTipoDoc#(lf)FROM albaran A#(lf)WHERE A.fechaAlb >= '20240101';"])
 				in
 				    Origen
 

@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "b8652f4cd90021941260",
   "position": {
     "x": 0,
     "y": 40,
     "z": 1000,
     "height": 336,
-    "width": 616
+    "width": 616,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -67,6 +68,49 @@
               "queryRef": "CountNonNull(Clientes.idCliente)",
               "nativeQueryRef": "-",
               "displayName": "-"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MétricasVentasAA"
+                    }
+                  },
+                  "Property": "Albaranes AA"
+                }
+              },
+              "queryRef": "MétricasVentasAA.Albaranes AA",
+              "nativeQueryRef": "Albaranes AA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MétricasVentas"
+                    }
+                  },
+                  "Property": "V"
+                }
+              },
+              "queryRef": "MétricasVentas.V",
+              "nativeQueryRef": "V"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas Visuales"
+                    }
+                  },
+                  "Property": "Media Albaran Empresa Grupo Matriz (Importe)%"
+                }
+              },
+              "queryRef": "Métricas Visuales.Media Albaran Empresa Grupo Matriz %",
+              "nativeQueryRef": "Diferencia",
+              "displayName": "Diferencia"
             },
             {
               "field": {
@@ -189,6 +233,50 @@
               },
               "queryRef": "MétricasVentas.Media Albarán",
               "nativeQueryRef": "Media Albarán"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Dif. Importe Media Albarán"
+                }
+              },
+              "queryRef": "Métricas.Dif. Importe Media Albarán",
+              "nativeQueryRef": "Dif. Importe Media Albarán"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas Visuales"
+                    }
+                  },
+                  "Property": "Media Albaran Empresa Grupo Matriz (Importe)%"
+                }
+              },
+              "queryRef": "Métricas Visuales.Media Albaran Empresa Grupo Matriz %",
+              "nativeQueryRef": "Diferencia",
+              "displayName": "Diferencia"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas Visuales"
+                    }
+                  },
+                  "Property": "Media Albarán Empresa Grupo Color Matriz"
+                }
+              },
+              "queryRef": "Métricas Visuales.Media Albarán Empresa Grupo Color Matriz",
+              "nativeQueryRef": "M. Alb General",
+              "displayName": "M. Alb General"
             },
             {
               "field": {
@@ -433,7 +521,47 @@
           }
         },
         {
-          "properties": {},
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 2,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Métricas Visuales"
+                                    }
+                                  },
+                                  "Property": "TEST Media Albaran Empresa Grupo Matriz (Importe)%"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "-0.08D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#50005c'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
           "selector": {
             "data": [
               {

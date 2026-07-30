@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "ec7ae2b31301a586ce70",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
     "height": 328,
-    "width": 616
+    "width": 616,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -229,6 +230,20 @@
               },
               "queryRef": "Métricas.Precio Ref.",
               "nativeQueryRef": "Precio Ref."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "MargenIconos"
+                }
+              },
+              "queryRef": "Métricas.MargenIconos",
+              "nativeQueryRef": "MargenIconos"
             }
           ]
         }
@@ -425,6 +440,49 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Métricas.MargenIconos"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Métricas"
+                        }
+                      },
+                      "Property": "ColorMargenIconos"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.MargenIconos"
           }
         }
       ],
@@ -789,6 +847,223 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "6feb6da0ac2640868ec0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "referencia"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8cd06d5e509689bb6d2e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactVentas"
+                  }
+                },
+                "Property": "referencia"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1c1d488607ddb7e1ae9a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Productos"
+                  }
+                },
+                "Property": "descrip"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7a71d3461151059d00aa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Indicador Compra"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d94ba50017575cb72d4a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactVentas"
+                  }
+                },
+                "Property": "idAlb"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ed2e9572a87e0875d750",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactVentas"
+                  }
+                },
+                "Property": "fechaAlb"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "adb93aa4a8edd0647ea9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Frecuencia Compra Días"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "63516bd0163bb86edad8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Próxima Compra Estimada"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "023264719a31b04c07e7",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stock"
+                  }
+                },
+                "Property": "StockUds"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "33eaeb500d5108e5d8e4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Productos"
+                  }
+                },
+                "Property": "idprov"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c6aabca08b05604d41d6",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Productos"
+                  }
+                },
+                "Property": "idSeccion"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "98b62959005984206ec8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas Producto"
+              }
+            },
+            "Property": "Precio Ref."
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "09ebafe8a846d0a04106",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "MargenIconos"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

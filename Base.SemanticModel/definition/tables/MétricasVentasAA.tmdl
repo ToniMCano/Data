@@ -495,9 +495,8 @@ table MétricasVentasAA
 			            )
 			        )
 			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: c37ce407-4d30-4132-8639-3258a0f2e148
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Dif. Media Albarán VS AA' =
 			
@@ -1217,6 +1216,113 @@ table MétricasVentasAA
 			        )
 			)
 		lineageTag: c3a8911a-5981-482c-99a0-9b728635a913
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Albaranes AA' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [V],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [V],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: cc8734e5-a8a1-4c37-950a-adfa0e84401b
+
+	measure 'MA/C AA' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinContexto =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxContexto =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxLimitada =
+			    MIN(
+			        FechaMaxContexto,
+			        TODAY()
+			    )
+			
+			VAR EsPeriodoFuturo =
+			    FechaMinContexto > TODAY()
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    ModoSeleccionado = "Si" && EsPeriodoFuturo,
+			        BLANK(),
+			
+			    ModoSeleccionado = "Si",
+			        CALCULATE(
+			            [MA/C],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                EDATE(FechaMinContexto, -12),
+			                EDATE(FechaMaxLimitada, -12)
+			            )
+			        ),
+			
+			    ModoSeleccionado = "No",
+			        CALCULATE(
+			            [MA/C],
+			            DATEADD(
+			                Calendario[Date],
+			                -1,
+			                YEAR
+			            )
+			        )
+			)
+		lineageTag: 74eaadf6-960c-476e-a47f-959f87188b28
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

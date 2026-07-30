@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "d7c92a8e885d5f5e0c36",
   "position": {
     "x": 0,
     "y": 108.09907120743034,
     "z": 1000,
     "height": 113.96491228070175,
-    "width": 1224
+    "width": 1224,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "ChicletSlicer1448559807354",
@@ -19,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Empleado"
+                      "Entity": "Clientes"
                     }
                   },
-                  "Property": "nombre"
+                  "Property": "Nombre Vendedor"
                 }
               },
-              "queryRef": "Vendedor.nombre",
-              "nativeQueryRef": "nombre"
+              "queryRef": "Clientes.Nombre Vendedor",
+              "nativeQueryRef": "Nombre Vendedor"
             }
           ]
         }
@@ -41,97 +42,6 @@
                 "Literal": {
                   "Value": "9D"
                 }
-              }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "e",
-                    "Entity": "Empleado",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "e"
-                                }
-                              },
-                              "Property": "nombre"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'87- SALVADOR'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    },
-                    "Annotations": {
-                      "filterExpressionMetadata": {
-                        "expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "Empleado"
-                                }
-                              },
-                              "Property": "nombre"
-                            }
-                          }
-                        ],
-                        "decomposedIdentities": {
-                          "values": [
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'87- SALVADOR'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
-                          ],
-                          "columns": [
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Empleado"
-                                    }
-                                  },
-                                  "Property": "nombre"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "valueMap": [
-                          {
-                            "0": "87- SALVADOR"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                ]
               }
             }
           }
@@ -311,6 +221,7 @@
           }
         },
         "type": "Categorical",
+        "howCreated": "User",
         "isHiddenInViewMode": true,
         "objects": {
           "general": [

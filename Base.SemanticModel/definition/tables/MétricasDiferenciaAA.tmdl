@@ -68,7 +68,7 @@ table MétricasDiferenciaAA
 		lineageTag: ec946c87-bbff-455b-96fb-5345c531a383
 
 	measure 'Media Albaranes VS AA' = [Media Albarán]- [Media Albarán AA]
-		formatString: 0
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 64518e0a-e165-48a1-8b35-482c4873ff6d
 
 	measure 'Dif. AB' =
@@ -356,6 +356,19 @@ table MétricasDiferenciaAA
 			)
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: 3c4a8e7f-94ad-43b2-8cd5-6e5167828711
+
+	measure 'Dif. Albaranes' = [V] - [Albaranes AA]
+		formatString: 0
+		lineageTag: 91813456-6e9e-4d16-b951-65adafe2221b
+
+	measure 'DIF V' = [V]
+		formatString: 0
+		lineageTag: 4ade8ca1-d2ae-499b-a006-2f91bad94a00
+
+	measure 'Dif MA/C' = [MA/C] - [MA/C AA]
+		lineageTag: 193b8efd-a4b8-44bf-bd4b-bd7902e8d524
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Dummy
 		isHidden

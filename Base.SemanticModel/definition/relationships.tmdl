@@ -104,10 +104,6 @@ relationship ca7709d6-5766-40b2-ae3b-acf0763181cc
 	fromColumn: Pedido.actualizandoHastaFechaHora
 	toColumn: LocalDateTable_a3aace04-074d-46e1-8d3b-4fe1b4224d4f.Date
 
-relationship AutoDetected_3b3b2574-90c3-43f4-8526-6b08494f869c
-	fromColumn: Pedido.idCliente
-	toColumn: Clientes.idCliente
-
 relationship 833c9906-4bfb-4e6d-a8bd-9e889a3342e4
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Stock.FechaUltimaCompra
@@ -239,4 +235,13 @@ relationship f8f751c4-a40a-9dbb-6ca3-25ba84a9c47f
 relationship c433508a-5660-acc5-c86d-603ef84ad70e
 	fromColumn: LineasComisionesDadas.FacturaKey
 	toColumn: Facturas.FacturaKey
+
+relationship e4e023b9-9d0f-3ef4-b6df-246b67b5a62a
+	fromColumn: LineasPedido.PedidoKey
+	toColumn: Pedido.PedidoKey
+
+relationship 680747c3-c01f-26aa-de06-8db7ddd1037a
+	isActive: false
+	fromColumn: LineasPedido.referencia
+	toColumn: Productos.referencia
 

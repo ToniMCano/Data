@@ -32,15 +32,24 @@ table RLS
 
 		annotation SummarizationSetBy = Automatic
 
+	column Columna1
+		dataType: string
+		lineageTag: 39990909-36c6-4740-a00b-9368cdc22ab5
+		summarizeBy: none
+		sourceColumn: Columna1
+
+		annotation SummarizationSetBy = Automatic
+
 	partition RLS = m
 		mode: import
 		source =
 				let
-				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("pZU9T8MwEIb/S+aqymdJNpDowAADiCmqkHGOciixW3906K/HEUvPQVGvGa340b2+971L2yZZmiar5AAddtre934vrPjUBuwabPjw/rZ9TXarNmmKcJJ6ACNR9B/OgITL6wHQakBptNVfbh1uXtJlSWjl4cSgiztCSy+c0dfjNZWuFUd5sSFwhyCRKX9TVOHoBmEcKjhPm/zw+Pz08ldtNKMTCqGfu9ZQUUePrDflYz+3yuDRw4zlWT19ukVwjEpNRZ0TThtW9zPCW0DLeGYeR5YBZ+lY+scLdcC5HqVjkV7v0TqUYm6AqJpOs/oQRVh+M/KfpwT2isEWVDXT/rr6J0E8DxsaoBB0hvpykuAzo3QWGcaQXdONdQJULl6wV8zozRszbvwC7Sw2XhkcNsr4sn8Eq3K0Tnk+xWN9e7iZwxWNNXczF4voagkd/VM59O4X", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [idVendedor = _t, mail = _t, Rol = _t]),
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("pVbLTsMwEPyXnCuUR9MmN5DogQMcQJyqChnHlEWp3frRQ78exweEXdTu4lMiZXa8j9lx1uuiKstiVuzFAIMyt6PbMsPelRbmRhj/4fVl9ewfxWa2LvrGv3G1E5oDG9+sFlz8jvAxSu6Aa2XUh73xyIRgPo8IpBNHGkGzjAi4Y1YrEkMX16AksYRmEcUPIDjQ61g0rX+1O6YtSHE6b/vd/ePD08+Z04QGJkGMV5B9nN3BAbW+eurwSmo4OHFZDVV33gkDwtLO69t4oswqTR1JFVEYAYZWcp3KmhZflVMCX47JPVxpWTkdNaotGAucXdm2OK1BUduSKJ1/0jalLqN4J2nhTZw+XRld+4e+yLPtY3n5faCVMT9T+YmWQJVMkZZ/FxveUYC0qVHjdjrHdtNR5BVBDU+Nhhie7EH2pUM9P/Fk8vBSG8haAPoaJjbwD4dvcgnaTILkzqYTBAVK56/ry5Ydlh2Dq5G4JQ4XJI7Ahf8vDB/y3OALGBySL6wKpi+TJkELeeUXJYgfgQt3FQa3QOI6JA6ZX1gh7LlZm5LlFptv", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [idVendedor = _t, mail = _t, Rol = _t, Columna1 = _t]),
 				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"idVendedor", Int64.Type}, {"mail", type text}, {"Rol", type text}}),
-				    #"Filas ordenadas" = Table.Sort(#"Tipo cambiado",{{"idVendedor", Order.Ascending}})
+				    #"Filas ordenadas" = Table.Sort(#"Tipo cambiado",{{"idVendedor", Order.Ascending}, {"mail", Order.Ascending}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Filas ordenadas", each true)
 				in
-				    #"Filas ordenadas"
+				    #"Filas filtradas"
 
 	annotation PBI_NavigationStepName = Navegación
 

@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "b7c97dbb443c1d9ddbf1",
   "position": {
     "x": 0,
-    "y": 2.9387755102040813,
+    "y": 0,
     "z": 19000,
-    "height": 139.10204081632654,
-    "width": 308.995174393745
+    "height": 144,
+    "width": 317,
+    "tabOrder": 1000
   },
   "visualGroup": {
     "displayName": "Grupo 6",

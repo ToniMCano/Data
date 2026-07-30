@@ -47,7 +47,7 @@ table Pedido
 		dataType: int64
 		formatString: 0
 		lineageTag: 91a18eba-8614-46ca-a088-10cc31a6f3df
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: idCliente
 
 		changedProperty = IsHidden
@@ -296,11 +296,19 @@ table Pedido
 
 		annotation SummarizationSetBy = Automatic
 
+	column PedidoKey
+		dataType: string
+		lineageTag: b0af54f1-21c7-49bf-bc2f-cf9ee81dde91
+		summarizeBy: none
+		sourceColumn: PedidoKey
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Pedido = m
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="select #(lf)idAlb AS idPedido,#(lf)idSAlb AS idSPedido,#(lf)idAlbGen AS idAlb,#(lf)idSAlbGen AS idSAlb,#(lf)CONCAT(idSAlbGen, '-', idAlbGen) AS AlbaranKey,#(lf)idCliente,#(lf)idEVen,#(lf)idETom,#(lf)idRuta AS RutaVenta,#(lf)idRutaRep,#(lf)idCarga,#(lf)idDireccionEnvio,#(lf)fechaAlb,#(lf)horaAlb AS HoraToma,#(lf)fechaDescarga,#(lf)horaDescarga,#(lf)fechaFac,#(lf)fechaMail,#(lf)fechaTomaAlb,#(lf)actualizandoHastaFechaHora,#(lf)idTipoDoc,#(lf)nota#(lf)#(lf)#(lf)from pedido#(lf)WHERE fechaTomaAlb >= '20240101'#(lf)order by fechaTomaAlb desc"]),
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="select #(lf)CONCAT(idSAlb, '-', idAlb) AS PedidoKey,#(lf)idAlb AS idPedido,#(lf)idSAlb AS idSPedido,#(lf)idAlbGen AS idAlb,#(lf)idSAlbGen AS idSAlb,#(lf)CONCAT(idSAlbGen, '-', idAlbGen) AS AlbaranKey,#(lf)idCliente,#(lf)idEVen,#(lf)idETom,#(lf)idRuta AS RutaVenta,#(lf)idRutaRep,#(lf)idCarga,#(lf)idDireccionEnvio,#(lf)fechaAlb,#(lf)horaAlb AS HoraToma,#(lf)fechaDescarga,#(lf)horaDescarga,#(lf)fechaFac,#(lf)fechaMail,#(lf)fechaTomaAlb,#(lf)actualizandoHastaFechaHora,#(lf)idTipoDoc,#(lf)nota#(lf)#(lf)#(lf)from pedido#(lf)WHERE fechaTomaAlb >= '20240101'#(lf)order by fechaTomaAlb desc"]),
 				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"fechaAlb", type date}, {"HoraToma", type time}, {"fechaDescarga", type date}, {"horaDescarga", type time}, {"fechaFac", type date}, {"fechaMail", type date}, {"fechaTomaAlb", type date}})
 				in
 				    #"Tipo cambiado"

@@ -1,0 +1,214 @@
+table LineasPedido
+	lineageTag: 6bb3b261-962c-4283-9a0a-d15d1cb463c6
+
+	column idPedido
+		dataType: int64
+		formatString: 0
+		lineageTag: eed7c786-64a5-4a27-9867-477a7e467d75
+		summarizeBy: sum
+		sourceColumn: idPedido
+
+		annotation SummarizationSetBy = Automatic
+
+	column descrip
+		dataType: string
+		lineageTag: 19e205b6-cf2a-4114-aac7-2b795b4bdb22
+		summarizeBy: none
+		sourceColumn: descrip
+
+		annotation SummarizationSetBy = Automatic
+
+	column modo
+		dataType: string
+		lineageTag: daf30e2c-c237-4b3d-baca-17fe240d17ad
+		summarizeBy: none
+		sourceColumn: modo
+
+		annotation SummarizationSetBy = Automatic
+
+	column observa
+		dataType: string
+		lineageTag: 9c521714-f33f-4235-982b-772489de205a
+		summarizeBy: none
+		sourceColumn: observa
+
+		annotation SummarizationSetBy = Automatic
+
+	column referencia
+		dataType: string
+		lineageTag: a4ec57ec-2ee9-4815-8e1f-aee63335579a
+		summarizeBy: none
+		sourceColumn: referencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column idTarifa
+		dataType: int64
+		formatString: 0
+		lineageTag: d3dd149d-bd83-4768-a161-200ca7817265
+		summarizeBy: sum
+		sourceColumn: idTarifa
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipoLin
+		dataType: int64
+		formatString: 0
+		lineageTag: f2bf1b70-093b-45fd-a66f-b5f9bac8f3ff
+		summarizeBy: sum
+		sourceColumn: tipoLin
+
+		annotation SummarizationSetBy = Automatic
+
+	column numLinea
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fefd9c8-7743-4c31-b58f-19eae2dba9e1
+		summarizeBy: sum
+		sourceColumn: numLinea
+
+		annotation SummarizationSetBy = Automatic
+
+	column idProRegGlo
+		dataType: int64
+		formatString: 0
+		lineageTag: 64c02dbd-103d-4115-8f68-4ee8184e5d04
+		summarizeBy: sum
+		sourceColumn: idProRegGlo
+
+		annotation SummarizationSetBy = Automatic
+
+	column numLinPri
+		dataType: int64
+		formatString: 0
+		lineageTag: a289814a-2b51-4765-b46c-d722a0335394
+		summarizeBy: sum
+		sourceColumn: numLinPri
+
+		annotation SummarizationSetBy = Automatic
+
+	column idPromo
+		dataType: int64
+		formatString: 0
+		lineageTag: e0ba2f78-e387-4ecb-88cd-ff62647e655e
+		summarizeBy: sum
+		sourceColumn: idPromo
+
+		annotation SummarizationSetBy = Automatic
+
+	column saux1
+		dataType: string
+		lineageTag: 2bce5143-e3aa-40d7-bf6c-80d2e407070d
+		summarizeBy: none
+		sourceColumn: saux1
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio
+		dataType: double
+		lineageTag: 3ca3c647-cdc4-4f81-be9e-8bc8bad87540
+		summarizeBy: sum
+		sourceColumn: precio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cUni
+		dataType: double
+		lineageTag: 99bd6d31-882d-4cf1-b1d1-f5423f99f376
+		summarizeBy: sum
+		sourceColumn: cUni
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad
+		dataType: double
+		lineageTag: e0472de5-b4d8-4649-b947-20f6ac605296
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dto
+		dataType: double
+		lineageTag: 3854b2d8-1a56-438c-aae6-eafce46f6165
+		summarizeBy: sum
+		sourceColumn: dto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total
+		dataType: double
+		lineageTag: 354562b2-9fed-411b-88f9-9d475c70b1cd
+		summarizeBy: sum
+		sourceColumn: total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column multiplicadorCantidadPedido
+		dataType: double
+		lineageTag: 7a176364-6525-4479-90b9-e1e5c6d1f0c1
+		summarizeBy: sum
+		sourceColumn: multiplicadorCantidadPedido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column multiplicadorKilosPedido
+		dataType: double
+		lineageTag: bef42190-fbb3-4830-a2a2-dbd4f3a1afc0
+		summarizeBy: sum
+		sourceColumn: multiplicadorKilosPedido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantKg
+		dataType: double
+		lineageTag: 2d79f4d7-9de8-4aa6-a7b5-98eb3533732e
+		summarizeBy: sum
+		sourceColumn: cantKg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PedidoKey
+		dataType: string
+		lineageTag: 4128ba0f-1545-487a-bbaf-76b533b91f7f
+		summarizeBy: none
+		sourceColumn: PedidoKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSPedido
+		dataType: string
+		lineageTag: f6b2e76f-7e30-48cb-80a4-03d5887c1a42
+		summarizeBy: none
+		sourceColumn: idSPedido
+
+		annotation SummarizationSetBy = Automatic
+
+	partition LineasPedido = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT #(lf)CONCAT(L.idSAlb, '-',L.idAlb) AS PedidoKey,#(lf)L.idSAlb AS idSPedido,#(lf)L.idAlb AS idPedido,#(lf)L.descrip,#(lf)L.modo,#(lf)L.observa,#(lf)L.referencia,#(lf)L.idTarifa,#(lf)L.tipoLin, #(lf)L.numLinea,#(lf)L.idProRegGlo,#(lf)L.numLinPri,#(lf)L.idPromo,#(lf)L.saux1,#(lf)L.precio,#(lf)L.cUni,#(lf)L.cantidad,#(lf)L.dto,#(lf)L.total,#(lf)L.multiplicadorCantidadPedido,#(lf)L.multiplicadorKilosPedido,#(lf)L.cantKg#(lf)FROM LineaPedido L #(lf)JOIN Pedido P#(lf)    ON L.idAlb = P.idAlb#(lf)   AND L.idSAlb = P.idSAlb#(lf)WHERE P.fechaTomaAlb >= '20240101'"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -486,9 +486,8 @@ table Métricas
 			        UltimaLinea,
 			        FactVentas[precio]
 			    )
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: b0e5da12-ca31-45cd-8cec-8777a661857f
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Frecuencia Compra Días' =
 			
@@ -751,6 +750,168 @@ table Métricas
 			0
 		formatString: 0
 		lineageTag: bae0f0a0-8c18-416b-9b30-2cd6ae34673b
+
+	measure 'Dif. Importe Media Albarán' = ```
+			
+			
+			
+			[Media Albarán] - [Media Albarán Empresa Grupo Color Matriz]
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 8b459acf-6e14-4552-8225-0264fcf0a6ac
+
+	measure 'Dif. MA/C VS Grupo' = [MA/C] - [MA/C Empresa Grupo]
+		lineageTag: d0a868da-afac-4953-8ff6-d31d9146d3a7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure test = ```
+			EVALUATE 
+			FILTER(
+			    SELECTCOLUMNS(
+			        FactVentas,
+			        "idCliente", FactVentas[idCliente],
+			        "Fecha", FactVentas[fechaAlb],
+			        "AlbaranKey", FactVentas[AlbaranKey],
+			        "LineaAlbaranKey", FactVentas[LineaAlbaranKey],
+			        "Serie", FactVentas[idSAlb],
+			        "Albaran", FactVentas[idAlb],
+			        "Linea", FactVentas[numLinea],
+			        "Referencia", FactVentas[referencia],
+			        "Total", FactVentas[total]
+			    ),
+			    [idCliente] = 17473
+			)
+			ORDER BY
+			    [Fecha],
+			    [AlbaranKey],
+			    [Linea]
+			```
+		lineageTag: fbc244ad-c5cb-404e-b2e4-06fd70ab1baa
+
+	measure 'Última Fecha Compra' =
+			
+			VAR ClientesContexto =
+			    VALUES(Clientes[idCliente])
+			
+			RETURN
+			CALCULATE(
+			    MAX(FactVentas[fechaAlb]),
+			    REMOVEFILTERS(Calendario),
+			    REMOVEFILTERS(FactVentas[fechaAlb]),
+			    TREATAS(
+			        ClientesContexto,
+			        FactVentas[idCliente]
+			    )
+			)
+		formatString: Short Date
+		lineageTag: 30d5ea96-34d1-4412-96c7-d8df851f71fc
+
+	measure 'Días Sin Comprar' =
+			
+			VAR UltimaFecha =
+			    [Última Fecha Compra]
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(UltimaFecha),
+			    DATEDIFF(
+			        UltimaFecha,
+			        TODAY(),
+			        DAY
+			    )
+			)
+		formatString: 0
+		lineageTag: 8dd8f901-c783-4a21-979d-33af16e18c88
+
+	measure 'Número Líneas Pedido' =
+			
+			COUNTROWS(LineasPedido)
+		formatString: 0
+		lineageTag: 42508d51-8db9-4453-a954-cebb95422a5a
+
+	measure 'Primera Fecha Compra' =
+			
+			VAR ClientesContexto =
+			    VALUES(Clientes[idCliente])
+			
+			RETURN
+			CALCULATE(
+			    MIN(FactVentas[fechaAlb]),
+			    REMOVEFILTERS(Calendario),
+			    REMOVEFILTERS(FactVentas[fechaAlb]),
+			    TREATAS(
+			        ClientesContexto,
+			        FactVentas[idCliente]
+			    )
+			)
+		formatString: General Date
+		lineageTag: f3098bd6-28a6-4313-9919-516272e7cef1
+
+	measure 'Días Desde Primera Compra' =
+			
+			VAR PrimeraFecha =
+			    [Primera Fecha Compra]
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(PrimeraFecha),
+			    DATEDIFF(
+			        PrimeraFecha,
+			        TODAY(),
+			        DAY
+			    )
+			)
+		formatString: 0
+		lineageTag: 47747e0f-5f3b-4555-b050-ab7e8f8fe5d9
+
+	measure MargenIconos = ```
+			
+			
+			
+			FORMAT([% Margen], "#,##0.00")
+			    & " "
+			    &
+			SWITCH(
+			    TRUE(),
+			    [% Margen] >= 0.28, "▲",
+			    [% Margen]  >= 0.25 && [% Margen]  < 0.28, "--",
+			    "▲▲"
+			)
+			
+			
+			 
+			```
+		lineageTag: 4be58301-a7af-4bf1-98ac-b8138ebe7b49
+
+	measure ColorMargenIconos = ```
+			
+			
+			
+			SWITCH(
+			    TRUE(),
+			    [% Margen] >= [% Margen AA], "red",
+			    [% Margen]  >= 0.25 && [% Margen]  < 0.28, "yellow",
+			    "red"
+			)
+			
+			
+			 
+			```
+		lineageTag: 56fc962c-70ac-4080-b439-396d78083a8d
+
+	measure ListaIconosUnicode = ```
+			
+			
+			"🗸
+			🗸
+			◔
+			◑
+			"
+			
+			```
+		lineageTag: a7b2437c-7e3e-4e09-b357-32f0454787e6
 
 	column Dummy
 		isHidden

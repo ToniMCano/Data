@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "df675b09462e60e6d3e6",
   "position": {
     "x": 0,
@@ -7,7 +7,7 @@
     "z": 23000,
     "height": 128,
     "width": 632,
-    "tabOrder": 13000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -65,21 +65,6 @@
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "MétricasVentas"
-                  }
-                },
-                "Property": "Ventas Brutas (Sin Dtos)"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
@@ -3645,5 +3630,51 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "9b4d44ef7025ce1b6d36"
+  "parentGroupName": "9b4d44ef7025ce1b6d36",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7fddc3b34136495aed05",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentas"
+              }
+            },
+            "Property": "Ventas Brutas (Sin Dtos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "11938917978017221d78",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentas"
+              }
+            },
+            "Property": "DtoAlbAplicado Final"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "76074afd66bbce6c48a5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentas"
+              }
+            },
+            "Property": "Ventas Netas ERP"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

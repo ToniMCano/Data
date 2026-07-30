@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "a441dfc4a65a7d9c5921",
   "position": {
     "x": 16,
@@ -7,7 +7,7 @@
     "z": 16000,
     "height": 368,
     "width": 1248,
-    "tabOrder": 17000
+    "tabOrder": 18000
   },
   "visualGroup": {
     "displayName": "Producto",

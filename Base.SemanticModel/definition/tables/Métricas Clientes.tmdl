@@ -315,16 +315,37 @@ table 'Métricas Clientes'
 
 	measure 'Estado Cliente' =
 			
-			VAR Actual =
-			    MAX(0, ROUND(COALESCE([DtoAlbAplicado Final], 0), 2))
-			VAR AA =
-			    MAX(0, ROUND(COALESCE([Ventas Netas LY], 0), 2))
+			VAR PrimeraFechaCompra =
+			    [Primera Fecha Compra]
+			
+			VAR UltimaFechaCompra =
+			    [Última Fecha Compra]
+			
+			VAR DiasDesdePrimeraCompra =
+			    [Días Desde Primera Compra]
+			
+			VAR DiasSinComprar =
+			    [Días Sin Comprar]
+			
 			RETURN
 			SWITCH(
 			    TRUE(),
-			    Actual > 0 && AA > 0, "Recurrente",
-			    Actual > 0 && AA = 0, "Nuevo",
-			    Actual = 0 && AA > 0, "Perdido",
+			
+			    ISBLANK(UltimaFechaCompra),
+			        "Sin venta",
+			
+			    DiasSinComprar > 90,
+			        "Inactivo",
+			
+			    DiasSinComprar > 45,
+			        "Perdido",
+			
+			    DiasDesdePrimeraCompra <= 180,
+			        "Nuevo",
+			
+			    DiasSinComprar <= 45,
+			        "Recurrente",
+			
 			    "Sin venta"
 			)
 		lineageTag: 03533a81-c7bc-4c11-a686-19c427ed21a1

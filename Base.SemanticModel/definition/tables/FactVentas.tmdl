@@ -594,6 +594,18 @@ table FactVentas
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Nombre Empleado' =
+			
+			LOOKUPVALUE(
+			    Empleado[nombre],
+			    Empleado[idEmpleado],
+			    FactVentas[idEmpleado]
+			)
+		lineageTag: 1c0aee49-67d8-44ac-972f-4fbcc95b0577
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactVentas = m
 		mode: import
 		source =

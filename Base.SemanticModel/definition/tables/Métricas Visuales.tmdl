@@ -116,6 +116,82 @@ table 'Métricas Visuales'
 			    )
 		lineageTag: 5cdcf112-6faf-4e96-a379-ec69bd171f9e
 
+	measure 'Media Albarán Empresa Grupo Color Matriz' =
+			
+			VAR Grupo =
+			    SELECTCOLUMNS(
+			        ALL(GrupoComerciales[idEmpleado]),
+			        "Value", GrupoComerciales[idEmpleado]
+			    )
+			
+			VAR ImporteGrupo =
+			    CALCULATE(
+			        [DtoAlbAplicado Final],
+			
+			        -- Ignora el cliente concreto de la fila
+			        REMOVEFILTERS(Clientes),
+			
+			        -- Ignora filtros de comercial
+			        REMOVEFILTERS(FactVentas[idEmpleado]),
+			        REMOVEFILTERS(Empleado),
+			
+			        FactVentas[idSAlb] = "V",
+			
+			        TREATAS(
+			            Grupo,
+			            FactVentas[idEmpleado]
+			        )
+			    )
+			
+			VAR AlbaranesGrupo =
+			    CALCULATE(
+			        DISTINCTCOUNT(FactVentas[idAlb]),
+			
+			        -- Ignora el cliente concreto de la fila
+			        REMOVEFILTERS(Clientes),
+			
+			        -- Ignora filtros de comercial
+			        REMOVEFILTERS(FactVentas[idEmpleado]),
+			        REMOVEFILTERS(Empleado),
+			
+			        FactVentas[idSAlb] = "V",
+			
+			        TREATAS(
+			            Grupo,
+			            FactVentas[idEmpleado]
+			        )
+			    )
+			
+			RETURN
+			DIVIDE(
+			    ImporteGrupo,
+			    AlbaranesGrupo
+			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 9cf39ea5-56f2-46f6-ad8e-0425b777ad36
+
+	measure 'Media Albaran Empresa Grupo Matriz (Importe)%' =
+			
+			
+			DIVIDE(
+			    [Media Albarán] - [Media Albarán Empresa Grupo Color Matriz], [Media Albarán Empresa Grupo Color Matriz]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: d37519bf-fe11-4bf9-9ee3-6b9293f6f86f
+
+	measure 'TEST Media Albaran Empresa Grupo Matriz (Importe)%' = ```
+			
+			VAR resultado =
+			DIVIDE(
+			    [Media Albarán] -[Media Albarán Empresa Grupo Color Matriz], [Media Albarán Empresa Grupo Color Matriz]
+			)
+			
+			RETURN
+			resultado 
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: e745538f-2839-4645-a2b3-71560065fc42
+
 	column Dummy
 		isHidden
 		lineageTag: f7d8b97a-f919-4a2c-966d-e7f048600936

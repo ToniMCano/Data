@@ -42,6 +42,36 @@
             }
           ]
         }
+      },
+      {
+        "name": "1e67ee6e3a35ce0b8c0a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactVentas"
+              }
+            },
+            "Property": "referencia"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "d7898e8194563e8d5853",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactVentas"
+              }
+            },
+            "Property": "descrip"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
       }
     ]
   },
@@ -65,7 +95,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "false"
+                "Value": "true"
               }
             }
           },

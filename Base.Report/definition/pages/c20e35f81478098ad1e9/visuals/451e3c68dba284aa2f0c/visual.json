@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "451e3c68dba284aa2f0c",
   "position": {
     "x": 288.76688453159045,
     "y": 0,
     "z": 27000,
-    "height": 142.0408163265306,
-    "width": 308.995174393745
+    "height": 144,
+    "width": 317,
+    "tabOrder": 0
   },
   "visualGroup": {
     "displayName": "Grupo 23",

@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Clientes","Productos","Empleado","FactVentas","Proveedores","RLS","Seccion","Familia","SubFamilia","SubSubFamilia","Colecciones","codigo_lote","Albaranes","Facturas","Pedido","Stock","Grupo","ComisionesDadas","LineasComisionesDadasCobros","LineasComisionesDadas","Retribuciones"]
+annotation PBI_QueryOrder = ["Clientes","Productos","Empleado","FactVentas","Proveedores","RLS","Seccion","Familia","SubFamilia","SubSubFamilia","Colecciones","codigo_lote","Albaranes","Facturas","Pedido","Stock","Grupo","ComisionesDadas","LineasComisionesDadasCobros","LineasComisionesDadas","Retribuciones","LineasPedido"]
 
 annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
 
@@ -65,6 +65,7 @@ ref table LocalDateTable_393cd016-f9b0-449b-a247-1d55f4146f4c
 ref table DimComision
 ref table Retribuciones
 ref table LocalDateTable_8205023a-c248-447f-9eda-ac71718aac48
+ref table LineasPedido
 
 ref role RLS_Vendedores
 

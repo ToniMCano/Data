@@ -1,0 +1,136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "14ca500471bde5a1c991",
+  "position": {
+    "x": 48,
+    "y": 928,
+    "z": 2000,
+    "height": 192,
+    "width": 1200,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Uso                                                                          Medidas"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Producto / familia / proveedor  -                           Ventas Comerciales"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Cliente / vendedor   -                                             Ventas Comerciales o Ventas Netas ERP según objetivo"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Cuadre ERP  -                                                          Ventas Netas ERP"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Control interno  -                                                    Ventas ERP Albaran"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Margen por línea  -                                                 Ventas Comerciales - Coste"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

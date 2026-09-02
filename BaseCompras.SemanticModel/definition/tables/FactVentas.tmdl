@@ -1,0 +1,621 @@
+table FactVentas
+	lineageTag: d4d549ef-6a77-4787-97a8-74f7f9cddc1a
+
+	column idCliente
+		dataType: int64
+		formatString: 0
+		lineageTag: b32c1e06-dbe1-4d02-b2b0-137d1b799bce
+		summarizeBy: none
+		sourceColumn: idCliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fechaAlb
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 11ad8043-6bd7-4a99-9171-63e15bae55e5
+		summarizeBy: none
+		sourceColumn: fechaAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column idAlb
+		dataType: int64
+		formatString: 0
+		lineageTag: 01ea86ed-86a3-4853-9b7d-a3133c84b0bb
+		summarizeBy: sum
+		sourceColumn: idAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSAlb
+		dataType: string
+		lineageTag: 633f0632-4661-4334-ba2c-d4aca93dc96d
+		summarizeBy: none
+		sourceColumn: idSAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column referencia
+		dataType: string
+		lineageTag: 104ece7f-424f-4d3d-ab77-3e516198e6f7
+		summarizeBy: none
+		sourceColumn: referencia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cUni
+		dataType: double
+		lineageTag: cc13dad0-c3f1-4626-b044-416ed9f98a3a
+		summarizeBy: sum
+		sourceColumn: cUni
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantKg
+		dataType: double
+		lineageTag: e3c4d58f-e9a5-4e3f-b601-84480d629312
+		summarizeBy: sum
+		sourceColumn: cantKg
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad
+		dataType: double
+		lineageTag: 46d8d831-feb2-42a9-b015-31a6db0d4171
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column descrip
+		dataType: string
+		lineageTag: c6f9bad4-b80e-4431-89e4-5889469cc326
+		summarizeBy: none
+		sourceColumn: descrip
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column modo
+		dataType: string
+		lineageTag: f7e51933-1106-4536-b42a-8e91265f98a5
+		summarizeBy: none
+		sourceColumn: modo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idAlmacen
+		dataType: int64
+		formatString: 0
+		lineageTag: 34abef2d-1cfe-44de-a414-1bcd3537d312
+		summarizeBy: sum
+		sourceColumn: idAlmacen
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idTarifa
+		dataType: int64
+		formatString: 0
+		lineageTag: 5772d086-a525-4b65-85eb-96175c0189be
+		summarizeBy: sum
+		sourceColumn: idTarifa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipoLin
+		dataType: int64
+		formatString: 0
+		lineageTag: d4c690ed-0053-4537-954f-abbafb633d9b
+		summarizeBy: sum
+		sourceColumn: tipoLin
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column numLinea
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d176ab8-f171-4b4b-bc6d-2e7f6e0c9112
+		summarizeBy: sum
+		sourceColumn: numLinea
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio
+		dataType: double
+		lineageTag: 48d923ef-86c9-4af4-afde-39d1834e6ad1
+		summarizeBy: sum
+		sourceColumn: precio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pCoste
+		dataType: double
+		lineageTag: 9419bc02-bd1b-43d5-b9a9-2c5270e1d069
+		summarizeBy: sum
+		sourceColumn: pCoste
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total
+		dataType: double
+		lineageTag: 33337698-2e89-40c6-b14c-0baf79da0dd3
+		summarizeBy: sum
+		sourceColumn: total
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalCoste
+		dataType: double
+		lineageTag: 51f58a6a-34db-42b7-afcb-6fe74b372117
+		summarizeBy: sum
+		sourceColumn: totalCoste
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precioReal
+		dataType: double
+		lineageTag: 00e1dba4-3e2f-4e24-a432-0682a611e11d
+		summarizeBy: sum
+		sourceColumn: precioReal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalReal
+		dataType: double
+		lineageTag: 6ece4d8f-7dad-4aed-b607-06ddb0eb542a
+		summarizeBy: sum
+		sourceColumn: totalReal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precioCosteNeto
+		dataType: double
+		lineageTag: 184c19ff-3110-4c78-8a70-38713ca903c9
+		summarizeBy: sum
+		sourceColumn: precioCosteNeto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precioCosteReal
+		dataType: double
+		lineageTag: f7694471-f1b9-433f-91e5-7320c17b658e
+		summarizeBy: sum
+		sourceColumn: precioCosteReal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column idIva
+		dataType: int64
+		formatString: 0
+		lineageTag: d5170a09-d99a-4463-9163-459b26f1af9c
+		summarizeBy: sum
+		sourceColumn: idIva
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidadPedido
+		dataType: double
+		lineageTag: 049659ce-b251-4b19-ba5a-ab65ddfd35c6
+		summarizeBy: sum
+		sourceColumn: cantidadPedido
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column multiplicadorCantidadPedido
+		dataType: double
+		lineageTag: 5a5f098c-e38a-43c5-983a-ca9257850b6b
+		summarizeBy: sum
+		sourceColumn: multiplicadorCantidadPedido
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column multiplicadorKilosPedido
+		dataType: double
+		lineageTag: 59bba705-a7d1-46b0-8ba5-fd0e9010d1bf
+		summarizeBy: sum
+		sourceColumn: multiplicadorKilosPedido
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column idEmpleado
+		dataType: int64
+		formatString: 0
+		lineageTag: d97c513d-af91-48d6-8bd8-efc2201c1afb
+		summarizeBy: none
+		sourceColumn: idEmpleado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idETom
+		dataType: int64
+		formatString: 0
+		lineageTag: 2daa779c-0510-44cc-a2ff-b2d6a362a981
+		summarizeBy: sum
+		sourceColumn: idETom
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column totalBI_albaran
+		dataType: double
+		lineageTag: eef3e99e-79ed-40a7-baa5-26d6435ce424
+		summarizeBy: sum
+		sourceColumn: totalBI_albaran
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalDtoAlb
+		dataType: double
+		formatString: 0.00
+		lineageTag: 3d751842-b1ec-487f-8051-d44da44a9fb2
+		summarizeBy: sum
+		sourceColumn: totalDtoAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_lineas_albaran
+		dataType: double
+		lineageTag: bd6c347f-50f2-41a0-97be-35520155e30f
+		summarizeBy: sum
+		sourceColumn: total_lineas_albaran
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AlbaranKey
+		dataType: string
+		lineageTag: eea7bc95-01bd-44f4-a920-09236343933b
+		summarizeBy: none
+		sourceColumn: AlbaranKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSFac
+		dataType: string
+		lineageTag: 8cd3f924-7cd1-4992-a695-696839956fc8
+		summarizeBy: none
+		sourceColumn: idSFac
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idFac
+		dataType: int64
+		formatString: 0
+		lineageTag: 96b765ef-4020-46f0-94ad-c28d105ff55a
+		summarizeBy: sum
+		sourceColumn: idFac
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tarifa
+		dataType: string
+		lineageTag: a6f917d4-efbe-498c-9ec1-0e0859035cd3
+		summarizeBy: none
+		sourceColumn: tarifa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dto
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 14c0692f-b514-4b54-9c10-96cdf0fb2df4
+		summarizeBy: sum
+		sourceColumn: dto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoPor2
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 0a9a15cf-9b72-4863-8adb-aebe491f596e
+		summarizeBy: sum
+		sourceColumn: dtoPor2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoPor3
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 8ef2e6f0-400e-46cc-8b1e-197d807c53e2
+		summarizeBy: sum
+		sourceColumn: dtoPor3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoPor4
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: a4c688b9-9797-4bb1-8188-43e9957736c9
+		summarizeBy: sum
+		sourceColumn: dtoPor4
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoMoneda
+		dataType: double
+		lineageTag: 35737b76-159a-47f3-a5f0-be678191bc2e
+		summarizeBy: sum
+		sourceColumn: dtoMoneda
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column porcentaje
+		dataType: double
+		lineageTag: 4eaf375e-b284-4bcb-b66c-f5c761387a6e
+		summarizeBy: sum
+		sourceColumn: porcentaje
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dtoAlb
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 8d7336ee-18a6-4148-9b1c-a582f39a0f51
+		summarizeBy: sum
+		sourceColumn: dtoAlb
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoAlb1
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 906efa93-e7c5-4729-85e3-1289a564dbcf
+		summarizeBy: sum
+		sourceColumn: dtoAlb1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoAlb2
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: b9899ca8-a8b0-43d0-81f2-fb632e22e767
+		summarizeBy: sum
+		sourceColumn: dtoAlb2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtoAlb3
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 689a783f-adc6-4f1a-ac83-9cc2ec0a18e1
+		summarizeBy: sum
+		sourceColumn: dtoAlb3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tMonDto
+		dataType: double
+		lineageTag: f2635f1d-9224-419e-ab39-80681d1c4ac7
+		summarizeBy: sum
+		sourceColumn: tMonDto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LineaAlbaranKey
+		dataType: string
+		lineageTag: edd7acbd-466e-4d52-b5a1-73320b7eaaf1
+		summarizeBy: none
+		sourceColumn: LineaAlbaranKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column numLinPri
+		dataType: int64
+		formatString: 0
+		lineageTag: d5259d81-bc4f-4ca1-8095-9bcc2dfba733
+		summarizeBy: sum
+		sourceColumn: numLinPri
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigosLote
+		dataType: string
+		lineageTag: f2c505fa-d754-47c3-8f06-c53bf602f467
+		summarizeBy: none
+		sourceColumn: codigosLote
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tomador =
+			
+			LOOKUPVALUE(
+			    Empleado[nombre],
+			    Empleado[idEmpleado],
+			    FactVentas[idETom]
+			)
+		lineageTag: be04d85f-2cc3-4929-8d1f-beaddd174770
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Caídas =
+			
+			IF(
+			    [Dif. AA Importe] < 0,
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 89ada0a0-f073-433b-baae-800554d27e5e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSFac2
+		dataType: string
+		lineageTag: e8953fb2-8791-47b0-8838-25713a6ec8d2
+		summarizeBy: none
+		sourceColumn: idSFac2
+
+		annotation SummarizationSetBy = Automatic
+
+	column idFac2
+		dataType: int64
+		formatString: 0
+		lineageTag: cd310457-3b2a-47fc-a206-c8f58fd6cf2d
+		summarizeBy: sum
+		sourceColumn: idFac2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Empleado' =
+			
+			LOOKUPVALUE(
+			    Empleado[nombre],
+			    Empleado[idEmpleado],
+			    FactVentas[idEmpleado]
+			)
+		lineageTag: 1c0aee49-67d8-44ac-972f-4fbcc95b0577
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactVentas = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="WITH pedido_test AS (#(lf)    SELECT#(lf)        idSAlbGen,#(lf)        idAlbGen,#(lf)        MAX(idETom) AS idETom#(lf)    FROM pedido#(lf)    GROUP BY#(lf)        idSAlbGen,#(lf)        idAlbGen#(lf)),#(lf)#(lf)lineas_validas AS (#(lf)    SELECT#(lf)        LA.idSAlb,#(lf)        LA.idAlb,#(lf)        SUM(LA.total) AS total_lineas_albaran#(lf)    FROM lineaAlbaran LA#(lf)    WHERE LA.tipoLin IN (1,2,4,5,8)#(lf)    GROUP BY#(lf)        LA.idSAlb,#(lf)        LA.idAlb#(lf)),#(lf)#(lf)lotes_por_linea AS (#(lf)    SELECT#(lf)        X.serie,#(lf)        X.codigo,#(lf)        X.referencia,#(lf)        X.numLineaAlbaran,#(lf)        STRING_AGG(CAST(X.codigoLote AS varchar(max)), ', ') AS codigosLote#(lf)    FROM (#(lf)        SELECT DISTINCT#(lf)            L.serie,#(lf)            L.codigo,#(lf)            L.referencia,#(lf)            L.numLinPri AS numLineaAlbaran,#(lf)            L.codigoLote#(lf)        FROM lineasAlbaranLote L#(lf)        WHERE L.codigoLote IS NOT NULL#(lf)    ) X#(lf)    GROUP BY#(lf)        X.serie,#(lf)        X.codigo,#(lf)        X.referencia,#(lf)        X.numLineaAlbaran#(lf))#(lf)#(lf)SELECT #(lf)    CONCAT(LA.idSAlb, '-', LA.idAlb) AS AlbaranKey,#(lf)    CONCAT(LA.idSAlb, '-', LA.idAlb, '-', LA.numLinea) AS LineaAlbaranKey,#(lf)#(lf)    A.fechaAlb,#(lf)    LA.idSAlb,#(lf)    LA.idAlb,#(lf)    LA.numLinea,#(lf)    LA.numLinPri,#(lf)#(tab)#(tab)A.idSFac,#(lf)#(tab)A.idFac,#(lf)    LA.idTarifa,#(lf)    T.descrip AS tarifa,#(lf)#(lf)    C.idCliente,#(lf)    E.idEmpleado,#(lf)    PT.idETom,#(lf)#(lf)    LA.referencia,#(lf)    LA.descrip,#(lf)    LA.modo,#(lf)    LA.idAlmacen,#(lf)    LA.tipoLin,#(lf)#(lf)    LA.dto / 100 AS dto,#(lf)    LA.dtoPor2 / 100 AS dtoPor2,#(lf)    LA.dtoPor3 / 100 AS dtoPor3,#(lf)    LA.dtoPor4 / 100 AS dtoPor4,#(lf)    LA.dtoMoneda,#(lf)#(lf)    LA.precio,#(lf)    LA.cUni,#(lf)    LA.cantidad,#(lf)    LA.cantKg,#(lf)    LA.cantidadPedido,#(lf)    LA.multiplicadorCantidadPedido,#(lf)    LA.multiplicadorKilosPedido,#(lf)#(lf)    LA.pCoste,#(lf)    LA.total,#(lf)    LA.totalCoste,#(lf)    LA.precioReal,#(lf)    LA.totalReal,#(lf)    LA.precioCosteNeto,#(lf)    LA.precioCosteReal,#(lf)#(lf)    LA.idIva,#(lf)    CAST(I.porcentaje AS decimal(10,4)) / 100 AS porcentaje,#(lf)#(lf)    A.totalBI AS totalBI_albaran,#(lf)    A.totalDto AS totalDtoAlb,#(lf)    A.dto AS dtoAlb,#(lf)    A.dtoAlb1 / 100 AS dtoAlb1,#(lf)    A.dtoAlb2 / 100 AS dtoAlb2,#(lf)    A.dtoAlb3 / 100 AS dtoAlb3,#(lf)#(lf)    LV.total_lineas_albaran,#(lf)#(lf)    A.idSFac,#(lf)    A.idFac,#(lf)    F.tMonDto,#(lf)#(lf)    L.codigosLote#(lf)#(lf)FROM albaran A#(lf)#(lf)INNER JOIN lineaAlbaran LA#(lf)    ON A.idSAlb = LA.idSAlb#(lf)   AND A.idAlb = LA.idAlb#(lf)#(lf)LEFT JOIN lineas_validas LV#(lf)    ON A.idSAlb = LV.idSAlb#(lf)   AND A.idAlb = LV.idAlb#(lf)#(lf)LEFT JOIN cliente C#(lf)    ON A.idCliente = C.idCliente#(lf)#(lf)LEFT JOIN empleado E#(lf)    ON C.idEmpleado = E.idEmpleado#(lf)#(lf)LEFT JOIN pedido_test PT#(lf)    ON A.idAlb = PT.idAlbGen#(lf)   AND A.idSAlb = PT.idSAlbGen#(lf)#(lf)LEFT JOIN tarifa T #(lf)    ON LA.idTarifa = T.idtarifa#(lf)#(lf)LEFT JOIN impuesto I #(lf)    ON LA.IdIva = I.id#(lf)#(lf)LEFT JOIN lotes_por_linea L#(lf)    ON LA.idSAlb = L.serie#(lf)   AND LA.idAlb = L.codigo#(lf)   AND LA.referencia = L.referencia#(lf)   AND LA.numLinea = L.numLineaAlbaran#(lf)#(lf)LEFT JOIN factura F#(lf)    ON A.idFac = F.idFactura#(lf)   AND A.idSFac = F.idSFac#(lf)#(lf)WHERE LA.tipoLin IN (1,2,4,5,8)AND A.fechaAlb > '20240101';"]),
+				    #"Fecha extraída" = Table.TransformColumns(Origen,{{"fechaAlb", DateTime.Date, type date}})
+				in
+				    #"Fecha extraída"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

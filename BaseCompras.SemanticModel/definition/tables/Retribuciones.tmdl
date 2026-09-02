@@ -1,0 +1,120 @@
+table Retribuciones
+	lineageTag: add516fc-3389-4044-8dc5-5057dbddaf5f
+
+	column todos
+		dataType: int64
+		formatString: 0
+		lineageTag: 1941eef5-7ddb-40f6-afc9-6fcb5b3bba99
+		summarizeBy: sum
+		sourceColumn: todos
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipoComi
+		dataType: int64
+		formatString: 0
+		lineageTag: bbf5838e-6377-471c-bf27-5a34d5893c52
+		summarizeBy: sum
+		sourceColumn: tipoComi
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipoAplicacionComision
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d327dab-ed33-444c-a0b0-8e45a1e47a5c
+		summarizeBy: sum
+		sourceColumn: tipoAplicacionComision
+
+		annotation SummarizationSetBy = Automatic
+
+	column restaRapel
+		dataType: int64
+		formatString: 0
+		lineageTag: f36eac5f-4fd0-4910-a3ea-00be5d27efdb
+		summarizeBy: sum
+		sourceColumn: restaRapel
+
+		annotation SummarizationSetBy = Automatic
+
+	column desdeDias
+		dataType: int64
+		formatString: 0
+		lineageTag: f4c938bc-c569-4e01-aa11-dca04ed414c9
+		summarizeBy: sum
+		sourceColumn: desdeDias
+
+		annotation SummarizationSetBy = Automatic
+
+	column hastaDias
+		dataType: int64
+		formatString: 0
+		lineageTag: 083a1bd8-ce27-4a15-8302-93b0f87b0cd0
+		summarizeBy: sum
+		sourceColumn: hastaDias
+
+		annotation SummarizationSetBy = Automatic
+
+	column minFechaFac
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5d4fa493-4340-4f5e-846c-ca8112926128
+		summarizeBy: none
+		sourceColumn: minFechaFac
+
+		variation Variación
+			isDefault
+			relationship: 67383bf9-b199-48e3-a495-893b43db2dd8
+			defaultHierarchy: LocalDateTable_8205023a-c248-447f-9eda-ac71718aac48.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column desdeMargen
+		dataType: double
+		lineageTag: eaf8d2a5-4f5f-4c36-bf75-6a35412a2090
+		summarizeBy: sum
+		sourceColumn: desdeMargen
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column hastaMargen
+		dataType: double
+		lineageTag: 238944a5-0bda-4fe6-98b2-4cfcc87ec36a
+		summarizeBy: sum
+		sourceColumn: hastaMargen
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column idRetribucion
+		dataType: int64
+		formatString: 0
+		lineageTag: 14274bef-3abd-45e1-92a6-afe110f4778e
+		summarizeBy: none
+		sourceColumn: idRetribucion
+
+		annotation SummarizationSetBy = Automatic
+
+	column descrip
+		dataType: string
+		lineageTag: be6bf1e9-0fe7-4fe4-a6ce-f23e0cd9a96d
+		summarizeBy: none
+		sourceColumn: descrip
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Retribuciones = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)idRetribucion,#(lf)descrip,#(lf)todos,#(lf)tipoComi,#(lf)tipoAplicacionComision,#(lf)restaRapel,#(lf)desdeDias,#(lf)hastaDias,#(lf)minFechaFac,#(lf)desdeMargen,#(lf)hastaMargen#(lf)FROM retribucion"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

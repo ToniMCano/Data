@@ -66,6 +66,7 @@ ref table DimComision
 ref table Retribuciones
 ref table LocalDateTable_8205023a-c248-447f-9eda-ac71718aac48
 ref table LineasPedido
+ref table 'Métricas KPI''s Anuales'
 
 ref role RLS_Vendedores
 

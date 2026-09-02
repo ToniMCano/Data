@@ -1,0 +1,661 @@
+table 'Métricas KPI''s Anuales'
+	lineageTag: 7ec6add2-37f7-4535-8902-9552bcefa3c5
+
+	measure '(KPIs) Clientes Activos Grupo A' = ```
+			
+			
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "Dif", [YoY Netas %],
+			            "FactCliAA", [(KPIs)  Facturación Cliente < 3000 AA],
+			            "FactActual", [Ventas Netas ERP]
+			        ),
+			        [FactCliAA] > 0
+			            && [FactCliAA] < 3000
+			            && [FactActual] > 0
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168 
+			            && Clientes[idEmpleado] <> 140 
+			            && Clientes[idEmpleado] <> 123 
+			            && Clientes[idEmpleado] <> 99 
+			            && Clientes[idEmpleado] <> 73 
+			            && Clientes[idEmpleado] <> 65 
+			            && Clientes[idEmpleado] <> 30 
+			            && Clientes[idEmpleado] <> 26 
+			            && Clientes[idEmpleado] <> 24 
+			            && Clientes[idEmpleado] <> 23 
+			            && Clientes[idEmpleado] <> 15 
+			            && Clientes[idEmpleado] <> 10 
+			            && Clientes[idEmpleado] <> 2 
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(N)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO )" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( N )" ) )
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: 59a21ec2-2efe-49b2-acee-f06da6a0f0d8
+
+	measure '(KPIs)  Facturación Cliente < 3000 AA' = ```
+			
+			    CALCULATE(
+			        [Ventas Netas LY],
+			        ALLEXCEPT(Clientes, Clientes[nomCom])
+			    )
+			
+			```
+		lineageTag: 72e0f204-9d7e-43fe-aace-9547af6e58d7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs)  Clientes Grupo A 2025' = ```
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "FactCli", [(KPIs)  Facturación Cliente < 3000 AA]
+			        ),
+			        [FactCli] > 0
+			            && [FactCli] < 3000
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168
+			            && Clientes[idEmpleado] <> 140
+			            && Clientes[idEmpleado] <> 123
+			            && Clientes[idEmpleado] <> 99
+			            && Clientes[idEmpleado] <> 73
+			            && Clientes[idEmpleado] <> 65
+			            && Clientes[idEmpleado] <> 30
+			            && Clientes[idEmpleado] <> 26
+			            && Clientes[idEmpleado] <> 24
+			            && Clientes[idEmpleado] <> 23
+			            && Clientes[idEmpleado] <> 15
+			            && Clientes[idEmpleado] <> 10
+			            && Clientes[idEmpleado] <> 2  
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0 
+			            && NOT CONTAINSSTRING ( [nomCom], "(NNN)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(N)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO )" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( N )" )
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: cabcddaf-5ffb-4da3-9f7b-1144f947c406
+
+	measure '(KPIs)  Incremento' = 180000
+		formatString: 0
+		lineageTag: fb17f6c1-b3d1-4487-9170-8afac33a340d
+
+	measure '(KPIs)  Incremento Grupo A' =
+			
+			
+			
+			
+			VAR facturacionB = ([Ventas Netas LY] - [(KPIs)  Facturación Grupo A 2025 (AA)]) * 0.04
+			
+			VAR incremento = ([(KPIs)  Incremento] * [(KPIs)  Multiplicador Comerciales]) - facturacionB
+			
+			RETURN incremento
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 28273b52-d235-4755-9604-bf100ffebd3b
+
+	measure '(KPIs)  Facturación Grupo A 2025 (AA)' = ```
+			
+			CALCULATE(
+			    [Ventas Netas LY],
+			    FILTER(
+			        Clientes,
+			        [(KPIs)  Facturación Cliente < 3000 AA] < 3000 && [(KPIs)  Facturación Cliente < 3000 AA] > 0 
+			            && NOT CONTAINSSTRING( Clientes[nomCom], "(NO)" )
+			                && NOT CONTAINSSTRING( Clientes[nomCom], "(N)" )
+			                && NOT CONTAINSSTRING( Clientes[nomCom], "(NO )" )
+			                && NOT CONTAINSSTRING( Clientes[nomCom], "( NO)" )
+			                && NOT CONTAINSSTRING( Clientes[nomCom], "( N )" )
+			                && NOT CONTAINSSTRING ( [nomCom], "(NNN)" )
+			                && Clientes[idEmpleado] <> 168
+			                && Clientes[idEmpleado] <> 140
+			                && Clientes[idEmpleado] <> 123
+			                && Clientes[idEmpleado] <> 99
+			                && Clientes[idEmpleado] <> 73
+			                && Clientes[idEmpleado] <> 65
+			                && Clientes[idEmpleado] <> 30
+			                && Clientes[idEmpleado] <> 26
+			                && Clientes[idEmpleado] <> 24
+			                && Clientes[idEmpleado] <> 23
+			                && Clientes[idEmpleado] <> 15
+			                && Clientes[idEmpleado] <> 10
+			                && Clientes[idEmpleado] <> 2      
+			                && Clientes[idEmpleado] <> 1
+			    )
+			)
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 9fc6fd9c-f615-4bc3-b017-b080d7835b6d
+
+	measure '(KPIs)  Multiplicador Comerciales' = ```
+			
+			
+			DISTINCTCOUNT(Clientes[idEmpleado])
+			
+			```
+		formatString: 0
+		lineageTag: 5d456f59-a22e-4a52-a700-de3b5cf55044
+
+	measure '(KPIs)  Objetivo KPIs(A+B)' =
+			
+			[(KPIs)  Incremento Grupo A] + [(KPIs)  Incremento Grupo B] + [Ventas Netas LY]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 9337d966-9a3e-4cf5-beb5-f95e66e858a6
+
+	measure '(KPIs)  Incremento Grupo B' = ```
+			
+			([Ventas Netas LY] - [(KPIs)  Facturación Grupo A 2025 (AA)]) * 0.04
+			
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 1d9b1db1-630a-494e-b5d7-d01f50f416a6
+
+	measure '(KPIs) Clientes Activos Grupo B' = ```
+			
+			
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "Dif", [YoY Netas %],
+			            "FactCliAA", [(KPIs)  Facturación Cliente < 3000 AA],
+			            "FactActual", [Ventas Netas LY]
+			        ),
+			        [FactCliAA] > 0
+			            && [FactCliAA] > 3000
+			            && [FactActual] > 0
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168 
+			            && Clientes[idEmpleado] <> 140 
+			            && Clientes[idEmpleado] <> 123 
+			            && Clientes[idEmpleado] <> 99 
+			            && Clientes[idEmpleado] <> 73 
+			            && Clientes[idEmpleado] <> 65 
+			            && Clientes[idEmpleado] <> 30 
+			            && Clientes[idEmpleado] <> 26 
+			            && Clientes[idEmpleado] <> 24 
+			            && Clientes[idEmpleado] <> 23 
+			            && Clientes[idEmpleado] <> 15 
+			            && Clientes[idEmpleado] <> 10 
+			            && Clientes[idEmpleado] <> 2 
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(N)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO )" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( N )" ) )
+			    )
+			)
+			
+			
+			```
+		formatString: 0
+		lineageTag: dce5a706-1896-4b18-9188-32c2a94f1435
+
+	measure '(KPIs) Clientes Grupo B' = ```
+			
+			VAR numero = [Total_Clientes_AA] - [(KPIs)  Clientes Grupo A 2025] 
+			
+			VAR calculado =
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "Dif", [YoY Netas %],
+			            "FactCliAA", [(KPIs)  Facturación Cliente < 3000 AA],
+			            "FactActual", [Ventas Netas ERP]
+			        ),
+			        [FactCliAA] > 0
+			            && [FactCliAA] > 3000
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168 
+			            && Clientes[idEmpleado] <> 140 
+			            && Clientes[idEmpleado] <> 123 
+			            && Clientes[idEmpleado] <> 99 
+			            && Clientes[idEmpleado] <> 73 
+			            && Clientes[idEmpleado] <> 65 
+			            && Clientes[idEmpleado] <> 30 
+			            && Clientes[idEmpleado] <> 26 
+			            && Clientes[idEmpleado] <> 24 
+			            && Clientes[idEmpleado] <> 23 
+			            && Clientes[idEmpleado] <> 15 
+			            && Clientes[idEmpleado] <> 10 
+			            && Clientes[idEmpleado] <> 2 
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(N)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO )" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( N )" ) )
+			    )
+			)
+			
+			RETURN calculado
+			```
+		lineageTag: df3c0593-d584-424f-a901-a8b967890389
+
+	measure '(KPIs)  Diferencia Grupo A' = ```
+			
+			  [(KPIs)  Facturación Grupo A] - [(KPIs)  Facturación Grupo A 2025 (AA)]
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: dcefd526-a607-43ff-af1d-07c9f6851980
+
+	measure '(KPIs)  Diferencia Grupo B' = ```
+			
+			  [(KPIs) Facturación Grupo B] - [(KPIs)  Facturación Grupo B 2025 (AA)]
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 68c13bbc-b791-408b-ad1b-516885d59f91
+
+	measure '(KPIs) Facturación Grupo B' = [Ventas Netas ERP] - [(KPIs)  Facturación Grupo A]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 7c28d09f-8a87-42b1-a0ae-5d592a9ff021
+
+	measure '(KPIs)  Facturación Grupo B 2025 (AA)' =
+			
+			
+			[Ventas Netas LY] - [(KPIs)  Facturación Grupo A 2025 (AA)]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: d5040c7a-ca01-44c7-999b-212fffb3c442
+
+	measure '(KPIs)  Facturación Grupo A' = ```
+			
+			CALCULATE(
+			    [Ventas Netas ERP],
+			    FILTER(
+			        Clientes,
+			        [(KPIs)  Facturación Cliente < 3000 AA] < 3000 && [(KPIs)  Facturación Cliente < 3000 AA] > 0 && Clientes[idEmpleado] <> 1
+			            && NOT CONTAINSSTRING( Clientes[nomCom], "(NO)" )
+			                && NOT CONTAINSSTRING( Clientes[nomCom], "(N)" )
+			                && NOT CONTAINSSTRING( Clientes[nomCom], "(NO )" )
+			                && NOT CONTAINSSTRING( Clientes[nomCom], "( NO)" )
+			                && NOT CONTAINSSTRING( Clientes[nomCom], "( N )" )
+			                && NOT CONTAINSSTRING ( [nomCom], "(NNN)" )
+			                && Clientes[idEmpleado] <> 168
+			                && Clientes[idEmpleado] <> 140
+			                && Clientes[idEmpleado] <> 123
+			                && Clientes[idEmpleado] <> 99
+			                && Clientes[idEmpleado] <> 73
+			                && Clientes[idEmpleado] <> 65
+			                && Clientes[idEmpleado] <> 30
+			                && Clientes[idEmpleado] <> 26
+			                && Clientes[idEmpleado] <> 24
+			                && Clientes[idEmpleado] <> 23
+			                && Clientes[idEmpleado] <> 15
+			                && Clientes[idEmpleado] <> 10
+			                && Clientes[idEmpleado] <> 2      
+			    )
+			)
+			
+			
+			
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 6b91841c-02ea-4371-81c0-cd49357ca925
+
+	measure '(KPIs)  % Dif. Facturación Grupo A 2025/2026' =
+			
+			
+			[(KPIs)  % Facturación Grupo A] - [(KPIs)  % Facturación Grupo A (AA)]
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 791cb460-f301-474f-93e6-27e4de62a12d
+
+	measure '(KPIs)  % Clientes Grupo A' = ```
+			
+			DIVIDE(
+			    [(KPIs)  Clientes Grupo A 2025],
+			    'Métricas Clientes'[Total_Clientes]
+			) 
+			
+			```
+		lineageTag: 3084e2c3-f77e-4c4a-92a6-1b00e624d0e2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs)  % Clientes Grupo B' = ```
+			
+			DIVIDE(
+			    [(KPIs)  Clientes Grupo B 2025],
+			    'Métricas Clientes'[Total_Clientes]
+			) 
+			```
+		lineageTag: ec485bad-c709-4502-b5aa-81715723e1e4
+
+	measure '(KPIs)  Clientes Grupo B 2025' = ```
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "FactCli", [(KPIs)  Facturación Cliente < 3000 AA]
+			        ),
+			        [FactCli] > 0
+			            && [FactCli] > 3000
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168
+			            && Clientes[idEmpleado] <> 140
+			            && Clientes[idEmpleado] <> 123
+			            && Clientes[idEmpleado] <> 99
+			            && Clientes[idEmpleado] <> 73
+			            && Clientes[idEmpleado] <> 65
+			            && Clientes[idEmpleado] <> 30
+			            && Clientes[idEmpleado] <> 26
+			            && Clientes[idEmpleado] <> 24
+			            && Clientes[idEmpleado] <> 23
+			            && Clientes[idEmpleado] <> 15
+			            && Clientes[idEmpleado] <> 10
+			            && Clientes[idEmpleado] <> 2  
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0 
+			            && NOT CONTAINSSTRING ( [nomCom], "(NNN)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(N)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO )" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( N )" )
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: 3bef0877-724b-4816-ad66-96f4178a6f6e
+
+	measure '(KPIs)  % Dif. Facturación Grupo B 2025/2026' =
+			
+			
+			[(KPIs)  % Facturación Grupo B] - [(KPIs)  % Facturación Grupo B  (AA)]
+		formatString: #,0.00\ %;-#,0.00\ %;#,0.00\ %
+		lineageTag: 63ad845a-b496-4aa3-9587-da8c9605c2eb
+
+	measure '(KPIs)  % Facturación Grupo A' = ```
+			
+			DIVIDE(
+			    [(KPIs)  Facturación Grupo A],
+			    [Ventas Netas ERP]
+			)
+			
+			```
+		lineageTag: f1b45400-f04e-42b4-bca8-8c623fde6d98
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs)  % Facturación Grupo A (AA)' = ```
+			
+			DIVIDE(
+			    [(KPIs)  Facturación Grupo A 2025 (AA)],
+			    [Ventas Netas LY]
+			)
+			
+			```
+		lineageTag: b962f89e-87d2-4a7c-92c4-f2ae57bc8549
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs)  % Facturación Grupo B' = ```
+			
+			VAR GrupoB = [Ventas Netas ERP] - [(KPIs)  Facturación Grupo A]
+			
+			RETURN GrupoB / [Ventas Netas ERP] 
+			```
+		lineageTag: d65e73df-19df-4c1b-ab39-93bf8de67edf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs)  % Facturación Grupo B  (AA)' = ```
+			
+			VAR GrupoB = [Ventas Netas LY] - [(KPIs)  Facturación Grupo A 2025 (AA)]
+			
+			
+			RETURN GrupoB / [Ventas Netas LY] 
+			```
+		lineageTag: 8bc75bbd-c8a4-4506-905e-54a41c16eeda
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs)  Grupo A 70%' =
+			
+			ROUND([(KPIs)  Clientes Grupo A 2025] * 0.7 , 0)
+		lineageTag: 355d1d74-b240-4fc6-a832-e3e9a196a23f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs)  Grupo A en Crecimiento' = ```
+			
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "FactCliAA", [(KPIs)  Facturación Cliente < 3000 AA],
+			            "FactActual", [Ventas Netas ERP]
+			        ),
+			        [FactCliAA] > 0
+			            && [FactCliAA] < 3000
+			            && [FactActual] > [FactCliAA] 
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168 
+			            && Clientes[idEmpleado] <> 140 
+			            && Clientes[idEmpleado] <> 123 
+			            && Clientes[idEmpleado] <> 99 
+			            && Clientes[idEmpleado] <> 73 
+			            && Clientes[idEmpleado] <> 65 
+			            && Clientes[idEmpleado] <> 30 
+			            && Clientes[idEmpleado] <> 26 
+			            && Clientes[idEmpleado] <> 24 
+			            && Clientes[idEmpleado] <> 23 
+			            && Clientes[idEmpleado] <> 15 
+			            && Clientes[idEmpleado] <> 10 
+			            && Clientes[idEmpleado] <> 2 
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(N)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO )" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( N )" ) )
+			    )
+			)
+			
+			
+			
+			```
+		formatString: 0
+		lineageTag: 83c63cf5-bf89-4ec5-b1e4-d13252552c5e
+
+	measure '(KPIs) Media Grupo A' =
+			
+			([(KPIs)  Facturación Grupo A] / [Meses Transcurridos Año]) / [(KPIs) Clientes Activos Grupo A]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 75f9627e-7703-44fe-8edd-edc63f9fc50b
+
+	measure '(KPIs)  Objetivo Grupo A Importe' = 3500
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 95b3e654-8f75-4dfc-9097-276838b315cc
+
+	measure '(KPIs)  Grupo A > 3500' = ```
+			
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "FactCliAA", [(KPIs)  Facturación Cliente < 3000 AA],
+			            "FactActual", [Ventas Netas ERP]
+			        ),
+			        [FactCliAA] > 0
+			            && [FactCliAA] < 3000
+			            && [FactActual] > 3499
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168 
+			            && Clientes[idEmpleado] <> 140 
+			            && Clientes[idEmpleado] <> 123 
+			            && Clientes[idEmpleado] <> 99 
+			            && Clientes[idEmpleado] <> 73 
+			            && Clientes[idEmpleado] <> 65 
+			            && Clientes[idEmpleado] <> 30 
+			            && Clientes[idEmpleado] <> 26 
+			            && Clientes[idEmpleado] <> 24 
+			            && Clientes[idEmpleado] <> 23 
+			            && Clientes[idEmpleado] <> 15 
+			            && Clientes[idEmpleado] <> 10 
+			            && Clientes[idEmpleado] <> 2 
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(N)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "(NO )" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( NO)" ) )
+			            && NOT ( CONTAINSSTRING ( [nomCom], "( N )" ) )
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: d124e838-09ae-4223-a10a-3bb3463c315d
+
+	measure '(KPIs)  Objetivo Grupo B' = ```
+			
+			
+			VAR objetivoB = ([Ventas Netas LY] - [(KPIs)  Facturación Grupo A 2025 (AA)]) *1.04
+			
+			RETURN objetivoB
+			
+			```
+		lineageTag: 3b22b7db-8dc2-48f2-81eb-492dc10ca8f1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs) Clientes Grupo B +' =
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "FactCliAA", [Ventas Netas LY],
+			            "FactActual", [Ventas Netas ERP]
+			        ),
+			        [FactCliAA] >= 3000
+			            && [FactActual] > [FactCliAA]
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && NOT (
+			                Clientes[idEmpleado] IN {
+			                    168, 140, 123, 99, 73, 65, 30, 26,
+			                    24, 23, 15, 10, 2, 1, 0
+			                }
+			            )
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(N)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO )" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( N )" )
+			    )
+			)
+		formatString: 0
+		lineageTag: 44d49377-ea55-47fd-9875-426d92f8e90c
+
+	measure '(KPIs) Clientes Grupo B  70%' =
+			
+			[(KPIs) Clientes Grupo B] * 0.7
+		lineageTag: 9d8279d1-b9c9-4fba-9d70-8f8bb62a16ac
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '(KPIs)  Incremento KPIs' =
+			
+			[(KPIs)  Incremento Grupo A] + [(KPIs)  Incremento Grupo B]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: f8daac38-ac3c-44f3-acbe-59eeee0ff74d
+
+	measure '(KPIs) Objetivo Grupo A > 3500' = ```
+			
+			VAR NumComerciales =
+			    COUNTROWS (
+			        VALUES ( Clientes[idEmpleado])
+			    )
+			
+			RETURN
+			 20 * NumComerciales
+			        
+			
+			
+			```
+		formatString: 0
+		lineageTag: 2a199516-51fc-4a74-9cab-b7b0abb9a808
+
+	column Dummy
+		isHidden
+		lineageTag: 308ed2f3-55dc-4d60-9c0c-e822b199f04d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Métricas KPI''s Anuales' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = 04b11380aa9748eb9db7b4ad2dc414d2
+

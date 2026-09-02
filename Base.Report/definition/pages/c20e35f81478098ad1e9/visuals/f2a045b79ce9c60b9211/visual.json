@@ -1,0 +1,272 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "f2a045b79ce9c60b9211",
+  "position": {
+    "x": 664,
+    "y": 2384,
+    "z": 28000,
+    "height": 272,
+    "width": 544,
+    "tabOrder": 27000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Clientes"
+                    }
+                  },
+                  "Property": "nomCom"
+                }
+              },
+              "queryRef": "Clientes.nomCom",
+              "nativeQueryRef": "nomCom",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LineasPedido"
+                    }
+                  },
+                  "Property": "PedidoKey"
+                }
+              },
+              "queryRef": "LineasPedido.PedidoKey",
+              "nativeQueryRef": "PedidoKey",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LineasPedido"
+                    }
+                  },
+                  "Property": "referencia"
+                }
+              },
+              "queryRef": "LineasPedido.referencia",
+              "nativeQueryRef": "referencia",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "descrip"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(LineasPedido.descrip)",
+              "nativeQueryRef": "Primera fecha: descrip"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "modo"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(LineasPedido.modo)",
+              "nativeQueryRef": "Modo",
+              "displayName": "Modo"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "cUni"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LineasPedido.cUni)",
+              "nativeQueryRef": "Uds./Caja",
+              "displayName": "Uds./Caja"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "precio"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LineasPedido.precio)",
+              "nativeQueryRef": "Precio",
+              "displayName": "Precio"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "cantidad"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LineasPedido.cantidad)",
+              "nativeQueryRef": "Cantidad",
+              "displayName": "Cantidad"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "cantKg"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LineasPedido.cantKg)",
+              "nativeQueryRef": "Kgs.",
+              "displayName": "Kgs."
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "dto"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LineasPedido.dto)",
+              "nativeQueryRef": "Dto.",
+              "displayName": "Dto."
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LineasPedido.total)",
+              "nativeQueryRef": "Total",
+              "displayName": "Total"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "idTarifa"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LineasPedido.idTarifa)",
+              "nativeQueryRef": "idTarifa",
+              "displayName": "idTarifa"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "observa"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(LineasPedido.observa)",
+              "nativeQueryRef": "Observaciones",
+              "displayName": "Observaciones"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

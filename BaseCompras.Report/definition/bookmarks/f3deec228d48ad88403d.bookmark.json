@@ -1,0 +1,291 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Luga Fresh",
+  "name": "f3deec228d48ad88403d",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "c20e35f81478098ad1e9",
+    "sections": {
+      "c20e35f81478098ad1e9": {
+        "filters": {
+          "byName": {
+            "978132208276a87dbc31": {
+              "name": "978132208276a87dbc31",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Clientes"
+                    }
+                  },
+                  "Property": "idEmpleado"
+                }
+              },
+              "howCreated": 1
+            },
+            "b42abf7eeb766fe66da9": {
+              "name": "b42abf7eeb766fe66da9",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SegmentoProductos"
+                    }
+                  },
+                  "Property": "referencia"
+                }
+              },
+              "howCreated": 1
+            },
+            "48b4701cff3b30e65248": {
+              "name": "48b4701cff3b30e65248",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "descrip"
+                }
+              },
+              "howCreated": 1
+            }
+          },
+          "byExpr": [
+            {
+              "name": "dc032b7141f0588b1ef6",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactVentas"
+                    }
+                  },
+                  "Property": "idAlb"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "8c29e9c1c453369086dc",
+              "type": "Advanced",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "p",
+                    "Entity": "Productos",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "p"
+                              }
+                            },
+                            "Property": "idSeccion"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "700L"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "idSeccion"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "624a7b9ed8e218bdc93c",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "descrip"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "a2fd9c62408e2ab9184d",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "Encargo"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "a2f69fa466bc2002d423",
+              "type": "RelativeDate",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "fechaAlb"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "f455c4d7e1ccd03e3297",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "Futuros"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "90355aa8900240e14d1b",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "AlbaranKey"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "81903bb6030070ba9440",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Pedido"
+                    }
+                  },
+                  "Property": "Futuros"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "211cbde69405ab330976",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactVentas"
+                    }
+                  },
+                  "Property": "Caídas"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "a9894c200c6ed7198d7b",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Clientes"
+                    }
+                  },
+                  "Property": "nomCom"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "1e493c2ad0526b08d4dc",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAlbaran"
+                    }
+                  },
+                  "Property": "idTipoDoc"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {}
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

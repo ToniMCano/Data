@@ -1,0 +1,47 @@
+table SubFamilia
+	lineageTag: e9737085-236f-4e94-a17f-ebf5ed40c784
+
+	column idColeccion
+		dataType: int64
+		formatString: 0
+		lineageTag: b97533f9-69e7-40bd-99ac-eb1dd0e69bf9
+		summarizeBy: sum
+		sourceColumn: idColeccion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSubFamilia
+		dataType: int64
+		formatString: 0
+		lineageTag: 4bf76b04-fce7-4561-9dac-44dd9ef44a6d
+		summarizeBy: none
+		sourceColumn: idSubFamilia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column subfamilia_d
+		dataType: string
+		lineageTag: 020bd9fa-53e0-47ee-998d-a6442fb7c319
+		summarizeBy: none
+		sourceColumn: subfamilia_d
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SubFamilia = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)idColeccion,#(lf)idSubFamilia,#(lf)descrip AS subfamilia_d#(lf)FROM lineasSubFamColeccion"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

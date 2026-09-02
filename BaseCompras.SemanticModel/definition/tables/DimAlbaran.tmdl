@@ -1,0 +1,90 @@
+table DimAlbaran
+	lineageTag: 8a8244da-effd-425f-9223-859667dd0fd7
+
+	column AlbaranKey
+		lineageTag: 4e908264-c639-44c1-9c9c-ee0b6f70fe33
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [AlbaranKey]
+
+		annotation SummarizationSetBy = Automatic
+
+	column idSAlb
+		lineageTag: b78ebb84-dc21-4ddb-b8b3-c3490dc3ca33
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [idSAlb]
+
+		annotation SummarizationSetBy = Automatic
+
+	column idAlb
+		formatString: 0
+		lineageTag: 73d89831-2877-4a02-b980-2a82625f8ee5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [idAlb]
+
+		annotation SummarizationSetBy = Automatic
+
+	column idTipoDoc
+		formatString: 0
+		lineageTag: 59249991-99df-4f94-8691-c576fd555a02
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [idTipoDoc]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimAlbaran = calculated
+		mode: import
+		source =
+				
+				VAR Claves =
+				    DISTINCT(
+				        UNION(
+				            SELECTCOLUMNS(
+				                FILTER(
+				                    Albaranes,
+				                    NOT ISBLANK(Albaranes[AlbaranKey])
+				                        && Albaranes[AlbaranKey] <> "-0"
+				                ),
+				                "AlbaranKey", Albaranes[AlbaranKey]
+				            ),
+				            SELECTCOLUMNS(
+				                FILTER(
+				                    Pedido,
+				                    NOT ISBLANK(Pedido[AlbaranKey])
+				                        && Pedido[AlbaranKey] <> "-0"
+				                ),
+				                "AlbaranKey", Pedido[AlbaranKey]
+				            )
+				        )
+				    )
+				RETURN
+				ADDCOLUMNS(
+				    Claves,
+				    "idSAlb",
+				        VAR K = [AlbaranKey]
+				        RETURN
+				            CALCULATE(
+				                MAX(Albaranes[idSAlb]),
+				                Albaranes[AlbaranKey] = K
+				            ),
+				    "idAlb",
+				        VAR K = [AlbaranKey]
+				        RETURN
+				            CALCULATE(
+				                MAX(Albaranes[idAlb]),
+				                Albaranes[AlbaranKey] = K
+				            ),
+				    "idTipoDoc",
+				        VAR K = [AlbaranKey]
+				        RETURN
+				            CALCULATE(
+				                MAX(Albaranes[idTipoDoc]),
+				                Albaranes[AlbaranKey] = K
+				            )
+				)
+
+	annotation PBI_Id = 13e9b2cabf5941ab8c86ca215226f4f5
+

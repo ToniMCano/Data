@@ -1,0 +1,170 @@
+table Facturas
+	lineageTag: 813c157f-f4b6-4472-9892-ab032e1bb687
+
+	column idSFac
+		dataType: string
+		lineageTag: 4930f045-c9d2-49a1-808c-c92c15e5807f
+		summarizeBy: none
+		sourceColumn: idSFac
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idFactura
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cf1a8b2-cfe2-422a-8d20-39eb38d061e8
+		summarizeBy: sum
+		sourceColumn: idFactura
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FacturaKey
+		dataType: string
+		lineageTag: 411802a1-a974-404d-b99e-ef4bfb7e57a5
+		summarizeBy: none
+		sourceColumn: FacturaKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e3d58e19-e255-45cb-b432-ebfc7ef8a2aa
+		summarizeBy: none
+		sourceColumn: fecha
+
+		variation Variación
+			isDefault
+			relationship: 52a079f3-e3a6-4f20-8b94-c394bfdd4843
+			defaultHierarchy: LocalDateTable_b6bcdd62-e6aa-49ec-83df-429979f0b039.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column totalBI
+		dataType: double
+		lineageTag: d67ade03-0e26-4126-999c-d7ac7c881741
+		summarizeBy: sum
+		sourceColumn: totalBI
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalDto
+		dataType: double
+		lineageTag: 3161b748-91bf-4122-b6e9-d0b45828744c
+		summarizeBy: sum
+		sourceColumn: totalDto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tMonDto
+		dataType: double
+		lineageTag: 99569861-4fb2-4fe9-a0ca-2fc3ffda76c4
+		summarizeBy: sum
+		sourceColumn: tMonDto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dto
+		dataType: double
+		lineageTag: 2f2a4c6c-9015-43d4-afa6-44cca5567370
+		summarizeBy: sum
+		sourceColumn: dto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dtoFac1
+		dataType: double
+		lineageTag: ea5d2c47-d0fb-42a9-9389-cd026be141e5
+		summarizeBy: sum
+		sourceColumn: dtoFac1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dtoFac2
+		dataType: double
+		lineageTag: db04e4f0-2367-45fa-a891-7eeca3dbc012
+		summarizeBy: sum
+		sourceColumn: dtoFac2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dtoFac3
+		dataType: double
+		lineageTag: 4dff665c-103c-48b3-a8ef-38cde2656d13
+		summarizeBy: sum
+		sourceColumn: dtoFac3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column idCliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 696af30a-35ed-49a5-b1e0-a74d7f9ef177
+		summarizeBy: sum
+		sourceColumn: idCliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Cliente Factura' =
+			
+			LOOKUPVALUE(
+			    Clientes[nomCom],
+			    Clientes[idCliente],
+			    Facturas[idCliente]
+			)
+		lineageTag: 9762d24e-fe54-4e5f-9cfb-832ce93bfdc9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Facturas = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    F.idSFac,#(lf)    F.idFactura,#(lf)    CONCAT(F.idSFac, '-', F.idFactura) AS FacturaKey,#(lf)    F.fecha,#(lf)    F.totalBI,#(lf)    F.totalDto,#(lf)    F.tMonDto,#(lf)    F.dto,#(lf)    F.dtoFac1,#(lf)    F.dtoFac2,#(lf)    F.dtoFac3,#(lf)#(tab)F.idCliente#(lf)FROM factura F#(lf)WHERE F.fecha >= '20240101'#(lf)"]),
+				    #"Filas ordenadas" = Table.Sort(Origen,{{"totalDto", Order.Descending}})
+				in
+				    #"Filas ordenadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

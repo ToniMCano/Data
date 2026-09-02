@@ -1,0 +1,46 @@
+table Colecciones
+	lineageTag: debf879a-d57a-4785-95eb-70233ddfcd15
+
+	column IdColeccion
+		dataType: int64
+		formatString: 0
+		lineageTag: cd22d144-e88e-4ba6-9e47-f99a2ecc0a67
+		summarizeBy: sum
+		sourceColumn: IdColeccion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coleccion
+		dataType: string
+		lineageTag: df559340-532a-40fe-9a51-4623de9f27f2
+		summarizeBy: none
+		sourceColumn: Coleccion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Referencia
+		dataType: string
+		lineageTag: 4fe3fa21-45e2-4ef3-ab00-8a61330c9a8d
+		summarizeBy: none
+		sourceColumn: Referencia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Colecciones = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="select #(lf)*#(lf)from Colecciones "])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,132 @@
+table RLS
+	lineageTag: 9681ce58-ce8e-4a9d-8b43-b1b49fb6066a
+
+	column idVendedor
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e4644b5-5748-41d2-959a-31f39e6db243
+		summarizeBy: sum
+		sourceColumn: idVendedor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column mail
+		dataType: string
+		lineageTag: 356f94d1-9d58-4350-9570-26c1d31615f9
+		summarizeBy: none
+		sourceColumn: mail
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rol
+		dataType: string
+		lineageTag: d1c6e831-1470-4373-abc0-07b9c8eb8d4c
+		summarizeBy: none
+		sourceColumn: Rol
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna1
+		dataType: string
+		lineageTag: 39990909-36c6-4740-a00b-9368cdc22ab5
+		summarizeBy: none
+		sourceColumn: Columna1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna2
+		dataType: string
+		lineageTag: de3e39a7-12f5-4dab-9e9c-adf7898cc9d8
+		summarizeBy: none
+		sourceColumn: Columna2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna3
+		dataType: string
+		lineageTag: 40620777-10ef-499f-975b-aaa1f4201c76
+		summarizeBy: none
+		sourceColumn: Columna3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna4
+		dataType: string
+		lineageTag: 855d0f3d-3dd8-42be-97b0-3ed03c0c5fad
+		summarizeBy: none
+		sourceColumn: Columna4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna5
+		dataType: string
+		lineageTag: 34fc8ebb-1529-4492-97da-02939eb531ca
+		summarizeBy: none
+		sourceColumn: Columna5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna6
+		dataType: string
+		lineageTag: 94ed4f3a-a939-408b-97fc-4beabcd2ff11
+		summarizeBy: none
+		sourceColumn: Columna6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna7
+		dataType: string
+		lineageTag: 7415ceef-e822-4abe-90c8-44c9430b98c9
+		summarizeBy: none
+		sourceColumn: Columna7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna8
+		dataType: string
+		lineageTag: 78c59b7e-773b-4d9f-929a-7a917dcb999a
+		summarizeBy: none
+		sourceColumn: Columna8
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna9
+		dataType: string
+		lineageTag: 71dcb7c9-1aff-416a-a52c-3768293178f4
+		summarizeBy: none
+		sourceColumn: Columna9
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna10
+		dataType: string
+		lineageTag: 50414571-ebee-42da-942c-940d9de27031
+		summarizeBy: none
+		sourceColumn: Columna10
+
+		annotation SummarizationSetBy = Automatic
+
+	partition RLS = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjM2VdJRKslNLCrJzEutcsgpTU8sTkzKL0ot1kstBko5uvh6+gFpfChWJ1rJ2ADISknMy0zNId8QI0MgKzk/N7UoOTMxJz4lvxjZLKBp+Xm5mclF+cX5aSV6QHXEGh0LAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [idVendedor = _t, mail = _t, Rol = _t, Columna1 = _t, Columna2 = _t, Columna3 = _t, Columna4 = _t, Columna5 = _t, Columna6 = _t, Columna7 = _t, Columna8 = _t, Columna9 = _t, Columna10 = _t]),
+				    #"Filas ordenadas3" = Table.Sort(Origen,{{"mail", Order.Ascending}}),
+				    #"Filas ordenadas1" = Table.Sort(#"Filas ordenadas3",{{"idVendedor", Order.Ascending}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Filas ordenadas1",{{"idVendedor", Int64.Type}, {"mail", type text}, {"Rol", type text}}),
+				    #"Filas ordenadas" = Table.Sort(#"Tipo cambiado",{{"idVendedor", Order.Ascending}, {"mail", Order.Ascending}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Filas ordenadas", each true),
+				    #"Filas ordenadas2" = Table.Sort(#"Filas filtradas",{{"mail", Order.Ascending}})
+				in
+				    #"Filas ordenadas2"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

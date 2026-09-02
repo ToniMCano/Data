@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "b15a5d91860f463611e4",
+  "position": {
+    "x": 368,
+    "y": 624,
+    "z": 25000,
+    "height": 272,
+    "width": 544,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas Visuales"
+                    }
+                  },
+                  "Property": "Media Albaran Empresa Grupo Matriz (Importe)%"
+                }
+              },
+              "queryRef": "Métricas Visuales.Media Albaran Empresa Grupo Matriz (Importe)%",
+              "nativeQueryRef": "Media Albaran Empresa Grupo Matriz (Importe)%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas Visuales"
+                    }
+                  },
+                  "Property": "TEST Media Albaran Empresa Grupo Matriz (Importe)%"
+                }
+              },
+              "queryRef": "Métricas Visuales.TEST Media Albaran Empresa Grupo Matriz (Importe)%",
+              "nativeQueryRef": "TEST Media Albaran Empresa Grupo Matriz (Importe)%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

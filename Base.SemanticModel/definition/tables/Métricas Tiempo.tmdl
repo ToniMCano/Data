@@ -1,7 +1,28 @@
 table 'Métricas Tiempo'
 	lineageTag: 69d7c170-fb10-4a2a-8ce5-05b37bf09041
 
+	measure 'transcurrido Año' =
+			
+			VAR FechaActual = TODAY()  // o NOW() si necesitas hora
+			VAR InicioAno = DATE(YEAR(FechaActual), 1, 1)  // 1 de enero del año actual
+			VAR FinAno = DATE(YEAR(FechaActual), 12, 31)  // 31 de diciembre del año actual
+			VAR DiasTotales = DATEDIFF(InicioAno, FinAno, DAY) + 1  // +1 para incluir ambos extremos
+			VAR DiasTranscurridos = DATEDIFF(InicioAno, FechaActual, DAY) + 1
+			RETURN
+			    DIVIDE(DiasTranscurridos, DiasTotales, 0)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: a4a39e9e-b09f-4192-a950-070cc75c3a6d
+
+	measure 'Meses Transcurridos Año' = ```
+			
+			MONTH( TODAY() )
+			
+			```
+		formatString: 0
+		lineageTag: d865dfe9-a873-4541-a888-8de1b7033be3
+
 	column Dummy
+		isHidden
 		lineageTag: 2cf78941-85ba-4792-94cf-15c345e04dfb
 		summarizeBy: none
 		isNameInferred

@@ -14,36 +14,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "3228bd23f1e429be7d9e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimGrupoComerciales"
-              }
-            },
-            "Property": "idEmpleado"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
         "name": "1e67ee6e3a35ce0b8c0a",
         "field": {
           "Column": {

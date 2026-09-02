@@ -40,16 +40,91 @@ table RLS
 
 		annotation SummarizationSetBy = Automatic
 
+	column Columna2
+		dataType: string
+		lineageTag: de3e39a7-12f5-4dab-9e9c-adf7898cc9d8
+		summarizeBy: none
+		sourceColumn: Columna2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna3
+		dataType: string
+		lineageTag: 40620777-10ef-499f-975b-aaa1f4201c76
+		summarizeBy: none
+		sourceColumn: Columna3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna4
+		dataType: string
+		lineageTag: 855d0f3d-3dd8-42be-97b0-3ed03c0c5fad
+		summarizeBy: none
+		sourceColumn: Columna4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna5
+		dataType: string
+		lineageTag: 34fc8ebb-1529-4492-97da-02939eb531ca
+		summarizeBy: none
+		sourceColumn: Columna5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna6
+		dataType: string
+		lineageTag: 94ed4f3a-a939-408b-97fc-4beabcd2ff11
+		summarizeBy: none
+		sourceColumn: Columna6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna7
+		dataType: string
+		lineageTag: 7415ceef-e822-4abe-90c8-44c9430b98c9
+		summarizeBy: none
+		sourceColumn: Columna7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna8
+		dataType: string
+		lineageTag: 78c59b7e-773b-4d9f-929a-7a917dcb999a
+		summarizeBy: none
+		sourceColumn: Columna8
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna9
+		dataType: string
+		lineageTag: 71dcb7c9-1aff-416a-a52c-3768293178f4
+		summarizeBy: none
+		sourceColumn: Columna9
+
+		annotation SummarizationSetBy = Automatic
+
+	column Columna10
+		dataType: string
+		lineageTag: 50414571-ebee-42da-942c-940d9de27031
+		summarizeBy: none
+		sourceColumn: Columna10
+
+		annotation SummarizationSetBy = Automatic
+
 	partition RLS = m
 		mode: import
 		source =
 				let
-				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("pVbLTsMwEPyXnCuUR9MmN5DogQMcQJyqChnHlEWp3frRQ78exweEXdTu4lMiZXa8j9lx1uuiKstiVuzFAIMyt6PbMsPelRbmRhj/4fVl9ewfxWa2LvrGv3G1E5oDG9+sFlz8jvAxSu6Aa2XUh73xyIRgPo8IpBNHGkGzjAi4Y1YrEkMX16AksYRmEcUPIDjQ61g0rX+1O6YtSHE6b/vd/ePD08+Z04QGJkGMV5B9nN3BAbW+eurwSmo4OHFZDVV33gkDwtLO69t4oswqTR1JFVEYAYZWcp3KmhZflVMCX47JPVxpWTkdNaotGAucXdm2OK1BUduSKJ1/0jalLqN4J2nhTZw+XRld+4e+yLPtY3n5faCVMT9T+YmWQJVMkZZ/FxveUYC0qVHjdjrHdtNR5BVBDU+Nhhie7EH2pUM9P/Fk8vBSG8haAPoaJjbwD4dvcgnaTILkzqYTBAVK56/ry5Ydlh2Dq5G4JQ4XJI7Ahf8vDB/y3OALGBySL6wKpi+TJkELeeUXJYgfgQt3FQa3QOI6JA6ZX1gh7LlZm5LlFptv", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [idVendedor = _t, mail = _t, Rol = _t, Columna1 = _t]),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"idVendedor", Int64.Type}, {"mail", type text}, {"Rol", type text}}),
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("tZc/T8MwEMW/S+aqSuI2TTaQYGCAAcRUVch1jmKU2q3/dOinxw4D2JWgis9SpUaK9dO7s987Z70uqrIsZsUBet5LfTPYHdV0KxXoOWj34vXl/tn9/fXbzNZFR9wTk3tQjNPhzShg8BvmcFLsOVNSy3czdyuvZy8WAVtYOKGxySpgM0uNkljwNmyKFHg9acjSPZo9VYYLOF/u2+3d48PTNQ3wu99TwWGYDumaoNCj5Yil/rPkZ2HVBip6DoxrDgZNSbcMDws1UuHVSaqAroFrLHRdF5E70dBV6WV/WioOfHJ6VKUXOMgd14YzOj2Fwjp7ibg7kZfZB1pM1GWAtgKNTMJ+oJqhDc3w7TbMM9uFZnORgtaXxUVSnNFkhy6OZmpSw/2o0nQ4TfdHHU471EkanwfkwrOQ44mBR47iIuedBVF1NMcRyXWczLlyAjXjomTGvUyQjOxlPjbxZ8RfGKdPe+86Yd3ddXqQVemIOh2xSkaMOZGGGD+PElWkFzLGfyIiXcUYYImb6j3PFQiYjuiSEePNLRHRpCPadER6L8akRCgkVyBmHECkyaybDltQRmI1FvmTeAxYEIofLdTTNG6+AA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [idVendedor = _t, mail = _t, Rol = _t, Columna1 = _t, Columna2 = _t, Columna3 = _t, Columna4 = _t, Columna5 = _t, Columna6 = _t, Columna7 = _t, Columna8 = _t, Columna9 = _t, Columna10 = _t]),
+				    #"Filas ordenadas3" = Table.Sort(Origen,{{"mail", Order.Ascending}}),
+				    #"Filas ordenadas1" = Table.Sort(#"Filas ordenadas3",{{"idVendedor", Order.Ascending}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Filas ordenadas1",{{"idVendedor", Int64.Type}, {"mail", type text}, {"Rol", type text}}),
 				    #"Filas ordenadas" = Table.Sort(#"Tipo cambiado",{{"idVendedor", Order.Ascending}, {"mail", Order.Ascending}}),
-				    #"Filas filtradas" = Table.SelectRows(#"Filas ordenadas", each true)
+				    #"Filas filtradas" = Table.SelectRows(#"Filas ordenadas", each true),
+				    #"Filas ordenadas2" = Table.Sort(#"Filas filtradas",{{"mail", Order.Ascending}})
 				in
-				    #"Filas filtradas"
+				    #"Filas ordenadas2"
 
 	annotation PBI_NavigationStepName = Navegación
 

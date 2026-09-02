@@ -1,0 +1,102 @@
+table codigo_lote
+	lineageTag: c3ec1f35-a7d5-4e48-aae3-91b5ddeea5af
+
+	column codigoLote
+		dataType: string
+		lineageTag: 0d27b1ea-5b5b-42d0-b958-f90f248f0134
+		summarizeBy: none
+		sourceColumn: codigoLote
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigoLoteAjeno
+		dataType: string
+		lineageTag: ff413900-f2e6-4e59-84e9-ab57eeab8338
+		summarizeBy: none
+		sourceColumn: codigoLoteAjeno
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idProveedor
+		dataType: int64
+		formatString: 0
+		lineageTag: ed9812ad-e255-490a-a5c0-fd34a4c989fe
+		summarizeBy: sum
+		sourceColumn: idProveedor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fechaAlta
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bb9dd7dd-f57f-47c3-ac51-fc082dfb78a8
+		summarizeBy: none
+		sourceColumn: fechaAlta
+
+		variation Variación
+			isDefault
+			relationship: 60c07a52-cdbb-4ca2-9755-b6f80d46b322
+			defaultHierarchy: LocalDateTable_6e61b58e-6eb2-4b33-92aa-f442f1d8eebb.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fechaCad
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8950a248-c565-49d5-b2ac-7b1d3cfece25
+		summarizeBy: none
+		sourceColumn: fechaCad
+
+		variation Variación
+			isDefault
+			relationship: b7c68c11-1c8b-4115-b9ad-32f8279d393a
+			defaultHierarchy: LocalDateTable_725c9e3e-d597-406b-931c-6332e84e5e1a.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fechaEnv
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 95d88cc5-0ef0-40cb-8d1d-1ec663b14a42
+		summarizeBy: none
+		sourceColumn: fechaEnv
+
+		variation Variación
+			isDefault
+			relationship: 62514494-7fd5-4eea-a663-108600170072
+			defaultHierarchy: LocalDateTable_7aed6b92-3f52-4fb7-8654-24c9e53d2da2.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition codigo_lote = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)codigoLote,#(lf)codigoLoteAjeno,#(lf)idProveedor,#(lf)fechaAlta,#(lf)fechaCad,#(lf)fechaEnv#(lf)FROM lineasLote#(lf)WHERE fechaCad >= '20220501'"]),
+				    #"Duplicados quitados" = Table.Distinct(Origen),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Duplicados quitados",{{"fechaAlta", type date}, {"fechaCad", type date}, {"fechaEnv", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

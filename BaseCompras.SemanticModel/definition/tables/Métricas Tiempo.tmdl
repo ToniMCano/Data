@@ -1,0 +1,22 @@
+table 'Métricas Tiempo'
+	lineageTag: 69d7c170-fb10-4a2a-8ce5-05b37bf09041
+
+	column Dummy
+		lineageTag: 2cf78941-85ba-4792-94cf-15c345e04dfb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Métricas Tiempo' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"KPI"} }
+				)
+
+	annotation PBI_Id = 62775c53613b4c84951966f78dcf4e51
+

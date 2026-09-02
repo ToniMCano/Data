@@ -1,0 +1,36 @@
+table Proveedores
+	lineageTag: 38915027-c74d-46f3-8895-6ad3454d08e4
+
+	column idProveedor
+		dataType: int64
+		formatString: 0
+		lineageTag: a4a0b23d-a0a3-450c-9c70-2a497e37d9d2
+		summarizeBy: none
+		sourceColumn: idProveedor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomCom
+		dataType: string
+		lineageTag: 5a4b735c-1188-4152-8658-25483cb33c2b
+		summarizeBy: none
+		sourceColumn: nomCom
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Proveedores = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT #(lf)    idProveedor,#(lf)    nomCom#(lf)FROM proveedor#(lf)WHERE nomCom NOT LIKE '%(NO)%' AND nomCom NOT LIKE '%(NNN)%'"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

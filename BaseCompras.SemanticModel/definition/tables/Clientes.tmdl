@@ -1,0 +1,165 @@
+table Clientes
+	lineageTag: 4631f958-5604-4f56-87f9-557c3e44b6c3
+
+	column idCliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 98562e71-0668-4aa5-8587-4a484dd272d8
+		summarizeBy: none
+		sourceColumn: idCliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomCom
+		dataType: string
+		lineageTag: a4d0990d-6108-4999-9217-ec8c24520d88
+		summarizeBy: none
+		sourceColumn: nomCom
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column idEmpleado
+		dataType: int64
+		formatString: 0
+		lineageTag: 63abaccb-be73-41ea-a523-b94d2cf31ecb
+		summarizeBy: none
+		sourceColumn: idEmpleado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Vendedor' =
+			
+			RELATED(Empleado[Nombre])
+		lineageTag: 0c70b286-24a9-46a1-9f40-d755ea61635e
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d3c0c16-2023-4fbc-a515-c07d9d1379e0
+		summarizeBy: none
+		sourceColumn: grupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column subGrupo
+		dataType: int64
+		formatString: 0
+		lineageTag: dd49a938-26be-47ee-b74c-0e709d4082fc
+		summarizeBy: sum
+		sourceColumn: subGrupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column idPoblacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 401a39f4-4f83-49a7-b45c-b1f8db1b0d20
+		summarizeBy: sum
+		sourceColumn: idPoblacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column idPoblacionEnvio
+		dataType: int64
+		formatString: 0
+		lineageTag: 4485fee6-26a7-4c98-97f9-ebf238edbfc5
+		summarizeBy: sum
+		sourceColumn: idPoblacionEnvio
+
+		annotation SummarizationSetBy = Automatic
+
+	column idProvincia
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d83680e-0e1e-403a-8b6e-90776f3c6682
+		summarizeBy: sum
+		sourceColumn: idProvincia
+
+		annotation SummarizationSetBy = Automatic
+
+	column lunes
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 87d8d0da-8653-4f99-8b5e-d7875bd64eec
+		summarizeBy: none
+		sourceColumn: lunes
+
+		annotation SummarizationSetBy = Automatic
+
+	column martes
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 28996cdb-931d-44d5-a4a6-4853ce28888a
+		summarizeBy: none
+		sourceColumn: martes
+
+		annotation SummarizationSetBy = Automatic
+
+	column miercoles
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8532220b-b5b5-46b1-b49b-b7faef42c64d
+		summarizeBy: none
+		sourceColumn: miercoles
+
+		annotation SummarizationSetBy = Automatic
+
+	column jueves
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c3f9af83-73d2-46b8-9f05-935022c61c88
+		summarizeBy: none
+		sourceColumn: jueves
+
+		annotation SummarizationSetBy = Automatic
+
+	column viernes
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 15183dc4-ecbd-48ce-91e8-037f3d25eb2e
+		summarizeBy: none
+		sourceColumn: viernes
+
+		annotation SummarizationSetBy = Automatic
+
+	column sabado
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2dbdd375-778e-47a1-9ee8-b6c9727ece83
+		summarizeBy: none
+		sourceColumn: sabado
+
+		annotation SummarizationSetBy = Automatic
+
+	column domingo
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bc988963-38f0-43cc-963e-56b82da56268
+		summarizeBy: none
+		sourceColumn: domingo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Clientes = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    grupo,#(lf)    subGrupo,#(lf)    idPoblacion,#(lf)    idPoblacionEnvio,#(lf)    idProvincia,#(lf)    lunes,#(lf)    martes,#(lf)    miercoles,#(lf)    jueves,#(lf)    viernes,#(lf)    sabado, #(lf)    domingo,#(lf)    idCliente,#(lf)    nomCom,#(lf)    idEmpleado#(lf)FROM cliente;"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

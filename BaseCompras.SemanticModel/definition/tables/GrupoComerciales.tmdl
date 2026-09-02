@@ -1,0 +1,26 @@
+table GrupoComerciales
+	lineageTag: a3c83492-b5dc-4d37-8274-c4740057c910
+
+	column idEmpleado
+		formatString: 0
+		lineageTag: c6f3a967-cc96-498d-89bc-a6dd3d55e41d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [idEmpleado]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition GrupoComerciales = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "idEmpleado", INTEGER,
+				    {
+				        {18},{20},{21},{22},{27},{29},{31},{32},{33},{36},
+				        {37},{38},{39},{44},{48},{83},{85},{87},{92},{93},{95},{96}
+				    }
+				)
+
+	annotation PBI_Id = db96309aa701448ea0a2cb3a98932347
+

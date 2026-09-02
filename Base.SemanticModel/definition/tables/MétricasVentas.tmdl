@@ -202,9 +202,8 @@ table MétricasVentas
 	measure 'Ventas Netas ERP' =
 			
 			[DtoAlbAplicado Final] - [Dto Factura Único]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 5180bace-064f-467f-9afa-678a13b8cfd2
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Ventas ERP (Solo Descuentos en línea albarán)' =
 			
@@ -549,6 +548,18 @@ table MétricasVentas
 		lineageTag: a09dc0e5-112c-4edb-9d71-524e2accc7bd
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TarjetaFechaAlb =
+			
+			VAR albaran =
+			    SELECTEDVALUE(LineasPedido[PedidoKey])
+			RETURN
+			LOOKUPVALUE(
+			    Pedido[fechaAlb],
+			    Pedido[PedidoKey], albaran
+			)
+		formatString: General Date
+		lineageTag: 0ac1bc43-c1ff-4eef-9894-83553152b353
 
 	column Dummy
 		isHidden

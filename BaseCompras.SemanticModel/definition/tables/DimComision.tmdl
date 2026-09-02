@@ -1,0 +1,25 @@
+table DimComision
+	lineageTag: 209967a5-a5af-4548-ba00-39e9fb3d0df5
+
+	column idComision
+		formatString: 0
+		lineageTag: ed9491a2-3c1e-4033-9aaf-180bf9df8dec
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [idComision]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimComision = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    SELECTCOLUMNS(
+				        comisionesDadas,
+				        "idComision", comisionesDadas[idComision]
+				    )
+				)
+
+	annotation PBI_Id = e7aa756826b646eca1a0efcc737419cb
+

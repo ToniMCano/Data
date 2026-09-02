@@ -1,0 +1,65 @@
+table 'Modo Comparación'
+	lineageTag: eb772668-e643-40f6-8080-9d6d22730591
+
+	measure 'Ventas LY DinámicoR' =
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinActual =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxActual =
+			    MAX(Calendario[Date])
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActual) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Ventas Netas ERP],
+			            SAMEPERIODLASTYEAR(Calendario[Date])
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Ventas Netas ERP],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		lineageTag: bfcc7ca1-ba7a-41a4-8914-bd063142746a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Modo
+		lineageTag: 33fcff37-9a32-4b80-9cd0-120aa0fb6902
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Modo]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Modo Comparación' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Modo", STRING,
+				    {
+				        {"No"},
+				        {"Si"}
+				    }
+				)
+
+	annotation PBI_Id = b3a08dec015d420bac2161f0cb808785
+

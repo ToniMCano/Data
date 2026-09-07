@@ -3095,6 +3095,16 @@ cultureInfo es-ES
 			            },
 			            "Weight": 0.739
 			          }
+			        },
+			        {
+			          "VS AA (%)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -3114,6 +3124,16 @@ cultureInfo es-ES
 			        },
 			        {
 			          "Importe VS AA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Diferencia": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -5207,6 +5227,16 @@ cultureInfo es-ES
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Año VS Año": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6869,6 +6899,16 @@ cultureInfo es-ES
 			        {
 			          "ventas netas ERP": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Importe": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -22483,7 +22523,7 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "Clientes Activos Grupo A": {
+			          "Act. Grupo A": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -22494,46 +22534,40 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA": {
+			    "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  Facturación Cliente < 3000 AA"
+			          "ConceptualProperty": "(KPIs)  Ventas Netas nomCom AA"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "(KPIs)  facturación cliente < 3000 AA": {
+			          "(KPIs)  ventas netas nomCom AA": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "(KPIs) facturación cliente < 3000 AA": {
+			          "(KPIs) ventas netas nomCom AA": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
+			    "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  Clientes Grupo A 2025"
+			          "ConceptualProperty": "(KPIs) Clientes Grupo A 2025"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "(KPIs)  clientes grupo a 2025": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
 			          "(KPIs) clientes grupo a 2025": {
-			            "State": "Generated",
-			            "Weight": 0.97
+			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -22586,7 +22620,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  Facturación Grupo A 2025 (AA)"
+			          "ConceptualProperty": "(KPIs) Facturación Grupo A 2025 (AA)"
 			        }
 			      },
 			      "State": "Generated",
@@ -22697,7 +22731,7 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "Clientes Activos Grupo B": {
+			          "Act. Grupo B": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -22798,7 +22832,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  Facturación Grupo B 2025 (AA)"
+			          "ConceptualProperty": "(KPIs) Facturación Grupo B 2025 (AA)"
 			        }
 			      },
 			      "State": "Generated",
@@ -22826,7 +22860,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  Facturación Grupo A"
+			          "ConceptualProperty": "(KPIs) Facturación Grupo A"
 			        }
 			      },
 			      "State": "Generated",
@@ -22869,71 +22903,63 @@ cultureInfo es-ES
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
+			        },
+			        {
+			          "Diferencia Facturación Grupo A 2025 VS 2026": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales.KPIs___clientes_grupo_a": {
+			    "métricas_KPIs_anuales.KPIs__clientes_grupo_a": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  % Clientes Grupo A"
+			          "ConceptualProperty": "(KPIs) % Clientes Grupo A"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {
-			          "(KPIs)  % clientes grupo a": {
-			            "State": "Generated"
-			          }
-			        },
 			        {
 			          "(KPIs) % clientes grupo a": {
-			            "State": "Generated",
-			            "Weight": 0.97
+			            "State": "Generated"
 			          }
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales.KPIs___clientes_grupo_b": {
+			    "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  % Clientes Grupo B"
+			          "ConceptualProperty": "(KPIs) % Clientes Grupo A 2025"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "(KPIs)  % clientes grupo b": {
+			          "(KPIs) % clientes grupo a 2025": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "(KPIs) % clientes grupo b": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			    "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  Clientes Grupo B 2025"
+			          "ConceptualProperty": "(KPIs) Clientes Grupo B 2025"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {
-			          "(KPIs)  clientes grupo b 2025": {
-			            "State": "Generated"
-			          }
-			        },
 			        {
 			          "(KPIs) clientes grupo b 2025": {
-			            "State": "Generated",
-			            "Weight": 0.97
+			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -22963,6 +22989,16 @@ cultureInfo es-ES
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
+			        },
+			        {
+			          "Diferencia Facturación Grupo B 2025 VS 2026": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -22970,7 +23006,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  % Facturación Grupo A"
+			          "ConceptualProperty": "(KPIs) % Facturación Grupo A"
 			        }
 			      },
 			      "State": "Generated",
@@ -23020,7 +23056,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  % Facturación Grupo B"
+			          "ConceptualProperty": "(KPIs) % Facturación Grupo B"
 			        }
 			      },
 			      "State": "Generated",
@@ -23092,7 +23128,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  Grupo A en Crecimiento"
+			          "ConceptualProperty": "(KPIs) Grupo A en Crecimiento"
 			        }
 			      },
 			      "State": "Generated",
@@ -23148,22 +23184,22 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales.KPIs__grupo_a__3500": {
+			    "métricas_KPIs_anuales.KPIs__grupo_a__3000": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs)  Grupo A > 3500"
+			          "ConceptualProperty": "(KPIs) Grupo A > 3000"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "(KPIs)  grupo a > 3500": {
+			          "(KPIs)  grupo a > 3000": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "(KPIs) grupo a > 3500": {
+			          "(KPIs) grupo a > 3000": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
@@ -23192,18 +23228,24 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales.KPIs_clientes_grupo_b_": {
+			    "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas KPI's Anuales",
-			          "ConceptualProperty": "(KPIs) Clientes Grupo B +"
+			          "ConceptualProperty": "(KPIs)  Grupo B en Crecimiento"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "(KPIs) clientes grupo b +": {
+			          "(KPIs)  grupo b en crecimiento": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "(KPIs) grupo b en crecimiento": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -23267,97 +23309,369 @@ cultureInfo es-ES
 			          }
 			        }
 			      ]
-			    }
-			  },
-			  "Relationships": {
-			    "codigo_lote_fecha_alta_me_in_codigo_lote_fecha_alta_trimestre": {
-			      "Binding": {
-			        "ConceptualEntity": "codigo_lote"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "codigo_lote.fecha_alta.me": {
-			          "Target": {
-			            "Entity": "codigo_lote.fecha_alta.me"
-			          }
-			        },
-			        "codigo_lote.fecha_alta.trimestre": {
-			          "Target": {
-			            "Entity": "codigo_lote.fecha_alta.trimestre"
-			          }
+			    },
+			    "métricas_KPIs_anuales.KPIs_clientes_grupo_a": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas KPI's Anuales",
+			          "ConceptualProperty": "(KPIs) Clientes Grupo A"
 			        }
 			      },
-			      "Phrasings": [
+			      "State": "Generated",
+			      "Terms": [
 			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "codigo_lote.fecha_alta.me"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "codigo_lote.fecha_alta.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_are_in_trimestres"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "codigo_lote.fecha_alta.trimestre"
-			            },
-			            "Object": {
-			              "Role": "codigo_lote.fecha_alta.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "trimestres_have_me15"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "codigo_lote.fecha_alta.me"
-			            },
-			            "Object": {
-			              "Role": "codigo_lote.fecha_alta.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_trimestres15"
+			          "(KPIs) clientes grupo a": {
+			            "State": "Generated"
+			          }
 			        }
 			      ]
 			    },
-			    "codigo_lote_fecha_alta_trimestre_in_codigo_lote_fecha_alta_año": {
+			    "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas KPI's Anuales",
+			          "ConceptualProperty": "(KPIs) % Clientes Grupo B 2025"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "(KPIs) % clientes grupo b 2025": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métricas_KPIs_anuales.KPIs__clientes_grupo_b": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas KPI's Anuales",
+			          "ConceptualProperty": "(KPIs) % Clientes Grupo B"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "(KPIs) % clientes grupo b": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métricas_KPIs_anuales.KPIs_grupo_cliente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas KPI's Anuales",
+			          "ConceptualProperty": "(KPIs) Grupo Cliente"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "(KPIs) grupo cliente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Grupo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas KPI's Anuales",
+			          "ConceptualProperty": "(KPIs) Grupo A Crecimiento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "(KPIs) grupo a crecimiento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "\"▲\"_Base": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "métricas_KPIs_anuales.debug_clientes_activos_grupo_a_por_nomCom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas KPI's Anuales",
+			          "ConceptualProperty": "Debug Clientes Activos Grupo A por nomCom"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "debug clientes activos grupo a por nomCom": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Activos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "cliente.fecha_alta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Clientes",
+			          "ConceptualProperty": "fechaAlta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha alta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fechaAlta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "cliente.fecha_alta.jerarquía_de_fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Clientes",
+			          "VariationSource": "fechaAlta",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "jerarquía de fecha": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "cliente.fecha_alta.año": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Clientes",
+			          "VariationSource": "fechaAlta",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Año"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha alta año": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "cliente.fecha_alta.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Clientes",
+			          "VariationSource": "fechaAlta",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha alta trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "cliente.fecha_alta.me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Clientes",
+			          "VariationSource": "fechaAlta",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "me": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha alta me": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "cliente.fecha_alta.día": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Clientes",
+			          "VariationSource": "fechaAlta",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Día"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "día": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha alta día": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métricas_KPIs_anuales.KPIs_objetivo_media_cliente_grupo_b": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas KPI's Anuales",
+			          "ConceptualProperty": "(KPI's) Objetivo Media Cliente Grupo B"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "(KPI's) objetivo media cliente grupo b": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métricas_KPIs_anuales.debug_clientes_activos_grupo_b_por_nomCom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas KPI's Anuales",
+			          "ConceptualProperty": "Debug Clientes Activos Grupo B por nomCom"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "debug clientes activos grupo b por nomCom": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Activos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "cliente_fecha_alta_trimestre_has_cliente_fecha_alta_me": {
 			      "Binding": {
-			        "ConceptualEntity": "codigo_lote"
+			        "ConceptualEntity": "Clientes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "codigo_lote.fecha_alta.trimestre": {
+			        "cliente.fecha_alta.trimestre": {
 			          "Target": {
-			            "Entity": "codigo_lote.fecha_alta.trimestre"
+			            "Entity": "cliente.fecha_alta.trimestre"
 			          }
 			        },
-			        "codigo_lote.fecha_alta.año": {
+			        "cliente.fecha_alta.me": {
 			          "Target": {
-			            "Entity": "codigo_lote.fecha_alta.año"
+			            "Entity": "cliente.fecha_alta.me"
 			          }
 			        }
 			      },
 			      "Phrasings": [
 			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.trimestre"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_me"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.me"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_trimestres"
+			        },
+			        {
 			          "Preposition": {
 			            "Subject": {
-			              "Role": "codigo_lote.fecha_alta.trimestre"
+			              "Role": "cliente.fecha_alta.me"
 			            },
 			            "Prepositions": [
 			              {
@@ -23367,38 +23681,243 @@ cultureInfo es-ES
 			              }
 			            ],
 			            "Object": {
-			              "Role": "codigo_lote.fecha_alta.año"
+			              "Role": "cliente.fecha_alta.trimestre"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_are_in_años"
+			          "ID": "me_are_in_trimestres16"
+			        }
+			      ]
+			    },
+			    "cliente_fecha_alta_año_has_cliente_fecha_alta_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente.fecha_alta.año": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.año"
+			          }
+			        },
+			        "cliente.fecha_alta.trimestre": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.año"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_trimestres"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "codigo_lote.fecha_alta.año"
+			              "Role": "cliente.fecha_alta.trimestre"
 			            },
 			            "Object": {
-			              "Role": "codigo_lote.fecha_alta.trimestre"
+			              "Role": "cliente.fecha_alta.año"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres15"
+			          "ID": "trimestres_have_años"
 			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "cliente.fecha_alta.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_años16"
+			        }
+			      ]
+			    },
+			    "cliente_fecha_alta_jerarquía_de_fecha_has_cliente_fecha_alta_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente.fecha_alta.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.jerarquía_de_fecha"
+			          }
+			        },
+			        "cliente.fecha_alta.día": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "codigo_lote.fecha_alta.trimestre"
+			              "Role": "cliente.fecha_alta.jerarquía_de_fecha"
 			            },
 			            "Object": {
-			              "Role": "codigo_lote.fecha_alta.año"
+			              "Role": "cliente.fecha_alta.día"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años15"
+			          "ID": "jerarquía_de_fechas_have_días"
+			        }
+			      ]
+			    },
+			    "cliente_fecha_alta_jerarquía_de_fecha_has_cliente_fecha_alta_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente.fecha_alta.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.jerarquía_de_fecha"
+			          }
+			        },
+			        "cliente.fecha_alta.me": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_me"
+			        }
+			      ]
+			    },
+			    "cliente_fecha_alta_jerarquía_de_fecha_has_cliente_fecha_alta_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente.fecha_alta.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.jerarquía_de_fecha"
+			          }
+			        },
+			        "cliente.fecha_alta.trimestre": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_trimestres"
+			        }
+			      ]
+			    },
+			    "cliente_fecha_alta_jerarquía_de_fecha_has_cliente_fecha_alta_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente.fecha_alta.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.jerarquía_de_fecha"
+			          }
+			        },
+			        "cliente.fecha_alta.año": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_años"
+			        }
+			      ]
+			    },
+			    "cliente_fecha_alta_has_jerarquía_de_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente.fecha_alta": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta"
+			          }
+			        },
+			        "cliente.fecha_alta.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.jerarquía_de_fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.jerarquía_de_fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_alta_have_jerarquía_de_fechas"
 			        }
 			      ]
 			    },
@@ -23497,7 +24016,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me"
+			          "ID": "trimestres_have_me1"
 			        },
 			        {
 			          "Attribute": {
@@ -23510,7 +24029,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres"
+			          "ID": "me_have_trimestres1"
 			        },
 			        {
 			          "Preposition": {
@@ -23563,7 +24082,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres"
+			          "ID": "años_have_trimestres1"
 			        },
 			        {
 			          "Attribute": {
@@ -23576,7 +24095,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años"
+			          "ID": "trimestres_have_años1"
 			        },
 			        {
 			          "Preposition": {
@@ -23629,7 +24148,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días"
+			          "ID": "jerarquía_de_fechas_have_días1"
 			        }
 			      ]
 			    },
@@ -23662,7 +24181,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me"
+			          "ID": "jerarquía_de_fechas_have_me1"
 			        }
 			      ]
 			    },
@@ -23695,7 +24214,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres"
+			          "ID": "jerarquía_de_fechas_have_trimestres1"
 			        }
 			      ]
 			    },
@@ -23728,7 +24247,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años"
+			          "ID": "jerarquía_de_fechas_have_años1"
 			        }
 			      ]
 			    },
@@ -23860,7 +24379,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me1"
+			          "ID": "trimestres_have_me2"
 			        },
 			        {
 			          "Attribute": {
@@ -23873,7 +24392,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres1"
+			          "ID": "me_have_trimestres2"
 			        },
 			        {
 			          "Preposition": {
@@ -23926,7 +24445,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres1"
+			          "ID": "años_have_trimestres2"
 			        },
 			        {
 			          "Attribute": {
@@ -23939,7 +24458,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años1"
+			          "ID": "trimestres_have_años2"
 			        },
 			        {
 			          "Preposition": {
@@ -23992,7 +24511,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días1"
+			          "ID": "jerarquía_de_fechas_have_días2"
 			        }
 			      ]
 			    },
@@ -24025,7 +24544,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me1"
+			          "ID": "jerarquía_de_fechas_have_me2"
 			        }
 			      ]
 			    },
@@ -24058,7 +24577,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres1"
+			          "ID": "jerarquía_de_fechas_have_trimestres2"
 			        }
 			      ]
 			    },
@@ -24091,7 +24610,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años1"
+			          "ID": "jerarquía_de_fechas_have_años2"
 			        }
 			      ]
 			    },
@@ -24223,7 +24742,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me2"
+			          "ID": "trimestres_have_me3"
 			        },
 			        {
 			          "Attribute": {
@@ -24236,7 +24755,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres2"
+			          "ID": "me_have_trimestres3"
 			        },
 			        {
 			          "Preposition": {
@@ -24289,7 +24808,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres2"
+			          "ID": "años_have_trimestres3"
 			        },
 			        {
 			          "Attribute": {
@@ -24302,7 +24821,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años2"
+			          "ID": "trimestres_have_años3"
 			        },
 			        {
 			          "Preposition": {
@@ -24355,7 +24874,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días2"
+			          "ID": "jerarquía_de_fechas_have_días3"
 			        }
 			      ]
 			    },
@@ -24388,7 +24907,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me2"
+			          "ID": "jerarquía_de_fechas_have_me3"
 			        }
 			      ]
 			    },
@@ -24421,7 +24940,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres2"
+			          "ID": "jerarquía_de_fechas_have_trimestres3"
 			        }
 			      ]
 			    },
@@ -24454,7 +24973,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años2"
+			          "ID": "jerarquía_de_fechas_have_años3"
 			        }
 			      ]
 			    },
@@ -24586,7 +25105,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me3"
+			          "ID": "trimestres_have_me4"
 			        },
 			        {
 			          "Attribute": {
@@ -24599,7 +25118,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres3"
+			          "ID": "me_have_trimestres4"
 			        },
 			        {
 			          "Preposition": {
@@ -24652,7 +25171,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres3"
+			          "ID": "años_have_trimestres4"
 			        },
 			        {
 			          "Attribute": {
@@ -24665,7 +25184,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años3"
+			          "ID": "trimestres_have_años4"
 			        },
 			        {
 			          "Preposition": {
@@ -24718,7 +25237,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días3"
+			          "ID": "jerarquía_de_fechas_have_días4"
 			        }
 			      ]
 			    },
@@ -24751,7 +25270,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me3"
+			          "ID": "jerarquía_de_fechas_have_me4"
 			        }
 			      ]
 			    },
@@ -24784,7 +25303,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres3"
+			          "ID": "jerarquía_de_fechas_have_trimestres4"
 			        }
 			      ]
 			    },
@@ -24817,7 +25336,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años3"
+			          "ID": "jerarquía_de_fechas_have_años4"
 			        }
 			      ]
 			    },
@@ -24949,7 +25468,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me4"
+			          "ID": "trimestres_have_me5"
 			        },
 			        {
 			          "Attribute": {
@@ -24962,7 +25481,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres4"
+			          "ID": "me_have_trimestres5"
 			        },
 			        {
 			          "Preposition": {
@@ -25015,7 +25534,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres4"
+			          "ID": "años_have_trimestres5"
 			        },
 			        {
 			          "Attribute": {
@@ -25028,7 +25547,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años4"
+			          "ID": "trimestres_have_años5"
 			        },
 			        {
 			          "Preposition": {
@@ -25081,7 +25600,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días4"
+			          "ID": "jerarquía_de_fechas_have_días5"
 			        }
 			      ]
 			    },
@@ -25114,7 +25633,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me4"
+			          "ID": "jerarquía_de_fechas_have_me5"
 			        }
 			      ]
 			    },
@@ -25147,7 +25666,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres4"
+			          "ID": "jerarquía_de_fechas_have_trimestres5"
 			        }
 			      ]
 			    },
@@ -25180,7 +25699,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años4"
+			          "ID": "jerarquía_de_fechas_have_años5"
 			        }
 			      ]
 			    },
@@ -25312,7 +25831,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me5"
+			          "ID": "trimestres_have_me6"
 			        },
 			        {
 			          "Attribute": {
@@ -25325,7 +25844,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres5"
+			          "ID": "me_have_trimestres6"
 			        },
 			        {
 			          "Preposition": {
@@ -25378,7 +25897,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres5"
+			          "ID": "años_have_trimestres6"
 			        },
 			        {
 			          "Attribute": {
@@ -25391,7 +25910,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años5"
+			          "ID": "trimestres_have_años6"
 			        },
 			        {
 			          "Preposition": {
@@ -25444,7 +25963,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días5"
+			          "ID": "jerarquía_de_fechas_have_días6"
 			        }
 			      ]
 			    },
@@ -25477,7 +25996,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me5"
+			          "ID": "jerarquía_de_fechas_have_me6"
 			        }
 			      ]
 			    },
@@ -25510,7 +26029,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres5"
+			          "ID": "jerarquía_de_fechas_have_trimestres6"
 			        }
 			      ]
 			    },
@@ -25543,7 +26062,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años5"
+			          "ID": "jerarquía_de_fechas_have_años6"
 			        }
 			      ]
 			    },
@@ -25774,7 +26293,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me6"
+			          "ID": "trimestres_have_me7"
 			        },
 			        {
 			          "Attribute": {
@@ -25787,7 +26306,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres6"
+			          "ID": "me_have_trimestres7"
 			        },
 			        {
 			          "Preposition": {
@@ -25840,7 +26359,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres6"
+			          "ID": "años_have_trimestres7"
 			        },
 			        {
 			          "Attribute": {
@@ -25853,7 +26372,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años6"
+			          "ID": "trimestres_have_años7"
 			        },
 			        {
 			          "Preposition": {
@@ -25906,7 +26425,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días6"
+			          "ID": "jerarquía_de_fechas_have_días7"
 			        }
 			      ]
 			    },
@@ -25939,7 +26458,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me6"
+			          "ID": "jerarquía_de_fechas_have_me7"
 			        }
 			      ]
 			    },
@@ -25972,7 +26491,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres6"
+			          "ID": "jerarquía_de_fechas_have_trimestres7"
 			        }
 			      ]
 			    },
@@ -26005,7 +26524,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años6"
+			          "ID": "jerarquía_de_fechas_have_años7"
 			        }
 			      ]
 			    },
@@ -26137,7 +26656,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me7"
+			          "ID": "trimestres_have_me8"
 			        },
 			        {
 			          "Attribute": {
@@ -26150,7 +26669,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres7"
+			          "ID": "me_have_trimestres8"
 			        },
 			        {
 			          "Preposition": {
@@ -26203,7 +26722,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres7"
+			          "ID": "años_have_trimestres8"
 			        },
 			        {
 			          "Attribute": {
@@ -26216,7 +26735,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años7"
+			          "ID": "trimestres_have_años8"
 			        },
 			        {
 			          "Preposition": {
@@ -26269,7 +26788,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días7"
+			          "ID": "jerarquía_de_fechas_have_días8"
 			        }
 			      ]
 			    },
@@ -26302,7 +26821,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me7"
+			          "ID": "jerarquía_de_fechas_have_me8"
 			        }
 			      ]
 			    },
@@ -26335,7 +26854,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres7"
+			          "ID": "jerarquía_de_fechas_have_trimestres8"
 			        }
 			      ]
 			    },
@@ -26368,7 +26887,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años7"
+			          "ID": "jerarquía_de_fechas_have_años8"
 			        }
 			      ]
 			    },
@@ -26500,7 +27019,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me8"
+			          "ID": "trimestres_have_me9"
 			        },
 			        {
 			          "Attribute": {
@@ -26513,7 +27032,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres8"
+			          "ID": "me_have_trimestres9"
 			        },
 			        {
 			          "Preposition": {
@@ -26566,7 +27085,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres8"
+			          "ID": "años_have_trimestres9"
 			        },
 			        {
 			          "Attribute": {
@@ -26579,7 +27098,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años8"
+			          "ID": "trimestres_have_años9"
 			        },
 			        {
 			          "Preposition": {
@@ -26632,7 +27151,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días8"
+			          "ID": "jerarquía_de_fechas_have_días9"
 			        }
 			      ]
 			    },
@@ -26665,7 +27184,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me8"
+			          "ID": "jerarquía_de_fechas_have_me9"
 			        }
 			      ]
 			    },
@@ -26698,7 +27217,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres8"
+			          "ID": "jerarquía_de_fechas_have_trimestres9"
 			        }
 			      ]
 			    },
@@ -26731,7 +27250,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años8"
+			          "ID": "jerarquía_de_fechas_have_años9"
 			        }
 			      ]
 			    },
@@ -26863,7 +27382,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me9"
+			          "ID": "trimestres_have_me10"
 			        },
 			        {
 			          "Attribute": {
@@ -26876,7 +27395,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres9"
+			          "ID": "me_have_trimestres10"
 			        },
 			        {
 			          "Preposition": {
@@ -26929,7 +27448,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres9"
+			          "ID": "años_have_trimestres10"
 			        },
 			        {
 			          "Attribute": {
@@ -26942,7 +27461,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años9"
+			          "ID": "trimestres_have_años10"
 			        },
 			        {
 			          "Preposition": {
@@ -26995,7 +27514,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días9"
+			          "ID": "jerarquía_de_fechas_have_días10"
 			        }
 			      ]
 			    },
@@ -27028,7 +27547,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me9"
+			          "ID": "jerarquía_de_fechas_have_me10"
 			        }
 			      ]
 			    },
@@ -27061,7 +27580,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres9"
+			          "ID": "jerarquía_de_fechas_have_trimestres10"
 			        }
 			      ]
 			    },
@@ -27094,7 +27613,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años9"
+			          "ID": "jerarquía_de_fechas_have_años10"
 			        }
 			      ]
 			    },
@@ -27226,7 +27745,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me10"
+			          "ID": "trimestres_have_me11"
 			        },
 			        {
 			          "Attribute": {
@@ -27239,7 +27758,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres10"
+			          "ID": "me_have_trimestres11"
 			        },
 			        {
 			          "Preposition": {
@@ -27292,7 +27811,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres10"
+			          "ID": "años_have_trimestres11"
 			        },
 			        {
 			          "Attribute": {
@@ -27305,7 +27824,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años10"
+			          "ID": "trimestres_have_años11"
 			        },
 			        {
 			          "Preposition": {
@@ -27358,7 +27877,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días10"
+			          "ID": "jerarquía_de_fechas_have_días11"
 			        }
 			      ]
 			    },
@@ -27391,7 +27910,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me10"
+			          "ID": "jerarquía_de_fechas_have_me11"
 			        }
 			      ]
 			    },
@@ -27424,7 +27943,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres10"
+			          "ID": "jerarquía_de_fechas_have_trimestres11"
 			        }
 			      ]
 			    },
@@ -27457,7 +27976,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años10"
+			          "ID": "jerarquía_de_fechas_have_años11"
 			        }
 			      ]
 			    },
@@ -27589,7 +28108,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me11"
+			          "ID": "trimestres_have_me12"
 			        },
 			        {
 			          "Attribute": {
@@ -27602,7 +28121,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres11"
+			          "ID": "me_have_trimestres12"
 			        },
 			        {
 			          "Preposition": {
@@ -27655,7 +28174,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres11"
+			          "ID": "años_have_trimestres12"
 			        },
 			        {
 			          "Attribute": {
@@ -27668,7 +28187,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años11"
+			          "ID": "trimestres_have_años12"
 			        },
 			        {
 			          "Preposition": {
@@ -27721,7 +28240,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días11"
+			          "ID": "jerarquía_de_fechas_have_días12"
 			        }
 			      ]
 			    },
@@ -27754,7 +28273,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me11"
+			          "ID": "jerarquía_de_fechas_have_me12"
 			        }
 			      ]
 			    },
@@ -27787,7 +28306,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres11"
+			          "ID": "jerarquía_de_fechas_have_trimestres12"
 			        }
 			      ]
 			    },
@@ -27820,7 +28339,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años11"
+			          "ID": "jerarquía_de_fechas_have_años12"
 			        }
 			      ]
 			    },
@@ -27952,7 +28471,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me12"
+			          "ID": "trimestres_have_me13"
 			        },
 			        {
 			          "Attribute": {
@@ -27965,7 +28484,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres12"
+			          "ID": "me_have_trimestres13"
 			        },
 			        {
 			          "Preposition": {
@@ -28018,7 +28537,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres12"
+			          "ID": "años_have_trimestres13"
 			        },
 			        {
 			          "Attribute": {
@@ -28031,7 +28550,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años12"
+			          "ID": "trimestres_have_años13"
 			        },
 			        {
 			          "Preposition": {
@@ -28084,7 +28603,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días12"
+			          "ID": "jerarquía_de_fechas_have_días13"
 			        }
 			      ]
 			    },
@@ -28117,7 +28636,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me12"
+			          "ID": "jerarquía_de_fechas_have_me13"
 			        }
 			      ]
 			    },
@@ -28150,7 +28669,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres12"
+			          "ID": "jerarquía_de_fechas_have_trimestres13"
 			        }
 			      ]
 			    },
@@ -28183,7 +28702,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años12"
+			          "ID": "jerarquía_de_fechas_have_años13"
 			        }
 			      ]
 			    },
@@ -28315,7 +28834,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me13"
+			          "ID": "trimestres_have_me14"
 			        },
 			        {
 			          "Attribute": {
@@ -28328,7 +28847,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres13"
+			          "ID": "me_have_trimestres14"
 			        },
 			        {
 			          "Preposition": {
@@ -28381,7 +28900,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres13"
+			          "ID": "años_have_trimestres14"
 			        },
 			        {
 			          "Attribute": {
@@ -28394,7 +28913,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años13"
+			          "ID": "trimestres_have_años14"
 			        },
 			        {
 			          "Preposition": {
@@ -28447,7 +28966,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días13"
+			          "ID": "jerarquía_de_fechas_have_días14"
 			        }
 			      ]
 			    },
@@ -28480,7 +28999,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me13"
+			          "ID": "jerarquía_de_fechas_have_me14"
 			        }
 			      ]
 			    },
@@ -28513,7 +29032,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres13"
+			          "ID": "jerarquía_de_fechas_have_trimestres14"
 			        }
 			      ]
 			    },
@@ -28546,7 +29065,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años13"
+			          "ID": "jerarquía_de_fechas_have_años14"
 			        }
 			      ]
 			    },
@@ -28678,7 +29197,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_me14"
+			          "ID": "trimestres_have_me15"
 			        },
 			        {
 			          "Attribute": {
@@ -28691,7 +29210,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_trimestres14"
+			          "ID": "me_have_trimestres15"
 			        },
 			        {
 			          "Preposition": {
@@ -28744,7 +29263,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_trimestres14"
+			          "ID": "años_have_trimestres15"
 			        },
 			        {
 			          "Attribute": {
@@ -28757,7 +29276,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_años14"
+			          "ID": "trimestres_have_años15"
 			        },
 			        {
 			          "Preposition": {
@@ -28810,7 +29329,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días14"
+			          "ID": "jerarquía_de_fechas_have_días15"
 			        }
 			      ]
 			    },
@@ -28843,7 +29362,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me14"
+			          "ID": "jerarquía_de_fechas_have_me15"
 			        }
 			      ]
 			    },
@@ -28876,7 +29395,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres14"
+			          "ID": "jerarquía_de_fechas_have_trimestres15"
 			        }
 			      ]
 			    },
@@ -28909,7 +29428,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años14"
+			          "ID": "jerarquía_de_fechas_have_años15"
 			        }
 			      ]
 			    },
@@ -29012,6 +29531,138 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
+			    "codigo_lote_fecha_alta_trimestre_has_codigo_lote_fecha_alta_me": {
+			      "Binding": {
+			        "ConceptualEntity": "codigo_lote"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "codigo_lote.fecha_alta.trimestre": {
+			          "Target": {
+			            "Entity": "codigo_lote.fecha_alta.trimestre"
+			          }
+			        },
+			        "codigo_lote.fecha_alta.me": {
+			          "Target": {
+			            "Entity": "codigo_lote.fecha_alta.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "codigo_lote.fecha_alta.trimestre"
+			            },
+			            "Object": {
+			              "Role": "codigo_lote.fecha_alta.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_me16"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "codigo_lote.fecha_alta.me"
+			            },
+			            "Object": {
+			              "Role": "codigo_lote.fecha_alta.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_trimestres16"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "codigo_lote.fecha_alta.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "codigo_lote.fecha_alta.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_trimestres"
+			        }
+			      ]
+			    },
+			    "codigo_lote_fecha_alta_año_has_codigo_lote_fecha_alta_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "codigo_lote"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "codigo_lote.fecha_alta.año": {
+			          "Target": {
+			            "Entity": "codigo_lote.fecha_alta.año"
+			          }
+			        },
+			        "codigo_lote.fecha_alta.trimestre": {
+			          "Target": {
+			            "Entity": "codigo_lote.fecha_alta.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "codigo_lote.fecha_alta.año"
+			            },
+			            "Object": {
+			              "Role": "codigo_lote.fecha_alta.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_trimestres16"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "codigo_lote.fecha_alta.trimestre"
+			            },
+			            "Object": {
+			              "Role": "codigo_lote.fecha_alta.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_años16"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "codigo_lote.fecha_alta.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "codigo_lote.fecha_alta.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_años"
+			        }
+			      ]
+			    },
 			    "codigo_lote_fecha_alta_jerarquía_de_fecha_has_codigo_lote_fecha_alta_día": {
 			      "Binding": {
 			        "ConceptualEntity": "codigo_lote"
@@ -29041,7 +29692,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_días15"
+			          "ID": "jerarquía_de_fechas_have_días16"
 			        }
 			      ]
 			    },
@@ -29074,7 +29725,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_me15"
+			          "ID": "jerarquía_de_fechas_have_me16"
 			        }
 			      ]
 			    },
@@ -29107,7 +29758,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_trimestres15"
+			          "ID": "jerarquía_de_fechas_have_trimestres16"
 			        }
 			      ]
 			    },
@@ -29140,7 +29791,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jerarquía_de_fechas_have_años15"
+			          "ID": "jerarquía_de_fechas_have_años16"
 			        }
 			      ]
 			    },
@@ -29173,7 +29824,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_alta_have_jerarquía_de_fechas"
+			          "ID": "fecha_alta_have_jerarquía_de_fechas1"
 			        }
 			      ]
 			    },
@@ -30827,6 +31478,930 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
+			    "cliente_has_métricas_KPIs_anuales_debug_clientes_activos_grupo_b_por_nomCom": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente": {
+			          "Target": {
+			            "Entity": "cliente"
+			          }
+			        },
+			        "métricas_KPIs_anuales.debug_clientes_activos_grupo_b_por_nomCom": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.debug_clientes_activos_grupo_b_por_nomCom"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.debug_clientes_activos_grupo_b_por_nomCom"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "clientes_have_debug_clientes_activos_grupo_b_por_nomCom"
+			        }
+			      ]
+			    },
+			    "métricas_KPIs_anuales_has_KPIs_objetivo_media_cliente_grupo_b": {
+			      "Binding": {
+			        "ConceptualEntity": "Métricas KPI's Anuales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "métricas_KPIs_anuales": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_objetivo_media_cliente_grupo_b": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_objetivo_media_cliente_grupo_b"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "métricas_KPIs_anuales"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_objetivo_media_cliente_grupo_b"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "métricas_KPIs_anuales_have_KPIs_objetivo_media_cliente_grupo_b"
+			        }
+			      ]
+			    },
+			    "cliente_has_fecha_alta": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente": {
+			          "Target": {
+			            "Entity": "cliente"
+			          }
+			        },
+			        "cliente.fecha_alta": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "clientes_have_fecha_alta"
+			        }
+			      ]
+			    },
+			    "cliente_has_métricas_KPIs_anuales_debug_clientes_activos_grupo_a_por_nomCom": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente": {
+			          "Target": {
+			            "Entity": "cliente"
+			          }
+			        },
+			        "métricas_KPIs_anuales.debug_clientes_activos_grupo_a_por_nomCom": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.debug_clientes_activos_grupo_a_por_nomCom"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.debug_clientes_activos_grupo_a_por_nomCom"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "clientes_have_debug_clientes_activos_grupo_a_por_nomCom"
+			        }
+			      ]
+			    },
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_grupo_a_crecimiento": {
+			      "Binding": {
+			        "ConceptualEntity": "Modo Comparación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "modo_comparación": {
+			          "Target": {
+			            "Entity": "modo_comparación"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "modo_comparación"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "modo_comparacións_have_KPIs_grupo_a_crecimiento"
+			        }
+			      ]
+			    },
+			    "factura_has_métricas_KPIs_anuales_KPIs_grupo_a_crecimiento": {
+			      "Binding": {
+			        "ConceptualEntity": "Facturas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "factura": {
+			          "Target": {
+			            "Entity": "factura"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "factura"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "facturas_have_KPIs_grupo_a_crecimiento"
+			        }
+			      ]
+			    },
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs_grupo_a_crecimiento": {
+			      "Binding": {
+			        "ConceptualEntity": "FactVentas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_venta": {
+			          "Target": {
+			            "Entity": "fact_venta"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_venta"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_ventas_have_KPIs_grupo_a_crecimiento"
+			        }
+			      ]
+			    },
+			    "calendario_has_métricas_KPIs_anuales_KPIs_grupo_a_crecimiento": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_a_crecimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_KPIs_grupo_a_crecimiento"
+			        }
+			      ]
+			    },
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_grupo_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "Modo Comparación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "modo_comparación": {
+			          "Target": {
+			            "Entity": "modo_comparación"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_cliente": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "modo_comparación"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "modo_comparacións_have_KPIs_grupo_cliente"
+			        }
+			      ]
+			    },
+			    "factura_has_métricas_KPIs_anuales_KPIs_grupo_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "Facturas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "factura": {
+			          "Target": {
+			            "Entity": "factura"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_cliente": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "factura"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "facturas_have_KPIs_grupo_cliente"
+			        }
+			      ]
+			    },
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs_grupo_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "FactVentas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_venta": {
+			          "Target": {
+			            "Entity": "fact_venta"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_cliente": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_venta"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_ventas_have_KPIs_grupo_cliente"
+			        }
+			      ]
+			    },
+			    "cliente_has_métricas_KPIs_anuales_KPIs_grupo_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente": {
+			          "Target": {
+			            "Entity": "cliente"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_cliente": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "clientes_have_KPIs_grupo_cliente"
+			        }
+			      ]
+			    },
+			    "calendario_has_métricas_KPIs_anuales_KPIs_grupo_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_grupo_cliente": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_grupo_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_KPIs_grupo_cliente"
+			        }
+			      ]
+			    },
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b": {
+			      "Binding": {
+			        "ConceptualEntity": "Modo Comparación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "modo_comparación": {
+			          "Target": {
+			            "Entity": "modo_comparación"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "modo_comparación"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "modo_comparacións_have_KPIs__clientes_grupo_b"
+			        }
+			      ]
+			    },
+			    "factura_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b": {
+			      "Binding": {
+			        "ConceptualEntity": "Facturas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "factura": {
+			          "Target": {
+			            "Entity": "factura"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "factura"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "facturas_have_KPIs__clientes_grupo_b"
+			        }
+			      ]
+			    },
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b": {
+			      "Binding": {
+			        "ConceptualEntity": "FactVentas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_venta": {
+			          "Target": {
+			            "Entity": "fact_venta"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_venta"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_ventas_have_KPIs__clientes_grupo_b"
+			        }
+			      ]
+			    },
+			    "cliente_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente": {
+			          "Target": {
+			            "Entity": "cliente"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "clientes_have_KPIs__clientes_grupo_b"
+			        }
+			      ]
+			    },
+			    "calendario_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_KPIs__clientes_grupo_b"
+			        }
+			      ]
+			    },
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			      "Binding": {
+			        "ConceptualEntity": "Modo Comparación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "modo_comparación": {
+			          "Target": {
+			            "Entity": "modo_comparación"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "modo_comparación"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "modo_comparacións_have_KPIs__clientes_grupo_b_2025"
+			        }
+			      ]
+			    },
+			    "factura_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			      "Binding": {
+			        "ConceptualEntity": "Facturas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "factura": {
+			          "Target": {
+			            "Entity": "factura"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "factura"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "facturas_have_KPIs__clientes_grupo_b_2025"
+			        }
+			      ]
+			    },
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			      "Binding": {
+			        "ConceptualEntity": "FactVentas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_venta": {
+			          "Target": {
+			            "Entity": "fact_venta"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_venta"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_ventas_have_KPIs__clientes_grupo_b_2025"
+			        }
+			      ]
+			    },
+			    "cliente_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente": {
+			          "Target": {
+			            "Entity": "cliente"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "clientes_have_KPIs__clientes_grupo_b_2025"
+			        }
+			      ]
+			    },
+			    "calendario_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_KPIs__clientes_grupo_b_2025"
+			        }
+			      ]
+			    },
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a": {
+			      "Binding": {
+			        "ConceptualEntity": "Modo Comparación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "modo_comparación": {
+			          "Target": {
+			            "Entity": "modo_comparación"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "modo_comparación"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "modo_comparacións_have_KPIs_clientes_grupo_a"
+			        }
+			      ]
+			    },
+			    "factura_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a": {
+			      "Binding": {
+			        "ConceptualEntity": "Facturas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "factura": {
+			          "Target": {
+			            "Entity": "factura"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "factura"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "facturas_have_KPIs_clientes_grupo_a"
+			        }
+			      ]
+			    },
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a": {
+			      "Binding": {
+			        "ConceptualEntity": "FactVentas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_venta": {
+			          "Target": {
+			            "Entity": "fact_venta"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_venta"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_ventas_have_KPIs_clientes_grupo_a"
+			        }
+			      ]
+			    },
+			    "cliente_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente": {
+			          "Target": {
+			            "Entity": "cliente"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "clientes_have_KPIs_clientes_grupo_a"
+			        }
+			      ]
+			    },
+			    "calendario_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_KPIs_clientes_grupo_a"
+			        }
+			      ]
+			    },
 			    "cliente_has_métricas_KPIs_anuales_KPIs_objetivo_grupo_a__3500": {
 			      "Binding": {
 			        "ConceptualEntity": "Clientes"
@@ -31190,7 +32765,7 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_": {
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__grupo_b_en_crecimiento": {
 			      "Binding": {
 			        "ConceptualEntity": "Modo Comparación"
 			      },
@@ -31201,9 +32776,9 @@ cultureInfo es-ES
 			            "Entity": "modo_comparación"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_": {
+			        "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			          }
 			        }
 			      },
@@ -31214,16 +32789,16 @@ cultureInfo es-ES
 			              "Role": "modo_comparación"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs_clientes_grupo_b_"
+			          "ID": "modo_comparacións_have_KPIs__grupo_b_en_crecimiento"
 			        }
 			      ]
 			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_": {
+			    "factura_has_métricas_KPIs_anuales_KPIs__grupo_b_en_crecimiento": {
 			      "Binding": {
 			        "ConceptualEntity": "Facturas"
 			      },
@@ -31234,9 +32809,9 @@ cultureInfo es-ES
 			            "Entity": "factura"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_": {
+			        "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			          }
 			        }
 			      },
@@ -31247,16 +32822,16 @@ cultureInfo es-ES
 			              "Role": "factura"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs_clientes_grupo_b_"
+			          "ID": "facturas_have_KPIs__grupo_b_en_crecimiento"
 			        }
 			      ]
 			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_": {
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs__grupo_b_en_crecimiento": {
 			      "Binding": {
 			        "ConceptualEntity": "FactVentas"
 			      },
@@ -31267,9 +32842,9 @@ cultureInfo es-ES
 			            "Entity": "fact_venta"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_": {
+			        "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			          }
 			        }
 			      },
@@ -31280,16 +32855,16 @@ cultureInfo es-ES
 			              "Role": "fact_venta"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs_clientes_grupo_b_"
+			          "ID": "fact_ventas_have_KPIs__grupo_b_en_crecimiento"
 			        }
 			      ]
 			    },
-			    "cliente_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_": {
+			    "cliente_has_métricas_KPIs_anuales_KPIs__grupo_b_en_crecimiento": {
 			      "Binding": {
 			        "ConceptualEntity": "Clientes"
 			      },
@@ -31300,9 +32875,9 @@ cultureInfo es-ES
 			            "Entity": "cliente"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_": {
+			        "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			          }
 			        }
 			      },
@@ -31313,16 +32888,16 @@ cultureInfo es-ES
 			              "Role": "cliente"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "clientes_have_KPIs_clientes_grupo_b_"
+			          "ID": "clientes_have_KPIs__grupo_b_en_crecimiento"
 			        }
 			      ]
 			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_": {
+			    "calendario_has_métricas_KPIs_anuales_KPIs__grupo_b_en_crecimiento": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendario"
 			      },
@@ -31333,9 +32908,9 @@ cultureInfo es-ES
 			            "Entity": "calendario"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_": {
+			        "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			          }
 			        }
 			      },
@@ -31346,12 +32921,12 @@ cultureInfo es-ES
 			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_b_en_crecimiento"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs_clientes_grupo_b_"
+			          "ID": "calendarios_have_KPIs__grupo_b_en_crecimiento"
 			        }
 			      ]
 			    },
@@ -31487,7 +33062,7 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__grupo_a__3500": {
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__grupo_a__3000": {
 			      "Binding": {
 			        "ConceptualEntity": "Modo Comparación"
 			      },
@@ -31498,9 +33073,9 @@ cultureInfo es-ES
 			            "Entity": "modo_comparación"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__grupo_a__3500": {
+			        "métricas_KPIs_anuales.KPIs__grupo_a__3000": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			          }
 			        }
 			      },
@@ -31511,16 +33086,16 @@ cultureInfo es-ES
 			              "Role": "modo_comparación"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs__grupo_a__3500"
+			          "ID": "modo_comparacións_have_KPIs__grupo_a__3000"
 			        }
 			      ]
 			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs__grupo_a__3500": {
+			    "factura_has_métricas_KPIs_anuales_KPIs__grupo_a__3000": {
 			      "Binding": {
 			        "ConceptualEntity": "Facturas"
 			      },
@@ -31531,9 +33106,9 @@ cultureInfo es-ES
 			            "Entity": "factura"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__grupo_a__3500": {
+			        "métricas_KPIs_anuales.KPIs__grupo_a__3000": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			          }
 			        }
 			      },
@@ -31544,16 +33119,16 @@ cultureInfo es-ES
 			              "Role": "factura"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs__grupo_a__3500"
+			          "ID": "facturas_have_KPIs__grupo_a__3000"
 			        }
 			      ]
 			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs__grupo_a__3500": {
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs__grupo_a__3000": {
 			      "Binding": {
 			        "ConceptualEntity": "FactVentas"
 			      },
@@ -31564,9 +33139,9 @@ cultureInfo es-ES
 			            "Entity": "fact_venta"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__grupo_a__3500": {
+			        "métricas_KPIs_anuales.KPIs__grupo_a__3000": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			          }
 			        }
 			      },
@@ -31577,16 +33152,16 @@ cultureInfo es-ES
 			              "Role": "fact_venta"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs__grupo_a__3500"
+			          "ID": "fact_ventas_have_KPIs__grupo_a__3000"
 			        }
 			      ]
 			    },
-			    "cliente_has_métricas_KPIs_anuales_KPIs__grupo_a__3500": {
+			    "cliente_has_métricas_KPIs_anuales_KPIs__grupo_a__3000": {
 			      "Binding": {
 			        "ConceptualEntity": "Clientes"
 			      },
@@ -31597,9 +33172,9 @@ cultureInfo es-ES
 			            "Entity": "cliente"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__grupo_a__3500": {
+			        "métricas_KPIs_anuales.KPIs__grupo_a__3000": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			          }
 			        }
 			      },
@@ -31610,16 +33185,16 @@ cultureInfo es-ES
 			              "Role": "cliente"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "clientes_have_KPIs__grupo_a__3500"
+			          "ID": "clientes_have_KPIs__grupo_a__3000"
 			        }
 			      ]
 			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs__grupo_a__3500": {
+			    "calendario_has_métricas_KPIs_anuales_KPIs__grupo_a__3000": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendario"
 			      },
@@ -31630,9 +33205,9 @@ cultureInfo es-ES
 			            "Entity": "calendario"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__grupo_a__3500": {
+			        "métricas_KPIs_anuales.KPIs__grupo_a__3000": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			            "Entity": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			          }
 			        }
 			      },
@@ -31643,24 +33218,24 @@ cultureInfo es-ES
 			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3500"
+			              "Role": "métricas_KPIs_anuales.KPIs__grupo_a__3000"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs__grupo_a__3500"
+			          "ID": "calendarios_have_KPIs__grupo_a__3000"
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales_has_KPIs__objetivo_grupo_a_importe": {
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__objetivo_grupo_a_importe": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas KPI's Anuales"
+			        "ConceptualEntity": "Modo Comparación"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métricas_KPIs_anuales": {
+			        "modo_comparación": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales"
+			            "Entity": "modo_comparación"
 			          }
 			        },
 			        "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe": {
@@ -31673,7 +33248,7 @@ cultureInfo es-ES
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métricas_KPIs_anuales"
+			              "Role": "modo_comparación"
 			            },
 			            "Object": {
 			              "Role": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
@@ -31681,24 +33256,24 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_KPIs_anuales_have_KPIs__objetivo_grupo_a_importe"
+			          "ID": "modo_comparacións_have_KPIs__objetivo_grupo_a_importe"
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_media_grupo_a": {
+			    "factura_has_métricas_KPIs_anuales_KPIs__objetivo_grupo_a_importe": {
 			      "Binding": {
-			        "ConceptualEntity": "Modo Comparación"
+			        "ConceptualEntity": "Facturas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "modo_comparación": {
+			        "factura": {
 			          "Target": {
-			            "Entity": "modo_comparación"
+			            "Entity": "factura"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs_media_grupo_a": {
+			        "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_media_grupo_a"
+			            "Entity": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
 			          }
 			        }
 			      },
@@ -31706,15 +33281,114 @@ cultureInfo es-ES
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "modo_comparación"
+			              "Role": "factura"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_media_grupo_a"
+			              "Role": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs_media_grupo_a"
+			          "ID": "facturas_have_KPIs__objetivo_grupo_a_importe"
+			        }
+			      ]
+			    },
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs__objetivo_grupo_a_importe": {
+			      "Binding": {
+			        "ConceptualEntity": "FactVentas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_venta": {
+			          "Target": {
+			            "Entity": "fact_venta"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_venta"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_ventas_have_KPIs__objetivo_grupo_a_importe"
+			        }
+			      ]
+			    },
+			    "cliente_has_métricas_KPIs_anuales_KPIs__objetivo_grupo_a_importe": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente": {
+			          "Target": {
+			            "Entity": "cliente"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "clientes_have_KPIs__objetivo_grupo_a_importe"
+			        }
+			      ]
+			    },
+			    "calendario_has_métricas_KPIs_anuales_KPIs__objetivo_grupo_a_importe": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe": {
+			          "Target": {
+			            "Entity": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "métricas_KPIs_anuales.KPIs__objetivo_grupo_a_importe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_KPIs__objetivo_grupo_a_importe"
 			        }
 			      ]
 			    },
@@ -31814,39 +33488,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "clientes_have_KPIs_media_grupo_a"
-			        }
-			      ]
-			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs_media_grupo_a": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario": {
-			          "Target": {
-			            "Entity": "calendario"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_media_grupo_a": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_media_grupo_a"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_media_grupo_a"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs_media_grupo_a"
 			        }
 			      ]
 			    },
@@ -32708,7 +34349,7 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Modo Comparación"
 			      },
@@ -32719,9 +34360,9 @@ cultureInfo es-ES
 			            "Entity": "modo_comparación"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			          }
 			        }
 			      },
@@ -32732,16 +34373,16 @@ cultureInfo es-ES
 			              "Role": "modo_comparación"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs__clientes_grupo_b_2025"
+			          "ID": "modo_comparacións_have_KPIs_clientes_grupo_b_2025"
 			        }
 			      ]
 			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			    "factura_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Facturas"
 			      },
@@ -32752,9 +34393,9 @@ cultureInfo es-ES
 			            "Entity": "factura"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			          }
 			        }
 			      },
@@ -32765,16 +34406,16 @@ cultureInfo es-ES
 			              "Role": "factura"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs__clientes_grupo_b_2025"
+			          "ID": "facturas_have_KPIs_clientes_grupo_b_2025"
 			        }
 			      ]
 			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "FactVentas"
 			      },
@@ -32785,9 +34426,9 @@ cultureInfo es-ES
 			            "Entity": "fact_venta"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			          }
 			        }
 			      },
@@ -32798,16 +34439,16 @@ cultureInfo es-ES
 			              "Role": "fact_venta"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs__clientes_grupo_b_2025"
+			          "ID": "fact_ventas_have_KPIs_clientes_grupo_b_2025"
 			        }
 			      ]
 			    },
-			    "cliente_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			    "cliente_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Clientes"
 			      },
@@ -32818,9 +34459,9 @@ cultureInfo es-ES
 			            "Entity": "cliente"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			          }
 			        }
 			      },
@@ -32831,16 +34472,16 @@ cultureInfo es-ES
 			              "Role": "cliente"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "clientes_have_KPIs__clientes_grupo_b_2025"
+			          "ID": "clientes_have_KPIs_clientes_grupo_b_2025"
 			        }
 			      ]
 			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs__clientes_grupo_b_2025": {
+			    "calendario_has_métricas_KPIs_anuales_KPIs_clientes_grupo_b_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendario"
 			      },
@@ -32851,9 +34492,9 @@ cultureInfo es-ES
 			            "Entity": "calendario"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			          }
 			        }
 			      },
@@ -32864,16 +34505,16 @@ cultureInfo es-ES
 			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_b_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_b_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs__clientes_grupo_b_2025"
+			          "ID": "calendarios_have_KPIs_clientes_grupo_b_2025"
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs___clientes_grupo_b": {
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Modo Comparación"
 			      },
@@ -32884,9 +34525,9 @@ cultureInfo es-ES
 			            "Entity": "modo_comparación"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_b": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -32897,16 +34538,16 @@ cultureInfo es-ES
 			              "Role": "modo_comparación"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs___clientes_grupo_b"
+			          "ID": "modo_comparacións_have_KPIs__clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs___clientes_grupo_b": {
+			    "factura_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Facturas"
 			      },
@@ -32917,9 +34558,9 @@ cultureInfo es-ES
 			            "Entity": "factura"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_b": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -32930,16 +34571,16 @@ cultureInfo es-ES
 			              "Role": "factura"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs___clientes_grupo_b"
+			          "ID": "facturas_have_KPIs__clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs___clientes_grupo_b": {
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "FactVentas"
 			      },
@@ -32950,9 +34591,9 @@ cultureInfo es-ES
 			            "Entity": "fact_venta"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_b": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -32963,16 +34604,16 @@ cultureInfo es-ES
 			              "Role": "fact_venta"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs___clientes_grupo_b"
+			          "ID": "fact_ventas_have_KPIs__clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "cliente_has_métricas_KPIs_anuales_KPIs___clientes_grupo_b": {
+			    "cliente_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Clientes"
 			      },
@@ -32983,9 +34624,9 @@ cultureInfo es-ES
 			            "Entity": "cliente"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_b": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -32996,16 +34637,16 @@ cultureInfo es-ES
 			              "Role": "cliente"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "clientes_have_KPIs___clientes_grupo_b"
+			          "ID": "clientes_have_KPIs__clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs___clientes_grupo_b": {
+			    "calendario_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendario"
 			      },
@@ -33016,9 +34657,9 @@ cultureInfo es-ES
 			            "Entity": "calendario"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_b": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -33029,16 +34670,16 @@ cultureInfo es-ES
 			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_b"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs___clientes_grupo_b"
+			          "ID": "calendarios_have_KPIs__clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs___clientes_grupo_a": {
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a": {
 			      "Binding": {
 			        "ConceptualEntity": "Modo Comparación"
 			      },
@@ -33049,9 +34690,9 @@ cultureInfo es-ES
 			            "Entity": "modo_comparación"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_a": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			          }
 			        }
 			      },
@@ -33062,16 +34703,16 @@ cultureInfo es-ES
 			              "Role": "modo_comparación"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs___clientes_grupo_a"
+			          "ID": "modo_comparacións_have_KPIs__clientes_grupo_a"
 			        }
 			      ]
 			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs___clientes_grupo_a": {
+			    "factura_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a": {
 			      "Binding": {
 			        "ConceptualEntity": "Facturas"
 			      },
@@ -33082,9 +34723,9 @@ cultureInfo es-ES
 			            "Entity": "factura"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_a": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			          }
 			        }
 			      },
@@ -33095,16 +34736,16 @@ cultureInfo es-ES
 			              "Role": "factura"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs___clientes_grupo_a"
+			          "ID": "facturas_have_KPIs__clientes_grupo_a"
 			        }
 			      ]
 			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs___clientes_grupo_a": {
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a": {
 			      "Binding": {
 			        "ConceptualEntity": "FactVentas"
 			      },
@@ -33115,9 +34756,9 @@ cultureInfo es-ES
 			            "Entity": "fact_venta"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_a": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			          }
 			        }
 			      },
@@ -33128,16 +34769,16 @@ cultureInfo es-ES
 			              "Role": "fact_venta"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs___clientes_grupo_a"
+			          "ID": "fact_ventas_have_KPIs__clientes_grupo_a"
 			        }
 			      ]
 			    },
-			    "cliente_has_métricas_KPIs_anuales_KPIs___clientes_grupo_a": {
+			    "cliente_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a": {
 			      "Binding": {
 			        "ConceptualEntity": "Clientes"
 			      },
@@ -33148,9 +34789,9 @@ cultureInfo es-ES
 			            "Entity": "cliente"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_a": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			          }
 			        }
 			      },
@@ -33161,16 +34802,16 @@ cultureInfo es-ES
 			              "Role": "cliente"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "clientes_have_KPIs___clientes_grupo_a"
+			          "ID": "clientes_have_KPIs__clientes_grupo_a"
 			        }
 			      ]
 			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs___clientes_grupo_a": {
+			    "calendario_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendario"
 			      },
@@ -33181,9 +34822,9 @@ cultureInfo es-ES
 			            "Entity": "calendario"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs___clientes_grupo_a": {
+			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			          }
 			        }
 			      },
@@ -33194,12 +34835,12 @@ cultureInfo es-ES
 			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs___clientes_grupo_a"
+			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs___clientes_grupo_a"
+			          "ID": "calendarios_have_KPIs__clientes_grupo_a"
 			        }
 			      ]
 			    },
@@ -34028,105 +35669,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_b": {
-			      "Binding": {
-			        "ConceptualEntity": "Modo Comparación"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "modo_comparación": {
-			          "Target": {
-			            "Entity": "modo_comparación"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "modo_comparación"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs_clientes_activos_grupo_b"
-			        }
-			      ]
-			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_b": {
-			      "Binding": {
-			        "ConceptualEntity": "Facturas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "factura": {
-			          "Target": {
-			            "Entity": "factura"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "factura"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs_clientes_activos_grupo_b"
-			        }
-			      ]
-			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_b": {
-			      "Binding": {
-			        "ConceptualEntity": "FactVentas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_venta": {
-			          "Target": {
-			            "Entity": "fact_venta"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_venta"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs_clientes_activos_grupo_b"
-			        }
-			      ]
-			    },
 			    "cliente_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_b": {
 			      "Binding": {
 			        "ConceptualEntity": "Clientes"
@@ -34157,39 +35699,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "clientes_have_KPIs_clientes_activos_grupo_b"
-			        }
-			      ]
-			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_b": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario": {
-			          "Target": {
-			            "Entity": "calendario"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_b"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs_clientes_activos_grupo_b"
 			        }
 			      ]
 			    },
@@ -34820,15 +36329,15 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "métricas_KPIs_anuales_has_KPIs__incremento": {
+			    "cliente_has_métricas_KPIs_anuales_KPIs__incremento": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas KPI's Anuales"
+			        "ConceptualEntity": "Clientes"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métricas_KPIs_anuales": {
+			        "cliente": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales"
+			            "Entity": "cliente"
 			          }
 			        },
 			        "métricas_KPIs_anuales.KPIs__incremento": {
@@ -34841,7 +36350,7 @@ cultureInfo es-ES
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métricas_KPIs_anuales"
+			              "Role": "cliente"
 			            },
 			            "Object": {
 			              "Role": "métricas_KPIs_anuales.KPIs__incremento"
@@ -34849,11 +36358,11 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_KPIs_anuales_have_KPIs__incremento"
+			          "ID": "clientes_have_KPIs__incremento"
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Modo Comparación"
 			      },
@@ -34864,9 +36373,9 @@ cultureInfo es-ES
 			            "Entity": "modo_comparación"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -34877,16 +36386,16 @@ cultureInfo es-ES
 			              "Role": "modo_comparación"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs__clientes_grupo_a_2025"
+			          "ID": "modo_comparacións_have_KPIs_clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
+			    "factura_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Facturas"
 			      },
@@ -34897,9 +36406,9 @@ cultureInfo es-ES
 			            "Entity": "factura"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -34910,16 +36419,16 @@ cultureInfo es-ES
 			              "Role": "factura"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs__clientes_grupo_a_2025"
+			          "ID": "facturas_have_KPIs_clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "FactVentas"
 			      },
@@ -34930,9 +36439,9 @@ cultureInfo es-ES
 			            "Entity": "fact_venta"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -34943,16 +36452,16 @@ cultureInfo es-ES
 			              "Role": "fact_venta"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs__clientes_grupo_a_2025"
+			          "ID": "fact_ventas_have_KPIs_clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "cliente_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
+			    "cliente_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Clientes"
 			      },
@@ -34963,9 +36472,9 @@ cultureInfo es-ES
 			            "Entity": "cliente"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -34976,16 +36485,16 @@ cultureInfo es-ES
 			              "Role": "cliente"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "clientes_have_KPIs__clientes_grupo_a_2025"
+			          "ID": "clientes_have_KPIs_clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs__clientes_grupo_a_2025": {
+			    "calendario_has_métricas_KPIs_anuales_KPIs_clientes_grupo_a_2025": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendario"
 			      },
@@ -34996,9 +36505,9 @@ cultureInfo es-ES
 			            "Entity": "calendario"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025": {
+			        "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			          }
 			        }
 			      },
@@ -35009,16 +36518,16 @@ cultureInfo es-ES
 			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__clientes_grupo_a_2025"
+			              "Role": "métricas_KPIs_anuales.KPIs_clientes_grupo_a_2025"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs__clientes_grupo_a_2025"
+			          "ID": "calendarios_have_KPIs_clientes_grupo_a_2025"
 			        }
 			      ]
 			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__facturación_cliente__3000_AA": {
+			    "modo_comparación_has_métricas_KPIs_anuales_KPIs__ventas_netas_nomCom_AA": {
 			      "Binding": {
 			        "ConceptualEntity": "Modo Comparación"
 			      },
@@ -35029,9 +36538,9 @@ cultureInfo es-ES
 			            "Entity": "modo_comparación"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA": {
+			        "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA"
+			            "Entity": "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA"
 			          }
 			        }
 			      },
@@ -35042,16 +36551,16 @@ cultureInfo es-ES
 			              "Role": "modo_comparación"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA"
+			              "Role": "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs__facturación_cliente__3000_AA"
+			          "ID": "modo_comparacións_have_KPIs__ventas_netas_nomCom_AA"
 			        }
 			      ]
 			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs__facturación_cliente__3000_AA": {
+			    "factura_has_métricas_KPIs_anuales_KPIs__ventas_netas_nomCom_AA": {
 			      "Binding": {
 			        "ConceptualEntity": "Facturas"
 			      },
@@ -35062,9 +36571,9 @@ cultureInfo es-ES
 			            "Entity": "factura"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA": {
+			        "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA"
+			            "Entity": "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA"
 			          }
 			        }
 			      },
@@ -35075,16 +36584,16 @@ cultureInfo es-ES
 			              "Role": "factura"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA"
+			              "Role": "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs__facturación_cliente__3000_AA"
+			          "ID": "facturas_have_KPIs__ventas_netas_nomCom_AA"
 			        }
 			      ]
 			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs__facturación_cliente__3000_AA": {
+			    "fact_venta_has_métricas_KPIs_anuales_KPIs__ventas_netas_nomCom_AA": {
 			      "Binding": {
 			        "ConceptualEntity": "FactVentas"
 			      },
@@ -35095,9 +36604,9 @@ cultureInfo es-ES
 			            "Entity": "fact_venta"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA": {
+			        "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA"
+			            "Entity": "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA"
 			          }
 			        }
 			      },
@@ -35108,16 +36617,16 @@ cultureInfo es-ES
 			              "Role": "fact_venta"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA"
+			              "Role": "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs__facturación_cliente__3000_AA"
+			          "ID": "fact_ventas_have_KPIs__ventas_netas_nomCom_AA"
 			        }
 			      ]
 			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs__facturación_cliente__3000_AA": {
+			    "calendario_has_métricas_KPIs_anuales_KPIs__ventas_netas_nomCom_AA": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendario"
 			      },
@@ -35128,9 +36637,9 @@ cultureInfo es-ES
 			            "Entity": "calendario"
 			          }
 			        },
-			        "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA": {
+			        "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA": {
 			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA"
+			            "Entity": "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA"
 			          }
 			        }
 			      },
@@ -35141,111 +36650,12 @@ cultureInfo es-ES
 			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs__facturación_cliente__3000_AA"
+			              "Role": "métricas_KPIs_anuales.KPIs__ventas_netas_nomCom_AA"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs__facturación_cliente__3000_AA"
-			        }
-			      ]
-			    },
-			    "modo_comparación_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_a": {
-			      "Binding": {
-			        "ConceptualEntity": "Modo Comparación"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "modo_comparación": {
-			          "Target": {
-			            "Entity": "modo_comparación"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "modo_comparación"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "modo_comparacións_have_KPIs_clientes_activos_grupo_a"
-			        }
-			      ]
-			    },
-			    "factura_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_a": {
-			      "Binding": {
-			        "ConceptualEntity": "Facturas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "factura": {
-			          "Target": {
-			            "Entity": "factura"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "factura"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "facturas_have_KPIs_clientes_activos_grupo_a"
-			        }
-			      ]
-			    },
-			    "fact_venta_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_a": {
-			      "Binding": {
-			        "ConceptualEntity": "FactVentas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_venta": {
-			          "Target": {
-			            "Entity": "fact_venta"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_venta"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_ventas_have_KPIs_clientes_activos_grupo_a"
+			          "ID": "calendarios_have_KPIs__ventas_netas_nomCom_AA"
 			        }
 			      ]
 			    },
@@ -35279,39 +36689,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "clientes_have_KPIs_clientes_activos_grupo_a"
-			        }
-			      ]
-			    },
-			    "calendario_has_métricas_KPIs_anuales_KPIs_clientes_activos_grupo_a": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario": {
-			          "Target": {
-			            "Entity": "calendario"
-			          }
-			        },
-			        "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a": {
-			          "Target": {
-			            "Entity": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario"
-			            },
-			            "Object": {
-			              "Role": "métricas_KPIs_anuales.KPIs_clientes_activos_grupo_a"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendarios_have_KPIs_clientes_activos_grupo_a"
 			        }
 			      ]
 			    },
@@ -57732,6 +59109,72 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "clientes_have_id_clientes"
+			        }
+			      ]
+			    },
+			    "cliente_fecha_alta_me_has_cliente_fecha_alta_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Clientes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cliente.fecha_alta.me": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.me"
+			          }
+			        },
+			        "cliente.fecha_alta.día": {
+			          "Target": {
+			            "Entity": "cliente.fecha_alta.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.me"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días16"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.día"
+			            },
+			            "Object": {
+			              "Role": "cliente.fecha_alta.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me16"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "cliente.fecha_alta.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "cliente.fecha_alta.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me16"
 			        }
 			      ]
 			    }

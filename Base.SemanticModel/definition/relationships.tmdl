@@ -249,3 +249,8 @@ relationship c3b0b173-20b1-2c0f-6532-e337951371fc
 	fromColumn: Pedido.AlbaranKey
 	toColumn: DimAlbaran.AlbaranKey
 
+relationship eab649d1-3433-400d-92bb-085da4294eeb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Clientes.fechaAlta
+	toColumn: LocalDateTable_de5cfded-591d-48d6-8888-7734ee78cdeb.Date
+

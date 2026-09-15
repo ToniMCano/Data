@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "27e20265c5c5828a1c7f",
   "position": {
     "x": 0,
@@ -34,82 +34,6 @@
         },
         "Values": {
           "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentas"
-                    }
-                  },
-                  "Property": "Ventas Netas ERP"
-                }
-              },
-              "queryRef": "MétricasVentas.Ventas Netas ERP",
-              "nativeQueryRef": "Ventas Netas ERP"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactVentas"
-                        }
-                      },
-                      "Property": "totalCoste"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(FactVentas.totalCoste)",
-              "nativeQueryRef": "Suma de totalCoste"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasDiferenciaAA"
-                    }
-                  },
-                  "Property": "YoY Netas %"
-                }
-              },
-              "queryRef": "MétricasVentasAA.YoY %",
-              "nativeQueryRef": "YoY Netas %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasDiferenciaAA"
-                    }
-                  },
-                  "Property": "Dif. AA Importe"
-                }
-              },
-              "queryRef": "MétricasVentasAA.Dif. AA Importe",
-              "nativeQueryRef": "Dif. AA Importe"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentasAA"
-                    }
-                  },
-                  "Property": "Ventas Netas LY"
-                }
-              },
-              "queryRef": "MétricasVentasAA.Ventas LY Dinámico",
-              "nativeQueryRef": "Importe AA",
-              "displayName": "Importe AA"
-            },
             {
               "field": {
                 "Measure": {
@@ -170,6 +94,35 @@
             },
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MétricasDiferenciaAA"
+                    }
+                  },
+                  "Property": "Cajas %"
+                }
+              },
+              "queryRef": "MétricasDiferenciaAA.Cajas %",
+              "nativeQueryRef": "Cajas %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MétricasVentasAA"
+                    }
+                  },
+                  "Property": "Cajas LY Dinámico"
+                }
+              },
+              "queryRef": "MétricasVentasAA.Cajas LY Dinámico",
+              "nativeQueryRef": "Cajas AA",
+              "displayName": "Cajas AA"
+            },
+            {
+              "field": {
                 "Aggregation": {
                   "Expression": {
                     "Column": {
@@ -190,23 +143,47 @@
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactVentas"
-                        }
-                      },
-                      "Property": "total"
+                    "SourceRef": {
+                      "Entity": "MétricasDiferenciaAA"
                     }
                   },
-                  "Function": 0
+                  "Property": "DifKilosAA"
                 }
               },
-              "queryRef": "Sum(FactVentas.total)",
-              "nativeQueryRef": "Total",
-              "displayName": "Total"
+              "queryRef": "MétricasDiferenciaAA.DifKilosAA",
+              "nativeQueryRef": "DifKilos",
+              "displayName": "DifKilos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MétricasDiferenciaAA"
+                    }
+                  },
+                  "Property": "Kilos %"
+                }
+              },
+              "queryRef": "MétricasDiferenciaAA.Kilos %",
+              "nativeQueryRef": "Kilos %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MétricasVentasAA"
+                    }
+                  },
+                  "Property": "Kilos LY Dinámico"
+                }
+              },
+              "queryRef": "MétricasVentasAA.Kilos LY Dinámico",
+              "nativeQueryRef": "Kilos AA",
+              "displayName": "Kilos AA"
             }
           ]
         }
@@ -248,20 +225,6 @@
         }
       ],
       "columnWidth": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "114D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactVentas.total)"
-          }
-        },
         {
           "properties": {
             "value": {
@@ -317,34 +280,6 @@
           "selector": {
             "metadata": "MétricasVentasAA.Unidades %"
           }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "98D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentasAA.Ventas LY Dinámico"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "101D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentasAA.Dif. AA Importe"
-          }
         }
       ],
       "columnHeaders": [
@@ -353,59 +288,6 @@
         }
       ],
       "values": [
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Conditional": {
-                      "Cases": [
-                        {
-                          "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 3,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "MétricasDiferenciaAA"
-                                    }
-                                  },
-                                  "Property": "Dif. AA Importe"
-                                }
-                              },
-                              "Right": {
-                                "Literal": {
-                                  "Value": "0D"
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#D64550'"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "MétricasVentasAA.Dif. AA Importe"
-          }
-        },
         {
           "properties": {
             "fontColor": {
@@ -510,59 +392,6 @@
               }
             ],
             "metadata": "MétricasVentasAA.Unidades %"
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Conditional": {
-                      "Cases": [
-                        {
-                          "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 3,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "MétricasDiferenciaAA"
-                                    }
-                                  },
-                                  "Property": "YoY Netas %"
-                                }
-                              },
-                              "Right": {
-                                "Literal": {
-                                  "Value": "0D"
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#D64550'"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "MétricasVentasAA.YoY %"
           }
         },
         {
@@ -713,6 +542,7 @@
           }
         },
         "type": "Advanced",
+        "howCreated": "User",
         "isHiddenInViewMode": true
       },
       {
@@ -769,6 +599,7 @@
           }
         },
         "type": "Advanced",
+        "howCreated": "User",
         "isHiddenInViewMode": true
       },
       {
@@ -851,6 +682,7 @@
           }
         },
         "type": "Advanced",
+        "howCreated": "User",
         "isHiddenInViewMode": true
       },
       {
@@ -896,6 +728,7 @@
           }
         },
         "type": "Advanced",
+        "howCreated": "User",
         "isHiddenInViewMode": true
       }
     ]

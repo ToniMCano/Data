@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ab4fc3613b4e7b7559d3",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 144,
-    "width": 312,
+    "height": 120.00000000000001,
+    "width": 504,
     "tabOrder": 2000
   },
   "visual": {
@@ -216,7 +216,7 @@
             "calloutSize": {
               "expr": {
                 "Literal": {
-                  "Value": "56D"
+                  "Value": "40D"
                 }
               }
             },
@@ -419,7 +419,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Métricas"
+                      "Entity": "MétricasReparto"
                     }
                   },
                   "Property": "Repartidor"
@@ -441,20 +441,7 @@
           }
         },
         {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentas"
-                    }
-                  },
-                  "Property": "Albaranes"
-                }
-              }
-            }
-          },
+          "properties": {},
           "selector": {
             "data": [
               {
@@ -508,7 +495,7 @@
             ],
             "metadata": "CountNonNull(FactVentas.idCliente)",
             "id": "field-d5efdc8b-c6d9-2912-9686-5c684bd2e551",
-            "order": 1
+            "order": 0
           }
         },
         {
@@ -536,7 +523,7 @@
             ],
             "metadata": "CountNonNull(FactVentas.idCliente)",
             "id": "field-b035dab8-6af0-2e50-f347-f1e5a0551b7b",
-            "order": 2
+            "order": 1
           }
         },
         {
@@ -564,7 +551,7 @@
             ],
             "metadata": "CountNonNull(FactVentas.idCliente)",
             "id": "field-ffba4d02-bec1-6e6e-823f-8bbe03cfaf1b",
-            "order": 3
+            "order": 2
           }
         },
         {
@@ -592,7 +579,7 @@
             ],
             "metadata": "CountNonNull(FactVentas.idCliente)",
             "id": "field-f304de30-8e57-4944-0555-74c4e7cfeeaa",
-            "order": 4
+            "order": 3
           }
         },
         {
@@ -688,6 +675,28 @@
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CountNonNull(FactVentas.idCliente)",
+            "id": "field-5d6dde5c-20e8-3e6d-13e9-4923a70fc0b4"
           }
         }
       ],
@@ -1016,7 +1025,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -1063,7 +1072,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },

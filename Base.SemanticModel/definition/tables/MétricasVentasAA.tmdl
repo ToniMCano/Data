@@ -831,9 +831,8 @@ table MétricasVentasAA
 			            )
 			        )
 			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: f00cbae4-fd8f-4309-9a53-322835490aeb
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Ventas Brutas AA (Sin Dto)' =
 			
@@ -1323,6 +1322,63 @@ table MétricasVentasAA
 			        )
 			)
 		lineageTag: 74eaadf6-960c-476e-a47f-959f87188b28
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Media Albaranes Día AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Media Albaranes Día],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Media Albaranes Día],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		lineageTag: 82cde604-33b6-4e30-ac79-5be09d7c33ff
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

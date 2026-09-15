@@ -131,8 +131,6 @@ table Pedido
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
-
 	column HoraToma
 		dataType: dateTime
 		formatString: Long Time
@@ -140,11 +138,14 @@ table Pedido
 		summarizeBy: none
 		sourceColumn: HoraToma
 
+		variation Variación
+			isDefault
+			relationship: 975f10ed-0d83-4698-9b88-d5325f7cfaa0
+			defaultHierarchy: LocalDateTable_c1b68225-2599-412c-86bc-e16a37d87674.'Jerarquía de fechas'
+
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Time
 
 	column fechaDescarga
 		dataType: dateTime
@@ -162,8 +163,6 @@ table Pedido
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
-
 	column horaDescarga
 		dataType: dateTime
 		formatString: Long Time
@@ -171,29 +170,14 @@ table Pedido
 		summarizeBy: none
 		sourceColumn: horaDescarga
 
-		changedProperty = IsHidden
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Time
-
-	column fechaFac
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 14856e32-a1c7-4fc7-95d5-3c22e3c4c11d
-		summarizeBy: none
-		sourceColumn: fechaFac
-
 		variation Variación
 			isDefault
-			relationship: 2f92ed66-91d0-4ab6-b53c-8cc133b49bc9
-			defaultHierarchy: LocalDateTable_4411631a-1f96-4566-9bcb-8608babb04bb.'Jerarquía de fechas'
+			relationship: 3faa2201-92c7-45fd-b238-cdaf2dfa9209
+			defaultHierarchy: LocalDateTable_3ed8cf88-2c76-4d72-9d5e-f34dd29f9410.'Jerarquía de fechas'
 
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	column fechaMail
 		dataType: dateTime
@@ -211,8 +195,6 @@ table Pedido
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
-
 	column fechaTomaAlb
 		dataType: dateTime
 		formatString: Short Date
@@ -228,8 +210,6 @@ table Pedido
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	column actualizandoHastaFechaHora
 		dataType: dateTime
@@ -308,13 +288,11 @@ table Pedido
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="select #(lf)CONCAT(idSAlb, '-', idAlb) AS PedidoKey,#(lf)idAlb AS idPedido,#(lf)idSAlb AS idSPedido,#(lf)idAlbGen AS idAlb,#(lf)idSAlbGen AS idSAlb,#(lf)CONCAT(idSAlbGen, '-', idAlbGen) AS AlbaranKey,#(lf)idCliente,#(lf)idEVen,#(lf)idETom,#(lf)idRuta AS RutaVenta,#(lf)idRutaRep,#(lf)idCarga,#(lf)idDireccionEnvio,#(lf)fechaAlb,#(lf)horaAlb AS HoraToma,#(lf)fechaDescarga,#(lf)horaDescarga,#(lf)fechaFac,#(lf)fechaMail,#(lf)fechaTomaAlb,#(lf)actualizandoHastaFechaHora,#(lf)idTipoDoc,#(lf)nota#(lf)#(lf)#(lf)from pedido#(lf)WHERE fechaTomaAlb >= '20240101' AND idPed <> -555#(lf)order by fechaTomaAlb desc"]),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"fechaAlb", type date}, {"HoraToma", type time}, {"fechaDescarga", type date}, {"horaDescarga", type time}, {"fechaFac", type date}, {"fechaMail", type date}, {"fechaTomaAlb", type date}}),
-				    #"Filas ordenadas" = Table.Sort(#"Tipo cambiado",{{"idPedido", Order.Descending}})
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="select #(lf)CONCAT(idSAlb, '-', idAlb) AS PedidoKey,#(lf)idAlb AS idPedido,#(lf)idSAlb AS idSPedido,#(lf)idAlbGen AS idAlb,#(lf)idSAlbGen AS idSAlb,#(lf)CONCAT(idSAlbGen, '-', idAlbGen) AS AlbaranKey,#(lf)idCliente,#(lf)idEVen,#(lf)idETom,#(lf)idRuta AS RutaVenta,#(lf)idRutaRep,#(lf)idCarga,#(lf)idDireccionEnvio,#(lf)fechaAlb,#(lf)horaAlb AS HoraToma,#(lf)fechaDescarga,#(lf)horaDescarga,#(lf)fechaMail,#(lf)fechaTomaAlb,#(lf)actualizandoHastaFechaHora,#(lf)idTipoDoc,#(lf)nota#(lf)#(lf)#(lf)from pedido#(lf)WHERE fechaTomaAlb >= '20240101' AND idPed <> -555#(lf)order by fechaTomaAlb desc"])
 				in
-				    #"Filas ordenadas"
+				    Origen
 
 	annotation PBI_NavigationStepName = Navegación
 
-	annotation PBI_ResultType = Exception
+	annotation PBI_ResultType = Table
 

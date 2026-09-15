@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "8de98c0d0c4696801c6b",
   "position": {
-    "x": 640,
-    "y": 2760,
-    "z": 26000,
+    "x": 0,
+    "y": 45,
+    "z": 16000,
     "height": 264,
     "width": 616,
-    "tabOrder": 26000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "LocalDateTable_a059582d-3841-44af-b8d0-9f0d6036e4ba"
+                      "Entity": "Pedido"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "fechaAlb"
                 }
               },
-              "queryRef": "LocalDateTable_a059582d-3841-44af-b8d0-9f0d6036e4ba.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "Pedido.fechaAlb",
+              "nativeQueryRef": "fechaAlb",
               "active": true
             },
             {
@@ -50,14 +50,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "LineasPedido"
+                      "Entity": "Pedido"
                     }
                   },
-                  "Property": "idSPedido"
+                  "Property": "PedidoKey"
                 }
               },
-              "queryRef": "LineasPedido.idSPedido",
-              "nativeQueryRef": "idSPedido",
+              "queryRef": "Pedido.PedidoKey",
+              "nativeQueryRef": "PedidoKey",
               "active": false
             },
             {
@@ -68,32 +68,37 @@
                       "Entity": "LineasPedido"
                     }
                   },
-                  "Property": "idPedido"
+                  "Property": "numLinea"
                 }
               },
-              "queryRef": "LineasPedido.idPedido",
-              "nativeQueryRef": "idPedido",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "LineasPedido"
-                    }
-                  },
-                  "Property": "referencia"
-                }
-              },
-              "queryRef": "LineasPedido.referencia",
-              "nativeQueryRef": "Última fecha: referencia",
+              "queryRef": "LineasPedido.numLinea",
+              "nativeQueryRef": "numLinea",
               "active": false
             }
           ]
         },
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "referencia"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(LineasPedido.referencia)",
+              "nativeQueryRef": "Referencia",
+              "displayName": "Referencia"
+            },
             {
               "field": {
                 "Measure": {
@@ -106,7 +111,8 @@
                 }
               },
               "queryRef": "Métricas.Número Líneas Pedido",
-              "nativeQueryRef": "Número Líneas Pedido"
+              "nativeQueryRef": "Líneas",
+              "displayName": "Líneas"
             },
             {
               "field": {
@@ -125,7 +131,8 @@
                 }
               },
               "queryRef": "Min(LineasPedido.modo)",
-              "nativeQueryRef": "Primera fecha: modo"
+              "nativeQueryRef": "Modo",
+              "displayName": "Modo"
             },
             {
               "field": {
@@ -144,7 +151,8 @@
                 }
               },
               "queryRef": "Min(LineasPedido.descrip)",
-              "nativeQueryRef": "descrip"
+              "nativeQueryRef": "Descripción",
+              "displayName": "Descripción"
             },
             {
               "field": {
@@ -163,7 +171,8 @@
                 }
               },
               "queryRef": "Sum(LineasPedido.cantidad)",
-              "nativeQueryRef": "Suma de cantidad"
+              "nativeQueryRef": "Cantidad",
+              "displayName": "Cantidad"
             },
             {
               "field": {
@@ -182,7 +191,8 @@
                 }
               },
               "queryRef": "Sum(LineasPedido.cantKg)",
-              "nativeQueryRef": "Suma de cantKg"
+              "nativeQueryRef": "Kilos",
+              "displayName": "Kilos"
             },
             {
               "field": {
@@ -201,7 +211,28 @@
                 }
               },
               "queryRef": "Sum(LineasPedido.cUni)",
-              "nativeQueryRef": "Suma de cUni"
+              "nativeQueryRef": "U.C",
+              "displayName": "U.C"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactVentas"
+                        }
+                      },
+                      "Property": "tarifa"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(FactVentas.tarifa)",
+              "nativeQueryRef": "Tarifa",
+              "displayName": "Tarifa"
             },
             {
               "field": {
@@ -220,7 +251,27 @@
                 }
               },
               "queryRef": "Sum(LineasPedido.precio)",
-              "nativeQueryRef": "Suma de precio"
+              "nativeQueryRef": "Precio",
+              "displayName": "Precio"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "dto"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LineasPedido.dto)",
+              "nativeQueryRef": "Suma de dto"
             },
             {
               "field": {
@@ -239,7 +290,28 @@
                 }
               },
               "queryRef": "Sum(LineasPedido.total)",
-              "nativeQueryRef": "Suma de total"
+              "nativeQueryRef": "Total",
+              "displayName": "Total"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LineasPedido"
+                        }
+                      },
+                      "Property": "observa"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(LineasPedido.observa)",
+              "nativeQueryRef": "Observaciones",
+              "displayName": "Observaciones"
             }
           ]
         }
@@ -751,5 +823,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "cd6893a3a40da6e51e8d"
 }

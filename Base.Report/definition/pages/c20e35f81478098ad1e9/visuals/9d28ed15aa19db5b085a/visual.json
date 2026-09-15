@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "9d28ed15aa19db5b085a",
   "position": {
     "x": 16,
-    "y": 1259.4365325077401,
-    "z": 17000,
+    "y": 1360,
+    "z": 10000,
     "height": 272,
     "width": 1248,
-    "tabOrder": 23000
+    "tabOrder": 1000
   },
   "visualGroup": {
     "displayName": "Vendedores",

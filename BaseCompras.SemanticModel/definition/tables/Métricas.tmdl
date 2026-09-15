@@ -410,22 +410,6 @@ table Métricas
 			)
 		lineageTag: c5c01e93-8632-4135-a2a6-62d646bc6435
 
-	measure Repartidor =
-			
-			VAR AlbaranActual =
-			    SELECTEDVALUE(DimAlbaran[AlbaranKey])
-			VAR RepartidorId =
-			    CALCULATE(
-			        SELECTEDVALUE(Albaranes[idERep]),
-			        Albaranes[AlbaranKey] = AlbaranActual
-			    )
-			RETURN
-			LOOKUPVALUE(
-			    Empleado[nombre],
-			    Empleado[idEmpleado], RepartidorId
-			)
-		lineageTag: d9218b2e-7d35-41f9-9ff3-9eee5ac784e2
-
 	measure RepartidorTlf =
 			
 			VAR AlbaranActual =

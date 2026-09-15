@@ -1,0 +1,87 @@
+table MétricasReparto
+	lineageTag: f7cd5ca9-21c5-4d46-9078-3b7a3e57e578
+
+	measure Repartidor =
+			
+			VAR AlbaranActual =
+			    SELECTEDVALUE(DimAlbaran[AlbaranKey])
+			VAR RepartidorId =
+			    CALCULATE(
+			        SELECTEDVALUE(Albaranes[idERep]),
+			        Albaranes[AlbaranKey] = AlbaranActual
+			    )
+			RETURN
+			LOOKUPVALUE(
+			    Empleado[nombre],
+			    Empleado[idEmpleado], RepartidorId
+			)
+		lineageTag: d9218b2e-7d35-41f9-9ff3-9eee5ac784e2
+
+	/// Están descontados los NO, COTIZACIÓN,DEUDOR
+	measure 'Clientes Asignados Ruta' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( Rutas[idcliente] ),
+			
+			    FILTER (
+			        Clientes,
+			        VAR Nombre = Clientes[nomCom]
+			        RETURN
+			            NOT ISBLANK ( Nombre )
+			                && TRIM ( Nombre ) <> ""
+			                && NOT CONTAINSSTRING ( Nombre, "(NNN)" )
+			                && NOT CONTAINSSTRING ( Nombre, "(NO)" )
+			                && NOT CONTAINSSTRING ( Nombre, "(N)" )
+			                && NOT CONTAINSSTRING ( Nombre, "(NO )" )
+			                && NOT CONTAINSSTRING ( Nombre, "( NO)" )
+			                && NOT CONTAINSSTRING ( Nombre, "( N )" )
+			                && NOT CONTAINSSTRING ( Nombre, "COTIZACION" )
+			                && NOT CONTAINSSTRING ( Nombre, "DEUDOR" )
+			    )
+			)
+		formatString: 0
+		lineageTag: e063b578-389a-4929-bfcd-b91452d43089
+
+	measure 'Media Albarán Ruta' =
+			
+			VAR ImporteAlbaranes =
+			    CALCULATE (
+			        SUM ( Albaranes[totalBI] ),
+			        Albaranes[idSAlb] = "V"
+			    )
+			
+			VAR NumAlbaranes =
+			    CALCULATE (
+			        DISTINCTCOUNT ( Albaranes[AlbaranKey] ),
+			        Albaranes[idSAlb] = "V"
+			    )
+			
+			RETURN
+			    DIVIDE (
+			        ImporteAlbaranes,
+			        NumAlbaranes
+			    )
+		lineageTag: a6a1db86-43b3-42e2-a02d-a5de0472611b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Dummy
+		isHidden
+		lineageTag: 74c5f265-6a05-4cc6-a485-d37555fac1e0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dummy]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MétricasReparto = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Dummy", STRING,
+				    { {"Reparto"} }
+				)
+
+	annotation PBI_Id = 2ae5fa677509445b80bf07a9a2a79818
+

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "f0f9e20e4f58bc8be65f",
   "position": {
     "x": 16,
-    "y": 3782.3076923076919,
-    "z": 10000,
-    "height": 208,
+    "y": 2616,
+    "z": 8000,
+    "height": 512,
     "width": 1248,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "columnChart",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactVentas"
+                      "Entity": "DimRepartidores"
                     }
                   },
-                  "Property": "Tomador"
+                  "Property": "Nombre Repartidor"
                 }
               },
-              "queryRef": "FactVentas.Tomador",
-              "nativeQueryRef": "Tomador",
+              "queryRef": "DimRepartidores.Nombre Repartidor",
+              "nativeQueryRef": "Nombre Repartidor",
               "active": true
             }
           ]
@@ -36,25 +36,42 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactVentas"
-                        }
-                      },
-                      "Property": "idAlb"
+                    "SourceRef": {
+                      "Entity": "MétricasVentas"
                     }
                   },
-                  "Function": 2
+                  "Property": "V"
                 }
               },
-              "queryRef": "Sum(FactVentas.idAlb)",
-              "nativeQueryRef": "Recuento de idAlb"
+              "queryRef": "MétricasVentas.V",
+              "nativeQueryRef": "V"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Albaranes"
+                      }
+                    },
+                    "Property": "idAlb"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "objects": {

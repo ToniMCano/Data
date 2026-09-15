@@ -5,13 +5,13 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 17172.917260531696
+        "y": 236468.27612157352
       },
       "nodes": [
         {
           "location": {
             "x": 934.06595031636664,
-            "y": 47790.54545620206
+            "y": 238085.93470383412
           },
           "nodeIndex": "Clientes",
           "nodeLineageTag": "4631f958-5604-4f56-87f9-557c3e44b6c3",
@@ -19,12 +19,12 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 15
+          "zIndex": 37
         },
         {
           "location": {
             "x": 1433.9080647393744,
-            "y": 47824.576389828289
+            "y": 238119.96563746035
           },
           "nodeIndex": "Productos",
           "nodeLineageTag": "3c1325b2-65bf-493b-a546-97a51eeae9b4",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 1428.7596754886138,
-            "y": 49023.908364643154
+            "y": 239319.29761227523
           },
           "nodeIndex": "Proveedores",
           "nodeLineageTag": "38915027-c74d-46f3-8895-6ad3454d08e4",
@@ -49,8 +49,8 @@
         },
         {
           "location": {
-            "x": 905.61769699468778,
-            "y": 48128.0771936558
+            "x": 461.25231921752345,
+            "y": 237063.09878657653
           },
           "nodeIndex": "FactVentas",
           "nodeLineageTag": "d4d549ef-6a77-4787-97a8-74f7f9cddc1a",
@@ -58,12 +58,12 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 31
+          "zIndex": 42
         },
         {
           "location": {
             "x": 1142.4169208279495,
-            "y": 48451.381283215873
+            "y": 238746.77053084795
           },
           "nodeIndex": "SegmentoProductos",
           "nodeLineageTag": "f7bff242-346f-4d92-ba80-91dab9a781d6",
@@ -77,7 +77,7 @@
         {
           "location": {
             "x": 2890.09825447822,
-            "y": 47998.036414529954
+            "y": 238293.42566216202
           },
           "nodeIndex": "Métricas",
           "nodeLineageTag": "54bd2da6-4559-403a-b140-0a17de213412",
@@ -90,7 +90,7 @@
         {
           "location": {
             "x": 2917.7877282620211,
-            "y": 48238.698011552609
+            "y": 238534.08725918469
           },
           "nodeIndex": "RLS",
           "nodeLineageTag": "9681ce58-ce8e-4a9d-8b43-b1b49fb6066a",
@@ -103,7 +103,7 @@
         {
           "location": {
             "x": 2941.8075942638225,
-            "y": 47771.179348694059
+            "y": 238066.56859632611
           },
           "nodeIndex": "MétricasVentas",
           "nodeLineageTag": "930bf0b2-8d45-45a3-88b6-71c0d7810476",
@@ -115,8 +115,8 @@
         },
         {
           "location": {
-            "x": 531.09880028247335,
-            "y": 48192.835682992474
+            "x": 0,
+            "y": 238390.36829508518
           },
           "nodeIndex": "Calendario",
           "nodeLineageTag": "c25e1d2a-4f49-4e41-bb0e-fb02ea0f643d",
@@ -124,12 +124,12 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 22
+          "zIndex": 40
         },
         {
           "location": {
             "x": 1116.5027860305006,
-            "y": 48631.907902640727
+            "y": 238927.29715027276
           },
           "nodeIndex": "Colecciones",
           "nodeLineageTag": "debf879a-d57a-4785-95eb-70233ddfcd15",
@@ -137,15 +137,28 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 23
+          "zIndex": 22
         },
         {
           "location": {
             "x": 1832.7587472455582,
-            "y": 47744.66774217051
+            "y": 238040.05698980257
           },
           "nodeIndex": "Familia",
           "nodeLineageTag": "83bb7f62-222d-4a10-858a-787ca9d6eae9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 23
+        },
+        {
+          "location": {
+            "x": 2128.0334124234687,
+            "y": 238245.66088210937
+          },
+          "nodeIndex": "Seccion",
+          "nodeLineageTag": "7b80ccf6-af57-436a-a5ab-6f08e6fef96b",
           "size": {
             "height": 128,
             "width": 234
@@ -154,21 +167,8 @@
         },
         {
           "location": {
-            "x": 2128.0334124234687,
-            "y": 47950.271634477293
-          },
-          "nodeIndex": "Seccion",
-          "nodeLineageTag": "7b80ccf6-af57-436a-a5ab-6f08e6fef96b",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 25
-        },
-        {
-          "location": {
             "x": 1769.27824810895,
-            "y": 48332.606758846334
+            "y": 238627.99600647838
           },
           "nodeIndex": "SubFamilia",
           "nodeLineageTag": "e9737085-236f-4e94-a17f-ebf5ed40c784",
@@ -176,12 +176,12 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 28
+          "zIndex": 27
         },
         {
           "location": {
             "x": 1900.9758109023915,
-            "y": 48655.28544670876
+            "y": 238950.67469434079
           },
           "nodeIndex": "SubSubFamilia",
           "nodeLineageTag": "9acfdd1e-2c47-48c1-984d-aa9f8047d8bd",
@@ -189,12 +189,12 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 26
+          "zIndex": 25
         },
         {
           "location": {
             "x": 530.45599888343338,
-            "y": 47806.599564189062
+            "y": 238101.98881182109
           },
           "nodeIndex": "Empleado",
           "nodeLineageTag": "cb8e3d89-9932-494b-8613-19f84273e760",
@@ -202,12 +202,12 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 27
+          "zIndex": 26
         },
         {
           "location": {
             "x": 2996.3121571224115,
-            "y": 47313.896393196017
+            "y": 237609.28564082808
           },
           "nodeIndex": "MétricasVentasAA",
           "nodeLineageTag": "d55ea3bd-8ea5-408f-8912-540ef3bcb31a",
@@ -215,12 +215,12 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 11
+          "zIndex": 12
         },
         {
           "location": {
             "x": 2992.7092316326966,
-            "y": 47539.012017990972
+            "y": 237834.40126562305
           },
           "nodeIndex": "Modo Comparación",
           "nodeLineageTag": "eb772668-e643-40f6-8080-9d6d22730591",
@@ -228,12 +228,12 @@
             "height": 187.66713699445341,
             "width": 246.33286300554659
           },
-          "zIndex": 12
+          "zIndex": 13
         },
         {
           "location": {
             "x": 2245.4528464988948,
-            "y": 48133.643690808443
+            "y": 238429.0329384405
           },
           "nodeIndex": "codigo_lote",
           "nodeLineageTag": "c3ec1f35-a7d5-4e48-aae3-91b5ddeea5af",
@@ -241,26 +241,26 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 13
+          "zIndex": 14
         },
         {
           "location": {
-            "x": 1175.9143119063492,
-            "y": 47513.53710602333
+            "x": 1414.649005879442,
+            "y": 236949.16248152798
           },
           "nodeIndex": "Albaranes",
           "nodeLineageTag": "94497c03-98e5-40cd-92bf-30c54b7d0205",
           "size": {
-            "height": 152,
+            "height": 176,
             "width": 234
           },
-          "zIndex": 29,
+          "zIndex": 41,
           "expandedHeight": 128
         },
         {
           "location": {
             "x": 1701.2594399885375,
-            "y": 49365.017892111049
+            "y": 239660.4071397431
           },
           "nodeIndex": "Facturas",
           "nodeLineageTag": "813c157f-f4b6-4472-9892-ab032e1bb687",
@@ -268,12 +268,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 14
+          "zIndex": 15
         },
         {
           "location": {
             "x": 831.785510068616,
-            "y": 47013.616762334554
+            "y": 237309.0060099666
           },
           "nodeIndex": "Pedido",
           "nodeLineageTag": "d764bd86-8d43-42e8-816a-2460337b8b47",
@@ -281,12 +281,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 37
+          "zIndex": 34
         },
         {
           "location": {
             "x": 1744.9782650634809,
-            "y": 47341.319519704644
+            "y": 237636.70876733668
           },
           "nodeIndex": "DimAlbaran",
           "nodeLineageTag": "8a8244da-effd-425f-9223-859667dd0fd7",
@@ -294,12 +294,12 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 6
         },
         {
           "location": {
             "x": 2149.6406176936639,
-            "y": 47354.182858573884
+            "y": 237649.57210620592
           },
           "nodeIndex": "Stock",
           "nodeLineageTag": "3ca23a44-7c8b-4016-bebe-f7f64199d904",
@@ -307,28 +307,15 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 2640.7653462007279,
-            "y": 48211.742994520522
-          },
-          "nodeIndex": "Métricas Visuales",
-          "nodeLineageTag": "22358215-c381-42fc-b71e-62fa733b3b19",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
           "zIndex": 7
         },
         {
           "location": {
-            "x": 2641.7104230960795,
-            "y": 47982.129254579515
+            "x": 2640.7653462007279,
+            "y": 238507.13224215258
           },
-          "nodeIndex": "MétricasDiferenciaAA",
-          "nodeLineageTag": "3d4975fc-a8c7-4897-9ef4-0a2fc642606f",
+          "nodeIndex": "Métricas Visuales",
+          "nodeLineageTag": "22358215-c381-42fc-b71e-62fa733b3b19",
           "size": {
             "height": 200,
             "width": 234
@@ -337,11 +324,11 @@
         },
         {
           "location": {
-            "x": 2658.5006196577629,
-            "y": 47766.230170850467
+            "x": 2641.7104230960795,
+            "y": 238277.51850221155
           },
-          "nodeIndex": "Métricas Clientes",
-          "nodeLineageTag": "24a69159-93da-4650-9437-afa524fd29f2",
+          "nodeIndex": "MétricasDiferenciaAA",
+          "nodeLineageTag": "3d4975fc-a8c7-4897-9ef4-0a2fc642606f",
           "size": {
             "height": 200,
             "width": 234
@@ -350,11 +337,11 @@
         },
         {
           "location": {
-            "x": 2677.0513850712605,
-            "y": 47537.452263254891
+            "x": 2658.5006196577629,
+            "y": 238061.61941848253
           },
-          "nodeIndex": "Métricas Producto",
-          "nodeLineageTag": "e178d8d5-2e03-4e3a-90fa-f8a64c65ea13",
+          "nodeIndex": "Métricas Clientes",
+          "nodeLineageTag": "24a69159-93da-4650-9437-afa524fd29f2",
           "size": {
             "height": 200,
             "width": 234
@@ -363,11 +350,50 @@
         },
         {
           "location": {
+            "x": 2677.0513850712605,
+            "y": 237832.84151088697
+          },
+          "nodeIndex": "Métricas Producto",
+          "nodeLineageTag": "e178d8d5-2e03-4e3a-90fa-f8a64c65ea13",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
             "x": 2680.9964619666116,
-            "y": 47313.123799359018
+            "y": 237608.51304699108
           },
           "nodeIndex": "Métricas Tiempo",
           "nodeLineageTag": "69d7c170-fb10-4a2a-8ce5-05b37bf09041",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 29
+        },
+        {
+          "location": {
+            "x": 661.32963468237187,
+            "y": 238964.71564070485
+          },
+          "nodeIndex": "Grupo",
+          "nodeLineageTag": "698424ca-f9f0-4a7f-9cf4-a8c5d73fa442",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 28
+        },
+        {
+          "location": {
+            "x": 2353.3269477447043,
+            "y": 238813.81921066414
+          },
+          "nodeIndex": "GrupoComerciales",
+          "nodeLineageTag": "a3c83492-b5dc-4d37-8274-c4740057c910",
           "size": {
             "height": 200,
             "width": 234
@@ -376,24 +402,102 @@
         },
         {
           "location": {
-            "x": 661.32963468237187,
-            "y": 48669.326393072784
+            "x": 881.42988793009545,
+            "y": 239150.00467549806
           },
-          "nodeIndex": "Grupo",
-          "nodeLineageTag": "698424ca-f9f0-4a7f-9cf4-a8c5d73fa442",
+          "nodeIndex": "DimGrupoComerciales",
+          "nodeLineageTag": "39829cf5-5d54-40a2-b07b-aee75dc936ba",
           "size": {
-            "height": 128,
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 116.31729863344732,
+            "y": 239663.66925929091
+          },
+          "nodeIndex": "ComisionesDadas",
+          "nodeLineageTag": "350fa835-ba6e-4e8c-986a-723d1b7ed1ef",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 31
+        },
+        {
+          "location": {
+            "x": 514.28627793952467,
+            "y": 239700.23928700091
+          },
+          "nodeIndex": "LineasComisionesDadas",
+          "nodeLineageTag": "62537bc7-37cf-4f73-949f-534e5725d3e5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1015.8747973794926,
+            "y": 239635.80220578547
+          },
+          "nodeIndex": "LineasComisionesDadasCobros",
+          "nodeLineageTag": "c7bee14f-f83a-4673-9088-ecea66e1a618",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 30
         },
         {
           "location": {
-            "x": 2353.3269477447043,
-            "y": 48518.429963032075
+            "x": 530.1087758444844,
+            "y": 240149.34708382934
           },
-          "nodeIndex": "GrupoComerciales",
-          "nodeLineageTag": "a3c83492-b5dc-4d37-8274-c4740057c910",
+          "nodeIndex": "DimComision",
+          "nodeLineageTag": "209967a5-a5af-4548-ba00-39e9fb3d0df5",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 877.77853784991407,
+            "y": 240216.89372283663
+          },
+          "nodeIndex": "Retribuciones",
+          "nodeLineageTag": "add516fc-3389-4044-8dc5-5057dbddaf5f",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 163.50202257333694,
+            "y": 237354.94652337272
+          },
+          "nodeIndex": "LineasPedido",
+          "nodeLineageTag": "6bb3b261-962c-4283-9a0a-d15d1cb463c6",
+          "size": {
+            "height": 684.01359903655975,
+            "width": 234
+          },
+          "zIndex": 33
+        },
+        {
+          "location": {
+            "x": 2923.8636893267412,
+            "y": 238804.90321741052
+          },
+          "nodeIndex": "Métricas KPI's Anuales",
+          "nodeLineageTag": "7ec6add2-37f7-4535-8902-9552bcefa3c5",
           "size": {
             "height": 200,
             "width": 234
@@ -402,63 +506,24 @@
         },
         {
           "location": {
-            "x": 881.42988793009545,
-            "y": 48854.615427865981
+            "x": 1120.2592896921976,
+            "y": 236636.75887257024
           },
-          "nodeIndex": "DimGrupoComerciales",
-          "nodeLineageTag": "39829cf5-5d54-40a2-b07b-aee75dc936ba",
+          "nodeIndex": "DimRepartidores",
+          "nodeLineageTag": "3d65abf4-1a03-4b3d-8ae7-8e55957c360d",
           "size": {
             "height": 200,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 36
         },
         {
           "location": {
-            "x": 116.31729863344732,
-            "y": 49368.280011658862
+            "x": 2640,
+            "y": 238802.9801606712
           },
-          "nodeIndex": "ComisionesDadas",
-          "nodeLineageTag": "350fa835-ba6e-4e8c-986a-723d1b7ed1ef",
-          "size": {
-            "height": 296,
-            "width": 234
-          },
-          "zIndex": 34
-        },
-        {
-          "location": {
-            "x": 514.28627793952467,
-            "y": 49404.850039368845
-          },
-          "nodeIndex": "LineasComisionesDadas",
-          "nodeLineageTag": "62537bc7-37cf-4f73-949f-534e5725d3e5",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 3
-        },
-        {
-          "location": {
-            "x": 1015.8747973794926,
-            "y": 49340.412958153436
-          },
-          "nodeIndex": "LineasComisionesDadasCobros",
-          "nodeLineageTag": "c7bee14f-f83a-4673-9088-ecea66e1a618",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 33
-        },
-        {
-          "location": {
-            "x": 530.1087758444844,
-            "y": 49853.957836197296
-          },
-          "nodeIndex": "DimComision",
-          "nodeLineageTag": "209967a5-a5af-4548-ba00-39e9fb3d0df5",
+          "nodeIndex": "MétricasReparto",
+          "nodeLineageTag": "f7cd5ca9-21c5-4d46-9078-3b7a3e57e578",
           "size": {
             "height": 200,
             "width": 234
@@ -467,45 +532,33 @@
         },
         {
           "location": {
-            "x": 877.77853784991407,
-            "y": 49921.504475204565
+            "x": 2123.7386362248917,
+            "y": 237135.88750027883
           },
-          "nodeIndex": "Retribuciones",
-          "nodeLineageTag": "add516fc-3389-4044-8dc5-5057dbddaf5f",
+          "nodeIndex": "Rutas",
+          "nodeLineageTag": "efc332cc-920f-4a1b-915c-5e66914d2215",
           "size": {
-            "height": 296,
+            "height": 250.87015390858869,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 38
         },
         {
           "location": {
-            "x": 163.50202257333694,
-            "y": 47059.557275740677
+            "x": 1603.3099101643452,
+            "y": 236717.27819985183
           },
-          "nodeIndex": "LineasPedido",
-          "nodeLineageTag": "6bb3b261-962c-4283-9a0a-d15d1cb463c6",
+          "nodeIndex": "DimRuta",
+          "nodeLineageTag": "c9a0a828-504d-4dbd-a140-90a3a92c81db",
           "size": {
-            "height": 684.01359903655975,
+            "height": 128,
             "width": 234
           },
-          "zIndex": 36
-        },
-        {
-          "location": {
-            "x": 3172.7247960047957,
-            "y": 17173.149443879858
-          },
-          "nodeIndex": "Métricas KPI's Anuales",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
+          "zIndex": 39
         }
       ],
       "name": "Todas las tablas",
-      "zoomValue": 55.599173134922452,
+      "zoomValue": 55.599173134922388,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

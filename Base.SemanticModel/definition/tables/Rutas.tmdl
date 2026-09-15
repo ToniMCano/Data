@@ -1,0 +1,105 @@
+table Rutas
+	lineageTag: efc332cc-920f-4a1b-915c-5e66914d2215
+
+	column idruta
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c4327b4-2318-4a1b-bb89-8262d617ea8b
+		summarizeBy: none
+		sourceColumn: idruta
+
+		annotation SummarizationSetBy = Automatic
+
+	column idordruta
+		dataType: int64
+		formatString: 0
+		lineageTag: ed296f03-c7d2-4e53-b89c-8461711b7b18
+		summarizeBy: sum
+		sourceColumn: idordruta
+
+		annotation SummarizationSetBy = Automatic
+
+	column idcliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c424518-6be6-43a9-8b94-48b621a0c19d
+		summarizeBy: sum
+		sourceColumn: idcliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column lunes
+		dataType: int64
+		formatString: 0
+		lineageTag: a2f277c2-8b86-42c1-a6b6-2dad8971edc7
+		summarizeBy: sum
+		sourceColumn: lunes
+
+		annotation SummarizationSetBy = Automatic
+
+	column martes
+		dataType: int64
+		formatString: 0
+		lineageTag: c97ec3c1-94ff-4df0-b717-e51bb0fd5788
+		summarizeBy: sum
+		sourceColumn: martes
+
+		annotation SummarizationSetBy = Automatic
+
+	column miercoles
+		dataType: int64
+		formatString: 0
+		lineageTag: caaf161b-dff3-419b-8ac9-333a60fdbe30
+		summarizeBy: sum
+		sourceColumn: miercoles
+
+		annotation SummarizationSetBy = Automatic
+
+	column jueves
+		dataType: int64
+		formatString: 0
+		lineageTag: e1ca87d3-5b04-4f77-ba61-8139f70cf8d2
+		summarizeBy: sum
+		sourceColumn: jueves
+
+		annotation SummarizationSetBy = Automatic
+
+	column viernes
+		dataType: int64
+		formatString: 0
+		lineageTag: d3654dce-b54a-4062-9b2c-41e5a055ef7c
+		summarizeBy: sum
+		sourceColumn: viernes
+
+		annotation SummarizationSetBy = Automatic
+
+	column sabado
+		dataType: int64
+		formatString: 0
+		lineageTag: e166532e-6257-497b-a3cb-df2642dd11a1
+		summarizeBy: sum
+		sourceColumn: sabado
+
+		annotation SummarizationSetBy = Automatic
+
+	column domingo
+		dataType: int64
+		formatString: 0
+		lineageTag: f31d222a-1870-4c3e-a0e9-e7ab873d2e12
+		summarizeBy: sum
+		sourceColumn: domingo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Rutas = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT #(lf)O.idruta,#(lf)O.idordruta,#(lf)O.idcliente,#(lf)O.lunes,#(lf)O.martes,#(lf)O.miercoles,#(lf)O.jueves,#(lf)O.viernes,#(lf)O.sabado,#(lf)O.domingo#(lf)FROM ordruta O"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

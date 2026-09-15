@@ -157,7 +157,7 @@ table Albaranes
 		dataType: int64
 		formatString: 0
 		lineageTag: 164733b5-bb1e-430e-8600-e413d5e35142
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: idERep
 
 		changedProperty = IsHidden
@@ -182,11 +182,32 @@ table Albaranes
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Nombre Repartidor' =
+			
+			LOOKUPVALUE(
+			    Empleado[nombre],
+			    Empleado[idEmpleado],
+			    Albaranes[idERep]
+			)
+		lineageTag: 543fe802-e821-46ca-a0b1-657a7e1f338b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column idRutaRep
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d4693f0-cef9-42b4-be28-e8e19a2787b3
+		summarizeBy: none
+		sourceColumn: idRutaRep
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Albaranes = m
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    A.idSAlb,#(lf)    A.idAlb,#(lf)    CONCAT(A.idSAlb, '-', A.idAlb) AS AlbaranKey,#(lf)    A.fechaAlb,#(lf)    A.idCliente,#(lf)    A.idERep,#(lf)    A.idEPre,#(lf)    A.idSFac,#(lf)    A.idFac,#(lf)    CONCAT(A.idSFac, '-', A.idFac) AS FacturaKey,#(lf)    A.totalBI,#(lf)    A.totalDto,#(lf)    A.dto,#(lf)    A.dtoAlb1,#(lf)    A.dtoAlb2,#(lf)    A.dtoAlb3,#(lf)#(tab)A.idTipoDoc#(lf)FROM albaran A#(lf)WHERE A.fechaAlb >= '20240101';"])
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    A.idSAlb,#(lf)    A.idAlb,#(lf)    CONCAT(A.idSAlb, '-', A.idAlb) AS AlbaranKey,#(lf)    A.fechaAlb,#(lf)    A.idCliente,#(lf)    A.idERep,#(lf)    A.idEPre,#(lf)    A.idSFac,#(lf)    A.idFac,#(lf)    CONCAT(A.idSFac, '-', A.idFac) AS FacturaKey,#(lf)    A.totalBI,#(lf)    A.totalDto,#(lf)    A.dto,#(lf)    A.dtoAlb1,#(lf)    A.dtoAlb2,#(lf)    A.dtoAlb3,#(lf)#(tab)A.idTipoDoc,#(lf)#(tab)A.idRutaRep#(lf)FROM albaran A#(lf)WHERE A.fechaAlb >= '20240101';"])
 				in
 				    Origen
 

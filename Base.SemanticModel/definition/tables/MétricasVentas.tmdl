@@ -119,8 +119,8 @@ table MétricasVentas
 	measure V =
 			
 			CALCULATE(
-			    [Albaranes],
-			    FactVentas[idSAlb] = "V"
+			    DISTINCTCOUNT(Albaranes[AlbaranKey]),
+			    Albaranes[idSAlb] = "V"
 			)
 		formatString: 0
 		lineageTag: 84c531a4-4e59-4606-bfc8-1351501604f4
@@ -128,8 +128,8 @@ table MétricasVentas
 	measure MU =
 			
 			CALCULATE(
-			    [Albaranes],
-			    FactVentas[idSAlb] = "MU"
+			    DISTINCTCOUNT(Albaranes[AlbaranKey]),
+			    Albaranes[idSAlb] = "MU"
 			)
 		formatString: 0
 		lineageTag: 5c78c97f-acaa-46f6-b791-2c8009f9485a
@@ -137,8 +137,8 @@ table MétricasVentas
 	measure AB =
 			
 			CALCULATE(
-			    [Albaranes],
-			    FactVentas[idSAlb] = "AB"
+			    DISTINCTCOUNT(Albaranes[AlbaranKey]),
+			    Albaranes[idSAlb] = "AB"
 			)
 		formatString: 0
 		lineageTag: 33545df7-bf69-441a-82a4-6f22bb6e2421
@@ -160,8 +160,8 @@ table MétricasVentas
 	measure IN =
 			
 			CALCULATE(
-			    [Albaranes],
-			    FactVentas[idSAlb] = "IN"
+			    DISTINCTCOUNT(Albaranes[AlbaranKey]),
+			    Albaranes[idSAlb] = "IN"
 			)
 		formatString: 0
 		lineageTag: da16ad0d-7101-422d-97e0-31e812c0a21d
@@ -253,6 +253,7 @@ table MétricasVentas
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 0d7679e1-732d-42ac-9bae-98ce38032ce4
 
+	/// Media de Albaranes por Cliente
 	measure MA/C =
 			
 			VAR Grupo =
@@ -393,25 +394,6 @@ table MétricasVentas
 		lineageTag: e0039f07-83ad-49f1-a355-326b41ac537a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Albaranes V Clientes Vendedor' =
-			
-			VAR ClientesDelVendedor =
-			    CALCULATETABLE(
-			        VALUES(Clientes[idCliente])
-			    )
-			RETURN
-			CALCULATE(
-			    DISTINCTCOUNT(FactVentas[idAlb]),
-			    FactVentas[idSAlb] = "V",
-			    REMOVEFILTERS(FactVentas[idEmpleado]),
-			    TREATAS(
-			        ClientesDelVendedor,
-			        FactVentas[idCliente]
-			    )
-			)
-		formatString: 0
-		lineageTag: 49297af7-56f8-4651-974b-ae9679d92147
 
 	measure 'Importe V Grupo' =
 			
@@ -560,6 +542,57 @@ table MétricasVentas
 			)
 		formatString: General Date
 		lineageTag: 0ac1bc43-c1ff-4eef-9894-83553152b353
+
+	measure 'Albaranes V Clientes Vendedor' =
+			
+			VAR ClientesDelVendedor =
+			    CALCULATETABLE(
+			        VALUES(Clientes[idCliente])
+			    )
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT(FactVentas[idAlb]),
+			    FactVentas[idSAlb] = "V",
+			    REMOVEFILTERS(FactVentas[idEmpleado]),
+			    TREATAS(
+			        ClientesDelVendedor,
+			        FactVentas[idCliente]
+			    )
+			)
+		formatString: 0
+		lineageTag: 49297af7-56f8-4651-974b-ae9679d92147
+
+	measure 'Media Albaranes Día' = ```
+			
+			
+			    DIVIDE (
+			        [V],
+			        [DiasEvaluados]
+			    )
+			```
+		lineageTag: c13e8787-a94b-46bd-a12e-5368d0f587a0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Facturación Total Empresa (Ver comentrios de línea)' =
+			
+			---Sirve para usarla en la matriz de Rutas de Reparto
+			CALCULATE (
+			    [Ventas Netas ERP],
+			    REMOVEFILTERS ( DimRuta )
+			)
+		lineageTag: b895076d-4548-440d-b667-50ba51d7a524
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Aporte' =
+			
+			DIVIDE (
+			    [Ventas Netas ERP],
+			    [Facturación Total Empresa (Ver comentrios de línea)]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: dbff7505-0fc5-4761-89a6-946504188bd1
 
 	column Dummy
 		isHidden

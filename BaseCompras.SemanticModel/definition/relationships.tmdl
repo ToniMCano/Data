@@ -84,11 +84,6 @@ relationship a6354edb-0769-4c0c-81b0-eb19442872b5
 	fromColumn: Pedido.fechaDescarga
 	toColumn: LocalDateTable_69e1c6e0-904b-457b-abca-04173e795590.Date
 
-relationship 2f92ed66-91d0-4ab6-b53c-8cc133b49bc9
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Pedido.fechaFac
-	toColumn: LocalDateTable_4411631a-1f96-4566-9bcb-8608babb04bb.Date
-
 relationship 6e7c7be9-c3b3-4dfd-ac5d-5f9697baa40a
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Pedido.fechaMail
@@ -248,4 +243,39 @@ relationship 80b79515-b1e7-ab02-a88b-f37de3cf3597
 relationship c3b0b173-20b1-2c0f-6532-e337951371fc
 	fromColumn: Pedido.AlbaranKey
 	toColumn: DimAlbaran.AlbaranKey
+
+relationship eab649d1-3433-400d-92bb-085da4294eeb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Clientes.fechaAlta
+	toColumn: LocalDateTable_de5cfded-591d-48d6-8888-7734ee78cdeb.Date
+
+relationship a1232c0f-f94b-aa42-7bcc-685420ef1907
+	fromColumn: Albaranes.idERep
+	toColumn: DimRepartidores.idRepartidor
+
+relationship f22fa0a6-0c16-a4e0-4c01-1269017e59bd
+	fromColumn: FactVentas.idERep
+	toColumn: DimRepartidores.idRepartidor
+
+relationship AutoDetected_9ec7b920-e4a6-45d6-966f-6f53cb9169df
+	fromColumn: Rutas.idruta
+	toColumn: DimRuta.idruta
+
+relationship 1ebc2818-fef9-0e8f-1df2-9eeb223ec454
+	fromColumn: Albaranes.idRutaRep
+	toColumn: DimRuta.idruta
+
+relationship 975f10ed-0d83-4698-9b88-d5325f7cfaa0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Pedido.HoraToma
+	toColumn: LocalDateTable_c1b68225-2599-412c-86bc-e16a37d87674.Date
+
+relationship 3faa2201-92c7-45fd-b238-cdaf2dfa9209
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Pedido.horaDescarga
+	toColumn: LocalDateTable_3ed8cf88-2c76-4d72-9d5e-f34dd29f9410.Date
+
+relationship 1caf579d-ce03-ed09-b8af-4f30bb806194
+	fromColumn: FactVentas.idRutaRep
+	toColumn: DimRuta.idruta
 

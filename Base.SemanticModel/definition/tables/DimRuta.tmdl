@@ -1,0 +1,32 @@
+table DimRuta
+	lineageTag: c9a0a828-504d-4dbd-a140-90a3a92c81db
+
+	column idruta
+		dataType: int64
+		formatString: 0
+		lineageTag: b2056f6e-473e-4af6-83ae-c6a32e7fd32a
+		summarizeBy: none
+		sourceColumn: idruta
+
+		annotation SummarizationSetBy = Automatic
+
+	column descrip
+		dataType: string
+		lineageTag: 912914aa-1cfa-4819-9447-7c1b9f689f02
+		summarizeBy: none
+		sourceColumn: descrip
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimRuta = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="Select idruta, descrip from ruta"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

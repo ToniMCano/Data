@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "c9d181e02bf66963100b",
   "position": {
     "x": 16,
-    "y": 3526.3076923076919,
-    "z": 9000,
+    "y": 2344,
+    "z": 6000,
     "height": 232,
     "width": 1248,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "lineChart",
@@ -33,7 +33,7 @@
               },
               "queryRef": "Calendario.AñoTrimestre Jerarquía.AñoTrimestre",
               "nativeQueryRef": "AñoTrimestre Jerarquía AñoTrimestre",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -73,7 +73,7 @@
               },
               "queryRef": "Calendario.AñoTrimestre Jerarquía.SemanaVisual",
               "nativeQueryRef": "AñoTrimestre Jerarquía SemanaVisual",
-              "active": false
+              "active": true
             }
           ]
         },

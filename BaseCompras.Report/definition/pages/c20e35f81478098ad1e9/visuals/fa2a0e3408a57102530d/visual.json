@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "fa2a0e3408a57102530d",
   "position": {
     "x": 0,
     "y": 42,
-    "z": 0,
+    "z": 1000,
     "height": 264,
-    "width": 616,
-    "tabOrder": 1000
+    "width": 616
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,14 +19,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimAlbaran"
+                      "Entity": "FactVentas"
                     }
                   },
                   "Property": "idSAlb"
                 }
               },
-              "queryRef": "DimAlbaran.idSAlb",
-              "nativeQueryRef": "idSAlb",
+              "queryRef": "FactVentas.idSAlb",
+              "nativeQueryRef": "idSAlb1",
               "active": true
             },
             {
@@ -35,13 +34,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimAlbaran"
+                      "Entity": "FactVentas"
                     }
                   },
                   "Property": "idAlb"
                 }
               },
-              "queryRef": "DimAlbaran.idAlb",
+              "queryRef": "FactVentas.idAlb",
               "nativeQueryRef": "idAlb",
               "active": false
             },
@@ -121,17 +120,32 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Clientes"
+                          "Entity": "FactVentas"
                         }
                       },
-                      "Property": "nomCom"
+                      "Property": "idCliente"
                     }
                   },
                   "Function": 4
                 }
               },
-              "queryRef": "Min(Clientes.nomCom)",
-              "nativeQueryRef": "Última fecha: nomCom"
+              "queryRef": "CountNonNull(FactVentas.idCliente)",
+              "nativeQueryRef": "ID",
+              "displayName": "ID"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas Clientes"
+                    }
+                  },
+                  "Property": "Cliente"
+                }
+              },
+              "queryRef": "Métricas Clientes.Cliente",
+              "nativeQueryRef": "Cliente"
             },
             {
               "field": {
@@ -606,20 +620,6 @@
         }
       ],
       "columnWidth": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "44D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "CountNonNull(Clientes.idCliente)"
-          }
-        },
         {
           "properties": {
             "value": {

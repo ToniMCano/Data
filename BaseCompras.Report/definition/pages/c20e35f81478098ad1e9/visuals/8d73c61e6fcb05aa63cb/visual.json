@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "8d73c61e6fcb05aa63cb",
   "position": {
     "x": 0,
     "y": 36.756756756756758,
     "z": 1000,
     "height": 235.24324324324326,
-    "width": 615.99999999999989,
-    "tabOrder": 0
+    "width": 615.99999999999989
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,34 +19,20 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Clientes"
+                      "Entity": "DimRepartidores"
                     }
                   },
-                  "Property": "Nombre Vendedor"
+                  "Property": "Nombre Repartidor"
                 }
               },
-              "queryRef": "Clientes.Nombre Vendedor",
-              "nativeQueryRef": "Nombre Vendedor",
+              "queryRef": "DimRepartidores.Nombre Repartidor",
+              "nativeQueryRef": "Nombre Repartidor",
               "active": true
             }
           ]
         },
         "Values": {
           "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentas"
-                    }
-                  },
-                  "Property": "% Margen"
-                }
-              },
-              "queryRef": "MétricasVentas.% Margen",
-              "nativeQueryRef": "% Margen"
-            },
             {
               "field": {
                 "Measure": {
@@ -62,63 +47,6 @@
               "queryRef": "Métricas.MargenIconos",
               "nativeQueryRef": "-",
               "displayName": "-"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasDiferenciaAA"
-                    }
-                  },
-                  "Property": "Ventas Diferencia Margen VS AA"
-                }
-              },
-              "queryRef": "MétricasDiferenciaAA.Ventas Diferencia Margen VS AA",
-              "nativeQueryRef": "dif",
-              "displayName": "dif"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentas"
-                    }
-                  },
-                  "Property": "Beneficio Bruto"
-                }
-              },
-              "queryRef": "MétricasVentas.Beneficio Bruto",
-              "nativeQueryRef": "Beneficio Bruto"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentasAA"
-                    }
-                  },
-                  "Property": "% Margen AA"
-                }
-              },
-              "queryRef": "MétricasVentasAA.% Margen AA",
-              "nativeQueryRef": "% Margen AA"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentasAA"
-                    }
-                  },
-                  "Property": "Beneficio Bruto AA"
-                }
-              },
-              "queryRef": "MétricasVentasAA.Beneficio Bruto AA",
-              "nativeQueryRef": "Beneficio Bruto AA"
             },
             {
               "field": {
@@ -413,86 +341,6 @@
               "queryRef": "MétricasVentasAA.Media Albarán AA",
               "nativeQueryRef": "M. Alb.AA]",
               "displayName": "M. Alb.AA]"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas Producto"
-                    }
-                  },
-                  "Property": "Referencias Distintas"
-                }
-              },
-              "queryRef": "Métricas Producto.Referencias Distintas",
-              "nativeQueryRef": "[Refs.",
-              "displayName": "[Refs."
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas Producto"
-                    }
-                  },
-                  "Property": "Referencias distintas VS AA"
-                }
-              },
-              "queryRef": "Métricas Producto.Referencias distintas VS AA",
-              "nativeQueryRef": "Refs. VS AA",
-              "displayName": "Refs. VS AA"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas Producto"
-                    }
-                  },
-                  "Property": "Referencias Distintas AA"
-                }
-              },
-              "queryRef": "Métricas Producto.Referencias Distintas AA",
-              "nativeQueryRef": "Refs. AA]",
-              "displayName": "Refs. AA]"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas Producto"
-                    }
-                  },
-                  "Property": "Media Refs Cliente Grupo Activos"
-                }
-              },
-              "queryRef": "Métricas Producto.Media Referencias Distintas por Cliente Grupo",
-              "nativeQueryRef": "MR/C",
-              "displayName": "MR/C"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Clientes"
-                        }
-                      },
-                      "Property": "idCliente"
-                    }
-                  },
-                  "Function": 2
-                }
-              },
-              "queryRef": "CountNonNull(Clientes.idCliente)",
-              "nativeQueryRef": "CliREV",
-              "displayName": "CliREV"
             }
           ]
         }
@@ -504,10 +352,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "MétricasVentas"
+                    "Entity": "Métricas Clientes"
                   }
                 },
-                "Property": "% Margen"
+                "Property": "Clientes Activos"
               }
             },
             "direction": "Descending"
@@ -534,34 +382,6 @@
         }
       ],
       "columnWidth": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "62D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "CountNonNull(Clientes.idCliente)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "50D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Métricas Producto.Referencias Distintas"
-          }
-        },
         {
           "properties": {
             "value": {
@@ -738,89 +558,6 @@
               }
             ],
             "metadata": "Métricas Clientes.Clientes Activos"
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Métricas Visuales"
-                        }
-                      },
-                      "Property": "Color Referencias Distintas Comercial"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "Métricas Producto.Referencias Distintas"
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Conditional": {
-                      "Cases": [
-                        {
-                          "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 3,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Métricas Producto"
-                                    }
-                                  },
-                                  "Property": "Referencias distintas VS AA"
-                                }
-                              },
-                              "Right": {
-                                "Literal": {
-                                  "Value": "0D"
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#C0392B'"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "Métricas Producto.Referencias distintas VS AA"
           }
         },
         {
@@ -1059,36 +796,6 @@
               }
             ],
             "metadata": "MétricasDiferenciaAA.Media Albaranes VS AA"
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Métricas"
-                        }
-                      },
-                      "Property": "MargenIconos"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.% Margen"
           }
         },
         {
@@ -1618,90 +1325,6 @@
           "selector": {
             "metadata": "MétricasVentas.Media Albaranes por Cliente"
           }
-        },
-        {
-          "properties": {
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Right'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Métricas Producto.Referencias Distintas"
-          }
-        },
-        {
-          "properties": {
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Center'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Métricas Producto.Referencias distintas VS AA"
-          }
-        },
-        {
-          "properties": {
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Left'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Métricas Producto.Referencias Distintas AA"
-          }
         }
       ]
     },
@@ -2002,6 +1625,58 @@
         "type": "Advanced",
         "howCreated": "User",
         "isHiddenInViewMode": true
+      },
+      {
+        "name": "a07fa5533d3428c07500",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas Clientes"
+              }
+            },
+            "Property": "Clientes Activos"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m2",
+              "Entity": "Métricas Clientes",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "m2"
+                            }
+                          },
+                          "Property": "Clientes Activos"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }

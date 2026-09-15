@@ -577,23 +577,6 @@ table FactVentas
 
 		annotation SummarizationSetBy = Automatic
 
-	column idSFac2
-		dataType: string
-		lineageTag: e8953fb2-8791-47b0-8838-25713a6ec8d2
-		summarizeBy: none
-		sourceColumn: idSFac2
-
-		annotation SummarizationSetBy = Automatic
-
-	column idFac2
-		dataType: int64
-		formatString: 0
-		lineageTag: cd310457-3b2a-47fc-a206-c8f58fd6cf2d
-		summarizeBy: sum
-		sourceColumn: idFac2
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Nombre Empleado' =
 			
 			LOOKUPVALUE(
@@ -606,11 +589,29 @@ table FactVentas
 
 		annotation SummarizationSetBy = Automatic
 
+	column idERep
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c52f369-6400-4947-bb93-2bb4f1bd7054
+		summarizeBy: none
+		sourceColumn: idERep
+
+		annotation SummarizationSetBy = Automatic
+
+	column idRutaRep
+		dataType: int64
+		formatString: 0
+		lineageTag: d7fbfea1-2799-463a-96bb-76b7a7ee1bcc
+		summarizeBy: none
+		sourceColumn: idRutaRep
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactVentas = m
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="WITH pedido_test AS (#(lf)    SELECT#(lf)        idSAlbGen,#(lf)        idAlbGen,#(lf)        MAX(idETom) AS idETom#(lf)    FROM pedido#(lf)    GROUP BY#(lf)        idSAlbGen,#(lf)        idAlbGen#(lf)),#(lf)#(lf)lineas_validas AS (#(lf)    SELECT#(lf)        LA.idSAlb,#(lf)        LA.idAlb,#(lf)        SUM(LA.total) AS total_lineas_albaran#(lf)    FROM lineaAlbaran LA#(lf)    WHERE LA.tipoLin IN (1,2,4,5,8)#(lf)    GROUP BY#(lf)        LA.idSAlb,#(lf)        LA.idAlb#(lf)),#(lf)#(lf)lotes_por_linea AS (#(lf)    SELECT#(lf)        X.serie,#(lf)        X.codigo,#(lf)        X.referencia,#(lf)        X.numLineaAlbaran,#(lf)        STRING_AGG(CAST(X.codigoLote AS varchar(max)), ', ') AS codigosLote#(lf)    FROM (#(lf)        SELECT DISTINCT#(lf)            L.serie,#(lf)            L.codigo,#(lf)            L.referencia,#(lf)            L.numLinPri AS numLineaAlbaran,#(lf)            L.codigoLote#(lf)        FROM lineasAlbaranLote L#(lf)        WHERE L.codigoLote IS NOT NULL#(lf)    ) X#(lf)    GROUP BY#(lf)        X.serie,#(lf)        X.codigo,#(lf)        X.referencia,#(lf)        X.numLineaAlbaran#(lf))#(lf)#(lf)SELECT #(lf)    CONCAT(LA.idSAlb, '-', LA.idAlb) AS AlbaranKey,#(lf)    CONCAT(LA.idSAlb, '-', LA.idAlb, '-', LA.numLinea) AS LineaAlbaranKey,#(lf)#(lf)    A.fechaAlb,#(lf)    LA.idSAlb,#(lf)    LA.idAlb,#(lf)    LA.numLinea,#(lf)    LA.numLinPri,#(lf)#(tab)#(tab)A.idSFac,#(lf)#(tab)A.idFac,#(lf)    LA.idTarifa,#(lf)    T.descrip AS tarifa,#(lf)#(lf)    C.idCliente,#(lf)    E.idEmpleado,#(lf)    PT.idETom,#(lf)#(lf)    LA.referencia,#(lf)    LA.descrip,#(lf)    LA.modo,#(lf)    LA.idAlmacen,#(lf)    LA.tipoLin,#(lf)#(lf)    LA.dto / 100 AS dto,#(lf)    LA.dtoPor2 / 100 AS dtoPor2,#(lf)    LA.dtoPor3 / 100 AS dtoPor3,#(lf)    LA.dtoPor4 / 100 AS dtoPor4,#(lf)    LA.dtoMoneda,#(lf)#(lf)    LA.precio,#(lf)    LA.cUni,#(lf)    LA.cantidad,#(lf)    LA.cantKg,#(lf)    LA.cantidadPedido,#(lf)    LA.multiplicadorCantidadPedido,#(lf)    LA.multiplicadorKilosPedido,#(lf)#(lf)    LA.pCoste,#(lf)    LA.total,#(lf)    LA.totalCoste,#(lf)    LA.precioReal,#(lf)    LA.totalReal,#(lf)    LA.precioCosteNeto,#(lf)    LA.precioCosteReal,#(lf)#(lf)    LA.idIva,#(lf)    CAST(I.porcentaje AS decimal(10,4)) / 100 AS porcentaje,#(lf)#(lf)    A.totalBI AS totalBI_albaran,#(lf)    A.totalDto AS totalDtoAlb,#(lf)    A.dto AS dtoAlb,#(lf)    A.dtoAlb1 / 100 AS dtoAlb1,#(lf)    A.dtoAlb2 / 100 AS dtoAlb2,#(lf)    A.dtoAlb3 / 100 AS dtoAlb3,#(lf)#(lf)    LV.total_lineas_albaran,#(lf)#(lf)    A.idSFac,#(lf)    A.idFac,#(lf)    F.tMonDto,#(lf)#(lf)    L.codigosLote#(lf)#(lf)FROM albaran A#(lf)#(lf)INNER JOIN lineaAlbaran LA#(lf)    ON A.idSAlb = LA.idSAlb#(lf)   AND A.idAlb = LA.idAlb#(lf)#(lf)LEFT JOIN lineas_validas LV#(lf)    ON A.idSAlb = LV.idSAlb#(lf)   AND A.idAlb = LV.idAlb#(lf)#(lf)LEFT JOIN cliente C#(lf)    ON A.idCliente = C.idCliente#(lf)#(lf)LEFT JOIN empleado E#(lf)    ON C.idEmpleado = E.idEmpleado#(lf)#(lf)LEFT JOIN pedido_test PT#(lf)    ON A.idAlb = PT.idAlbGen#(lf)   AND A.idSAlb = PT.idSAlbGen#(lf)#(lf)LEFT JOIN tarifa T #(lf)    ON LA.idTarifa = T.idtarifa#(lf)#(lf)LEFT JOIN impuesto I #(lf)    ON LA.IdIva = I.id#(lf)#(lf)LEFT JOIN lotes_por_linea L#(lf)    ON LA.idSAlb = L.serie#(lf)   AND LA.idAlb = L.codigo#(lf)   AND LA.referencia = L.referencia#(lf)   AND LA.numLinea = L.numLineaAlbaran#(lf)#(lf)LEFT JOIN factura F#(lf)    ON A.idFac = F.idFactura#(lf)   AND A.idSFac = F.idSFac#(lf)#(lf)WHERE LA.tipoLin IN (1,2,4,5,8)AND A.fechaAlb > '20240101';"]),
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="WITH pedido_test AS (#(lf)    SELECT#(lf)        idSAlbGen,#(lf)        idAlbGen,#(lf)        MAX(idETom) AS idETom#(lf)    FROM pedido#(lf)    GROUP BY#(lf)        idSAlbGen,#(lf)        idAlbGen#(lf)),#(lf)#(lf)lineas_validas AS (#(lf)    SELECT#(lf)        LA.idSAlb,#(lf)        LA.idAlb,#(lf)        SUM(LA.total) AS total_lineas_albaran#(lf)    FROM lineaAlbaran LA#(lf)    WHERE LA.tipoLin IN (1,2,4,5,8)#(lf)    GROUP BY#(lf)        LA.idSAlb,#(lf)        LA.idAlb#(lf)),#(lf)#(lf)lotes_por_linea AS (#(lf)    SELECT#(lf)        X.serie,#(lf)        X.codigo,#(lf)        X.referencia,#(lf)        X.numLineaAlbaran,#(lf)        STRING_AGG(CAST(X.codigoLote AS varchar(max)), ', ') AS codigosLote#(lf)    FROM (#(lf)        SELECT DISTINCT#(lf)            L.serie,#(lf)            L.codigo,#(lf)            L.referencia,#(lf)            L.numLinPri AS numLineaAlbaran,#(lf)            L.codigoLote#(lf)        FROM lineasAlbaranLote L#(lf)        WHERE L.codigoLote IS NOT NULL#(lf)    ) X#(lf)    GROUP BY#(lf)        X.serie,#(lf)        X.codigo,#(lf)        X.referencia,#(lf)        X.numLineaAlbaran#(lf))#(lf)#(lf)SELECT #(lf)    CONCAT(LA.idSAlb, '-', LA.idAlb) AS AlbaranKey,#(lf)    CONCAT(LA.idSAlb, '-', LA.idAlb, '-', LA.numLinea) AS LineaAlbaranKey,#(lf)#(lf)    A.fechaAlb,#(lf)    LA.idSAlb,#(lf)    LA.idAlb,#(lf)    LA.numLinea,#(lf)    LA.numLinPri,#(lf)#(lf)    A.idSFac,#(lf)    A.idFac,#(lf)#(lf)    LA.idTarifa,#(lf)    T.descrip AS tarifa,#(lf)#(lf)    C.idCliente,#(lf)#(lf)    -- Vendedor del cliente#(lf)    E.idEmpleado,#(lf)#(lf)    -- Repartidor real del albarán#(lf)    A.idERep,#(lf)#(tab)A.idRutaRep,#(lf)    PT.idETom,#(lf)#(lf)    LA.referencia,#(lf)    LA.descrip,#(lf)    LA.modo,#(lf)    LA.idAlmacen,#(lf)    LA.tipoLin,#(lf)#(lf)    LA.dto / 100 AS dto,#(lf)    LA.dtoPor2 / 100 AS dtoPor2,#(lf)    LA.dtoPor3 / 100 AS dtoPor3,#(lf)    LA.dtoPor4 / 100 AS dtoPor4,#(lf)    LA.dtoMoneda,#(lf)#(lf)    LA.precio,#(lf)    LA.cUni,#(lf)    LA.cantidad,#(lf)    LA.cantKg,#(lf)    LA.cantidadPedido,#(lf)    LA.multiplicadorCantidadPedido,#(lf)    LA.multiplicadorKilosPedido,#(lf)#(lf)    LA.pCoste,#(lf)    LA.total,#(lf)    LA.totalCoste,#(lf)    LA.precioReal,#(lf)    LA.totalReal,#(lf)    LA.precioCosteNeto,#(lf)    LA.precioCosteReal,#(lf)#(lf)    LA.idIva,#(lf)    CAST(I.porcentaje AS decimal(10,4)) / 100 AS porcentaje,#(lf)#(lf)    A.totalBI AS totalBI_albaran,#(lf)    A.totalDto AS totalDtoAlb,#(lf)    A.dto AS dtoAlb,#(lf)    A.dtoAlb1 / 100 AS dtoAlb1,#(lf)    A.dtoAlb2 / 100 AS dtoAlb2,#(lf)    A.dtoAlb3 / 100 AS dtoAlb3,#(lf)#(lf)    LV.total_lineas_albaran,#(lf)#(lf)    F.tMonDto,#(lf)#(lf)    L.codigosLote#(lf)#(lf)FROM albaran A#(lf)#(lf)INNER JOIN lineaAlbaran LA#(lf)    ON A.idSAlb = LA.idSAlb#(lf)   AND A.idAlb = LA.idAlb#(lf)#(lf)LEFT JOIN lineas_validas LV#(lf)    ON A.idSAlb = LV.idSAlb#(lf)   AND A.idAlb = LV.idAlb#(lf)#(lf)LEFT JOIN cliente C#(lf)    ON A.idCliente = C.idCliente#(lf)#(lf)LEFT JOIN empleado E#(lf)    ON C.idEmpleado = E.idEmpleado#(lf)#(lf)LEFT JOIN pedido_test PT#(lf)    ON A.idAlb = PT.idAlbGen#(lf)   AND A.idSAlb = PT.idSAlbGen#(lf)#(lf)LEFT JOIN tarifa T #(lf)    ON LA.idTarifa = T.idtarifa#(lf)#(lf)LEFT JOIN impuesto I #(lf)    ON LA.IdIva = I.id#(lf)#(lf)LEFT JOIN lotes_por_linea L#(lf)    ON LA.idSAlb = L.serie#(lf)   AND LA.idAlb = L.codigo#(lf)   AND LA.referencia = L.referencia#(lf)   AND LA.numLinea = L.numLineaAlbaran#(lf)#(lf)LEFT JOIN factura F#(lf)    ON A.idFac = F.idFactura#(lf)   AND A.idSFac = F.idSFac#(lf)#(lf)WHERE#(lf)    LA.tipoLin IN (1,2,4,5,8)#(lf)    AND A.fechaAlb > '20240101';"]),
 				    #"Fecha extraída" = Table.TransformColumns(Origen,{{"fechaAlb", DateTime.Date, type date}})
 				in
 				    #"Fecha extraída"

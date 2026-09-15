@@ -81,7 +81,7 @@ table 'Métricas Clientes'
 		lineageTag: 741b6f93-ca10-4c45-b72c-2a321a0c5c5b
 
 	/// Son los clientes con compra este año - los clientes "(CRS..."
-	measure 'Clientes Activos' =
+	measure 'Clientes Activos' = ```
 			
 			COUNTROWS(
 			    FILTER(
@@ -97,10 +97,18 @@ table 'Métricas Clientes'
 			            NOT (
 			                CONTAINSSTRING(NombreCliente, "(CRS")
 			                    ||
+			                CONTAINSSTRING(NombreCliente, "( NO)")
+			                ||
+			                CONTAINSSTRING(NombreCliente, "(NO )")
+			                ||
+			                CONTAINSSTRING(NombreCliente, "( NO )")
+			                ||
 			                CONTAINSSTRING(NombreCliente, "(NO)")
+			                
 			            )
 			    )
 			)
+			```
 		formatString: 0
 		lineageTag: 139db609-4e97-43b4-95f3-e00ac2734923
 
@@ -597,6 +605,85 @@ table 'Métricas Clientes'
 	measure 'Difernecia Clientes Grupo Selección' = [Clientes Activos Grupo Selección] - [Clientes Activos AA Grupo Selección]
 		formatString: 0
 		lineageTag: 0acdc998-34bf-4a7b-a0b8-c21bd1d8603d
+
+	measure Total_Clientes = ```
+			
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "FactCli",  [Ventas Netas ERP] 
+			        ),
+			        [FactCli] > 0
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168
+			            && Clientes[idEmpleado] <> 123
+			            && Clientes[idEmpleado] <> 99
+			            && Clientes[idEmpleado] <> 73
+			            && Clientes[idEmpleado] <> 65
+			            && Clientes[idEmpleado] <> 30
+			            && Clientes[idEmpleado] <> 26
+			            && Clientes[idEmpleado] <> 23
+			            && Clientes[idEmpleado] <> 15
+			            && Clientes[idEmpleado] <> 2  
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0 
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(N)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO )" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( N )" )
+			    )
+			)
+			
+			
+			
+			```
+		formatString: 0
+		lineageTag: c18114f3-e61e-4684-b9f3-62f6294bec12
+
+	measure Total_Clientes_AA = ```
+			
+			COUNTROWS (
+			    FILTER (
+			        SUMMARIZE (
+			            Clientes,
+			            Clientes[idCliente],
+			            Clientes[nomCom],
+			            Clientes[idEmpleado],
+			            "FactCli",  [Ventas Netas LY] 
+			        ),
+			        [FactCli] > 0
+			            && NOT ISBLANK ( [nomCom] )
+			            && TRIM ( [nomCom] ) <> ""
+			            && Clientes[idEmpleado] <> 168
+			            && Clientes[idEmpleado] <> 123
+			            && Clientes[idEmpleado] <> 99
+			            && Clientes[idEmpleado] <> 73
+			            && Clientes[idEmpleado] <> 65
+			            && Clientes[idEmpleado] <> 30
+			            && Clientes[idEmpleado] <> 26
+			            && Clientes[idEmpleado] <> 23
+			            && Clientes[idEmpleado] <> 15
+			            && Clientes[idEmpleado] <> 2  
+			            && Clientes[idEmpleado] <> 1 
+			            && Clientes[idEmpleado] <> 0 
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(N)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "(NO )" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( NO)" )
+			            && NOT CONTAINSSTRING ( [nomCom], "( N )" )
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 041461fe-542d-48fa-8852-8a1baee80523
 
 	column Dummy
 		isHidden

@@ -1,16 +1,6 @@
 role RLS_Vendedores
 	modelPermission: read
 
-	tablePermission RLS =
-			VAR _email = LOWER(USERPRINCIPALNAME())
-			
-			RETURN
-			RLS[idVendedor] IN
-			SELECTCOLUMNS(
-			    FILTER(RLS, LOWER(RLS[mail]) = _email),
-			    "idVendedor", RLS[idVendedor]
-			)
-
 	tablePermission Clientes =
 			VAR _email = LOWER(USERPRINCIPALNAME())
 			

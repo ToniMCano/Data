@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a895b9be86e13b3e6678",
+  "position": {
+    "x": 160,
+    "y": 3216,
+    "z": 17000,
+    "height": 328,
+    "width": 800,
+    "tabOrder": 16000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "OBSERVACIONES"
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "La media de Albarán por ruta no es el mismo que la media de los clientes de esa ruta porque desde ruta evalúa los repartos en esa ruta, no coincide con el de los clientes asignados a esa ruta porque a veces un cliente asignado a otra ruta tiene algún albarán asignado a esa ruta por requerimientos del reparto."
+                  }
+                ],
+                "listType": "bullet"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

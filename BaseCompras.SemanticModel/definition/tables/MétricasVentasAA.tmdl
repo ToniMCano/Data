@@ -1326,6 +1326,62 @@ table MétricasVentasAA
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Media Albaranes Día AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [Media Albaranes Día],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [Media Albaranes Día],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 82cde604-33b6-4e30-ac79-5be09d7c33ff
+
 	column Dummy
 		isHidden
 		lineageTag: f3a69bab-9f51-4484-ad2a-190784220071

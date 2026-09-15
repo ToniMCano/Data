@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "6a2a3237e7b44c6943c0",
   "position": {
-    "x": 0,
-    "y": 112.00000000000011,
-    "z": 5000,
-    "height": 128,
-    "width": 632,
-    "tabOrder": 0
+    "x": 953.09021666409342,
+    "y": 1.4210854715202004E-14,
+    "z": 6000,
+    "height": 176,
+    "width": 310.90978333590652,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,40 +23,11 @@
                       "Entity": "MétricasVentas"
                     }
                   },
-                  "Property": "Unidades"
-                }
-              },
-              "queryRef": "MétricasVentas.UnidadesDAX",
-              "nativeQueryRef": "Unidades",
-              "displayName": "Unidades"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentas"
-                    }
-                  },
                   "Property": "Cajas"
                 }
               },
               "queryRef": "MétricasVentas.Cajas",
               "nativeQueryRef": "Cajas"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentas"
-                    }
-                  },
-                  "Property": "Kilos"
-                }
-              },
-              "queryRef": "MétricasVentas.Kilos",
-              "nativeQueryRef": "Kilos1"
             }
           ]
         }
@@ -69,27 +40,6 @@
       "value": [
         {
           "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX"
-          }
-        },
-        {
-          "properties": {
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -100,27 +50,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.Kilos"
           }
         },
         {
@@ -337,25 +266,6 @@
       "fillCustom": [
         {
           "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX"
-          }
-        },
-        {
-          "properties": {
             "transparency": {
               "expr": {
                 "Literal": {
@@ -377,22 +287,6 @@
                 }
               }
             }
-          }
-        }
-      ],
-      "shadowCustom": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX"
           }
         }
       ],
@@ -428,62 +322,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentasAA"
-                    }
-                  },
-                  "Property": "Unidades LY Dinámico"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-fbc122d6-f504-ef53-f147-02397ac1f456",
-            "order": 0
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasDiferenciaAA"
-                    }
-                  },
-                  "Property": "Ventas Diferencia Unidades AA KPI"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-309fd583-adf4-3290-2d43-cfc5ecbe5182",
-            "order": 1
           }
         },
         {
@@ -540,91 +378,6 @@
             "metadata": "MétricasVentas.Cajas",
             "id": "field-12ac5dc3-e44d-8f83-6eb3-2604cc8a19aa",
             "order": 1
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasVentasAA"
-                    }
-                  },
-                  "Property": "Kilos LY Dinámico"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-c4e147fa-0104-6e98-0298-68aadba96baa",
-            "order": 0
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasDiferenciaAA"
-                    }
-                  },
-                  "Property": "Ventas Diferencia Kilos AA KPI"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-04155774-716e-71a0-6854-7f82c4a54b18",
-            "order": 1
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-b685ea12-1a27-282b-14e2-3a9af5009db8",
-            "order": 2
-          }
-        },
-        {
-          "properties": {
-            "backgroundTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX"
           }
         },
         {
@@ -692,64 +445,6 @@
             "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Unidades AA: '"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-fbc122d6-f504-ef53-f147-02397ac1f456"
-          }
-        },
-        {
-          "properties": {
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            },
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Diferencia: '"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-309fd583-adf4-3290-2d43-cfc5ecbe5182"
-          }
-        },
-        {
-          "properties": {
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            },
-            "titleText": {
-              "expr": {
-                "Literal": {
                   "Value": "'Diferencia: '"
                 }
               }
@@ -798,64 +493,6 @@
         },
         {
           "properties": {
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            },
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Kilos AA:'"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-c4e147fa-0104-6e98-0298-68aadba96baa"
-          }
-        },
-        {
-          "properties": {
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            },
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Diferencia: '"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-04155774-716e-71a0-6854-7f82c4a54b18"
-          }
-        },
-        {
-          "properties": {
             "titleFontSize": {
               "expr": {
                 "Literal": {
@@ -870,68 +507,6 @@
         }
       ],
       "referenceLabelValue": [
-        {
-          "properties": {
-            "valueDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "valuePrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
-                }
-              }
-            },
-            "valueFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
-                }
-              }
-            },
-            "valueFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#99A8A9'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-fbc122d6-f504-ef53-f147-02397ac1f456"
-          }
-        },
-        {
-          "properties": {
-            "valueDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "valuePrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-309fd583-adf4-3290-2d43-cfc5ecbe5182"
-          }
-        },
         {
           "properties": {
             "valueDisplayUnits": {
@@ -978,156 +553,6 @@
         },
         {
           "properties": {
-            "valueDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "valuePrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
-                }
-              }
-            },
-            "valueFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
-                }
-              }
-            },
-            "valueFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#1A2B45'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-c4e147fa-0104-6e98-0298-68aadba96baa"
-          }
-        },
-        {
-          "properties": {
-            "valueDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "valuePrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
-                }
-              }
-            },
-            "valueTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-04155774-716e-71a0-6854-7f82c4a54b18"
-          }
-        },
-        {
-          "properties": {
-            "valueFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Conditional": {
-                      "Cases": [
-                        {
-                          "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 3,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "MétricasDiferenciaAA"
-                                    }
-                                  },
-                                  "Property": "DifUnidadesAA"
-                                }
-                              },
-                              "Right": {
-                                "Literal": {
-                                  "Value": "0D"
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#C0392B'"
-                            }
-                          }
-                        },
-                        {
-                          "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 2,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "MétricasDiferenciaAA"
-                                    }
-                                  },
-                                  "Property": "DifUnidadesAA"
-                                }
-                              },
-                              "Right": {
-                                "Literal": {
-                                  "Value": "0D"
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#1D9E75'"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-309fd583-adf4-3290-2d43-cfc5ecbe5182"
-          }
-        },
-        {
-          "properties": {
             "valueFontColor": {
               "solid": {
                 "color": {
@@ -1205,100 +630,6 @@
             ],
             "metadata": "MétricasVentas.Cajas",
             "id": "field-12ac5dc3-e44d-8f83-6eb3-2604cc8a19aa"
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.Kilos"
-          }
-        },
-        {
-          "properties": {
-            "valueFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Conditional": {
-                      "Cases": [
-                        {
-                          "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 3,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "MétricasDiferenciaAA"
-                                    }
-                                  },
-                                  "Property": "DifKilosAA"
-                                }
-                              },
-                              "Right": {
-                                "Literal": {
-                                  "Value": "0D"
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#C0392B'"
-                            }
-                          }
-                        },
-                        {
-                          "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 2,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "MétricasDiferenciaAA"
-                                    }
-                                  },
-                                  "Property": "DifKilosAA"
-                                }
-                              },
-                              "Right": {
-                                "Literal": {
-                                  "Value": "0D"
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#1D9E75'"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-04155774-716e-71a0-6854-7f82c4a54b18"
           }
         },
         {
@@ -1389,201 +720,6 @@
             ],
             "metadata": "MétricasVentas.Cajas",
             "id": "field-12ac5dc3-e44d-8f83-6eb3-2604cc8a19aa"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "detailTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
-            },
-            "detailFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#99A8A9'"
-                    }
-                  }
-                }
-              }
-            },
-            "detailBold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "detailFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-04155774-716e-71a0-6854-7f82c4a54b18"
-          }
-        },
-        {
-          "properties": {
-            "detailValue": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasDiferenciaAA"
-                    }
-                  },
-                  "Property": "Kilos %"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.Kilos",
-            "id": "field-04155774-716e-71a0-6854-7f82c4a54b18"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "detailTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
-            },
-            "detailFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#99A8A9'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-fbc122d6-f504-ef53-f147-02397ac1f456"
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-fbc122d6-f504-ef53-f147-02397ac1f456"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "detailFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#99A8A9'"
-                    }
-                  }
-                }
-              }
-            },
-            "detailTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
-            },
-            "detailBold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "detailFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-309fd583-adf4-3290-2d43-cfc5ecbe5182"
-          }
-        },
-        {
-          "properties": {
-            "detailValue": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MétricasDiferenciaAA"
-                    }
-                  },
-                  "Property": "Unidades %"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "MétricasVentas.UnidadesDAX",
-            "id": "field-309fd583-adf4-3290-2d43-cfc5ecbe5182"
           }
         }
       ],
@@ -1734,7 +870,7 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "9b4d44ef7025ce1b6d36",
+  "parentGroupName": "99cddb6fd58a01b4e822",
   "filterConfig": {
     "filters": [
       {
@@ -1766,6 +902,7 @@
           }
         },
         "type": "Advanced",
+        "howCreated": "User",
         "isHiddenInViewMode": true
       },
       {
@@ -1796,6 +933,7 @@
           }
         },
         "type": "Advanced",
+        "howCreated": "User",
         "isHiddenInViewMode": true
       }
     ]

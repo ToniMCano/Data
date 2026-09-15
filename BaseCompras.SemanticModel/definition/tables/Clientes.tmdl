@@ -151,13 +151,30 @@ table Clientes
 
 		annotation SummarizationSetBy = Automatic
 
+	column fechaAlta
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c1d421ae-5ddd-425f-8b46-24af7e8b95b4
+		summarizeBy: none
+		sourceColumn: fechaAlta
+
+		variation Variación
+			isDefault
+			relationship: eab649d1-3433-400d-92bb-085da4294eeb
+			defaultHierarchy: LocalDateTable_de5cfded-591d-48d6-8888-7734ee78cdeb.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition Clientes = m
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    grupo,#(lf)    subGrupo,#(lf)    idPoblacion,#(lf)    idPoblacionEnvio,#(lf)    idProvincia,#(lf)    lunes,#(lf)    martes,#(lf)    miercoles,#(lf)    jueves,#(lf)    viernes,#(lf)    sabado, #(lf)    domingo,#(lf)    idCliente,#(lf)    nomCom,#(lf)    idEmpleado#(lf)FROM cliente;"])
+				    Origen = Sql.Database("192.168.0.10", "dat1", [Query="SELECT#(lf)    grupo,#(lf)    subGrupo,#(lf)    idPoblacion,#(lf)    idPoblacionEnvio,#(lf)    idProvincia,#(lf)    lunes,#(lf)    martes,#(lf)    miercoles,#(lf)    jueves,#(lf)    viernes,#(lf)    sabado, #(lf)    domingo,#(lf)    idCliente,#(lf)    nomCom,#(lf)    idEmpleado,#(lf)    fechaAlta#(lf)FROM cliente;"]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"fechaAlta", type date}})
 				in
-				    Origen
+				    #"Tipo cambiado"
 
 	annotation PBI_NavigationStepName = Navegación
 

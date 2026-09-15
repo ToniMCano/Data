@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "c20e35f81478098ad1e9",
-  "displayName": "360M",
+  "displayName": "Reparto",
   "displayOption": "ActualSize",
   "height": 4000,
   "width": 1280,
@@ -95,6 +95,40 @@
           }
         },
         "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "p",
+              "Entity": "Productos",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "p"
+                        }
+                      },
+                      "Property": "idSeccion"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "700L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
         "howCreated": "User"
       },
       {
@@ -291,12 +325,54 @@
           "width": {
             "expr": {
               "Literal": {
-                "Value": "188L"
+                "Value": "270L"
               }
             }
           }
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "8c86059da29590a98a80",
+      "target": "c9d181e02bf66963100b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "8c86059da29590a98a80",
+      "target": "f0f9e20e4f58bc8be65f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bcd7577d040b1e3ab218",
+      "target": "f0f9e20e4f58bc8be65f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bcd7577d040b1e3ab218",
+      "target": "fa2a0e3408a57102530d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bcd7577d040b1e3ab218",
+      "target": "8de98c0d0c4696801c6b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bcd7577d040b1e3ab218",
+      "target": "8c86059da29590a98a80",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bcd7577d040b1e3ab218",
+      "target": "27e20265c5c5828a1c7f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bcd7577d040b1e3ab218",
+      "target": "8d73c61e6fcb05aa63cb",
+      "type": "DataFilter"
+    }
+  ]
 }

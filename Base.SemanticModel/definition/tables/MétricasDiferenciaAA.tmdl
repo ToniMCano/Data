@@ -288,9 +288,8 @@ table MétricasDiferenciaAA
 		lineageTag: 3d8da5b0-be8e-4dda-a029-4fd584c949f2
 
 	measure 'Diferencia Beneficio VS AA' = [Beneficio Bruto] - [Beneficio Bruto AA]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 9a39cb42-695d-4e7f-876e-eba08c0cd6c3
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '% Diferencia Beneficio VS AA' = ```
 			
@@ -361,14 +360,19 @@ table MétricasDiferenciaAA
 		formatString: 0
 		lineageTag: 91813456-6e9e-4d16-b951-65adafe2221b
 
-	measure 'DIF V' = [V]
-		formatString: 0
-		lineageTag: 4ade8ca1-d2ae-499b-a006-2f91bad94a00
-
 	measure 'Dif MA/C' = [MA/C] - [MA/C AA]
 		lineageTag: 193b8efd-a4b8-44bf-bd4b-bd7902e8d524
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% VVSAA' =
+			
+			DIVIDE(
+			[V] - [V - AA],
+			[V]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 24f874d9-76d2-4416-a4b1-a958a2a52b34
 
 	column Dummy
 		isHidden

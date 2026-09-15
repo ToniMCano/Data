@@ -81,7 +81,7 @@ table 'Métricas Clientes'
 		lineageTag: 741b6f93-ca10-4c45-b72c-2a321a0c5c5b
 
 	/// Son los clientes con compra este año - los clientes "(CRS..."
-	measure 'Clientes Activos' =
+	measure 'Clientes Activos' = ```
 			
 			COUNTROWS(
 			    FILTER(
@@ -97,10 +97,18 @@ table 'Métricas Clientes'
 			            NOT (
 			                CONTAINSSTRING(NombreCliente, "(CRS")
 			                    ||
+			                CONTAINSSTRING(NombreCliente, "( NO)")
+			                ||
+			                CONTAINSSTRING(NombreCliente, "(NO )")
+			                ||
+			                CONTAINSSTRING(NombreCliente, "( NO )")
+			                ||
 			                CONTAINSSTRING(NombreCliente, "(NO)")
+			                
 			            )
 			    )
 			)
+			```
 		formatString: 0
 		lineageTag: 139db609-4e97-43b4-95f3-e00ac2734923
 

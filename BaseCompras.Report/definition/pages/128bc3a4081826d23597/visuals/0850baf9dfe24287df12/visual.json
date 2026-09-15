@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "0850baf9dfe24287df12",
   "position": {
     "x": 656,
@@ -482,7 +482,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Métricas"
+                      "Entity": "MétricasReparto"
                     }
                   },
                   "Property": "Repartidor"

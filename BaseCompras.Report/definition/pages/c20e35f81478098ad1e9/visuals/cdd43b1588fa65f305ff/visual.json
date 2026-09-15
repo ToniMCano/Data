@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "cdd43b1588fa65f305ff",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 51.45945945945946,
-    "width": 615.99999999999989,
-    "tabOrder": 1000
+    "height": 64,
+    "width": 616
   },
   "visual": {
     "visualType": "textbox",
@@ -100,7 +99,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Vendedores (Calidad)'"
+                  "Value": "'Repartidores'"
                 }
               }
             },

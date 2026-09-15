@@ -1,0 +1,37 @@
+table DimRepartidores
+	lineageTag: 3d65abf4-1a03-4b3d-8ae7-8e55957c360d
+
+	column idRepartidor
+		formatString: 0
+		lineageTag: b6f935da-421c-44f5-9d93-ec489c8132e5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [idRepartidor]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Repartidor'
+		lineageTag: 607ee13a-8567-4a1a-bf6b-fd45133cd5ad
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nombre Repartidor]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimRepartidores = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    SELECTCOLUMNS(
+				        FILTER(
+				            Albaranes,
+				            NOT ISBLANK(Albaranes[idERep])
+				        ),
+				        "idRepartidor", Albaranes[idERep],
+				        "Nombre Repartidor", Albaranes[Nombre Repartidor]
+				    )
+				)
+
+	annotation PBI_Id = d5ef0d2171e247fc9b5e6ab3551c31c3
+

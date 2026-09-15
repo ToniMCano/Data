@@ -21,6 +21,66 @@ table 'Métricas Tiempo'
 		formatString: 0
 		lineageTag: d865dfe9-a873-4541-a888-8de1b7033be3
 
+	measure DiasEvaluados = DISTINCTCOUNT(Albaranes[fechaAlb])
+		formatString: 0
+		lineageTag: 7d5c263b-1030-473f-9e20-aeb181e0d4f4
+
+	measure 'diasEvaluados AA' =
+			
+			
+			VAR ModoSeleccionado =
+			    SELECTEDVALUE(
+			        'Modo Comparación'[Modo],
+			        "No"
+			    )
+			
+			VAR FechaMinSeleccionada =
+			    MIN(Calendario[Date])
+			
+			VAR FechaMaxSeleccionada =
+			    MAX(Calendario[Date])
+			
+			VAR FechaMaxActualLimitada =
+			    MIN(
+			        FechaMaxSeleccionada,
+			        TODAY()
+			    )
+			
+			VAR FechaInicioAA =
+			    EDATE(FechaMinSeleccionada, -12)
+			
+			VAR FechaFinAA =
+			    EDATE(FechaMaxActualLimitada, -12)
+			
+			VAR AnioAnterior =
+			    YEAR(FechaMaxActualLimitada) - 1
+			
+			RETURN
+			SWITCH(
+			    ModoSeleccionado,
+			
+			    "Si",
+			        CALCULATE(
+			            [DiasEvaluados],
+			            DATESBETWEEN(
+			                Calendario[Date],
+			                FechaInicioAA,
+			                FechaFinAA
+			            )
+			        ),
+			
+			    "No",
+			        CALCULATE(
+			            [DiasEvaluados],
+			            FILTER(
+			                ALL(Calendario),
+			                YEAR(Calendario[Date]) = AnioAnterior
+			            )
+			        )
+			)
+		formatString: 0
+		lineageTag: 86e511dc-18b8-4353-bb88-4bba529c2aaa
+
 	column Dummy
 		isHidden
 		lineageTag: 2cf78941-85ba-4792-94cf-15c345e04dfb

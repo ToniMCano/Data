@@ -29,6 +29,21 @@
               "queryRef": "Clientes.nomCom",
               "nativeQueryRef": "Primera fecha: nomCom",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactVentas"
+                    }
+                  },
+                  "Property": "idCliente"
+                }
+              },
+              "queryRef": "FactVentas.idCliente",
+              "nativeQueryRef": "idCliente",
+              "active": false
             }
           ]
         },
@@ -350,16 +365,21 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "Clientes"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Albaranes"
+                      }
+                    },
+                    "Property": "idCliente"
                   }
                 },
-                "Property": "nomCom"
+                "Function": 5
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -376,6 +396,12 @@
             ],
             "isCollapsed": true,
             "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "FactVentas.idCliente"
+            ],
+            "isCollapsed": true
           }
         ],
         "root": {}
@@ -1500,6 +1526,296 @@
             }
           ]
         }
+      },
+      {
+        "name": "be4d2b29483d44b0e53a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Albaranes"
+                  }
+                },
+                "Property": "idCliente"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8af353204561c1d88052",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Albaranes"
+                  }
+                },
+                "Property": "idCliente"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a62e5cc360a294030890",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "MargenIconos"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "addd0e71ed1563b3d719",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentas"
+              }
+            },
+            "Property": "V"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "10b4236822b0ae02b6ac",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasDiferenciaAA"
+              }
+            },
+            "Property": "Dif. V"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0fa0f0a3890c479a600d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentasAA"
+              }
+            },
+            "Property": "V - AA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "00ea949c5889303ea454",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentas"
+              }
+            },
+            "Property": "IN"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fed95ea0b6304c02ae85",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasDiferenciaAA"
+              }
+            },
+            "Property": "Dif. IN"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "182dffae3127aa4e401c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentasAA"
+              }
+            },
+            "Property": "IN - AA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "246ea70c71ac69995565",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentas"
+              }
+            },
+            "Property": "AB"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3aa0127d840d315bbc03",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasDiferenciaAA"
+              }
+            },
+            "Property": "Dif. AB"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9326357291091400949d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentasAA"
+              }
+            },
+            "Property": "AB - AA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d2482c9c8aee043a5798",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentas"
+              }
+            },
+            "Property": "MU"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f7ff1882cdb45ea0b523",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasDiferenciaAA"
+              }
+            },
+            "Property": "Dif. MU"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7fd0e39dd10420c51c45",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentasAA"
+              }
+            },
+            "Property": "MU - AA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "25d893b3c9d32944a995",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentas"
+              }
+            },
+            "Property": "Media Albarán"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e53037954eae517686de",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasDiferenciaAA"
+              }
+            },
+            "Property": "Media Albaranes VS AA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "aa7f142c342684ac9646",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentasAA"
+              }
+            },
+            "Property": "Media Albarán AA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "743ffaf0ecb2b1d788ee",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas Visuales"
+              }
+            },
+            "Property": "*Filtro Ventas y Ventas AA con dato"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "77221060125a2bb3450d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactVentas"
+              }
+            },
+            "Property": "idCliente"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

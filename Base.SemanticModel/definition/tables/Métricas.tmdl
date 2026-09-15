@@ -887,6 +887,12 @@ table Métricas
 			```
 		lineageTag: a7b2437c-7e3e-4e09-b357-32f0454787e6
 
+	measure 'Debug Filas FactVentas' =
+			
+			COUNTROWS ( FactVentas )
+		formatString: 0
+		lineageTag: ff5196ba-5e63-4812-9ede-a7576470c396
+
 	column Dummy
 		isHidden
 		lineageTag: 414c8027-4f1f-408f-bd51-13abdbbd1904

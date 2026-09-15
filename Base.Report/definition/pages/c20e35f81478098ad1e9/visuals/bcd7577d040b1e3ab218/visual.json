@@ -381,18 +381,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Albaranes"
-                      }
-                    },
-                    "Property": "idCliente"
+                  "SourceRef": {
+                    "Entity": "MétricasVentas"
                   }
                 },
-                "Function": 2
+                "Property": "Ventas Netas ERP"
               }
             },
             "direction": "Descending"
@@ -1407,329 +1402,50 @@
             "Function": 2
           }
         },
-        "type": "Advanced"
-      },
-      {
-        "name": "f7a71761e20405ad6c75",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimRuta"
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "Albaranes",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Aggregation": {
+                          "Expression": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "a"
+                                }
+                              },
+                              "Property": "idCliente"
+                            }
+                          },
+                          "Function": 2
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
               }
-            },
-            "Property": "descrip"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1b3856ef20d632979e3d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentas"
-              }
-            },
-            "Property": "% Aporte"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3a0a8f2e2b1dae52d17e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentas"
-              }
-            },
-            "Property": "Ventas Netas ERP"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "457535d505516540d224",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasDiferenciaAA"
-              }
-            },
-            "Property": "YoY Netas %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b4ec1d15b32e39833620",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasDiferenciaAA"
-              }
-            },
-            "Property": "Ventas Netas Diferencia Importe KPI"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ff74157924adb457c533",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentasAA"
-              }
-            },
-            "Property": "Ventas Netas LY"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b7297f78d0039e3a5b35",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentas"
-              }
-            },
-            "Property": "Beneficio Bruto"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "840b88645ecb548e09a1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasDiferenciaAA"
-              }
-            },
-            "Property": "% Diferencia Beneficio VS AA"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1a00a21220c04d72da76",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasDiferenciaAA"
-              }
-            },
-            "Property": "Diferencia Beneficio VS AA"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3f90580cc49887732a46",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentasAA"
-              }
-            },
-            "Property": "Beneficio Bruto AA"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b9061c625ce0055e4b0c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasReparto"
-              }
-            },
-            "Property": "Media Albarán Ruta"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7cdcc930063409b13064",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentas"
-              }
-            },
-            "Property": "Media Albarán"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "0dd1010d3bb537016205",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasReparto"
-              }
-            },
-            "Property": "Clientes Asignados Ruta"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "032db62fc179ac68307b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas Tiempo"
-              }
-            },
-            "Property": "DiasEvaluados"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "872bf317d599c50ed97e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentas"
-              }
-            },
-            "Property": "Media Albaranes Día"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "0838284cb74a8570855c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentas"
-              }
-            },
-            "Property": "V"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "06a9cc4eb0d010e48500",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasDiferenciaAA"
-              }
-            },
-            "Property": "% VVSAA"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a35531601e022d9e0e24",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasDiferenciaAA"
-              }
-            },
-            "Property": "Dif. V"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9ce5eec2909e0697eee8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentasAA"
-              }
-            },
-            "Property": "V - AA"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1bfd04a6c38d202a0384",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentas"
-              }
-            },
-            "Property": "AB"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fa95a56b390124203870",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentasAA"
-              }
-            },
-            "Property": "AB - AA"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e2789b605c8200e0c669",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasDiferenciaAA"
-              }
-            },
-            "Property": "Dif. AB"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "08b3e594912701516361",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MétricasVentasAA"
-              }
-            },
-            "Property": "Media Albaranes Día AA"
-          }
-        },
-        "type": "Advanced"
+            }
+          ]
+        }
       }
     ]
   }

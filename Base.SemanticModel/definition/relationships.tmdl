@@ -126,11 +126,6 @@ relationship 05a52d6d-795c-a0f9-bf45-7d483151612b
 	fromColumn: Albaranes.fechaAlb
 	toColumn: Calendario.Date
 
-relationship 3dad7dd4-4f32-a2d7-487e-feba87b64e5b
-	crossFilteringBehavior: bothDirections
-	fromColumn: FactVentas.AlbaranKey
-	toColumn: DimAlbaran.AlbaranKey
-
 relationship 9ec2b3e3-e302-ddf1-3322-be6c9ef77f79
 	fromColumn: FactVentas.idEmpleado
 	toColumn: DimGrupoComerciales.idEmpleado
@@ -240,10 +235,6 @@ relationship 80b79515-b1e7-ab02-a88b-f37de3cf3597
 	fromColumn: Pedido.idCliente
 	toColumn: Clientes.idCliente
 
-relationship c3b0b173-20b1-2c0f-6532-e337951371fc
-	fromColumn: Pedido.AlbaranKey
-	toColumn: DimAlbaran.AlbaranKey
-
 relationship eab649d1-3433-400d-92bb-085da4294eeb
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Clientes.fechaAlta
@@ -254,6 +245,7 @@ relationship a1232c0f-f94b-aa42-7bcc-685420ef1907
 	toColumn: DimRepartidores.idRepartidor
 
 relationship f22fa0a6-0c16-a4e0-4c01-1269017e59bd
+	isActive: false
 	fromColumn: FactVentas.idERep
 	toColumn: DimRepartidores.idRepartidor
 
@@ -275,7 +267,25 @@ relationship 3faa2201-92c7-45fd-b238-cdaf2dfa9209
 	fromColumn: Pedido.horaDescarga
 	toColumn: LocalDateTable_3ed8cf88-2c76-4d72-9d5e-f34dd29f9410.Date
 
-relationship 1caf579d-ce03-ed09-b8af-4f30bb806194
+relationship 93107e9a-a80e-c351-1063-f5ec5bfb5621
+	isActive: false
 	fromColumn: FactVentas.idRutaRep
+	toColumn: DimRuta.idruta
+
+relationship 3dad7dd4-4f32-a2d7-487e-feba87b64e5b
+	crossFilteringBehavior: bothDirections
+	fromColumn: FactVentas.AlbaranKey
+	toColumn: DimAlbaran.AlbaranKey
+
+relationship c3b0b173-20b1-2c0f-6532-e337951371fc
+	fromColumn: Pedido.AlbaranKey
+	toColumn: DimAlbaran.AlbaranKey
+
+relationship 7de35b1e-11ab-9157-b1c6-0bfe847a07a0
+	fromColumn: DimAlbaran.id_repartidor
+	toColumn: DimRepartidores.idRepartidor
+
+relationship cce29938-1188-7aaf-61f3-cf9062a2083c
+	fromColumn: DimAlbaran.idRuta
 	toColumn: DimRuta.idruta
 

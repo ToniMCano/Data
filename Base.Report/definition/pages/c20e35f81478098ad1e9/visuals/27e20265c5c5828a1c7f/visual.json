@@ -195,10 +195,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "MétricasDiferenciaAA"
+                    "Entity": "MétricasVentas"
                   }
                 },
-                "Property": "YoY Netas %"
+                "Property": "Unidades"
               }
             },
             "direction": "Descending"
@@ -730,6 +730,90 @@
         "type": "Advanced",
         "howCreated": "User",
         "isHiddenInViewMode": true
+      },
+      {
+        "name": "0b7c750b8859965cdd0e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Clientes"
+              }
+            },
+            "Property": "Nombre Vendedor"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e6d22bc54b409e50eb45",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasDiferenciaAA"
+              }
+            },
+            "Property": "Cajas %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7be7fbf2e610022591b5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentasAA"
+              }
+            },
+            "Property": "Cajas LY Dinámico"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8aaa0d8c750a36a41504",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasDiferenciaAA"
+              }
+            },
+            "Property": "DifKilosAA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b25c40866396a6192d10",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasDiferenciaAA"
+              }
+            },
+            "Property": "Kilos %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8b01417bccb20ed8cdd8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MétricasVentasAA"
+              }
+            },
+            "Property": "Kilos LY Dinámico"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -35,6 +35,24 @@ table DimAlbaran
 
 		annotation SummarizationSetBy = Automatic
 
+	column idRuta
+		formatString: 0
+		lineageTag: 235f0d03-08eb-4f9b-ad1f-7d86f2a19ac2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [idRuta]
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_repartidor
+		formatString: 0
+		lineageTag: 223e1075-b9c8-41fa-a34d-eaf05471082d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [id_repartidor]
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimAlbaran = calculated
 		mode: import
 		source =
@@ -60,9 +78,11 @@ table DimAlbaran
 				            )
 				        )
 				    )
+				
 				RETURN
 				ADDCOLUMNS(
 				    Claves,
+				
 				    "idSAlb",
 				        VAR K = [AlbaranKey]
 				        RETURN
@@ -70,6 +90,7 @@ table DimAlbaran
 				                MAX(Albaranes[idSAlb]),
 				                Albaranes[AlbaranKey] = K
 				            ),
+				
 				    "idAlb",
 				        VAR K = [AlbaranKey]
 				        RETURN
@@ -77,11 +98,28 @@ table DimAlbaran
 				                MAX(Albaranes[idAlb]),
 				                Albaranes[AlbaranKey] = K
 				            ),
+				
 				    "idTipoDoc",
 				        VAR K = [AlbaranKey]
 				        RETURN
 				            CALCULATE(
 				                MAX(Albaranes[idTipoDoc]),
+				                Albaranes[AlbaranKey] = K
+				            ),
+				
+				    "id_repartidor",
+				        VAR K = [AlbaranKey]
+				        RETURN
+				            CALCULATE(
+				                MAX(Albaranes[idERep]),
+				                Albaranes[AlbaranKey] = K
+				            ),
+				
+				    "idRuta",
+				        VAR K = [AlbaranKey]
+				        RETURN
+				            CALCULATE(
+				                MAX(Albaranes[idRutaRep]),
 				                Albaranes[AlbaranKey] = K
 				            )
 				)

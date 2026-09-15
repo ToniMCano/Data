@@ -593,7 +593,7 @@ table FactVentas
 		dataType: int64
 		formatString: 0
 		lineageTag: 5c52f369-6400-4947-bb93-2bb4f1bd7054
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: idERep
 
 		annotation SummarizationSetBy = Automatic
@@ -602,7 +602,7 @@ table FactVentas
 		dataType: int64
 		formatString: 0
 		lineageTag: d7fbfea1-2799-463a-96bb-76b7a7ee1bcc
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: idRutaRep
 
 		annotation SummarizationSetBy = Automatic
